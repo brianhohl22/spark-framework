@@ -6,15 +6,12 @@
     <title>SUSD SPARK — Specialty Program Framework</title>
     <style>
         :root {
-            /* SPARK branding: gold sunburst */
             --spark-gold: #F5A623;
             --spark-gold-dark: #D4901E;
             --spark-gold-light: #FFF8E7;
-            /* SUSD branding: teal family */
             --susd-teal: #00897B;
             --susd-teal-dark: #00695C;
             --susd-teal-light: #E0F2F1;
-            /* Neutral palette */
             --dark: #1A2332;
             --dark-mid: #2C3E50;
             --gray-700: #495057;
@@ -22,7 +19,6 @@
             --gray-300: #DEE2E6;
             --gray-100: #F8F9FA;
             --white: #FFFFFF;
-            /* Pillar colors */
             --discover: #F5A623;
             --evaluate: #00897B;
             --act: #2980B9;
@@ -35,9 +31,7 @@
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
             color: white; padding: 1rem 2rem; display: flex; align-items: center; gap: 1.2rem;
         }
-        .spark-logo {
-            width: 56px; height: 56px; position: relative; flex-shrink: 0;
-        }
+        .spark-logo { width: 56px; height: 56px; flex-shrink: 0; }
         .spark-logo svg { width: 100%; height: 100%; }
         .header-text h1 { font-size: 1.4rem; font-weight: 300; letter-spacing: 0.5px; }
         .header-text h1 strong { font-weight: 700; color: var(--spark-gold); }
@@ -75,8 +69,7 @@
         }
         .pillar:hover { transform: translateY(-6px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
         .pillar-header { padding: 1.2rem 1.5rem; color: white; }
-        .pillar-header .pillar-num { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-            opacity: 0.8; margin-bottom: 0.2rem; }
+        .pillar-header .pillar-num { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; margin-bottom: 0.2rem; }
         .pillar-header h3 { font-size: 1.3rem; font-weight: 700; margin: 0; }
         .pillar-header .pillar-tag { font-size: 0.8rem; opacity: 0.9; margin-top: 0.2rem; }
         .pillar-body { padding: 1.2rem 1.5rem; background: white; }
@@ -93,18 +86,14 @@
         .pillar-discover .dot { background: var(--discover); }
         .pillar-discover .pillar-cta { background: var(--spark-gold-light); color: var(--spark-gold-dark); }
         .pillar-discover .pillar-cta:hover { background: var(--discover); color: white; }
-
         .pillar-evaluate .pillar-header { background: linear-gradient(135deg, var(--evaluate) 0%, var(--susd-teal-dark) 100%); }
         .pillar-evaluate .dot { background: var(--evaluate); }
         .pillar-evaluate .pillar-cta { background: var(--susd-teal-light); color: var(--susd-teal-dark); }
         .pillar-evaluate .pillar-cta:hover { background: var(--evaluate); color: white; }
-
         .pillar-act .pillar-header { background: linear-gradient(135deg, var(--act) 0%, #2471A3 100%); }
         .pillar-act .dot { background: var(--act); }
         .pillar-act .pillar-cta { background: #E8F0FE; color: #1565C0; }
         .pillar-act .pillar-cta:hover { background: var(--act); color: white; }
-
-        /* Active pillar indicator */
         .pillar.active-pillar { outline: 3px solid var(--spark-gold); outline-offset: 2px; }
 
         /* ===== BREADCRUMB ===== */
@@ -113,14 +102,24 @@
         .breadcrumb a:hover { text-decoration: underline; }
 
         /* ===== ENTRY POINTS ===== */
-        .entry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem; margin: 1.5rem 0; }
+        .entry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
         .entry-card { background: white; border: 2px solid var(--gray-300); border-radius: 10px;
             padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; }
         .entry-card:hover { border-color: var(--spark-gold); background: var(--spark-gold-light); }
         .entry-card .icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
         .entry-card .label { font-weight: 600; font-size: 0.85rem; color: var(--dark); }
         .entry-card .desc { font-size: 0.73rem; color: var(--gray-500); margin-top: 0.2rem; }
+
+        /* ===== PERSONA PANEL ===== */
+        .persona-panel { background: white; border: 2px solid var(--spark-gold); border-radius: 12px;
+            padding: 1.5rem; margin: 1.5rem 0; display: none; animation: fadeIn 0.3s ease; }
+        .persona-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .persona-panel h3 { color: var(--spark-gold-dark); margin-bottom: 0.5rem; }
+        .persona-panel .scenario { background: var(--spark-gold-light); border-radius: 8px; padding: 0.8rem 1rem;
+            margin: 0.6rem 0; font-size: 0.88rem; color: var(--gray-700); }
+        .persona-panel .scenario strong { color: var(--dark); }
+        .persona-actions { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
 
         /* ===== FORM ===== */
         .form-group { margin-bottom: 1.1rem; }
@@ -162,6 +161,7 @@
         .badge-review { background: #D4EDDA; color: #155724; }
         .badge-deep { background: #CFE2FF; color: #084298; }
         .badge-parked { background: #E2E3E5; color: #41464B; }
+        .badge-concept { background: #F3E5F5; color: #6A1B9A; }
 
         /* ===== PROGRAM CARDS ===== */
         .program-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -172,6 +172,20 @@
         .program-card .schools { font-size: 0.78rem; color: var(--gray-500); }
         .program-card .tag { display: inline-block; background: var(--susd-teal-light); color: var(--susd-teal-dark);
             padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.68rem; margin-top: 0.3rem; font-weight: 600; }
+
+        /* ===== HEATMAP ===== */
+        .heatmap { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 1rem 0; }
+        .heatmap th { background: var(--dark); color: white; padding: 0.5rem 0.6rem; font-size: 0.78rem; text-align: center; }
+        .heatmap th:first-child { text-align: left; }
+        .heatmap td { padding: 0.45rem 0.6rem; border: 1px solid var(--gray-300); text-align: center; }
+        .heatmap td:first-child { text-align: left; font-weight: 600; color: var(--dark); }
+        .heatmap tr:hover { background: var(--gray-100); }
+        .heat-0 { background: #fff; }
+        .heat-1 { background: #FFF8E7; }
+        .heat-2 { background: #FFE8A1; }
+        .heat-3 { background: #FFD54F; }
+        .heat-active { background: var(--susd-teal-light); font-weight: 600; }
+        .heat-explore { background: #FFF3CD; font-style: italic; }
 
         /* ===== STATS ===== */
         .stats-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
@@ -185,6 +199,22 @@
         .callout-gold { background: var(--spark-gold-light); border-left: 4px solid var(--spark-gold); }
         .callout-teal { background: var(--susd-teal-light); border-left: 4px solid var(--susd-teal); }
         .callout h4 { margin-bottom: 0.4rem; }
+
+        /* ===== USE CASE CARDS ===== */
+        .uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+        .uc-card { background: white; border-radius: 8px; padding: 1rem; border: 1px solid var(--gray-300);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+        .uc-card .uc-id { font-size: 0.72rem; color: var(--gray-500); font-weight: 600; margin-bottom: 0.2rem; }
+        .uc-card h4 { font-size: 0.92rem; color: var(--dark); margin-bottom: 0.3rem; }
+        .uc-card p { font-size: 0.82rem; color: var(--gray-700); line-height: 1.45; }
+        .uc-card .uc-channel { display: inline-block; background: var(--spark-gold-light); color: var(--spark-gold-dark);
+            padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin-top: 0.4rem; }
+
+        /* ===== GOVERNANCE TABLE ===== */
+        .gov-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 1rem 0; }
+        .gov-table th { background: var(--susd-teal); color: white; padding: 0.55rem; text-align: left; font-size: 0.78rem; }
+        .gov-table td { padding: 0.5rem 0.55rem; border-bottom: 1px solid var(--gray-300); vertical-align: top; }
+        .gov-table tr:hover { background: var(--susd-teal-light); }
 
         /* ===== SUCCESS MSG ===== */
         .success-msg { background: #D4EDDA; border: 1px solid #C3E6CB; border-radius: 8px;
@@ -206,6 +236,7 @@
             .header-text h1 { font-size: 1.1rem; }
             .nav button { padding: 0.6rem 0.8rem; font-size: 0.78rem; }
             .main { padding: 1rem; }
+            .uc-grid { grid-template-columns: 1fr; }
         }
         @media print {
             .nav { display: none; }
@@ -220,7 +251,6 @@
     <div class="spark-logo">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="32" fill="#F5A623"/>
-            <!-- Sunburst rays -->
             <g fill="#F5A623" opacity="0.9">
                 <rect x="47" y="2" width="6" height="18" rx="3"/>
                 <rect x="47" y="80" width="6" height="18" rx="3"/>
@@ -256,6 +286,8 @@
     <button onclick="showPage('submit')">Submit an Idea</button>
     <button onclick="showPage('pipeline')">Pipeline</button>
     <button onclick="showPage('programs')">Programs</button>
+    <button onclick="showPage('governance')">Governance</button>
+    <button onclick="showPage('usecases')">Use Cases</button>
 </div>
 
 <div class="main">
@@ -272,7 +304,6 @@
 
     <!-- THREE PILLARS -->
     <div class="framework-row">
-        <!-- DISCOVER -->
         <div class="pillar pillar-discover" onclick="showPage('discover')">
             <div class="pillar-header">
                 <div class="pillar-num">Pillar 1</div>
@@ -289,7 +320,6 @@
             </div>
         </div>
 
-        <!-- EVALUATE -->
         <div class="pillar pillar-evaluate" onclick="showPage('evaluate')">
             <div class="pillar-header">
                 <div class="pillar-num">Pillar 2</div>
@@ -298,15 +328,14 @@
             </div>
             <div class="pillar-body">
                 <ul>
-                    <li><span class="dot"></span> Quality Indicator alignment scoring</li>
-                    <li><span class="dot"></span> Existing program review &amp; health check</li>
+                    <li><span class="dot"></span> Quality Indicator alignment review</li>
+                    <li><span class="dot"></span> Existing program enhancement &amp; health check</li>
                     <li><span class="dot"></span> New concept deep review</li>
                 </ul>
                 <a class="pillar-cta" onclick="showPage('evaluate')">Explore Evaluate &rarr;</a>
             </div>
         </div>
 
-        <!-- ACT -->
         <div class="pillar pillar-act" onclick="showPage('act')">
             <div class="pillar-header">
                 <div class="pillar-num">Pillar 3</div>
@@ -338,7 +367,7 @@
             </div>
             <div style="flex:1; min-width:200px;">
                 <h4 style="color:var(--susd-teal); font-size:0.9rem;">Annual SPARK Report</h4>
-                <p style="font-size:0.82rem; color:var(--gray-500);">Yearly summary to district leadership: program evaluations, recommendations, strategic direction.</p>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Yearly summary to district leadership: program health, enhancement opportunities, strategic direction.</p>
             </div>
         </div>
     </div>
@@ -359,51 +388,133 @@
         <p style="color:var(--gray-500); margin-bottom:1.5rem;">
             SPARK maintains an always-on pipeline for new program ideas. Whether from a parent at open house,
             a teacher in the classroom, or a trend spotted in the market &mdash; every concept has a path into the system.
+            <strong>Click a card below to see how your perspective fits.</strong>
         </p>
 
-        <h3>Idea Entry Points</h3>
+        <h3>Who brings ideas to SPARK?</h3>
         <div class="entry-grid">
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('families')">
                 <div class="icon">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;</div>
                 <div class="label">Families &amp; Community</div>
-                <div class="desc">Parents and community members</div>
+                <div class="desc">Parents, residents, advocates</div>
             </div>
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('educators')">
                 <div class="icon">&#x1F3EB;</div>
                 <div class="label">Educators &amp; Staff</div>
-                <div class="desc">Teachers and principals</div>
+                <div class="desc">Teachers, coaches, principals</div>
             </div>
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('grants')">
                 <div class="icon">&#x1F4A1;</div>
-                <div class="label">Innovation Grants</div>
-                <div class="desc">Pilots with strong results</div>
+                <div class="label">Innovation &amp; Grants</div>
+                <div class="desc">Pilots, partner funding</div>
             </div>
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('cte')">
                 <div class="icon">&#x1F6E0;&#xFE0F;</div>
                 <div class="label">CTE Pathways</div>
                 <div class="desc">Career &amp; tech education</div>
             </div>
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('spark')">
                 <div class="icon">&#x2B50;</div>
                 <div class="label">SPARK Team</div>
-                <div class="desc">Quarterly meetings</div>
+                <div class="desc">Committee &amp; subgroups</div>
             </div>
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('landscape')">
                 <div class="icon">&#x1F50D;</div>
                 <div class="label">Landscape Scan</div>
-                <div class="desc">Competitor &amp; trend analysis</div>
+                <div class="desc">Trends &amp; gap analysis</div>
             </div>
-            <div class="entry-card" onclick="showPage('submit')">
+            <div class="entry-card" onclick="showPersona('students')">
                 <div class="icon">&#x1F393;</div>
                 <div class="label">Student Voice</div>
                 <div class="desc">What students want</div>
             </div>
         </div>
 
+        <!-- PERSONA PANELS -->
+        <div id="persona-families" class="persona-panel">
+            <h3>&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466; Families &amp; Community Members</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Parents and community members are often the first to identify unmet needs or exciting possibilities.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "My child would thrive in an arts-focused school, but nothing like that exists in SUSD" or "Other districts offer XYZ &mdash; why don't we?"</div>
+            <div class="scenario"><strong>Real-world example:</strong> A parent group notices students leaving for a nearby charter with a STEM focus. They organize feedback showing demand for similar programming within SUSD. Their input enters as a community interest submission.</div>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:0.6rem;">You don't need a fully developed proposal. A clear description of the need and who it would serve is a great start.</p>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Parent / Family Member')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('programs')">See Current Programs</button>
+            </div>
+        </div>
+
+        <div id="persona-educators" class="persona-panel">
+            <h3>&#x1F3EB; Educators &amp; School Staff</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Teachers and principals see what works (and what's missing) every day. Site-level innovation is a powerful entry point.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "My elective pilot has strong student outcomes &mdash; could this become a signature program?" or "Our school needs a pathway that connects to local employers."</div>
+            <div class="scenario"><strong>Real-world example:</strong> A teacher proposes an entrepreneurship elective based on strong student engagement. It starts as a site-level pilot and, with evidence of impact, enters the SPARK pipeline for possible expansion.</div>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:0.6rem;">Your classroom insights and student data are invaluable. Include any evidence of impact or student interest you have.</p>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Teacher / Educator')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('programs')">See Current Programs</button>
+            </div>
+        </div>
+
+        <div id="persona-grants" class="persona-panel">
+            <h3>&#x1F4A1; Innovation Grants &amp; Partner-Driven Opportunities</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">External funding and partnerships can accelerate innovation &mdash; but sustainability matters as much as the initial opportunity.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "We have a grant opportunity that could fund a new STEM lab &mdash; how do we evaluate if it fits SUSD's strategy?"</div>
+            <div class="scenario"><strong>Real-world example:</strong> A university partner offers funding for a dual-enrollment program. SPARK evaluates not just the grant terms but the long-term viability after funding ends, ensuring it aligns with district priorities.</div>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:0.6rem;">Funding is an important factor but not the only criterion. Include the sustainability plan and alignment to district goals.</p>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Business / Industry Partner')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('usecases')">See Example Scenarios</button>
+            </div>
+        </div>
+
+        <div id="persona-cte" class="persona-panel">
+            <h3>&#x1F6E0;&#xFE0F; CTE Pathways &amp; Career Readiness</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Career and Technical Education pathways connect students to workforce opportunities and align with Arizona's Profile of a Graduate.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "Local employers are asking for specific skills. Could we build a pathway that gives students real credentials?"</div>
+            <div class="scenario"><strong>Real-world example:</strong> The CTE team identifies growing demand for healthcare careers. They propose a health sciences pathway with hospital partnerships and industry certifications, entering through the structured intake process.</div>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Business / Industry Partner')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('pipeline')">View Current Pipeline</button>
+            </div>
+        </div>
+
+        <div id="persona-spark" class="persona-panel">
+            <h3>&#x2B50; SPARK Team &amp; Subgroups</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">SPARK members identify opportunities through committee work, concept studies, and portfolio analysis. Subgroups (e.g., Gifted/Advanced, Arts) develop concepts collaboratively.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "Our concept study shows strong benchmarks for a gifted hub &mdash; we're ready to formalize this into a proposal."</div>
+            <div class="scenario"><strong>Real-world example:</strong> The SPARK landscape review reveals an unmet demand segment. A concept study subgroup is formed, benchmarks are gathered, and when the concept matures, it enters the formal intake pipeline with evidence and a recommended model.</div>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('SPARK Team Member')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('governance')">View Governance Model</button>
+            </div>
+        </div>
+
+        <div id="persona-landscape" class="persona-panel">
+            <h3>&#x1F50D; Landscape Scan &amp; Proactive Discovery</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">SPARK doesn't just wait for ideas to arrive &mdash; it actively scans for trends, gaps, and opportunities through periodic landscape assessments.</p>
+            <div class="scenario"><strong>What this looks like:</strong> Quarterly review of enrollment trends, nearby district/charter/private program launches, national education trends, workforce signals, and mobility/choice data.</div>
+            <div class="scenario"><strong>Real-world example:</strong> Enrollment data shows students leaving a feeder pattern for a nearby charter. SPARK investigates whether a programmatic response (not necessarily a new program) could address the underlying need.</div>
+            <div class="persona-actions">
+                <button class="btn btn-teal" onclick="showPage('pipeline')">View Current Pipeline</button>
+                <button class="btn btn-outline" onclick="showPage('usecases')">See Example Scenarios</button>
+            </div>
+        </div>
+
+        <div id="persona-students" class="persona-panel">
+            <h3>&#x1F393; Student Voice</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Students are the ultimate beneficiaries of specialty programs. Their perspectives on what engages, challenges, and inspires them are essential input.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "I wish my school had a class where I could build real things" or "I want to study something my school doesn't offer."</div>
+            <div class="scenario"><strong>How it works:</strong> Student input comes through surveys, student government, and direct feedback channels. SPARK considers student interest data as a key demand signal when evaluating new concepts.</div>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Student')">Share Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('programs')">See Current Programs</button>
+            </div>
+        </div>
+
         <h3>Structured Intake</h3>
         <p style="font-size:0.9rem; color:var(--gray-700); margin-bottom:0.8rem;">
             All ideas enter through a consistent <strong>Intake Form</strong> &mdash; a 15-minute structured questionnaire
-            aligned to SUSD's Quality Indicators. This ensures every concept is captured with enough detail for fair screening.
+            aligned to SUSD's Quality Indicators. This ensures every concept is captured with enough detail for fair review.
         </p>
         <button class="btn btn-gold" onclick="showPage('submit')">Open the Intake Form &rarr;</button>
 
@@ -432,45 +543,53 @@
         <h2 style="color:var(--susd-teal-dark);">Evaluate &mdash; How SPARK Assesses</h2>
         <p style="color:var(--gray-500); margin-bottom:1.5rem;">
             SPARK uses consistent, QI-aligned evaluation for both <strong>new concepts</strong> entering the pipeline
-            and <strong>existing programs</strong> under periodic review. The same quality standards apply across the board.
+            and <strong>existing programs</strong> seeking enhancement. The same quality standards apply across the board.
         </p>
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin:1.5rem 0;">
             <div class="callout callout-teal">
-                <h4 style="color:var(--susd-teal-dark);">New Concept Triage</h4>
+                <h4 style="color:var(--susd-teal-dark);">New Concept Review</h4>
                 <p style="font-size:0.85rem;">
-                    The <strong>Preliminary Alignment Scorecard</strong> evaluates new ideas across 6 QI categories
-                    (18 criteria, 54 points). Concepts scoring well advance to deep review.
+                    New ideas are reviewed against SUSD's <strong>6 Quality Indicator categories</strong> to assess alignment, demand,
+                    instructional quality, feasibility, financial sustainability, and community fit.
                 </p>
                 <div style="margin-top:0.8rem;">
-                    <table style="width:100%; font-size:0.8rem; border-collapse:collapse;">
-                        <tr><td style="padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">Mission &amp; Strategic Alignment</td><td style="text-align:right; padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">/9</td></tr>
-                        <tr><td style="padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">Student Demand &amp; Access</td><td style="text-align:right; padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">/9</td></tr>
-                        <tr><td style="padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">Instructional Quality</td><td style="text-align:right; padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">/9</td></tr>
-                        <tr><td style="padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">Operational Feasibility</td><td style="text-align:right; padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">/9</td></tr>
-                        <tr><td style="padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">Financial Sustainability</td><td style="text-align:right; padding:0.3rem 0; border-bottom:1px solid rgba(0,0,0,0.1);">/9</td></tr>
-                        <tr><td style="padding:0.3rem 0;">Community &amp; Stakeholder</td><td style="text-align:right; padding:0.3rem 0;">/9</td></tr>
-                    </table>
+                    <p style="font-size:0.82rem; color:var(--gray-700); font-weight:600; margin-bottom:0.4rem;">Quality Indicator Categories:</p>
+                    <ul style="font-size:0.82rem; color:var(--gray-700); margin-left:1rem; list-style:disc;">
+                        <li>Mission &amp; Strategic Alignment</li>
+                        <li>Student Demand &amp; Access</li>
+                        <li>Instructional Quality</li>
+                        <li>Operational Feasibility</li>
+                        <li>Financial Sustainability</li>
+                        <li>Community &amp; Stakeholder Alignment</li>
+                    </ul>
+                    <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.6rem; font-style:italic;">
+                        Specific scoring methodology and thresholds are under development with the SPARK team.
+                    </p>
                 </div>
             </div>
             <div class="callout callout-teal">
-                <h4 style="color:var(--susd-teal-dark);">Existing Program Review</h4>
+                <h4 style="color:var(--susd-teal-dark);">Existing Program Enhancement</h4>
                 <p style="font-size:0.85rem;">
-                    Annual health check using the full QI rubric + evidence framework. The Program Review sub-team
-                    conducts deep evaluations and produces both public-facing summaries and detailed internal annexes.
+                    Existing programs have a proven thesis &mdash; approved by the Board and valued by the community.
+                    SPARK's role is to <strong>identify opportunities to enhance and uplift</strong> these programs,
+                    using the QI framework as a lens for continuous improvement.
                 </p>
-                <p style="font-size:0.82rem; margin-top:0.6rem; color:var(--gray-500);">
-                    <strong>Current reviews:</strong> MSA (Math/Science Academy) and STEM programs under active evaluation
-                    by the Program Review sub-team.
+                <p style="font-size:0.82rem; margin-top:0.6rem; color:var(--gray-700);">
+                    The Program Review sub-team works with program leads to surface strengths, identify gaps, and
+                    recommend targeted investments that help established programs reach their full potential.
+                </p>
+                <p style="font-size:0.82rem; margin-top:0.4rem; color:var(--gray-500);">
+                    <strong>Current focus:</strong> MSA (Math/Science Academy) and STEM programs are under collaborative review.
                 </p>
             </div>
         </div>
 
         <h3>Deep Review</h3>
         <p style="font-size:0.9rem; color:var(--gray-700);">
-            Concepts that advance from triage are assigned to a SPARK <strong>Design Team</strong> (new concepts)
+            Concepts that advance from initial review are assigned to a SPARK <strong>Design Team</strong> (new concepts)
             or <strong>Review Team</strong> (existing programs). These sub-teams conduct comprehensive evaluation
-            using the full Quality Indicator rubric, evidence packs, and stakeholder input.
+            using the full Quality Indicator framework, evidence packs, and stakeholder input.
         </p>
 
         <div style="text-align:center; margin-top:1.2rem;">
@@ -505,7 +624,7 @@
             <div style="background:#FFF3CD; border-radius:8px; padding:1rem; text-align:center;">
                 <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x23F3;</div>
                 <div style="font-weight:700; font-size:0.85rem; color:#856404;">Defer</div>
-                <div style="font-size:0.75rem; color:#856404;">Good idea, wrong timing</div>
+                <div style="font-size:0.75rem; color:#856404;">Promising &mdash; revisit when conditions align</div>
             </div>
             <div style="background:#F8D7DA; border-radius:8px; padding:1rem; text-align:center;">
                 <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x1F6AB;</div>
@@ -546,7 +665,7 @@
                 <div class="form-group"><label>Your Name</label><input type="text" placeholder="Jane Smith"></div>
                 <div class="form-group"><label>Email</label><input type="email" placeholder="jane@example.com"></div>
                 <div class="form-group"><label>Your Role</label>
-                    <select><option>Select...</option><option>Parent / Family Member</option><option>Teacher / Educator</option>
+                    <select id="role-select"><option>Select...</option><option>Parent / Family Member</option><option>Teacher / Educator</option>
                     <option>School Administrator</option><option>Community Member</option><option>Student</option>
                     <option>Business / Industry Partner</option><option>SPARK Team Member</option></select>
                 </div>
@@ -623,7 +742,7 @@
 
         <div id="success-msg" class="success-msg">
             <h3>Thank You! Your Idea Has Been Submitted.</h3>
-            <p>Registered as <strong>SPARK-INTAKE-007</strong>. The SPARK team will screen within 2 weeks.</p>
+            <p>Registered as <strong>SPARK-INTAKE-007</strong>. The SPARK team will review within 2 weeks.</p>
             <div style="margin-top:1rem;">
                 <button class="btn btn-teal" onclick="showPage('pipeline')">View Pipeline</button>
                 <button class="btn btn-outline" onclick="resetForm()" style="margin-left:0.5rem;">Submit Another</button>
@@ -637,8 +756,9 @@
     <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Idea Pipeline</strong></div>
 
     <div class="stats-bar">
-        <div class="stat-card"><div class="num">6</div><div class="label">Total Ideas</div></div>
+        <div class="stat-card"><div class="num">8</div><div class="label">Total Ideas</div></div>
         <div class="stat-card"><div class="num">2</div><div class="label">New / Screen</div></div>
+        <div class="stat-card"><div class="num">2</div><div class="label">Concept Study</div></div>
         <div class="stat-card"><div class="num">2</div><div class="label">In Review</div></div>
         <div class="stat-card"><div class="num">1</div><div class="label">Deep Review</div></div>
         <div class="stat-card"><div class="num">1</div><div class="label">Parked</div></div>
@@ -648,24 +768,110 @@
         <h2>SPARK Idea Pipeline</h2>
         <div style="overflow-x:auto;">
             <table class="registry-table">
-                <thead><tr><th>ID</th><th>Concept</th><th>Source</th><th>Stage</th><th>Score</th><th>Next Action</th></tr></thead>
+                <thead><tr><th>ID</th><th>Concept</th><th>Source</th><th>Stage</th><th>QI Focus Areas</th><th>Next Action</th></tr></thead>
                 <tbody>
-                    <tr><td>SPARK-001</td><td><strong>Environmental Science &amp; Sustainability Academy</strong></td><td>Community</td><td><span class="badge badge-new">New</span></td><td>&mdash;</td><td>Screen</td></tr>
-                    <tr><td>SPARK-002</td><td><strong>AI &amp; Robotics Pathway (MS)</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Triage at Q2</td></tr>
-                    <tr><td>SPARK-003</td><td><strong>Student Innovation Lab</strong><br><small style="color:var(--gray-500)">BOP entrepreneurship extension</small></td><td>CTE/Grants</td><td><span class="badge badge-review">Review</span></td><td>38/54</td><td>Deep Review</td></tr>
-                    <tr><td>SPARK-004</td><td><strong>Arts Magnet Program</strong><br><small style="color:var(--gray-500)">Echo Canyon site</small></td><td>SPARK Team</td><td><span class="badge badge-deep">Deep Review</span></td><td>42/54</td><td>Final recommendation</td></tr>
-                    <tr><td>SPARK-005</td><td><strong>Early College High School</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Triage at Q2</td></tr>
-                    <tr><td>SPARK-006</td><td><strong>Mandarin Dual Language</strong></td><td>Parents</td><td><span class="badge badge-parked">Parked</span></td><td>&mdash;</td><td>Re-evaluate Q3</td></tr>
+                    <tr><td>SPARK-001</td><td><strong>Environmental Science &amp; Sustainability Academy</strong></td><td>Community</td><td><span class="badge badge-new">New</span></td><td>&mdash;</td><td>Initial screen</td></tr>
+                    <tr><td>SPARK-002</td><td><strong>AI &amp; Robotics Pathway (MS)</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Review at Q2</td></tr>
+                    <tr><td>CON-01</td><td><strong>Gifted &amp; Advanced Studies Hub</strong><br><small style="color:var(--gray-500)">Magnet academy concept study</small></td><td>Leadership / Community</td><td><span class="badge badge-concept">Concept Study</span></td><td>Demand, Equity/Access, Instructional Model</td><td>Concept brief &amp; options</td></tr>
+                    <tr><td>CON-02</td><td><strong>Arts Magnet / Arts Hub School</strong><br><small style="color:var(--gray-500)">Echo Canyon site potential</small></td><td>SPARK Team</td><td><span class="badge badge-concept">Concept Study</span></td><td>Feasibility, Demand, Community</td><td>Define scope &amp; sponsor</td></tr>
+                    <tr><td>SPARK-003</td><td><strong>Student Innovation Lab</strong><br><small style="color:var(--gray-500)">BOP entrepreneurship extension</small></td><td>CTE/Grants</td><td><span class="badge badge-review">Review</span></td><td>Instructional Quality, Feasibility</td><td>Deep review</td></tr>
+                    <tr><td>SPARK-004</td><td><strong>Arts Magnet Program</strong><br><small style="color:var(--gray-500)">Echo Canyon site &mdash; formal proposal</small></td><td>SPARK Team</td><td><span class="badge badge-deep">Deep Review</span></td><td>All 6 QI categories</td><td>Final recommendation</td></tr>
+                    <tr><td>SPARK-005</td><td><strong>Early College High School</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Review at Q2</td></tr>
+                    <tr><td>SPARK-006</td><td><strong>Mandarin Dual Language</strong></td><td>Parents</td><td><span class="badge badge-parked">Parked</span></td><td>Demand data needed</td><td>Re-evaluate Q3</td></tr>
                 </tbody>
             </table>
         </div>
-        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.8rem; font-style:italic;">Sample data for demonstration</p>
+        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.8rem; font-style:italic;">Sample data for demonstration. QI Focus Areas indicate which Quality Indicator categories are primary areas of review for each concept.</p>
     </div>
 </div>
 
 <!-- ==================== PROGRAMS ==================== -->
 <div id="page-programs" class="page">
     <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Current Programs</strong></div>
+
+    <div class="card">
+        <h2>Program Portfolio &mdash; Theme &times; Grade Band</h2>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Where do current programs and pipeline concepts sit across themes and grade levels?</p>
+        <div style="overflow-x:auto;">
+            <table class="heatmap">
+                <thead>
+                    <tr><th>Theme</th><th>PK-5</th><th>6-8</th><th>9-12</th><th>K-8</th><th>Districtwide</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>STEM / STEAM</td>
+                        <td class="heat-active">MSA<br><small>Navajo, Laguna</small></td>
+                        <td class="heat-active">MSA<br><small>Saguaro, Mohave</small></td>
+                        <td class="heat-1"></td>
+                        <td class="heat-1"></td>
+                        <td class="heat-explore">AI &amp; Robotics<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
+                    </tr>
+                    <tr>
+                        <td>Arts</td>
+                        <td class="heat-explore">Arts Hub<br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-explore">Arts Hub<br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>Gifted / Advanced</td>
+                        <td class="heat-active">CGP<br><small>Multiple sites</small></td>
+                        <td class="heat-active">CGP<br><small>Multiple sites</small></td>
+                        <td class="heat-1"></td>
+                        <td class="heat-explore">Gifted Hub<br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>Language / DLI</td>
+                        <td class="heat-active">DLI<br><small>Pueblo, DCES</small></td>
+                        <td class="heat-active">DLI<br><small>Mohave, DCMS</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Mandarin DLI<br><small style="color:var(--spark-gold-dark);">Parked</small></td>
+                    </tr>
+                    <tr>
+                        <td>College / Career</td>
+                        <td class="heat-0"></td>
+                        <td class="heat-active">AVID<br><small>Arcadia, Ingleside, etc.</small></td>
+                        <td class="heat-active">Academies<br><small>All HS</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Early College HS<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
+                    </tr>
+                    <tr>
+                        <td>Traditional / Structure</td>
+                        <td class="heat-active">Traditional<br><small>Cheyenne</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>International (IB)</td>
+                        <td class="heat-active">IB PYP<br><small>Anasazi</small></td>
+                        <td class="heat-active">IB MYP<br><small>Mountainside</small></td>
+                        <td class="heat-active">IB DP<br><small>Desert Mountain</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>Innovation / Entrepreneurship</td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Innovation Lab<br><small style="color:var(--spark-gold-dark);">In Review</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Sustainability Acad.<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="display:flex; gap:1.5rem; margin-top:0.8rem; font-size:0.78rem; color:var(--gray-500);">
+            <span><span style="display:inline-block; width:12px; height:12px; background:var(--susd-teal-light); border:1px solid var(--susd-teal); vertical-align:middle; margin-right:4px;"></span> Active program</span>
+            <span><span style="display:inline-block; width:12px; height:12px; background:#FFF3CD; border:1px solid #ffc107; vertical-align:middle; margin-right:4px;"></span> In pipeline / exploring</span>
+            <span><span style="display:inline-block; width:12px; height:12px; background:#fff; border:1px solid #ddd; vertical-align:middle; margin-right:4px;"></span> No current coverage</span>
+        </div>
+        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.4rem; font-style:italic;">Sample data for demonstration. This view helps identify portfolio gaps and overlap.</p>
+    </div>
 
     <div class="card">
         <h2>Current Signature Programs &amp; Specialty Schools</h2>
@@ -679,15 +885,178 @@
             <div class="program-card"><h4>AVID</h4><div class="schools">Arcadia, Ingleside, Tavan, Hohokam</div><div class="tag">Active</div></div>
             <div class="program-card"><h4>College &amp; Career Academies</h4><div class="schools">All high schools</div><div class="tag">Active</div></div>
         </div>
-        <h3>Potential Themes Under Exploration</h3>
+        <h3>Concepts Under Exploration</h3>
         <div class="program-grid">
-            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Arts Magnet</h4><div class="schools">Under review</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Exploring</div></div>
-            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Gifted &amp; Advanced Academics</h4><div class="schools">Expansion concept</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Exploring</div></div>
+            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Gifted &amp; Advanced Studies Hub</h4><div class="schools">Concept study in progress</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Concept Study</div></div>
+            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Arts Magnet / Hub</h4><div class="schools">Concept study in progress</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Concept Study</div></div>
             <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Early College</h4><div class="schools">Model TBD</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Exploring</div></div>
             <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Small School Model</h4><div class="schools">Concept stage</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Exploring</div></div>
         </div>
         <div style="text-align:center; margin-top:1.2rem;">
             <p style="color:var(--gray-500);">Don't see your idea? <button class="btn btn-gold" onclick="showPage('submit')">Submit It</button></p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== GOVERNANCE ==================== -->
+<div id="page-governance" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Governance &amp; Intake Channels</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--susd-teal);">
+        <h2 style="color:var(--susd-teal-dark);">How Ideas Enter the SPARK Pipeline</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            Program ideas reach SPARK through multiple channels &mdash; each with a clear pathway and appropriate level of review.
+            The table below shows the primary entry channels and how each is handled.
+        </p>
+
+        <div style="overflow-x:auto;">
+            <table class="gov-table">
+                <thead><tr><th>Channel</th><th>Example Trigger</th><th>Who Initiates</th><th>Typical Pathway</th><th>Key Considerations</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:700;">Board-Directed Study</td>
+                        <td>Board asks district to study feasibility of a program model</td>
+                        <td>Governing Board (via Superintendent)</td>
+                        <td>Concept Study &rarr; Intake &amp; Full Review</td>
+                        <td>Study may be required, but implementation is contingent on evidence &amp; constraints</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Leadership-Initiated</td>
+                        <td>Superintendent or cabinet commissions exploration</td>
+                        <td>District leadership</td>
+                        <td>Concept Study or Intake &amp; Triage (depending on scale)</td>
+                        <td>Light triage/charter can clarify scope before deep work</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Community Interest</td>
+                        <td>Parent group requests specialized programming</td>
+                        <td>Families / community groups</td>
+                        <td>Intake Form &rarr; Screen &rarr; Concept Study or Full Review</td>
+                        <td>Transparent criteria; equity/access design; check for duplicates via portfolio</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">School / Site Proposal</td>
+                        <td>Teachers propose a signature program for their school</td>
+                        <td>Site leader / school team</td>
+                        <td>Intake Form &rarr; Triage &rarr; Full Review</td>
+                        <td>Clarify site-specific vs. scalable; staffing/facilities impacts</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Grant / Partner Opportunity</td>
+                        <td>External partner offers funding or program</td>
+                        <td>Grants office / partner</td>
+                        <td>Fast Triage &rarr; Full Review with conditions</td>
+                        <td>Sustainability beyond grant period; not funding-driven alone</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Informal Idea</td>
+                        <td>Staff or community member shares idea via email</td>
+                        <td>Anyone</td>
+                        <td>Light Submission &rarr; Idea Log &rarr; Screen</td>
+                        <td>SPARK helps develop and route; no sponsor required initially</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">SPARK Landscape Scan</td>
+                        <td>Portfolio gap or unmet demand identified</td>
+                        <td>SPARK committee / Review team</td>
+                        <td>Concept Study / Feasibility Scan</td>
+                        <td>Proactive discovery; contributes to SPARK's intake capability</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top:1.5rem;">Roles in the Pipeline</h3>
+        <div style="overflow-x:auto;">
+            <table class="gov-table">
+                <thead><tr><th>Role</th><th>Primary Responsibilities</th></tr></thead>
+                <tbody>
+                    <tr><td style="font-weight:700;">SPARK Committee</td><td>Sets priorities; reviews summaries; recommends direction; ensures transparency and equity</td></tr>
+                    <tr><td style="font-weight:700;">Program Review Team</td><td>Owns process/tools: intake, triage, evidence framework, templates; supports consistent reviews</td></tr>
+                    <tr><td style="font-weight:700;">Concept Subgroups</td><td>Explore specific concepts (e.g., Gifted/Advanced, Arts); collect evidence; develop options; recommend pathway</td></tr>
+                    <tr><td style="font-weight:700;">District Sponsor</td><td>Accountable for design, feasibility inputs (staffing/budget/facilities), and implementation plan</td></tr>
+                    <tr><td style="font-weight:700;">Support Functions</td><td>Finance, HR, Facilities, Transportation provide constraint checks and feasibility estimates</td></tr>
+                    <tr><td style="font-weight:700;">Governing Board</td><td>May direct studies; receives updates; approves major structural changes per governance</td></tr>
+                    <tr><td style="font-weight:700;">Community &amp; Families</td><td>Provide input; surface needs; validate access barriers and support</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-teal" style="margin-top:1.2rem;">
+            <h4 style="color:var(--susd-teal-dark);">When Does a Concept Study Become a Formal Proposal?</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                A concept recommended to proceed converts to a formal intake by producing: a named sponsor with authority, a clarified model choice, a preliminary resource plan, a draft evaluation plan (success metrics &amp; benchmarks), documented equity/access design, and a communications plan.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== USE CASES ==================== -->
+<div id="page-usecases" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Real-World Use Cases</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--spark-gold);">
+        <h2 style="color:var(--spark-gold-dark);">How the Intake System Works in Practice</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            These scenarios illustrate how different types of program ideas enter and move through the SPARK pipeline.
+        </p>
+
+        <div class="uc-grid">
+            <div class="uc-card">
+                <div class="uc-id">UC-01</div>
+                <h4>Assistant Principal emails a program idea</h4>
+                <p>An AP proposes a specialized STEM/leadership pathway for their middle school. SPARK responds with encouragement, links to the program inventory, and asks for a light idea submission.</p>
+                <span class="uc-channel">School / Site Proposal</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-02</div>
+                <h4>Parent group requests an Arts magnet option</h4>
+                <p>A community group organizes, sends a proposal packet. SPARK acknowledges, logs the idea, offers a listening session, and ensures equity/access considerations are addressed early.</p>
+                <span class="uc-channel">Community Interest</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-03</div>
+                <h4>Board directs a Gifted hub feasibility study</h4>
+                <p>Board requests feasibility analysis for a Gifted/Advanced Studies hub. SPARK opens a concept study workstream, defines scope and constraints, and delivers a brief with options and recommendation.</p>
+                <span class="uc-channel">Board-Directed Study</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-04</div>
+                <h4>Landscape review reveals an unmet demand segment</h4>
+                <p>SPARK's portfolio analysis shows an underserved grade band for dual language. A sponsor is recruited to explore options using benchmarks and mobility data.</p>
+                <span class="uc-channel">Landscape Scan</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-05</div>
+                <h4>University partner offers grant-funded STEM lab</h4>
+                <p>A time-limited grant opportunity arrives. SPARK fast-triages for alignment and sustainability &mdash; funding is important but not the only criterion. Requires a "post-grant" sustainability plan.</p>
+                <span class="uc-channel">Grant / Partner Opportunity</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-06</div>
+                <h4>Cabinet proposes consolidating into a hub school</h4>
+                <p>Enrollment shifts and available space trigger exploration. SPARK routes to concept study with facilities data, includes transportation and equity analysis from day one.</p>
+                <span class="uc-channel">Leadership-Initiated</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-07</div>
+                <h4>Teacher proposes a small elective pilot</h4>
+                <p>A teacher's entrepreneurship elective shows strong engagement. SPARK encourages the site-level pilot, logs it, and schedules a review checkpoint for possible scale-up.</p>
+                <span class="uc-channel">School / Site Proposal</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-08</div>
+                <h4>Exit data shows students leaving for a charter</h4>
+                <p>Mobility data reveals a pattern. SPARK investigates whether a programmatic or operational response is needed &mdash; not every signal requires a new program.</p>
+                <span class="uc-channel">Landscape Scan</span>
+            </div>
+        </div>
+
+        <div class="callout callout-gold" style="margin-top:1rem;">
+            <h4 style="color:var(--spark-gold-dark);">Key Principle</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                Every scenario follows the same framework: capture the idea with enough structure, evaluate it against consistent criteria, and communicate the outcome transparently. The pathway adapts to the source and scale &mdash; but the standards remain consistent.
+            </p>
         </div>
     </div>
 </div>
@@ -708,15 +1077,41 @@ function showPage(id) {
     document.querySelectorAll('.nav button').forEach(b => {
         b.classList.remove('active');
         const map = {home:'Framework',discover:'Discover',evaluate:'Evaluate',act:'Act',
-            submit:'Submit an Idea',pipeline:'Pipeline',programs:'Programs'};
+            submit:'Submit an Idea',pipeline:'Pipeline',programs:'Programs',
+            governance:'Governance',usecases:'Use Cases'};
         if (b.textContent === map[id]) b.classList.add('active');
     });
+    // Close any open persona panels when navigating away
+    if (id !== 'discover') {
+        document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+    }
     window.scrollTo(0,0);
 }
+
+function showPersona(id) {
+    document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('persona-' + id);
+    if (panel) {
+        panel.classList.add('active');
+        panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+}
+
+function startSubmit(role) {
+    showPage('submit');
+    const sel = document.getElementById('role-select');
+    if (sel) {
+        for (let i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].text === role) { sel.selectedIndex = i; break; }
+        }
+    }
+}
+
 function submitForm() {
     document.getElementById('intake-form').style.display='none';
     document.getElementById('success-msg').style.display='block';
 }
+
 function resetForm() {
     document.getElementById('intake-form').style.display='block';
     document.getElementById('success-msg').style.display='none';
