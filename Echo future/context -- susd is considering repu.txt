@@ -1,0 +1,29 @@
+context -- susd is considering repurposing / closing echo canyon school and pima elementary. 
+
+the attached model helps to evaluate three potential general approaches or levers across multiple scenario variants, it illuminates key assumptions underpinning each approach (including repurpose), and it enables relevant questions to be asked about those assumptions.  For example:
+
+(1) Repurpose (discipline) — 
+Do we have a plan that can credibly realize fixed M&O savings with a realistic ramp-down?
+Which specific schools have the capacity to receive students, and what are the true costs associated with that transition?  
+Are our assumptions about retention reasonable given that Echo Canyon is a choice school with 50% or more of its families residing outside the district?
+Does repurpose / close address the root (or the only root) cause of the budget deficit and trend?  If not, is it possible this will continue happening?  
+If our assumptions on these variables turn out to be too ambitious, by how much do our estimated savings decrease?
+
+(2) Warm hand‑offs — 
+Can we do a better job of reducing attrition by guiding families from over‑prescribed to under‑capacity sites?  Can we estimate how much that can contribute to schools that are at risk, and is that number meaningful?   
+
+(3) Growth — 
+Can we earn positive budget contribution where capacity exists (i.e. marginal cost to add a new student is lower) via a credible program (innovation/arts hub)? 
+Could the innovation (and arts)-focused capability also give us an image uplift, make us more nimble as technology and demographic shifts drive pedagogic and Scottsdale-specific change, and generally future-proof the district for that uncertain future?  
+Could a focused program for regional capture of displaced students help turn the keep-open scenarios into budget-neutral or budget-positive options?
+
+it is not claimed that this model is perfect or air tight in terms of all data points or assumptions.  but it is believed to be directionally accurate and, as constructed, useful as a tool to consider different go-forward scenarios for echo canyon and pima elementary... especially if a user (e.g. superintendent office) were to QA and refine assumed inputs based on district-audited data and plans.
+
+from the perspective of (a) echo canyon parents; (b) superintendent team members; (c) board members:
+1. is it usable?
+2. is it useful?
+3. is it valid - overall... and key data element/assumption by key data element/assumption?
+4. are the general comments and written analysis and findings reasonable?  
+5. is the consider-to-keep-open line of argument reasonable and persuasive?  
+
+please review every tab comprehensively and evaluate carefully.  conduct whatever deep research is necessary to accomplish this.  provide results of your evaluation as well as suggestions to improve (both (i) assuming the developer has no constraint on time or data to improve... and (ii) assuming the developer has limited time left to do anything on this and may need to hand it over for consumption soon if it is in an acceptable state).

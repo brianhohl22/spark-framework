@@ -1,0 +1,51 @@
+I am interested in getting to a hypothetical output structure sooner than later, because I think having a hypothetical end state target can help us evaluate that end state target and our preferred steps to get there. I am attaching the latest workbook version - please use it as the latest, and please do not drop content or formatting unless it relates to the following actions. I would like to act as follows: 
+
+(1) "Draft the 1–2 page “Existing Program Review Interpretation Guide.” Includes the 3-lens model + translations for “Evidence & Effectiveness,” and clarifies how to treat “expand/close” language in Data & Evaluation as improvement triggers (scale/adjust), not program survival." -- please do this based on your suggestions. Please add a tab in the SPARK Program Review workbook to cover it. 
+
+(2) "Define the “Minimum Viable Evidence Pack” for existing programs (the Tier 1 list). This becomes the standard ask to Ms. Mitchell and program leads." -- please draft this based on your suggestions. I think there is a core cross-program group as well as program-specific group, right? please either adjust / re-tag existing content in existing tabs in the workbook... or create a new tab if that is cleaner for now. 
+
+(3) "Agree on synthesis output structure (one report with two views: public + annex)." -- I would like to start with your suggested structure on this, as i think it is directionally reasonable; we can then see it and react. please create the following in powerpoint, using the attached SPARK launch pdf artifact only to guide on format -- 
+(a) the one-page public-facing template, well-formatted, and with dummy info / placeholders to represent what will be populated. i want this to be connected in some way to the QI or rubric, sharp, clear, logical, 'structured', visual, compelling, practical.; 
+(b) the one-page public-facing template, but partially populated with data for MSA. also - include notes / highlights on the page as to where we have main evidence gaps; this should be aligned with the evidence lenses, appropriate tier, and public-safe vs. otherwise dimensions. 
+(c) 
+(i) an organized, clear, bullet point or table-based 'design' of the review annex content and format.  i want this to be connected in some way to the QI or rubric.  
+(ii) same as 'i', but with provision for scoring 
+
+(4) "Decide whether numeric scores are internal-only, or replaced with maturity levels + confidence." -- let's hedge this for now. see 3c above. 
+
+(5) "re-open the workbook to implement: “Lens” tags “Tier” tags “Public-safe” flag A standardized “Evidence request” list per program" -- please try to incorporate this into the workbook. 
+
+(6) Questions for us? in any case - please suggest next steps
+
+------------------ 
+
+I am interested in getting to a hypothetical output structure sooner than later, because I think having a hypothetical end state target can help us evaluate that end state target and our preferred steps to get there.  I am attaching the latest workbook version - please use it as the latest, and please do not drop content or formatting unless it relates to the following actions.  I would like to act as follows:  
+
+(1) "Draft the 1–2 page “Existing Program Review Interpretation Guide.”
+
+Includes the 3-lens model + translations for “Evidence & Effectiveness,” and clarifies how to treat “expand/close” language in Data & Evaluation as improvement triggers (scale/adjust), not program survival." -- please do this based on your suggestions.  Please add a tab in the SPARK Program Review workbook to cover it.
+
+
+
+(2) "Define the “Minimum Viable Evidence Pack” for existing programs (the Tier 1 list).
+
+This becomes the standard ask to Ms. Mitchell and program leads." -- please draft this based on your suggestions.  I think there is a core cross-program group as well as program-specific group, right?  please either adjust / re-tag existing content in existing tabs in the workbook... or create a new tab if that is cleaner for now.
+
+
+(3) "Agree on synthesis output structure (one report with two views: public + annex)." -- I would like to start with your suggested structure on this, as i think it is directionally reasonable; we can then see it and react.  please create the following in powerpoint, using the attached SPARK launch pdf artifact only to guide on format -- (a) the one-page public-facing template, well-formatted, and with dummy info / placeholders to represent what will be populated.  i want this to be sharp, clear, visual, compelling, practical.; (b) the one-page public-facing template, but partially populated with data for MSA.  also - include notes / highlights on the page as to where we have main evidence gaps; this should be aligned with the evidence lenses, appropriate tier, and public-safe vs. otherwise dimensions.  (c) (i) an organized, clear, bullet point or table-based 'design' of the review annex content and format. (ii) same as 'i', but with provision for scoring
+
+
+(4) "Decide whether numeric scores are internal-only, or replaced with maturity levels + confidence." -- let's hedge this for now.  see 3c above.
+
+
+(5) "re-open the workbook to implement:
+
+“Lens” tags
+
+“Tier” tags
+
+“Public-safe” flag
+
+A standardized “Evidence request” list per program" -- please try to incorporate this into the workbook.
+
+(6) Questions for us?  in any case - please suggest next steps

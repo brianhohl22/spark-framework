@@ -1,0 +1,26 @@
+Parameter/Input,Description,Value,SourceSheet
+FY26 Aid$ per ADM,State formula aid per ADM (for net budget calc),5113.0,YearMap
+FY26 VarUnit$,Variable M&O per student,7129.079999999999,YearMap
+FY26 f_lease,Fixed carry fraction for lease/sale path,0.4,YearMap
+FY26 f_ops,Fixed carry fraction for ops/mothball path,0.5,YearMap
+FY26 h,Receiving overhead per retained student,1000.0,YearMap
+FY27 Aid$ per ADM,State formula aid per ADM (for net budget calc),5215.26,YearMap
+FY27 VarUnit$,Variable M&O per student,7307.306999999999,YearMap
+FY27 f_lease,Fixed carry fraction for lease/sale path,0.3,YearMap
+FY27 f_ops,Fixed carry fraction for ops/mothball path,0.4,YearMap
+FY27 h,Receiving overhead per retained student,800.0,YearMap
+FY28 Aid$ per ADM,State formula aid per ADM (for net budget calc),5319.5652,YearMap
+FY28 VarUnit$,Variable M&O per student,7489.989674999999,YearMap
+FY28 f_lease,Fixed carry fraction for lease/sale path,0.2,YearMap
+FY28 f_ops,Fixed carry fraction for ops/mothball path,0.35,YearMap
+FY28 h,Receiving overhead per retained student,600.0,YearMap
+FY29 Aid$ per ADM,State formula aid per ADM (for net budget calc),5425.956504,YearMap
+FY29 VarUnit$,Variable M&O per student,7677.239416874998,YearMap
+FY29 f_lease,Fixed carry fraction for lease/sale path,0.1,YearMap
+FY29 f_ops,Fixed carry fraction for ops/mothball path,0.3,YearMap
+FY29 h,Receiving overhead per retained student,500.0,YearMap
+FY30 Aid$ per ADM,State formula aid per ADM (for net budget calc),5534.4756340799995,YearMap
+FY30 VarUnit$,Variable M&O per student,7869.170402296872,YearMap
+FY30 f_lease,Fixed carry fraction for lease/sale path,0.0,YearMap
+FY30 f_ops,Fixed carry fraction for ops/mothball path,0.3,YearMap
+FY30 h,Receiving overhead per retained student,400.0,YearMap

@@ -1,0 +1,12 @@
+Parameter/Input,Description,Value,SourceSheet
+MO inflation,Annual M&O inflation applied to M&O components.,0.025,BaselineCalc
+Base MO per ADM (FY25),Working base for FY25; average M&O per student before adjustments.,9936.0,BaselineCalc
+Fixed share of MO,Share of M&O treated as semi‑fixed (plant ops/insurance/admin/custodial).,0.3,BaselineCalc
+Ops savings (keep‑open),"Light discipline applied to keep‑open scenarios (utilities, supplies, minor consolidations).",0.007,BaselineCalc
+Extra savings (Co‑location),"Incremental savings for co‑location (shared administration, specials, custodial, etc.).",0.015,BaselineCalc
+Echo base ADM,Baseline enrollment for Echo.,257.0,BaselineCalc
+Pima base ADM,Baseline enrollment for Pima.,296.0,BaselineCalc
+Total base ADM,Echo + Pima baseline students.,553.0,BaselineCalc
+Base total MO (FY25),Derived helper,5494608.0,BaselineCalc
+Fixed MO (FY25),Derived helper,1648382.4,BaselineCalc
+Var per student (FY25),Derived helper,6955.2,BaselineCalc

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUSD SPARK — Program Innovation Pipeline</title>
+    <style>
+        :root {
+            --spark-gold: #F5A623;
+            --spark-dark: #2C3E50;
+            --spark-blue: #2980B9;
+            --spark-green: #27AE60;
+            --spark-red: #E74C3C;
+            --spark-teal: #1ABC9C;
+            --spark-light: #F8F9FA;
+            --spark-border: #DEE2E6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--spark-light); color: #333; }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--spark-dark) 0%, #34495E 100%);
+            color: white; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem;
+        }
+        .header .logo { width: 60px; height: 60px; background: var(--spark-gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.7rem;
+            text-align: center; color: var(--spark-dark); line-height: 1.1; }
+        .header h1 { font-size: 1.6rem; font-weight: 300; }
+        .header h1 strong { font-weight: 700; }
+        .header .subtitle { font-size: 0.85rem; opacity: 0.8; margin-top: 0.2rem; }
+
+        /* Nav */
+        .nav { background: white; border-bottom: 3px solid var(--spark-gold); padding: 0 2rem;
+            display: flex; gap: 0; overflow-x: auto; }
+        .nav button { padding: 0.9rem 1.5rem; border: none; background: none; cursor: pointer;
+            font-size: 0.9rem; color: #666; border-bottom: 3px solid transparent; margin-bottom: -3px;
+            white-space: nowrap; transition: all 0.2s; }
+        .nav button:hover { color: var(--spark-dark); background: #f0f0f0; }
+        .nav button.active { color: var(--spark-dark); border-bottom-color: var(--spark-gold); font-weight: 600; }
+
+        /* Main content */
+        .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Cards */
+        .card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1.5rem; margin-bottom: 1.5rem; }
+        .card h2 { color: var(--spark-dark); margin-bottom: 1rem; font-size: 1.3rem; }
+        .card h3 { color: var(--spark-blue); margin: 1rem 0 0.5rem; font-size: 1.1rem; }
+
+        /* Flow diagram */
+        .flow-container { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+            padding: 2rem 0; }
+        .flow-step { background: white; border-radius: 12px; padding: 1.2rem;
+            width: 150px; text-align: center; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; }
+        .flow-step:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .flow-step .step-num { background: var(--spark-gold); color: white; width: 28px; height: 28px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.8rem; margin: 0 auto 0.5rem; }
+        .flow-step .step-title { font-weight: 600; font-size: 0.85rem; color: var(--spark-dark); }
+        .flow-step .step-desc { font-size: 0.75rem; color: #666; margin-top: 0.3rem; }
+        .flow-arrow { display: flex; align-items: center; color: var(--spark-gold); font-size: 1.5rem; font-weight: bold; }
+
+        /* Entry points grid */
+        .entry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem; margin: 1.5rem 0; }
+        .entry-card { background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border: 2px solid var(--spark-border); border-radius: 8px; padding: 1rem;
+            text-align: center; cursor: pointer; transition: all 0.2s; }
+        .entry-card:hover { border-color: var(--spark-gold); background: #FFFBF0; }
+        .entry-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .entry-card .label { font-weight: 600; font-size: 0.9rem; color: var(--spark-dark); }
+        .entry-card .desc { font-size: 0.75rem; color: #666; margin-top: 0.3rem; }
+
+        /* Form */
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.3rem; color: var(--spark-dark); font-size: 0.9rem; }
+        .form-group .hint { font-size: 0.8rem; color: #888; margin-bottom: 0.3rem; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 0.6rem; border: 1px solid var(--spark-border);
+            border-radius: 6px; font-size: 0.9rem; font-family: inherit; }
+        .form-group textarea { min-height: 80px; resize: vertical; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--spark-blue); box-shadow: 0 0 0 3px rgba(41,128,185,0.1); }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+        .checkbox-group label { font-weight: 400; display: flex; align-items: center; gap: 0.3rem; cursor: pointer; }
+
+        /* Buttons */
+        .btn { padding: 0.7rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;
+            font-size: 0.9rem; font-weight: 600; transition: all 0.2s; }
+        .btn-primary { background: var(--spark-gold); color: white; }
+        .btn-primary:hover { background: #E09A1E; }
+        .btn-secondary { background: var(--spark-blue); color: white; }
+        .btn-secondary:hover { background: #2471A3; }
+        .btn-outline { background: white; color: var(--spark-dark); border: 2px solid var(--spark-border); }
+        .btn-outline:hover { border-color: var(--spark-gold); }
+
+        /* Registry table */
+        .registry-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .registry-table th { background: var(--spark-dark); color: white; padding: 0.7rem;
+            text-align: left; font-weight: 600; }
+        .registry-table td { padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--spark-border); }
+        .registry-table tr:hover { background: #f0f7ff; }
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px;
+            font-size: 0.75rem; font-weight: 600; }
+        .badge-intake { background: #FFF3CD; color: #856404; }
+        .badge-screen { background: #D1ECF1; color: #0C5460; }
+        .badge-triage { background: #D4EDDA; color: #155724; }
+        .badge-review { background: #CFE2FF; color: #084298; }
+        .badge-parked { background: #E2E3E5; color: #41464B; }
+
+        /* Programs grid */
+        .program-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem; margin: 1.5rem 0; }
+        .program-card { background: white; border-left: 4px solid var(--spark-teal);
+            border-radius: 0 8px 8px 0; padding: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .program-card h4 { color: var(--spark-dark); margin-bottom: 0.3rem; }
+        .program-card .schools { font-size: 0.8rem; color: #666; }
+        .program-card .tag { display: inline-block; background: #E8F5E9; color: #2E7D32;
+            padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.7rem; margin-top: 0.4rem; }
+
+        /* Stats bar */
+        .stats-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .stat-card { background: white; border-radius: 8px; padding: 1rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex: 1; min-width: 140px; text-align: center; }
+        .stat-card .num { font-size: 2rem; font-weight: 700; color: var(--spark-blue); }
+        .stat-card .label { font-size: 0.8rem; color: #666; }
+
+        /* Success message */
+        .success-msg { background: #D4EDDA; border: 1px solid #C3E6CB; border-radius: 8px;
+            padding: 1.5rem; text-align: center; display: none; }
+        .success-msg h3 { color: #155724; margin-bottom: 0.5rem; }
+        .success-msg p { color: #155724; font-size: 0.9rem; }
+
+        /* Section divider */
+        .qi-badge { display: inline-block; background: var(--spark-gold); color: white;
+            padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600;
+            margin-left: 0.5rem; vertical-align: middle; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flow-container { flex-direction: column; align-items: center; }
+            .flow-arrow { transform: rotate(90deg); }
+            .header h1 { font-size: 1.2rem; }
+            .nav button { padding: 0.7rem 1rem; font-size: 0.8rem; }
+        }
+
+        /* Print-friendly */
+        @media print {
+            .nav, .header { break-inside: avoid; }
+            .flow-step { border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">SPARK<br>TEAM</div>
+    <div>
+        <h1><strong>SPARK</strong> Program Innovation Pipeline</h1>
+        <div class="subtitle">Scottsdale Unified School District — Signature Program Advancement, Research & Knowledge</div>
+    </div>
+</div>
+
+<div class="nav">
+    <button class="active" onclick="showPage('home')">Home</button>
+    <button onclick="showPage('submit')">Submit an Idea</button>
+    <button onclick="showPage('pipeline')">Idea Pipeline</button>
+    <button onclick="showPage('programs')">Current Programs</button>
+    <button onclick="showPage('process')">How It Works</button>
+    <button onclick="showPage('contact')">Get Involved</button>
+</div>
+
+<div class="main">
+
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page active">
+        <div class="card" style="text-align:center; padding: 2rem;">
+            <h2 style="font-size: 1.6rem;">Welcome to the SPARK Innovation Pipeline</h2>
+            <p style="color: #666; max-width: 700px; margin: 1rem auto;">
+                The SPARK team creates a sustainable, data-informed strategy for SUSD's specialty schools and signature programs.
+                Whether you're a parent with an idea, a teacher with a vision, or a community member with insight —
+                your ideas have a home here.
+            </p>
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="showPage('submit')" style="font-size: 1rem; padding: 0.9rem 2rem;">
+                    Submit a New Idea
+                </button>
+                <button class="btn btn-secondary" onclick="showPage('pipeline')">
+                    View the Pipeline
+                </button>
+                <button class="btn btn-outline" onclick="showPage('programs')">
+                    Explore Current Programs
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>How Ideas Become Programs</h2>
+            <div class="flow-container">
+                <div class="flow-step" onclick="showPage('submit')">
+                    <div class="step-num">1</div>
+                    <div class="step-title">Idea Capture</div>
+                    <div class="step-desc">Anyone can submit</div>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step" onclick="showPage('submit')">
+                    <div class="step-num">2</div>
+                    <div class="step-title">Intake Form</div>
+                    <div class="step-desc">15-20 minutes</div>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step" onclick="showPage('process')">
+                    <div class="step-num">3</div>
+                    <div class="step-title">Screen</div>
+                    <div class="step-desc">Quick feasibility check</div>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step" onclick="showPage('process')">
+                    <div class="step-num">4</div>
+                    <div class="step-title">SPARK Triage</div>
+                    <div class="step-desc">Team evaluates fit</div>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step" onclick="showPage('process')">
+                    <div class="step-num">5</div>
+                    <div class="step-title">Deep Review</div>
+                    <div class="step-desc">Design or Review Team</div>
+                </div>
+                <div class="flow-arrow">&rarr;</div>
+                <div class="flow-step" onclick="showPage('process')">
+                    <div class="step-num">6</div>
+                    <div class="step-title">Decision</div>
+                    <div class="step-desc">Approve, defer, or decline</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Where Do Ideas Come From?</h2>
+            <div class="entry-grid">
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;</div>
+                    <div class="label">Families & Community</div>
+                    <div class="desc">Parents and community members with ideas</div>
+                </div>
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F3EB;</div>
+                    <div class="label">Educators & Staff</div>
+                    <div class="desc">Teachers and principals with classroom insight</div>
+                </div>
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F4A1;</div>
+                    <div class="label">Innovation Grants</div>
+                    <div class="desc">Pilots showing strong results</div>
+                </div>
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F6E0;</div>
+                    <div class="label">CTE Pathways</div>
+                    <div class="desc">Career & technical education ideas</div>
+                </div>
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x2B50;</div>
+                    <div class="label">SPARK Team</div>
+                    <div class="desc">Ideas from quarterly meetings</div>
+                </div>
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F50D;</div>
+                    <div class="label">Landscape Scan</div>
+                    <div class="desc">Competitor and trend analysis</div>
+                </div>
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F393;</div>
+                    <div class="label">Student Voice</div>
+                    <div class="desc">What students want to learn</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMIT PAGE -->
+    <div id="page-submit" class="page">
+        <div class="card">
+            <h2>Submit a New Program Idea</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">
+                Share your idea for a new or expanded program at SUSD. You don't need all the answers —
+                we'll follow up on promising concepts. Takes about 15-20 minutes.
+            </p>
+
+            <div id="intake-form">
+                <h3>About You</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="Jane Smith">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="jane@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Role</label>
+                        <select>
+                            <option>Select...</option>
+                            <option>Parent / Family Member</option>
+                            <option>Teacher / Educator</option>
+                            <option>School Administrator</option>
+                            <option>Community Member</option>
+                            <option>Student</option>
+                            <option>Business / Industry Partner</option>
+                            <option>SPARK Team Member</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>School / Organization</label>
+                        <input type="text" placeholder="(if applicable)">
+                    </div>
+                </div>
+
+                <h3>Your Program Idea <span class="qi-badge">QI-Aligned</span></h3>
+                <div class="form-group">
+                    <label>Program / Concept Name (working title)</label>
+                    <input type="text" placeholder='e.g., "Environmental Science & Sustainability Academy"'>
+                </div>
+                <div class="form-group">
+                    <label>One-Sentence Summary</label>
+                    <input type="text" placeholder="Describe the idea in one sentence">
+                </div>
+                <div class="form-group">
+                    <label>Detailed Description</label>
+                    <div class="hint">What would this program look like? What would students experience? What makes it distinctive?</div>
+                    <textarea placeholder="Tell us more about your vision..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Target Grade Levels</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> K-2</label>
+                        <label><input type="checkbox"> 3-5</label>
+                        <label><input type="checkbox"> 6-8</label>
+                        <label><input type="checkbox"> 9-12</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Program Type</label>
+                    <select>
+                        <option>Select...</option>
+                        <option>New Signature Program (full school identity)</option>
+                        <option>New Specialty Program (program within a school)</option>
+                        <option>Expansion of Existing Program</option>
+                        <option>Redesign of Existing Program</option>
+                        <option>Pilot / Limited-Scope Trial</option>
+                    </select>
+                </div>
+
+                <h3>Strategic Alignment <span class="qi-badge">QI-1</span></h3>
+                <div class="form-group">
+                    <label>Which SUSD strategic priorities does this support?</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Innovation & future-focused learning</label>
+                        <label><input type="checkbox"> Student achievement & academic excellence</label>
+                        <label><input type="checkbox"> Enrollment growth & retention</label>
+                        <label><input type="checkbox"> Equity & access</label>
+                        <label><input type="checkbox"> Community engagement & partnerships</label>
+                        <label><input type="checkbox"> Career & workforce readiness</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>How does this differentiate SUSD from nearby options?</label>
+                    <textarea placeholder="Charters, private schools, other districts..."></textarea>
+                </div>
+
+                <h3>Student Demand <span class="qi-badge">QI-2</span></h3>
+                <div class="form-group">
+                    <label>What evidence of demand exists?</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Parent/family requests or surveys</label>
+                        <label><input type="checkbox"> Enrollment trends (students leaving for similar programs)</label>
+                        <label><input type="checkbox"> Waitlist data from related programs</label>
+                        <label><input type="checkbox"> National/regional trend data</label>
+                        <label><input type="checkbox"> Student interest surveys</label>
+                        <label><input type="checkbox"> Anecdotal / informal signals</label>
+                        <label><input type="checkbox"> None yet — early-stage idea</label>
+                    </div>
+                </div>
+
+                <h3>Instructional Model <span class="qi-badge">QI-3</span></h3>
+                <div class="form-group">
+                    <label>Proposed instructional approach</label>
+                    <textarea placeholder="e.g., project-based learning, dual language, competency-based, lab/hands-on..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Are there existing models or exemplars?</label>
+                    <textarea placeholder='e.g., "Similar to the XYZ program at [district]"'></textarea>
+                </div>
+
+                <h3>Feasibility <span class="qi-badge">QI-4 & QI-5</span></h3>
+                <div class="form-group">
+                    <label>Estimated timeline to launch</label>
+                    <select>
+                        <option>Select...</option>
+                        <option>Could start next school year (with support)</option>
+                        <option>1-2 years of planning needed</option>
+                        <option>2+ years — long-term vision</option>
+                        <option>Not sure</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Estimated startup costs</label>
+                    <select>
+                        <option>Select...</option>
+                        <option>Minimal (under $10K)</option>
+                        <option>Moderate ($10K - $100K)</option>
+                        <option>Significant ($100K+)</option>
+                        <option>Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Potential partnerships (community, business, higher-ed)?</label>
+                    <textarea placeholder="Any partnerships that could support this concept?"></textarea>
+                </div>
+
+                <h3>Anything Else</h3>
+                <div class="form-group">
+                    <label>Additional context for the SPARK team</label>
+                    <textarea placeholder="Urgency, related initiatives, potential champions, risks..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Would you like to be involved in further development?</label>
+                    <select>
+                        <option>Select...</option>
+                        <option>Yes — I'd like to join a Design Team</option>
+                        <option>Yes — I'm available as a resource/advisor</option>
+                        <option>No — just submitting the idea</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <button class="btn btn-primary" onclick="submitForm()">Submit Idea</button>
+                    <button class="btn btn-outline" onclick="saveDraft()">Save Draft</button>
+                </div>
+            </div>
+
+            <div id="success-msg" class="success-msg">
+                <h3>Thank You! Your Idea Has Been Submitted.</h3>
+                <p>Your concept has been added to the SPARK Idea Registry as <strong>SPARK-INTAKE-007</strong>.</p>
+                <p style="margin-top: 0.5rem;">The SPARK team will perform a preliminary screen within 2 weeks.
+                You'll receive an email confirmation with your Registry ID for tracking.</p>
+                <div style="margin-top: 1rem;">
+                    <button class="btn btn-secondary" onclick="showPage('pipeline')">View the Pipeline</button>
+                    <button class="btn btn-outline" onclick="resetForm()" style="margin-left: 0.5rem;">Submit Another</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIPELINE PAGE -->
+    <div id="page-pipeline" class="page">
+        <div class="stats-bar">
+            <div class="stat-card"><div class="num">6</div><div class="label">Total Ideas</div></div>
+            <div class="stat-card"><div class="num">3</div><div class="label">In Intake/Screen</div></div>
+            <div class="stat-card"><div class="num">1</div><div class="label">In Triage</div></div>
+            <div class="stat-card"><div class="num">1</div><div class="label">In Deep Review</div></div>
+            <div class="stat-card"><div class="num">1</div><div class="label">Parked</div></div>
+        </div>
+
+        <div class="card">
+            <h2>SPARK Idea Pipeline</h2>
+            <p style="color: #666; margin-bottom: 1rem;">All program concepts being evaluated by the SPARK team. Click any row for details.</p>
+            <div style="overflow-x: auto;">
+                <table class="registry-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Concept</th>
+                            <th>Source</th>
+                            <th>Stage</th>
+                            <th>Score</th>
+                            <th>Next Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SPARK-001</td>
+                            <td><strong>Environmental Science & Sustainability Academy</strong></td>
+                            <td>Community</td>
+                            <td><span class="badge badge-intake">Intake</span></td>
+                            <td>—</td>
+                            <td>Preliminary Screen</td>
+                        </tr>
+                        <tr>
+                            <td>SPARK-002</td>
+                            <td><strong>AI & Robotics Pathway (Middle School)</strong></td>
+                            <td>Landscape Scan</td>
+                            <td><span class="badge badge-intake">Intake</span></td>
+                            <td>—</td>
+                            <td>Preliminary Screen</td>
+                        </tr>
+                        <tr>
+                            <td>SPARK-003</td>
+                            <td><strong>Student Innovation Lab</strong><br><small>BOP entrepreneurship extension</small></td>
+                            <td>CTE / Grants</td>
+                            <td><span class="badge badge-triage">Triage</span></td>
+                            <td>38/54</td>
+                            <td>Deep Review kickoff</td>
+                        </tr>
+                        <tr>
+                            <td>SPARK-004</td>
+                            <td><strong>Arts Magnet Program</strong><br><small>Echo Canyon site consideration</small></td>
+                            <td>SPARK Team</td>
+                            <td><span class="badge badge-review">Deep Review</span></td>
+                            <td>42/54</td>
+                            <td>Final recommendation</td>
+                        </tr>
+                        <tr>
+                            <td>SPARK-005</td>
+                            <td><strong>Early College High School</strong></td>
+                            <td>Landscape Scan</td>
+                            <td><span class="badge badge-screen">Screen</span></td>
+                            <td>—</td>
+                            <td>Triage at Q2 meeting</td>
+                        </tr>
+                        <tr>
+                            <td>SPARK-006</td>
+                            <td><strong>Mandarin Dual Language Immersion</strong></td>
+                            <td>Parent Requests</td>
+                            <td><span class="badge badge-parked">Parked</span></td>
+                            <td>—</td>
+                            <td>Re-evaluate demand Q3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="color: #999; font-size: 0.8rem; margin-top: 1rem; font-style: italic;">
+                * Sample data shown for demonstration purposes
+            </p>
+        </div>
+    </div>
+
+    <!-- CURRENT PROGRAMS PAGE -->
+    <div id="page-programs" class="page">
+        <div class="card">
+            <h2>Current SUSD Signature Programs & Specialty Schools</h2>
+            <p style="color: #666; margin-bottom: 1rem;">
+                Before submitting a new idea, review what already exists. Your concept might be an
+                expansion or enhancement of a current program.
+            </p>
+            <div class="program-grid">
+                <div class="program-card">
+                    <h4>STEAM & MSA</h4>
+                    <div class="schools">Navajo, Laguna, Saguaro, Mohave</div>
+                    <div class="tag">Active</div>
+                </div>
+                <div class="program-card">
+                    <h4>Traditional School Program</h4>
+                    <div class="schools">Cheyenne</div>
+                    <div class="tag">Active</div>
+                </div>
+                <div class="program-card">
+                    <h4>Dual Language Immersion</h4>
+                    <div class="schools">Pueblo, Mohave, DCES, DCMS</div>
+                    <div class="tag">Active</div>
+                </div>
+                <div class="program-card">
+                    <h4>International Baccalaureate (IB)</h4>
+                    <div class="schools">Anasazi, Mountainside, Desert Mountain</div>
+                    <div class="tag">Active</div>
+                </div>
+                <div class="program-card">
+                    <h4>Comprehensive Gifted Programs (CGP)</h4>
+                    <div class="schools">Multiple sites</div>
+                    <div class="tag">Active</div>
+                </div>
+                <div class="program-card">
+                    <h4>AVID</h4>
+                    <div class="schools">Arcadia, Ingleside, Tavan, Hohokam</div>
+                    <div class="tag">Active</div>
+                </div>
+                <div class="program-card">
+                    <h4>College and Career Academies</h4>
+                    <div class="schools">All high schools</div>
+                    <div class="tag">Active</div>
+                </div>
+            </div>
+            <h3>Potential Future Themes (Under Exploration)</h3>
+            <div class="program-grid">
+                <div class="program-card" style="border-left-color: var(--spark-gold); opacity: 0.85;">
+                    <h4>Arts Magnet</h4>
+                    <div class="schools">Location TBD</div>
+                    <div class="tag" style="background: #FFF3CD; color: #856404;">Under Review</div>
+                </div>
+                <div class="program-card" style="border-left-color: var(--spark-gold); opacity: 0.85;">
+                    <h4>Gifted and Advanced Academics</h4>
+                    <div class="schools">Expansion concept</div>
+                    <div class="tag" style="background: #FFF3CD; color: #856404;">Exploring</div>
+                </div>
+                <div class="program-card" style="border-left-color: var(--spark-gold); opacity: 0.85;">
+                    <h4>Early College</h4>
+                    <div class="schools">Model TBD</div>
+                    <div class="tag" style="background: #FFF3CD; color: #856404;">Exploring</div>
+                </div>
+                <div class="program-card" style="border-left-color: var(--spark-gold); opacity: 0.85;">
+                    <h4>Small School Model</h4>
+                    <div class="schools">Concept stage</div>
+                    <div class="tag" style="background: #FFF3CD; color: #856404;">Exploring</div>
+                </div>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <p style="color: #666;">Don't see your idea listed? <button class="btn btn-primary" onclick="showPage('submit')">Submit It</button></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS PAGE -->
+    <div id="page-process" class="page">
+        <div class="card">
+            <h2>How the SPARK Intake Process Works</h2>
+
+            <h3>Stage 1: Idea Capture</h3>
+            <p>Ideas can come from anyone — parents, teachers, community members, students, SPARK team members,
+            or through SUSD's periodic landscape scan of educational trends. All ideas enter through the same
+            Intake Form for consistent evaluation.</p>
+
+            <h3>Stage 2: Intake Form</h3>
+            <p>A structured form (15-20 minutes) captures the essential concept, strategic alignment, demand signals,
+            instructional model, feasibility, and cost considerations. Each section maps to SUSD's Quality Indicators
+            (QI), ensuring every idea is evaluated on the same criteria used for existing programs.</p>
+
+            <h3>Stage 3: Preliminary Screen</h3>
+            <p>SPARK leadership performs a quick review: Is this a duplicate? Is there an obvious blocker?
+            Does it have minimum viability? Ideas either <strong>PASS</strong> to triage, are <strong>PARKED</strong>
+            in the registry for future consideration, or are <strong>REDIRECTED</strong> to an existing program.</p>
+
+            <h3>Stage 4: SPARK Triage</h3>
+            <p>The SPARK core team evaluates screened concepts using the <strong>Preliminary Alignment Scorecard</strong> —
+            a lightweight rubric with 6 categories (18 criteria) mapped to Quality Indicators. Concepts scoring
+            well advance to Deep Review; promising but incomplete ideas return for more development.</p>
+
+            <h3>Stage 5: Deep Review</h3>
+            <p>Advanced concepts are assigned to a SPARK <strong>Design Team</strong> (for new concepts) or
+            <strong>Review Team</strong> (for existing program adjustments) for full evaluation using the
+            complete QI rubric and evidence framework.</p>
+
+            <h3>Stage 6: Decision & Recommendation</h3>
+            <p>The SPARK team makes a formal recommendation: <strong>Approve for pilot</strong>,
+            <strong>Approve for design phase</strong>, <strong>Defer</strong> (with auto re-surface),
+            or <strong>Decline</strong> (with documented rationale). All decisions are transparent and tracked.</p>
+
+            <div style="margin-top: 1.5rem; padding: 1.5rem; background: #FFF3CD; border-radius: 8px;">
+                <h3 style="color: #856404; margin-top: 0;">The Idea Registry</h3>
+                <p style="color: #856404;">Every idea — regardless of stage — lives in a central registry. Nothing falls through
+                the cracks. Deferred ideas are automatically re-surfaced. Patterns emerge over time
+                (e.g., if 10 families ask about environmental science, that's a signal). The registry is
+                reviewed at every quarterly SPARK meeting.</p>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 1.5rem; background: #D1ECF1; border-radius: 8px;">
+                <h3 style="color: #0C5460; margin-top: 0;">Periodic Landscape Scan</h3>
+                <p style="color: #0C5460;">Quarterly, SPARK reviews open enrollment trends, nearby district/charter/private
+                program launches, national education trends, and workforce signals. This scan feeds
+                directly into the Idea Registry as "landscape-sourced" entries — ensuring SUSD stays
+                ahead of the market.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="page-contact" class="page">
+        <div class="card">
+            <h2>Get Involved with SPARK</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">
+                The SPARK team welcomes engagement from all stakeholders. Here's how you can participate:
+            </p>
+
+            <div class="entry-grid">
+                <div class="entry-card" onclick="showPage('submit')">
+                    <div class="icon">&#x1F4DD;</div>
+                    <div class="label">Submit an Idea</div>
+                    <div class="desc">Share your program concept through the Intake Form</div>
+                </div>
+                <div class="entry-card">
+                    <div class="icon">&#x1F91D;</div>
+                    <div class="label">Join a Team</div>
+                    <div class="desc">Volunteer for a Design Team or Review Team</div>
+                </div>
+                <div class="entry-card">
+                    <div class="icon">&#x1F4CA;</div>
+                    <div class="label">Share Data</div>
+                    <div class="desc">Contribute demand signals, survey results, or trend data</div>
+                </div>
+                <div class="entry-card">
+                    <div class="icon">&#x1F4AC;</div>
+                    <div class="label">Provide Feedback</div>
+                    <div class="desc">Comment on concepts in the pipeline</div>
+                </div>
+            </div>
+
+            <h3>Contact</h3>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your.email@example.com">
+            </div>
+            <div class="form-group">
+                <label>How would you like to get involved?</label>
+                <select>
+                    <option>Select...</option>
+                    <option>Join a Design Team</option>
+                    <option>Join a Review Team</option>
+                    <option>Share data or research</option>
+                    <option>General feedback</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="Tell us more..."></textarea>
+            </div>
+            <button class="btn btn-primary">Send</button>
+        </div>
+    </div>
+
+</div>
+
+<div style="background: var(--spark-dark); color: white; text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.8rem;">
+    SUSD SPARK Team &mdash; Signature Program Advancement, Research & Knowledge<br>
+    <span style="opacity: 0.6;">Scottsdale Unified School District | Engaging All Students in World-Class, Future-Focused Learning</span><br>
+    <span style="opacity: 0.4; font-size: 0.7rem;">Prototype mockup — March 2026</span>
+</div>
+
+<script>
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav button').forEach(b => {
+        if (b.textContent.toLowerCase().includes(pageId) ||
+            (pageId === 'home' && b.textContent === 'Home') ||
+            (pageId === 'submit' && b.textContent === 'Submit an Idea') ||
+            (pageId === 'pipeline' && b.textContent === 'Idea Pipeline') ||
+            (pageId === 'programs' && b.textContent === 'Current Programs') ||
+            (pageId === 'process' && b.textContent === 'How It Works') ||
+            (pageId === 'contact' && b.textContent === 'Get Involved'))
+            b.classList.add('active');
+    });
+    window.scrollTo(0, 0);
+}
+
+function submitForm() {
+    document.getElementById('intake-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+}
+
+function resetForm() {
+    document.getElementById('intake-form').style.display = 'block';
+    document.getElementById('success-msg').style.display = 'none';
+}
+
+function saveDraft() {
+    alert('Draft saved! You can return to complete your submission later.');
+}
+</script>
+
+</body>
+</html>
