@@ -193,6 +193,9 @@
         .stats-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
         .stat-card { background: white; border-radius: 8px; padding: 0.8rem 1.2rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06); flex: 1; min-width: 120px; text-align: center; }
+        .stat-card { cursor: pointer; transition: all 0.2s; }
+        .stat-card:hover { border: 2px solid var(--susd-teal); margin: -2px; }
+        .stat-card.stat-active { border: 2px solid var(--susd-teal); background: var(--susd-teal-light); margin: -2px; }
         .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--susd-teal); }
         .stat-card .label { font-size: 0.75rem; color: var(--gray-500); }
 
@@ -688,10 +691,10 @@
                 <div style="font-weight:700; font-size:0.85rem; color:#856404;">Defer</div>
                 <div style="font-size:0.75rem; color:#856404;">Promising &mdash; revisit when conditions align</div>
             </div>
-            <div style="background:#F8D7DA; border-radius:8px; padding:1rem; text-align:center;">
-                <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x1F6AB;</div>
-                <div style="font-weight:700; font-size:0.85rem; color:#842029;">Decline</div>
-                <div style="font-size:0.75rem; color:#842029;">Documented rationale</div>
+            <div style="background:#F5F5F5; border-radius:8px; padding:1rem; text-align:center;">
+                <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x1F4CB;</div>
+                <div style="font-weight:700; font-size:0.85rem; color:#666;">Not at This Time</div>
+                <div style="font-size:0.75rem; color:#666;">Documented rationale &amp; door open</div>
             </div>
         </div>
 
@@ -821,12 +824,12 @@
     <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; pipeline entries are sample data for demonstration purposes.</div>
 
     <div class="stats-bar">
-        <div class="stat-card"><div class="num">8</div><div class="label">Total Ideas</div></div>
-        <div class="stat-card"><div class="num">2</div><div class="label">New / Screen</div></div>
-        <div class="stat-card"><div class="num">2</div><div class="label">Concept Study</div></div>
-        <div class="stat-card"><div class="num">2</div><div class="label">In Review</div></div>
-        <div class="stat-card"><div class="num">1</div><div class="label">Deep Review</div></div>
-        <div class="stat-card"><div class="num">1</div><div class="label">Parked</div></div>
+        <div class="stat-card" onclick="filterPipeline('all')"><div class="num">8</div><div class="label">Total Ideas</div></div>
+        <div class="stat-card" onclick="filterPipeline('new-screen')"><div class="num">3</div><div class="label">New / Screen</div></div>
+        <div class="stat-card" onclick="filterPipeline('concept')"><div class="num">2</div><div class="label">Concept Study</div></div>
+        <div class="stat-card" onclick="filterPipeline('review')"><div class="num">1</div><div class="label">In Review</div></div>
+        <div class="stat-card" onclick="filterPipeline('deep')"><div class="num">1</div><div class="label">Deep Review</div></div>
+        <div class="stat-card" onclick="filterPipeline('parked')"><div class="num">1</div><div class="label">Parked</div></div>
     </div>
 
     <div class="card">
@@ -835,14 +838,14 @@
             <table class="registry-table">
                 <thead><tr><th>ID</th><th>Concept</th><th>Source</th><th>Stage</th><th>QI Focus Areas</th><th>Next Action</th></tr></thead>
                 <tbody>
-                    <tr><td>SPARK-001</td><td><strong>Environmental Science &amp; Sustainability Academy</strong></td><td>Community</td><td><span class="badge badge-new">New</span></td><td>&mdash;</td><td>Initial screen</td></tr>
-                    <tr><td>SPARK-002</td><td><strong>AI &amp; Robotics Pathway (MS)</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Review at Q2</td></tr>
-                    <tr><td>CON-01</td><td><strong>Gifted &amp; Advanced Studies Hub</strong><br><small style="color:var(--gray-500)">Magnet academy concept study</small></td><td>Leadership / Community</td><td><span class="badge badge-concept">Concept Study</span></td><td>Demand, Equity/Access, Instructional Model</td><td>Concept brief &amp; options</td></tr>
-                    <tr><td>CON-02</td><td><strong>Arts Magnet / Arts Hub School</strong><br><small style="color:var(--gray-500)">Echo Canyon site potential</small></td><td>SPARK Team</td><td><span class="badge badge-concept">Concept Study</span></td><td>Feasibility, Demand, Community</td><td>Define scope &amp; sponsor</td></tr>
-                    <tr><td>SPARK-003</td><td><strong>Student Innovation Lab</strong><br><small style="color:var(--gray-500)">BOP entrepreneurship extension</small></td><td>CTE/Grants</td><td><span class="badge badge-review">Review</span></td><td>Instructional Quality, Feasibility</td><td>Deep review</td></tr>
-                    <tr><td>SPARK-004</td><td><strong>Arts Magnet Program</strong><br><small style="color:var(--gray-500)">Echo Canyon site &mdash; formal proposal</small></td><td>SPARK Team</td><td><span class="badge badge-deep">Deep Review</span></td><td>All 6 QI categories</td><td>Final recommendation</td></tr>
-                    <tr><td>SPARK-005</td><td><strong>Early College High School</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Review at Q2</td></tr>
-                    <tr><td>SPARK-006</td><td><strong>Mandarin Dual Language</strong></td><td>Parents</td><td><span class="badge badge-parked">Parked</span></td><td>Demand data needed</td><td>Re-evaluate Q3</td></tr>
+                    <tr data-stage="new-screen"><td>SPARK-001</td><td><strong>Environmental Science &amp; Sustainability Academy</strong></td><td>Community</td><td><span class="badge badge-new">New</span></td><td>&mdash;</td><td>Initial screen</td></tr>
+                    <tr data-stage="new-screen"><td>SPARK-002</td><td><strong>AI &amp; Robotics Pathway (MS)</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Review at Q2</td></tr>
+                    <tr data-stage="concept"><td>CON-01</td><td><strong>Gifted &amp; Advanced Studies Hub</strong><br><small style="color:var(--gray-500)">Magnet academy concept study</small></td><td>Leadership / Community</td><td><span class="badge badge-concept">Concept Study</span></td><td>Demand, Equity/Access, Instructional Model</td><td>Concept brief &amp; options</td></tr>
+                    <tr data-stage="concept"><td>CON-02</td><td><strong>Arts Magnet / Arts Hub School</strong><br><small style="color:var(--gray-500)">Echo Canyon site potential</small></td><td>SPARK Team</td><td><span class="badge badge-concept">Concept Study</span></td><td>Feasibility, Demand, Community</td><td>Define scope &amp; sponsor</td></tr>
+                    <tr data-stage="review"><td>SPARK-003</td><td><strong>Student Innovation Lab</strong><br><small style="color:var(--gray-500)">Student entrepreneurship &amp; maker space</small></td><td>CTE/Grants</td><td><span class="badge badge-review">Review</span></td><td>Instructional Quality, Feasibility</td><td>Deep review</td></tr>
+                    <tr data-stage="deep"><td>SPARK-004</td><td><strong>Arts Magnet Program</strong><br><small style="color:var(--gray-500)">Echo Canyon site &mdash; formal proposal</small></td><td>SPARK Team</td><td><span class="badge badge-deep">Deep Review</span></td><td>All 6 QI categories</td><td>Final recommendation</td></tr>
+                    <tr data-stage="new-screen"><td>SPARK-005</td><td><strong>Early College High School</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>Review at Q2</td></tr>
+                    <tr data-stage="parked"><td>SPARK-006</td><td><strong>Mandarin Dual Language</strong></td><td>Parents</td><td><span class="badge badge-parked">Parked</span></td><td>Demand data needed</td><td>Re-evaluate Q3</td></tr>
                 </tbody>
             </table>
         </div>
@@ -884,7 +887,7 @@
                     <tr>
                         <td>Gifted / Advanced</td>
                         <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Kiva, Redfield, Tavan</small></td>
-                        <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Desert Canyon, Ingleside</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Desert Canyon, Ingleside, Mohave</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Gifted Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
                         <td class="heat-0"></td>
@@ -949,7 +952,7 @@
             <div class="program-card"><h4><a href="https://www.susd.org/academics/traditional-school" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Traditional School Program</a></h4><div class="schools">Cheyenne (PK-8)</div><div class="tag">Active</div></div>
             <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Dual Language Immersion</a></h4><div class="schools">Pueblo, Desert Canyon ES, Mohave, DCMS, Saguaro, Desert Mtn</div><div class="tag">Active</div></div>
             <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">International Baccalaureate (IB)</a></h4><div class="schools">Anasazi, Mountainside, Desert Mountain</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Comprehensive Gifted Program (CGP)</a></h4><div class="schools">Kiva, Redfield, Tavan (elem); Desert Canyon, Ingleside (MS)</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Comprehensive Gifted Program (CGP)</a></h4><div class="schools">Kiva, Redfield, Tavan (elem); Desert Canyon, Ingleside, Mohave (MS)</div><div class="tag">Active</div></div>
             <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/avid" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">AVID</a></h4><div class="schools">Multiple middle schools</div><div class="tag">Active</div></div>
             <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/career-and-college-readiness" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Career &amp; College Readiness (CCR/CTE)</a></h4><div class="schools">All 5 comprehensive high schools</div><div class="tag">Active</div></div>
         </div>
@@ -1287,6 +1290,21 @@ function startSubmit(role) {
         for (let i = 0; i < sel.options.length; i++) {
             if (sel.options[i].text === role) { sel.selectedIndex = i; break; }
         }
+    }
+}
+
+function filterPipeline(stage) {
+    const rows = document.querySelectorAll('.registry-table tbody tr');
+    const cards = document.querySelectorAll('.stats-bar .stat-card');
+    cards.forEach(c => c.classList.remove('stat-active'));
+    if (stage === 'all') {
+        rows.forEach(r => r.style.display = '');
+        cards[0].classList.add('stat-active');
+    } else {
+        rows.forEach(r => {
+            r.style.display = r.dataset.stage === stage ? '' : 'none';
+        });
+        event.currentTarget.classList.add('stat-active');
     }
 }
 
