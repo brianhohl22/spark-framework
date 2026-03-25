@@ -223,6 +223,29 @@
             padding: 1.5rem; text-align: center; display: none; }
         .success-msg h3 { color: #155724; margin-bottom: 0.5rem; }
 
+        /* ===== GET INVOLVED ===== */
+        .involve-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+        .involve-card { background: white; border-radius: 10px; border: 2px solid var(--gray-300);
+            padding: 1.2rem; text-align: center; transition: all 0.25s; cursor: pointer; }
+        .involve-card:hover { border-color: var(--susd-teal); box-shadow: 0 4px 16px rgba(0,137,123,0.12); transform: translateY(-3px); }
+        .involve-card .involve-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .involve-card h4 { color: var(--dark); font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .involve-card p { font-size: 0.8rem; color: var(--gray-500); line-height: 1.4; }
+        .involve-card .involve-cta { display: inline-block; margin-top: 0.6rem; font-size: 0.78rem;
+            font-weight: 600; color: var(--susd-teal); }
+        .timeline-item { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+        .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--susd-teal);
+            flex-shrink: 0; margin-top: 4px; }
+        .timeline-dot.gold { background: var(--spark-gold); }
+        .timeline-content h4 { font-size: 0.9rem; color: var(--dark); margin-bottom: 0.1rem; }
+        .timeline-content p { font-size: 0.82rem; color: var(--gray-500); }
+
+        /* ===== PROCESS FLOW ===== */
+        .process-flow { display: flex; align-items: center; justify-content: center; gap: 0; margin: 1.5rem 0; flex-wrap: wrap; }
+        .flow-step { text-align: center; padding: 0.6rem 1.2rem; border-radius: 8px; color: white;
+            font-weight: 600; font-size: 0.82rem; min-width: 110px; }
+        .flow-arrow { font-size: 1.3rem; color: var(--gray-500); padding: 0 0.3rem; }
+
         /* ===== FOOTER ===== */
         .footer {
             background: var(--dark); color: white; text-align: center; padding: 1.2rem;
@@ -239,6 +262,9 @@
             .nav button { padding: 0.6rem 0.8rem; font-size: 0.78rem; }
             .main { padding: 1rem; }
             .uc-grid { grid-template-columns: 1fr; }
+            .process-flow { flex-direction: column; gap: 0.3rem; }
+            .flow-arrow { transform: rotate(90deg); }
+            .involve-grid { grid-template-columns: 1fr; }
         }
         /* ===== DISCLAIMER ===== */
         .disclaimer-banner {
@@ -302,6 +328,7 @@
     <button onclick="showPage('programs')">Programs</button>
     <button onclick="showPage('governance')">Governance</button>
     <button onclick="showPage('usecases')">Use Cases</button>
+    <button onclick="showPage('involved')" style="color:var(--susd-teal); font-weight:600;">Get Involved</button>
 </div>
 
 <div class="main">
@@ -367,6 +394,24 @@
         </div>
     </div>
 
+    <!-- PROCESS FLOW VISUAL -->
+    <div class="card" style="text-align:center; padding:1.2rem 1.5rem;">
+        <p style="font-size:0.82rem; color:var(--gray-500); margin-bottom:0.6rem; text-transform:uppercase; letter-spacing:1px; font-weight:600;">How It Works</p>
+        <div class="process-flow">
+            <div class="flow-step" style="background:var(--discover);">Idea Enters</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--discover);">Intake &amp; Screen</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--evaluate);">QI Review</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--evaluate);">Deep Review</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--act);">Decision</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--act);">Implement</div>
+        </div>
+    </div>
+
     <!-- CROSS-CUTTING -->
     <div class="card" style="border-top: 3px solid var(--spark-gold);">
         <h2 style="font-size:1.1rem;">Cross-Cutting Foundations</h2>
@@ -386,9 +431,12 @@
         </div>
     </div>
 
-    <div style="text-align:center; margin-top:1rem;">
+    <div style="text-align:center; margin-top:1rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
         <button class="btn btn-gold" onclick="showPage('submit')" style="font-size:1rem; padding:0.9rem 2.5rem;">
             Submit a New Program Idea
+        </button>
+        <button class="btn btn-teal" onclick="showPage('involved')" style="font-size:1rem; padding:0.9rem 2.5rem;">
+            Get Involved
         </button>
     </div>
 </div>
@@ -819,7 +867,7 @@
                 <tbody>
                     <tr>
                         <td>STEM / STEAM</td>
-                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">STEM Certified</a><br><small>Navajo, Laguna</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">STEM Certified</a><br><small>Navajo, Laguna, Saguaro</small></td>
                         <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Mohave MS</small></td>
                         <td class="heat-active"><a href="https://saguaro.susd.org/academics/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Saguaro HS</small></td>
                         <td class="heat-0"></td>
@@ -1081,6 +1129,121 @@
     </div>
 </div>
 
+<!-- ==================== GET INVOLVED ==================== -->
+<div id="page-involved" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong style="color:var(--susd-teal);">Get Involved</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--susd-teal);">
+        <h2 style="color:var(--susd-teal-dark);">Get Involved with SPARK</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            SPARK is a community-driven effort. Whether you're a parent, educator, business partner, or student &mdash;
+            there are meaningful ways to contribute to the future of specialty programming in SUSD.
+        </p>
+
+        <div class="involve-grid">
+            <div class="involve-card" onclick="showPage('submit')">
+                <div class="involve-icon">&#x1F4DD;</div>
+                <h4>Submit a Program Idea</h4>
+                <p>Have a concept for a new or expanded program? Share it through our structured intake form &mdash; takes about 15 minutes.</p>
+                <span class="involve-cta">Open the Intake Form &rarr;</span>
+            </div>
+            <div class="involve-card" onclick="showPage('discover')">
+                <div class="involve-icon">&#x1F91D;</div>
+                <h4>Join a Design or Review Team</h4>
+                <p>Volunteer your expertise on a concept study, design team, or program review. SPARK sub-teams do the deep work on specific concepts.</p>
+                <span class="involve-cta">See how teams work &rarr;</span>
+            </div>
+            <div class="involve-card">
+                <div class="involve-icon">&#x1F4CA;</div>
+                <h4>Share Data &amp; Research</h4>
+                <p>Have enrollment trends, survey results, workforce data, or benchmarks from other districts? This evidence strengthens every evaluation.</p>
+                <span class="involve-cta">Contact the SPARK team</span>
+            </div>
+            <div class="involve-card">
+                <div class="involve-icon">&#x1F3EB;</div>
+                <h4>Attend a SPARK Meeting</h4>
+                <p>SPARK committee meetings are open to stakeholders. Come hear updates, share perspectives, and stay connected to the process.</p>
+                <span class="involve-cta">See upcoming meetings</span>
+            </div>
+            <div class="involve-card" onclick="showPage('programs')">
+                <div class="involve-icon">&#x1F50D;</div>
+                <h4>Explore Current Programs</h4>
+                <p>Before proposing something new, see what SUSD already offers. Your idea might enhance an existing program &mdash; or fill a genuine gap.</p>
+                <span class="involve-cta">View the portfolio &rarr;</span>
+            </div>
+            <div class="involve-card">
+                <div class="involve-icon">&#x1F4AC;</div>
+                <h4>Spread the Word</h4>
+                <p>Help your school community know that SPARK exists and that every voice matters. Share the framework with fellow parents and colleagues.</p>
+                <span class="involve-cta">Share this page</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 style="font-size:1.1rem;">What Happens When You Participate</h2>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Every contribution flows through the same transparent process:</p>
+
+        <div class="process-flow">
+            <div class="flow-step" style="background:var(--discover);">Your Input</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--discover);">Captured &amp; Logged</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--evaluate);">Reviewed &amp; Evaluated</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step" style="background:var(--act);">Decision &amp; Response</div>
+        </div>
+
+        <div class="callout callout-teal" style="margin-top:1rem;">
+            <h4 style="color:var(--susd-teal-dark);">Nothing Gets Lost</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                Every idea submitted through SPARK is tracked in the <a href="#" onclick="showPage('pipeline');return false;" style="color:var(--susd-teal);">Idea Pipeline</a>.
+                Whether it advances, needs development, or is deferred &mdash; you'll know the status and the reasoning.
+                Transparency is a core principle.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 style="font-size:1.1rem;">Upcoming Opportunities</h2>
+        <div style="margin-top:0.8rem;">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>SPARK Quarterly Committee Meeting</h4>
+                    <p>Regular committee meeting &mdash; open to all stakeholders. Updates on concept studies, pipeline review, and team direction.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot gold"></div>
+                <div class="timeline-content">
+                    <h4>Concept Study Subgroups Forming</h4>
+                    <p>Gifted/Advanced Studies Hub and Arts Magnet concept studies are in progress &mdash; new voices welcome. Contact the SPARK team to join.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Program Review: MSA &amp; STEM</h4>
+                    <p>The Program Review sub-team is conducting collaborative reviews of MSA and STEM Certified programs. Educators and stakeholders with relevant experience are encouraged to contribute.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="text-align:center; padding:2rem;">
+        <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">Ready to Contribute?</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.2rem; max-width:500px; margin-left:auto; margin-right:auto;">
+            Start by submitting an idea, or reach out to the SPARK team to find the right fit for your interests and expertise.
+        </p>
+        <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="showPage('submit')" style="font-size:0.95rem; padding:0.8rem 2rem;">Submit a Program Idea</button>
+            <button class="btn btn-teal" onclick="showPage('governance')" style="font-size:0.95rem; padding:0.8rem 2rem;">Learn About Governance</button>
+        </div>
+        <div class="disclaimer-inline" style="margin-top:1.2rem;">&#x26A0; Illustrative prototype &mdash; contact and involvement features are not yet active. This page demonstrates the intended engagement model.</div>
+    </div>
+</div>
+
 </div>
 
 <!-- FOOTER -->
@@ -1098,7 +1261,7 @@ function showPage(id) {
         b.classList.remove('active');
         const map = {home:'Framework',discover:'Discover',evaluate:'Evaluate',act:'Act',
             submit:'Submit an Idea',pipeline:'Pipeline',programs:'Programs',
-            governance:'Governance',usecases:'Use Cases'};
+            governance:'Governance',usecases:'Use Cases',involved:'Get Involved'};
         if (b.textContent === map[id]) b.classList.add('active');
     });
     // Close any open persona panels when navigating away
