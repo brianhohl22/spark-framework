@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
     <title>SUSD SPARK — Specialty Program Framework</title>
     <style>
         :root {
@@ -238,8 +240,19 @@
             .main { padding: 1rem; }
             .uc-grid { grid-template-columns: 1fr; }
         }
+        /* ===== DISCLAIMER ===== */
+        .disclaimer-banner {
+            background: #FFF3CD; border-bottom: 2px solid #FFD54F; padding: 0.5rem 2rem;
+            font-size: 0.78rem; color: #664D03; text-align: center; font-weight: 500;
+        }
+        .disclaimer-inline {
+            background: #FFF3CD; border: 1px solid #FFD54F; border-radius: 6px;
+            padding: 0.5rem 0.8rem; font-size: 0.75rem; color: #664D03; margin-bottom: 1rem;
+            text-align: center; font-style: italic;
+        }
         @media print {
             .nav { display: none; }
+            .disclaimer-banner { display: none; }
             .pillar { break-inside: avoid; }
         }
     </style>
@@ -276,6 +289,7 @@
     </div>
 </div>
 <div class="susd-bar">Scottsdale Unified School District &mdash; Engaging All Students in World-Class, Future-Focused Learning</div>
+<div class="disclaimer-banner">&#x26A0; <strong>Illustrative Prototype</strong> &mdash; This is a conceptual mockup created to explore a SPARK framework design. It is not an official SUSD website or endorsed product. All data shown is sample/illustrative.</div>
 
 <!-- NAV -->
 <div class="nav">
@@ -654,6 +668,7 @@
 
     <div class="card">
         <h2>Submit a New Program Idea</h2>
+        <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; this form does not submit data. It demonstrates the proposed intake experience.</div>
         <p style="color:var(--gray-500); margin-bottom:1.5rem;">
             Share your idea for a new or expanded program at SUSD. Anyone can submit &mdash; parents, educators,
             community members, students. Takes about 15 minutes. You don't need all the answers.
@@ -755,6 +770,8 @@
 <div id="page-pipeline" class="page">
     <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Idea Pipeline</strong></div>
 
+    <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; pipeline entries are sample data for demonstration purposes.</div>
+
     <div class="stats-bar">
         <div class="stat-card"><div class="num">8</div><div class="label">Total Ideas</div></div>
         <div class="stat-card"><div class="num">2</div><div class="label">New / Screen</div></div>
@@ -789,9 +806,11 @@
 <div id="page-programs" class="page">
     <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Current Programs</strong></div>
 
+    <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; program placements are approximate and shown for demonstration purposes.</div>
+
     <div class="card">
         <h2>Program Portfolio &mdash; Theme &times; Grade Band</h2>
-        <p style="color:var(--gray-500); margin-bottom:1rem;">Where do current programs and pipeline concepts sit across themes and grade levels?</p>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Where do current programs and pipeline concepts sit across themes and grade levels? Click any active program to visit its SUSD page.</p>
         <div style="overflow-x:auto;">
             <table class="heatmap">
                 <thead>
@@ -800,64 +819,64 @@
                 <tbody>
                     <tr>
                         <td>STEM / STEAM</td>
-                        <td class="heat-active">MSA<br><small>Navajo, Laguna</small></td>
-                        <td class="heat-active">MSA<br><small>Saguaro, Mohave</small></td>
-                        <td class="heat-1"></td>
-                        <td class="heat-1"></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">STEM Certified</a><br><small>Navajo, Laguna</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Mohave MS</small></td>
+                        <td class="heat-active"><a href="https://saguaro.susd.org/academics/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Saguaro HS</small></td>
+                        <td class="heat-0"></td>
                         <td class="heat-explore">AI &amp; Robotics<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
                     </tr>
                     <tr>
                         <td>Arts</td>
-                        <td class="heat-explore">Arts Hub<br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
-                        <td class="heat-explore">Arts Hub<br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Arts Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Arts Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
                     </tr>
                     <tr>
                         <td>Gifted / Advanced</td>
-                        <td class="heat-active">CGP<br><small>Multiple sites</small></td>
-                        <td class="heat-active">CGP<br><small>Multiple sites</small></td>
-                        <td class="heat-1"></td>
-                        <td class="heat-explore">Gifted Hub<br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Kiva, Redfield, Tavan</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Desert Canyon, Ingleside</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Gifted Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
                         <td class="heat-0"></td>
                     </tr>
                     <tr>
                         <td>Language / DLI</td>
-                        <td class="heat-active">DLI<br><small>Pueblo, DCES</small></td>
-                        <td class="heat-active">DLI<br><small>Mohave, DCMS</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Pueblo, Desert Canyon</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Mohave, DCMS</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Saguaro, Desert Mtn</small></td>
                         <td class="heat-0"></td>
-                        <td class="heat-0"></td>
-                        <td class="heat-explore">Mandarin DLI<br><small style="color:var(--spark-gold-dark);">Parked</small></td>
+                        <td class="heat-explore">Mandarin DLI exp.<br><small style="color:var(--spark-gold-dark);">Parked</small></td>
                     </tr>
                     <tr>
                         <td>College / Career</td>
                         <td class="heat-0"></td>
-                        <td class="heat-active">AVID<br><small>Arcadia, Ingleside, etc.</small></td>
-                        <td class="heat-active">Academies<br><small>All HS</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/avid" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">AVID</a><br><small>Multiple sites</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/career-and-college-readiness" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CCR / CTE</a><br><small>All 5 comp. HS</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-explore">Early College HS<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
                     </tr>
                     <tr>
                         <td>Traditional / Structure</td>
-                        <td class="heat-active">Traditional<br><small>Cheyenne</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/traditional-school" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">Traditional</a><br><small>Cheyenne (PK-8)</small></td>
                         <td class="heat-0"></td>
                     </tr>
                     <tr>
                         <td>International (IB)</td>
-                        <td class="heat-active">IB PYP<br><small>Anasazi</small></td>
-                        <td class="heat-active">IB MYP<br><small>Mountainside</small></td>
-                        <td class="heat-active">IB DP<br><small>Desert Mountain</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">IB PYP</a><br><small>Anasazi</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">IB MYP</a><br><small>Mountainside</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">IB MYP+DP</a><br><small>Desert Mountain</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
                     </tr>
                     <tr>
                         <td>Innovation / Entrepreneurship</td>
                         <td class="heat-0"></td>
-                        <td class="heat-explore">Innovation Lab<br><small style="color:var(--spark-gold-dark);">In Review</small></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Innovation Lab</a><br><small style="color:var(--spark-gold-dark);">In Review</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
                         <td class="heat-explore">Sustainability Acad.<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
@@ -866,24 +885,25 @@
             </table>
         </div>
         <div style="display:flex; gap:1.5rem; margin-top:0.8rem; font-size:0.78rem; color:var(--gray-500);">
-            <span><span style="display:inline-block; width:12px; height:12px; background:var(--susd-teal-light); border:1px solid var(--susd-teal); vertical-align:middle; margin-right:4px;"></span> Active program</span>
-            <span><span style="display:inline-block; width:12px; height:12px; background:#FFF3CD; border:1px solid #ffc107; vertical-align:middle; margin-right:4px;"></span> In pipeline / exploring</span>
+            <span><span style="display:inline-block; width:12px; height:12px; background:var(--susd-teal-light); border:1px solid var(--susd-teal); vertical-align:middle; margin-right:4px;"></span> Active program (click to visit SUSD page)</span>
+            <span><span style="display:inline-block; width:12px; height:12px; background:#FFF3CD; border:1px solid #ffc107; vertical-align:middle; margin-right:4px;"></span> In pipeline / exploring (click to view in pipeline)</span>
             <span><span style="display:inline-block; width:12px; height:12px; background:#fff; border:1px solid #ddd; vertical-align:middle; margin-right:4px;"></span> No current coverage</span>
         </div>
-        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.4rem; font-style:italic;">Sample data for demonstration. This view helps identify portfolio gaps and overlap.</p>
+        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.4rem; font-style:italic;">Illustrative layout for demonstration. Program placements are approximate &mdash; verify with district program leads for official details.</p>
     </div>
 
     <div class="card">
         <h2>Current Signature Programs &amp; Specialty Schools</h2>
-        <p style="color:var(--gray-500); margin-bottom:1rem;">Review what exists before submitting a new idea &mdash; your concept might enhance a current program.</p>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Review what exists before submitting a new idea &mdash; your concept might enhance a current program. Click a program name to visit its SUSD page.</p>
         <div class="program-grid">
-            <div class="program-card"><h4>STEAM &amp; MSA</h4><div class="schools">Navajo, Laguna, Saguaro, Mohave</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4>Traditional School Program</h4><div class="schools">Cheyenne</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4>Dual Language Immersion</h4><div class="schools">Pueblo, Mohave, DCES, DCMS</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4>International Baccalaureate (IB)</h4><div class="schools">Anasazi, Mountainside, Desert Mountain</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4>Comprehensive Gifted Programs</h4><div class="schools">Multiple sites</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4>AVID</h4><div class="schools">Arcadia, Ingleside, Tavan, Hohokam</div><div class="tag">Active</div></div>
-            <div class="program-card"><h4>College &amp; Career Academies</h4><div class="schools">All high schools</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Math &amp; Science Academy (MSA)</a></h4><div class="schools">Mohave MS, Saguaro HS</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">STEM Certified Schools</a></h4><div class="schools">Navajo, Laguna, Saguaro</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/traditional-school" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Traditional School Program</a></h4><div class="schools">Cheyenne (PK-8)</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Dual Language Immersion</a></h4><div class="schools">Pueblo, Desert Canyon ES, Mohave, DCMS, Saguaro, Desert Mtn</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">International Baccalaureate (IB)</a></h4><div class="schools">Anasazi, Mountainside, Desert Mountain</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Comprehensive Gifted Program (CGP)</a></h4><div class="schools">Kiva, Redfield, Tavan (elem); Desert Canyon, Ingleside (MS)</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/avid" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">AVID</a></h4><div class="schools">Multiple middle schools</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/career-and-college-readiness" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Career &amp; College Readiness (CCR/CTE)</a></h4><div class="schools">All 5 comprehensive high schools</div><div class="tag">Active</div></div>
         </div>
         <h3>Concepts Under Exploration</h3>
         <div class="program-grid">
@@ -1067,7 +1087,7 @@
 <div class="footer">
     <div class="susd-tagline">Scottsdale Unified School District</div>
     Engaging All Students in World-Class, Future-Focused Learning &nbsp;|&nbsp; susd.org<br>
-    <span class="proto">SPARK Framework Prototype &mdash; March 2026</span>
+    <span class="proto">SPARK Framework &mdash; Illustrative Prototype &mdash; March 2026 &mdash; Not an official SUSD product</span>
 </div>
 
 <script>
