@@ -1231,6 +1231,12 @@
                 <p>Help your school community know that SPARK exists and that every voice matters. Share the framework with fellow parents and colleagues.</p>
                 <span class="involve-cta">Share this page</span>
             </div>
+            <div class="involve-card" onclick="showPage('feedback')" style="border-color:var(--spark-gold); background:linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 100%);">
+                <div class="involve-icon">&#x1F4E8;</div>
+                <h4>Share Your Thoughts</h4>
+                <p>Have feedback on the SPARK framework? An observation, question, or idea? We want to hear it &mdash; every perspective helps shape this work.</p>
+                <span class="involve-cta" style="color:var(--spark-gold);">Give Feedback &rarr;</span>
+            </div>
         </div>
     </div>
 
@@ -1291,10 +1297,54 @@
             Start by submitting an idea, or reach out to the SPARK team to find the right fit for your interests and expertise.
         </p>
         <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
-            <button class="btn btn-gold" onclick="showPage('submit')" style="font-size:0.95rem; padding:0.8rem 2rem;">Submit a Program Idea</button>
+            <button class="btn btn-gold" onclick="showPage('feedback')" style="font-size:0.95rem; padding:0.8rem 2rem;">Share Your Thoughts</button>
+            <button class="btn btn-gold" onclick="showPage('submit')" style="font-size:0.95rem; padding:0.8rem 2rem; background:white; color:var(--spark-gold); border:2px solid var(--spark-gold);">Submit a Program Idea</button>
             <button class="btn btn-teal" onclick="showPage('governance')" style="font-size:0.95rem; padding:0.8rem 2rem;">Learn About Governance</button>
         </div>
-        <div class="disclaimer-inline" style="margin-top:1.2rem;">&#x26A0; Illustrative prototype &mdash; contact and involvement features are not yet active. This page demonstrates the intended engagement model.</div>
+        <div class="disclaimer-inline" style="margin-top:1.2rem;">&#x26A0; Illustrative prototype &mdash; most contact and involvement features are not yet active. The feedback form is live.</div>
+    </div>
+</div>
+
+<!-- ==================== FEEDBACK ==================== -->
+<div id="page-feedback" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <a onclick="showPage('involved')">Get Involved</a> &rsaquo; <strong style="color:var(--spark-gold);">Share Your Thoughts</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--spark-gold);">
+        <h2 style="color:var(--dark);">Share Your Thoughts</h2>
+        <p style="color:var(--gray-500); margin-bottom:0.5rem;">
+            Your perspective matters. Whether it's a quick reaction, a detailed suggestion, or a question &mdash;
+            this is the place to share it. All feedback is collected and reviewed by the SPARK team.
+        </p>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem; font-size:0.82rem;">
+            Responses are confidential to the SPARK team unless you indicate otherwise. Your name and role are optional.
+        </p>
+
+        <!-- Google Form Embed -->
+        <div id="feedback-form-container" style="min-height:600px;">
+            <!--
+                === SETUP: Replace the iframe src below with your Google Form embed URL ===
+                In Google Forms: click Send > Embed icon (<>) > copy the src URL
+                It will look like: https://docs.google.com/forms/d/e/XXXX/viewform?embedded=true
+            -->
+            <iframe
+                id="feedback-iframe"
+                src="PASTE_GOOGLE_FORM_EMBED_URL_HERE"
+                width="100%"
+                height="900"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                style="border:none; border-radius:8px;">
+                Loading feedback form...
+            </iframe>
+        </div>
+    </div>
+
+    <div class="card" style="text-align:center; padding:1.5rem;">
+        <p style="color:var(--gray-500); font-size:0.82rem; margin-bottom:0.8rem;">
+            Thank you for helping shape SPARK. Every piece of feedback is reviewed and considered.
+        </p>
+        <button class="btn btn-teal" onclick="showPage('involved')" style="font-size:0.9rem; padding:0.6rem 1.5rem;">&larr; Back to Get Involved</button>
     </div>
 </div>
 
@@ -1338,7 +1388,7 @@ function showPage(id) {
         b.classList.remove('active');
         const map = {home:'Framework',discover:'Discover',evaluate:'Evaluate',act:'Act',
             submit:'Submit an Idea',pipeline:'Pipeline',programs:'Programs',
-            governance:'Governance',usecases:'Use Cases',involved:'Get Involved'};
+            governance:'Governance',usecases:'Use Cases',involved:'Get Involved',feedback:'Get Involved'};
         if (b.textContent === map[id]) b.classList.add('active');
     });
     // Close any open persona panels when navigating away
