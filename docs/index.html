@@ -1319,13 +1319,8 @@
             Responses are confidential to the SPARK team unless you indicate otherwise. Your name and role are optional.
         </p>
 
-        <!-- Google Form Embed -->
-        <div id="feedback-form-container" style="min-height:600px;">
-            <!--
-                === SETUP: Replace the iframe src below with your Google Form embed URL ===
-                In Google Forms: click Send > Embed icon (<>) > copy the src URL
-                It will look like: https://docs.google.com/forms/d/e/XXXX/viewform?embedded=true
-            -->
+        <!-- Google Form Embed — container clips footer to hide creator email -->
+        <div id="feedback-form-container" style="position:relative; overflow:hidden; height:860px;">
             <iframe
                 id="feedback-iframe"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSfQSjv8rPhfuej4mhw4_G6lDw_1JnPYbHbQ89YdB1CP4UKYEQ/viewform?embedded=true"
@@ -1337,6 +1332,8 @@
                 style="border:none; border-radius:8px;">
                 Loading feedback form...
             </iframe>
+            <!-- White overlay hides Google footer with creator contact info -->
+            <div style="position:absolute; bottom:0; left:0; right:0; height:50px; background:white;"></div>
         </div>
     </div>
 
