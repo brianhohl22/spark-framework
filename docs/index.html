@@ -279,14 +279,65 @@
             padding: 0.5rem 0.8rem; font-size: 0.75rem; color: #664D03; margin-bottom: 1rem;
             text-align: center; font-style: italic;
         }
+        /* ===== PASSWORD GATE ===== */
+        .pw-gate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
+            display: flex; align-items: center; justify-content: center; z-index: 9999;
+        }
+        .pw-gate.hidden { display: none; }
+        .pw-box {
+            background: white; border-radius: 12px; padding: 2.5rem; text-align: center;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.3); max-width: 380px; width: 90%;
+        }
+        .pw-box h2 { color: var(--dark); font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .pw-box p { color: var(--gray-500); font-size: 0.82rem; margin-bottom: 1.2rem; }
+        .pw-box input {
+            width: 100%; padding: 0.7rem; border: 2px solid var(--gray-300); border-radius: 6px;
+            font-size: 0.95rem; text-align: center; font-family: inherit;
+        }
+        .pw-box input:focus { outline: none; border-color: var(--susd-teal); box-shadow: 0 0 0 3px rgba(0,137,123,0.1); }
+        .pw-box button {
+            margin-top: 0.8rem; width: 100%; padding: 0.7rem; background: var(--susd-teal);
+            color: white; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .pw-box button:hover { background: var(--susd-teal-dark); }
+        .pw-error { color: #dc3545; font-size: 0.78rem; margin-top: 0.5rem; display: none; }
+
         @media print {
             .nav { display: none; }
             .disclaimer-banner { display: none; }
             .pillar { break-inside: avoid; }
+            .pw-gate { display: none; }
         }
     </style>
 </head>
 <body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate" class="pw-gate">
+    <div class="pw-box">
+        <div style="margin-bottom:1rem;">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+                <circle cx="50" cy="50" r="32" fill="#F5A623"/>
+                <g fill="#F5A623" opacity="0.9">
+                    <rect x="47" y="2" width="6" height="18" rx="3"/>
+                    <rect x="47" y="80" width="6" height="18" rx="3"/>
+                    <rect x="2" y="47" width="18" height="6" rx="3"/>
+                    <rect x="80" y="47" width="18" height="6" rx="3"/>
+                </g>
+                <text x="50" y="46" text-anchor="middle" font-size="10" font-weight="800" fill="#1A2332" font-family="sans-serif">SPARK</text>
+                <text x="50" y="57" text-anchor="middle" font-size="5.5" font-weight="600" fill="#1A2332" font-family="sans-serif">TEAM</text>
+            </svg>
+        </div>
+        <h2>SPARK Framework Prototype</h2>
+        <p>This is a private preview. Please enter the access code to continue.</p>
+        <input type="password" id="pw-input" placeholder="Access code" onkeydown="if(event.key==='Enter')checkPw()">
+        <button onclick="checkPw()">Enter</button>
+        <div id="pw-error" class="pw-error">Incorrect code. Please try again.</div>
+    </div>
+</div>
 
 <!-- HEADER -->
 <div class="header">
@@ -1257,6 +1308,29 @@
 </div>
 
 <script>
+// Password gate
+const PW_HASH = '99f23d6b45c872f7d3237de6121da6e4225b9da34960d9327b4d2e743100110e';
+async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function checkPw() {
+    const input = document.getElementById('pw-input').value;
+    const hash = await sha256(input);
+    if (hash === PW_HASH) {
+        sessionStorage.setItem('spark_auth', 'ok');
+        document.getElementById('pw-gate').classList.add('hidden');
+    } else {
+        document.getElementById('pw-error').style.display = 'block';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+    }
+}
+// Auto-unlock if already authenticated this session
+if (sessionStorage.getItem('spark_auth') === 'ok') {
+    document.getElementById('pw-gate').classList.add('hidden');
+}
+
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');

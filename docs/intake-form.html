@@ -247,5 +247,14 @@
     Scottsdale Unified School District &bull; susd.org
 </div>
 
+<script>
+// Redirect to main site for authentication if not already authenticated
+if (sessionStorage.getItem('spark_auth') !== 'ok') {
+    document.body.style.display = 'none';
+    if (confirm('This page requires an access code. Go to the main site to enter it?')) {
+        window.location.href = 'index.html';
+    }
+}
+</script>
 </body>
 </html>
