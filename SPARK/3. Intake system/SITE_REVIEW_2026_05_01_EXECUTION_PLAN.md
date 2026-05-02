@@ -110,3 +110,29 @@ Suggested approach with Mitchell (Brian's call):
 ---
 
 *Plan adopted 2026-05-02 based on user review of [SITE_REVIEW_2026_05_01.md](SITE_REVIEW_2026_05_01.md).*
+
+---
+
+## Execution status (2026-05-02 PM)
+
+**v1 patch:** ✅ Done. Echo Canyon → [Candidate Site TBD] (commit `67819d9`).
+
+**v2 setup:** ✅ Done. `docs/v2/index.html` sibling created with v2-Draft banner and "View original version" footer link (commit `5d678ee`). Live at `https://brianhohl22.github.io/spark-framework/v2/` (same password).
+
+**Tier A:** ✅ Done (commit `e152de1`). Items: M3, M4, M5, M6, S5, S9, S10, S11, S13, S15, S16, S17, S18 + N7/N9/N12/N14 fold-ins.
+
+**Tier B:** ✅ Done (commit `ea4f061`). Items: M2, S2 (Program Spotlight tile w/ illustrative MSA mockup), S3 (WIG anchor), S4 (Three Program Structures callout), S6 (Stewardship of New Investments tile), S8 (10-tab nav → 6-tab), S12 (heatmap polish + multi-view future-direction note), S14 (Equity tile), N8.
+
+**Tier C:** Pending user decision. S1 (Outcomes from Program Review uplift-only block) and S7 (Existing Program Enhancement CTA + broader Educators scenario) — both touch existing-program framing where user said they should not unilaterally push. Refined approaches available; awaiting confirmation.
+
+**M1:** Still parked per user direction. Tagline drift remains — the *only* uncorrected canonical drift after v2.
+
+**Pre-brief Mitchell:** Pending. User to draft note before sharing v2 link.
+
+**Cross-Cutting Foundations restructured** from 3 tiles to 6:
+1. Strategic Anchor (WIGs) — new
+2. Quality Indicators — refined
+3. Equity & Access — new
+4. Stewardship of New Investments — new
+5. Idea Registry — kept
+6. Annual Program Spotlight — renamed from "Annual SPARK Report"
