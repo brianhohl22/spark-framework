@@ -45,7 +45,7 @@
 
         /* ===== NAV ===== */
         .nav { background: white; border-bottom: 3px solid var(--spark-gold); padding: 0 2rem;
-            display: flex; gap: 0; overflow-x: auto; position: relative; }
+            display: flex; gap: 0; position: relative; flex-wrap: wrap; }
         .nav button { padding: 0.8rem 1.3rem; border: none; background: none; cursor: pointer;
             font-size: 0.85rem; color: var(--gray-500); border-bottom: 3px solid transparent;
             margin-bottom: -3px; white-space: nowrap; transition: all 0.2s; font-weight: 500; }
@@ -436,14 +436,14 @@
             A sustainable, data-informed, community-driven strategy for specialty schools and signature programs &mdash;
             setting clear standards, evaluating impact, and transparently communicating a future-focused vision.
         </p>
-        <div style="background:var(--susd-teal-light); border-radius:8px; padding:1rem 1.2rem; margin:1.4rem auto 0; max-width:720px; text-align:left;">
-            <h3 style="color:var(--susd-teal-dark); font-size:1rem; margin-bottom:0.4rem; text-align:center;">In plain terms: What is SPARK?</h3>
-            <p style="font-size:0.88rem; color:var(--gray-700); line-height:1.6;">
-                SPARK (<strong>S</strong>ignature <strong>P</strong>rogram <strong>A</strong>dvancement, <strong>R</strong>esearch &amp; <strong>K</strong>nowledge) is a Scottsdale Unified School District team made up of educators, district leaders, families, and community members.
-                Together, we develop and support <strong>specialty schools and signature programs</strong> &mdash; like STEM-certified schools, Dual Language Immersion, International Baccalaureate, the Math &amp; Science Academy, and Traditional schools.
-                Our work: evaluate new program ideas, strengthen what's already working, surface gaps and opportunities, and recommend strategic direction to district leadership.
+        <details style="background:var(--susd-teal-light); border-radius:8px; padding:0.75rem 1.2rem; margin:1rem auto 0; max-width:720px; text-align:left;">
+            <summary style="cursor:pointer; color:var(--susd-teal-dark); font-weight:600; font-size:0.95rem; list-style:none;">
+                In plain terms: What is SPARK? <span style="font-size:0.78rem; color:var(--gray-500); font-weight:400;">(click to expand)</span>
+            </summary>
+            <p style="font-size:0.85rem; color:var(--gray-700); line-height:1.55; margin-top:0.6rem;">
+                SPARK (<strong>S</strong>ignature <strong>P</strong>rogram <strong>A</strong>dvancement, <strong>R</strong>esearch &amp; <strong>K</strong>nowledge) is a Scottsdale Unified School District team made up of educators, district leaders, families, and community members. Together, we develop and support <strong>specialty schools and signature programs</strong> &mdash; like STEM-certified schools, Dual Language Immersion, International Baccalaureate, the Math &amp; Science Academy, and Traditional schools. Our work: evaluate new program ideas, strengthen what's already working, surface gaps and opportunities, and recommend strategic direction to district leadership.
             </p>
-        </div>
+        </details>
     </div>
 
     <!-- THREE PILLARS -->
@@ -1330,7 +1330,7 @@
 
     <!-- FUTURE ITERATIONS (v2-only, removable) -->
     <div class="card" style="border-top: 3px dashed var(--spark-gold); background: linear-gradient(135deg, #FFFDF5 0%, white 100%);">
-        <h2 style="font-size:1.1rem;">Future Iterations Under Consideration <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">v2 Draft Only</span></h2>
+        <h2 style="font-size:1.1rem;">Future Iteration Items Under Consideration <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">v2 Draft Only</span></h2>
         <p style="color:var(--gray-500); font-size:0.85rem; margin-top:0.2rem; margin-bottom:1rem;">
             <em>This is a working list of directions we're considering for future versions of the SPARK framework site. Nothing here is committed &mdash; your feedback shapes priority. Listed here for visibility while v2 is in review; will be removed before any public release.</em>
         </p>
@@ -1349,8 +1349,8 @@
             <div>&middot; Display sans typography for headings</div>
             <div>&middot; Process flow swim-lane redesign</div>
             <div>&middot; Submit form 3-step wizard for shorter-attention drafts</div>
-            <div>&middot; Existing Program Leadership inline CTAs</div>
-            <div>&middot; SVG icon set replacing emoji</div>
+            <div>&middot; Existing Program Leadership inline prompts and links</div>
+            <div>&middot; Vector icon set replacing emoji</div>
         </div>
         <p style="font-size:0.78rem; color:var(--gray-500); margin-top:1rem; font-style:italic;">
             Have a perspective on which of these matters most? Use the <a href="#" onclick="showPage('feedback'); return false;" style="color:var(--spark-gold-dark);">feedback form</a> to weigh in.
