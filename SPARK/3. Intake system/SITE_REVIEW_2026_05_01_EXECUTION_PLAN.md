@@ -136,3 +136,68 @@ Suggested approach with Mitchell (Brian's call):
 4. Stewardship of New Investments — new
 5. Idea Registry — kept
 6. Annual Program Spotlight — renamed from "Annual SPARK Report"
+
+---
+
+## Round 2 (2026-05-03) — UX polish + content depth
+
+User-reviewed v2 and identified 10 additional items. Bundles A–D plan adopted.
+
+### Decisions
+- **"Annual" Program Spotlight → "Program Spotlight"** (drop "Annual"). Decouples the public-facing Spotlight feature from Mitchell's canonical "annual review" cadence — frequency to be decided later. Enrich Spotlight with "Learn more →" links to relevant pages.
+- **Bundle A — interactivity & affordances:**
+  - 1a: Remove decorative three dots from header (no functional value).
+  - 1b: Make "How It Works" pill chain clickable to relevant pages.
+  - 1g: Make Get Involved "What happens when you participate" flow clickable.
+  - 1d: Make Cross-Cutting Foundations cards clickable. Targets: Strategic Anchor → Evaluate, QIs → Evaluate, Equity → Discover, Stewardship → Evaluate, Idea Registry → Pipeline (already), Program Spotlight → Programs.
+  - 1h: Rename breadcrumb root from "Framework" to "Home"; make SPARK logo in header a clickable home link.
+- **Bundle B — nav dropdowns:** Framework dropdown (Overview / Discover / Evaluate / Act) and About dropdown (Governance / Use Cases). Get Involved stays flat (Submit is a primary top-level CTA; dropdown would force duplication).
+- **Bundle C — content:**
+  - 1j: Acronym glossary on About page + first-mention expansions for PYP/MYP/DP/VAPA/CCR/STEAM/STEM/DCMS/DCES.
+  - 1i top-3: Plain-language elevator pitch on home (1 paragraph above pillars). Deep-linkable URL hashes (`#/programs`). SPARK logo as clickable home link (combined with 1h).
+- **Bundle D — Future Iterations callout** on About page only (meta/explanatory content). Framed as invitational — "candidates under consideration, your input shapes priority." Lists Spanish translation, photography, contact channels, multi-view heatmap, FAQ, PDF downloads, public dashboard.
+- **Spanish translation:** DEFER. Add "Versión en español próximamente" indicator within Future Iterations callout.
+- **1e Three Program Structures filters:** DEFER (deeper feature, would require heatmap re-architecture).
+- **1f Spotlight frequency:** DEFER for Mitchell input post-Tuesday meeting.
+
+### Deferred / Future Iterations Registry
+Living list of items NOT being shipped in v2; carried forward for next iteration.
+
+**From original review (2026-05-01):**
+- M1: Tagline restoration (parked per user direction; flagged at end of each round)
+- S1: Outcomes from Program Review uplift block (refinement available; needs Mitchell input)
+- S7: Existing Program Enhancement persona / CTA (refinement available; needs Mitchell input)
+- N1: Display sans typography for headings
+- N2: Process flow swim-lane redesign (RETHINK R3)
+- N3: Cross-Cutting icons (mooted by clickable cards in Bundle A)
+- N11: Annual Report dashboard mockup (partially addressed by S2 Program Spotlight)
+- N13: Richer program portfolio cards
+- N15: Replace dead-end Get Involved CTAs with real links (where possible)
+- N16: SVG icon set (replace emoji)
+- N17: Real success-story spotlights (future-live)
+- RETHINK R4: Multi-view heatmap (Coverage / Density / Reach / Demand / Aspiration) — needs SPARK team to define per-theme objectives first
+- RETHINK R5: Submit form 3-step wizard
+
+**From Round 2 (2026-05-03):**
+- 1e: Three Program Structures as heatmap filters
+- 1f: Program Spotlight frequency (post-Mitchell input)
+- Spanish translation (full quality version)
+- Real photography / faces
+- Direct contact info (email/phone/meeting times)
+- Subscribe / stay-informed signup
+- PDF downloads of framework artifacts
+- Search / find-on-page hint
+- FAQ section / help center
+- Public-facing program-health dashboard (with district approval)
+
+### Round 2 status (2026-05-03 PM)
+
+All five bundles + Annual rename + Future Iterations callout shipped to v2. Single commit per bundle for clean history.
+
+- ✅ "Annual Program Spotlight" → "Program Spotlight" (3 places); MSA Spotlight tile enriched with 3 "Learn more" links.
+- ✅ Bundle A: dots removed; logo + header text now clickable home; breadcrumbs say "Home" not "Framework"; "How It Works" pill chain clickable to Discover/Evaluate/Act/About; Get Involved participation flow clickable; Cross-Cutting Foundations now 6 hover-lift cards linking to relevant pages.
+- ✅ Bundle B: CSS-only hover dropdowns added under Framework (Overview / Discover / Evaluate / Act) and About (Governance / Use Cases). Get Involved stays flat. Mobile fallback: dropdown hidden — sub-pages reachable via pillar cards on home and About-page CTAs.
+- ✅ Bundle C: plain-language "What is SPARK?" elevator pitch on home; deep-linkable URL hashes (`#/programs`, `#/pipeline`, etc.) with hashchange listener and DOMContentLoaded handler; key acronym tooltips on heatmap (PYP/MYP/DP/STEM/STEAM/DCMS); full Acronyms & Glossary section on About page (21 entries).
+- ✅ Bundle D: Future Iterations Under Consideration callout on About page (16 candidates), framed as invitational, marked "v2 Draft Only" / removable before public release.
+
+Final v2 size ~130 KB (was ~120 KB after Tier B). Tag balance verified.

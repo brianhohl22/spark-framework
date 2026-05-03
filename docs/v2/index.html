@@ -45,12 +45,32 @@
 
         /* ===== NAV ===== */
         .nav { background: white; border-bottom: 3px solid var(--spark-gold); padding: 0 2rem;
-            display: flex; gap: 0; overflow-x: auto; }
+            display: flex; gap: 0; overflow-x: auto; position: relative; }
         .nav button { padding: 0.8rem 1.3rem; border: none; background: none; cursor: pointer;
             font-size: 0.85rem; color: var(--gray-500); border-bottom: 3px solid transparent;
             margin-bottom: -3px; white-space: nowrap; transition: all 0.2s; font-weight: 500; }
         .nav button:hover { color: var(--dark); background: var(--gray-100); }
         .nav button.active { color: var(--dark); border-bottom-color: var(--spark-gold); font-weight: 600; }
+        .nav-item-dropdown { position: relative; display: inline-block; }
+        .nav-dropdown {
+            display: none; position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: white; border: 1px solid var(--gray-300); border-top: 3px solid var(--spark-gold);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12); z-index: 100; padding: 0.4rem 0;
+        }
+        .nav-item-dropdown:hover .nav-dropdown,
+        .nav-item-dropdown:focus-within .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block; padding: 0.55rem 1.1rem; color: var(--gray-700); text-decoration: none;
+            font-size: 0.85rem; cursor: pointer; transition: all 0.15s;
+        }
+        .nav-dropdown a:hover { background: var(--spark-gold-light); color: var(--spark-gold-dark); }
+        .nav-dropdown a .nav-dd-desc {
+            display: block; font-size: 0.72rem; color: var(--gray-500); margin-top: 0.1rem; font-weight: 400;
+        }
+        .nav-dd-caret { font-size: 0.65rem; opacity: 0.6; margin-left: 0.2rem; }
+        @media (max-width: 768px) {
+            .nav-dropdown { display: none !important; } /* Mobile: hover unavailable; users access sub-pages via pillar cards / About-page links */
+        }
 
         /* ===== LAYOUT ===== */
         .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
@@ -199,6 +219,17 @@
         .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--susd-teal); }
         .stat-card .label { font-size: 0.75rem; color: var(--gray-500); }
 
+        /* ===== FOUNDATION CARDS ===== */
+        .foundation-card {
+            background: white; border: 1px solid var(--gray-300); border-radius: 8px;
+            padding: 0.9rem 1rem; cursor: pointer; transition: all 0.2s;
+        }
+        .foundation-card:hover {
+            border-color: var(--spark-gold); box-shadow: 0 4px 14px rgba(245, 166, 35, 0.15);
+            transform: translateY(-2px);
+        }
+        .foundation-card:hover h4 { color: var(--spark-gold-dark); }
+
         /* ===== CALLOUT BOXES ===== */
         .callout { padding: 1.2rem; border-radius: 8px; margin: 1rem 0; }
         .callout-gold { background: var(--spark-gold-light); border-left: 4px solid var(--spark-gold); }
@@ -246,7 +277,9 @@
         /* ===== PROCESS FLOW ===== */
         .process-flow { display: flex; align-items: center; justify-content: center; gap: 0; margin: 1.5rem 0; flex-wrap: wrap; }
         .flow-step { text-align: center; padding: 0.6rem 1.2rem; border-radius: 8px; color: white;
-            font-weight: 600; font-size: 0.82rem; min-width: 110px; }
+            font-weight: 600; font-size: 0.82rem; min-width: 110px; transition: all 0.2s; }
+        .flow-clickable { cursor: pointer; }
+        .flow-clickable:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); filter: brightness(1.05); }
         .flow-arrow { font-size: 1.3rem; color: var(--gray-500); padding: 0 0.3rem; }
 
         /* ===== FOOTER ===== */
@@ -343,7 +376,7 @@
 
 <!-- HEADER -->
 <div class="header">
-    <div class="spark-logo">
+    <a href="#/" onclick="showPage('home'); return false;" class="spark-logo" style="cursor:pointer; text-decoration:none;" title="Return to Framework home" aria-label="SPARK Framework home">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SPARK Team logo">
             <title>SPARK Team logo</title>
             <circle cx="50" cy="50" r="32" fill="#F5A623"/>
@@ -360,28 +393,37 @@
             <text x="50" y="46" text-anchor="middle" font-size="10" font-weight="800" fill="#1A2332" font-family="sans-serif">SPARK</text>
             <text x="50" y="57" text-anchor="middle" font-size="5.5" font-weight="600" fill="#1A2332" font-family="sans-serif">TEAM</text>
         </svg>
-    </div>
-    <div class="header-text">
+    </a>
+    <a href="#/" onclick="showPage('home'); return false;" class="header-text" style="cursor:pointer; text-decoration:none; color:inherit;" aria-label="SPARK Framework home">
         <h1>THE <strong>SPARK</strong> TEAM</h1>
         <div class="subtitle">Signature Program Advancement, Research &amp; Knowledge</div>
-    </div>
-    <div style="margin-left:auto; display:flex; gap:6px;">
-        <svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#00897B"/></svg>
-        <svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#F5A623"/></svg>
-        <svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#00897B"/></svg>
-    </div>
+    </a>
 </div>
 <div class="susd-bar">Scottsdale Unified School District &mdash; Engaging All Students in World-Class, Future-Focused Learning</div>
 <div class="disclaimer-banner">&#x26A0; <strong>Illustrative Prototype &mdash; v2 Draft (May 2026)</strong> &mdash; This is a conceptual mockup created to explore a SPARK framework design. It is not an official SUSD website or endorsed product. All data shown is sample/illustrative. <a href="../" style="color:#664D03; text-decoration:underline;">View original version</a>.</div>
 
 <!-- NAV -->
 <div class="nav">
-    <button class="active" onclick="showPage('home')">Framework</button>
+    <div class="nav-item-dropdown">
+        <button class="active" onclick="showPage('home')">Framework <span class="nav-dd-caret">&#x25BE;</span></button>
+        <div class="nav-dropdown" role="menu">
+            <a onclick="showPage('home')" role="menuitem"><strong>Framework Overview</strong><span class="nav-dd-desc">The three-pillar approach</span></a>
+            <a onclick="showPage('discover')" role="menuitem"><strong>Discover</strong><span class="nav-dd-desc">Where ideas come from</span></a>
+            <a onclick="showPage('evaluate')" role="menuitem"><strong>Evaluate</strong><span class="nav-dd-desc">How SPARK assesses</span></a>
+            <a onclick="showPage('act')" role="menuitem"><strong>Act</strong><span class="nav-dd-desc">How decisions get delivered</span></a>
+        </div>
+    </div>
     <button onclick="showPage('programs')">Programs</button>
     <button onclick="showPage('pipeline')">Pipeline</button>
     <button onclick="showPage('submit')">Submit an Idea</button>
     <button onclick="showPage('involved')" style="color:var(--susd-teal); font-weight:600;">Get Involved</button>
-    <button onclick="showPage('governance')">About</button>
+    <div class="nav-item-dropdown">
+        <button onclick="showPage('governance')">About <span class="nav-dd-caret">&#x25BE;</span></button>
+        <div class="nav-dropdown" role="menu">
+            <a onclick="showPage('governance')" role="menuitem"><strong>Governance &amp; Intake Channels</strong><span class="nav-dd-desc">Pathways and roles</span></a>
+            <a onclick="showPage('usecases')" role="menuitem"><strong>Real-World Use Cases</strong><span class="nav-dd-desc">Scenarios in practice</span></a>
+        </div>
+    </div>
 </div>
 
 <div class="main">
@@ -394,6 +436,14 @@
             A sustainable, data-informed, community-driven strategy for specialty schools and signature programs &mdash;
             setting clear standards, evaluating impact, and transparently communicating a future-focused vision.
         </p>
+        <div style="background:var(--susd-teal-light); border-radius:8px; padding:1rem 1.2rem; margin:1.4rem auto 0; max-width:720px; text-align:left;">
+            <h3 style="color:var(--susd-teal-dark); font-size:1rem; margin-bottom:0.4rem; text-align:center;">In plain terms: What is SPARK?</h3>
+            <p style="font-size:0.88rem; color:var(--gray-700); line-height:1.6;">
+                SPARK (<strong>S</strong>ignature <strong>P</strong>rogram <strong>A</strong>dvancement, <strong>R</strong>esearch &amp; <strong>K</strong>nowledge) is a Scottsdale Unified School District team made up of educators, district leaders, families, and community members.
+                Together, we develop and support <strong>specialty schools and signature programs</strong> &mdash; like STEM-certified schools, Dual Language Immersion, International Baccalaureate, the Math &amp; Science Academy, and Traditional schools.
+                Our work: evaluate new program ideas, strengthen what's already working, surface gaps and opportunities, and recommend strategic direction to district leadership.
+            </p>
+        </div>
     </div>
 
     <!-- THREE PILLARS -->
@@ -451,19 +501,19 @@
     <div class="card" style="text-align:center; padding:1.2rem 1.5rem;">
         <p style="font-size:0.82rem; color:var(--gray-500); margin-bottom:0.6rem; text-transform:uppercase; letter-spacing:1px; font-weight:600;">How It Works</p>
         <div class="process-flow">
-            <div class="flow-step" style="background:var(--discover);">Idea Enters</div>
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('discover')" title="Click to learn more about Discover">Idea Enters</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--discover);">Intake &amp; Screen</div>
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('discover')" title="Click to learn more about Discover">Intake &amp; Screen</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--evaluate);">QI Review</div>
+            <div class="flow-step flow-clickable" style="background:var(--evaluate);" onclick="showPage('evaluate')" title="Click to learn more about Evaluate">QI Review</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--evaluate);">Deep Review</div>
+            <div class="flow-step flow-clickable" style="background:var(--evaluate);" onclick="showPage('evaluate')" title="Click to learn more about Evaluate">Deep Review</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--act);">Decision</div>
+            <div class="flow-step flow-clickable" style="background:var(--act);" onclick="showPage('act')" title="Click to learn more about Act">Decision</div>
             <span class="flow-arrow" style="opacity:0.5;">&rarr;</span>
-            <div class="flow-step" style="background:transparent; color:var(--act); border:2px dashed var(--act); padding:0.5rem 1.1rem;">Board Action<br><span style="font-size:0.68rem; font-weight:400; opacity:0.85;">(when required)</span></div>
+            <div class="flow-step flow-clickable" style="background:transparent; color:var(--act); border:2px dashed var(--act); padding:0.5rem 1.1rem;" onclick="showPage('governance')" title="Click to learn about Governance">Board Action<br><span style="font-size:0.68rem; font-weight:400; opacity:0.85;">(when required)</span></div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--act);">Implement</div>
+            <div class="flow-step flow-clickable" style="background:var(--act);" onclick="showPage('act')" title="Click to learn more about Act">Implement</div>
         </div>
         <p style="font-size:0.75rem; color:var(--gray-500); margin-top:0.6rem; font-style:italic;">Some decisions (e.g., new specialty schools, structural program changes) require Governing Board approval. Routine enhancements proceed directly to implementation.</p>
     </div>
@@ -471,30 +521,31 @@
     <!-- CROSS-CUTTING -->
     <div class="card" style="border-top: 3px solid var(--spark-gold);">
         <h2 style="font-size:1.1rem;">Cross-Cutting Foundations</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem; margin-top:0.8rem;">
-            <div>
-                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Strategic Anchor</h4>
+        <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.2rem;">Click any foundation to explore the related part of the framework.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-top:0.8rem;">
+            <div class="foundation-card" onclick="showPage('evaluate')" title="Learn how programs are evaluated against SUSD's WIGs">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Strategic Anchor &rarr;</h4>
                 <p style="font-size:0.82rem; color:var(--gray-500);">Every program is reviewed for how it advances SUSD's <strong>Wildly Important Goals</strong> &mdash; Excellence in Math (75% of 8th graders completing Algebra 1) and Full and Thriving Schools.</p>
             </div>
-            <div>
-                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Quality Indicators</h4>
+            <div class="foundation-card" onclick="showPage('evaluate')" title="See the 10 Quality Indicators and 6 evaluation categories">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Quality Indicators &rarr;</h4>
                 <p style="font-size:0.82rem; color:var(--gray-500);">SUSD's 10 Quality Indicators set consistent standards &mdash; alignment, evidence, equity, cost, training, impact, feasibility, data, partnerships, sustainability.</p>
             </div>
-            <div>
-                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Equity &amp; Access</h4>
+            <div class="foundation-card" onclick="showPage('discover')" title="See where ideas come from across the community">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Equity &amp; Access &rarr;</h4>
                 <p style="font-size:0.82rem; color:var(--gray-500);">Every program decision is reviewed for who's served and who isn't &mdash; including transportation, demographics, and underserved communities.</p>
             </div>
-            <div>
-                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Stewardship of New Investments</h4>
+            <div class="foundation-card" onclick="showPage('evaluate')" title="See how new investments are stewarded">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Stewardship of New Investments &rarr;</h4>
                 <p style="font-size:0.82rem; color:var(--gray-500);">When evaluating <em>new</em> program ideas, SPARK considers cost, sustainability, and long-term impact alongside educational value. Existing programs are treated as community assets &mdash; reviewed for enhancement, not retrenchment.</p>
             </div>
-            <div>
-                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Idea Registry</h4>
-                <p style="font-size:0.82rem; color:var(--gray-500);">Every idea tracked from capture through decision. Nothing lost between meetings. <a href="#" onclick="showPage('pipeline');return false;" style="color:var(--susd-teal);">View Pipeline &rarr;</a></p>
+            <div class="foundation-card" onclick="showPage('pipeline')" title="View the live idea pipeline">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Idea Registry &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Every idea tracked from capture through decision. Nothing lost between meetings.</p>
             </div>
-            <div>
-                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Annual Program Spotlight</h4>
-                <p style="font-size:0.82rem; color:var(--gray-500);">Yearly summary celebrating each program's distinctives, strengths, and growth opportunities &mdash; shared with district leadership and the community.</p>
+            <div class="foundation-card" onclick="showPage('programs')" title="View programs and the Spotlight">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Program Spotlight &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Periodic feature celebrating each program's distinctives, strengths, and growth opportunities &mdash; shared with district leadership and the community.</p>
             </div>
         </div>
     </div>
@@ -511,7 +562,7 @@
 
 <!-- ==================== DISCOVER ==================== -->
 <div id="page-discover" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong style="color:var(--discover);">Discover</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--discover);">Discover</strong></div>
 
     <div class="card" style="border-top: 4px solid var(--discover);">
         <h2 style="color:var(--spark-gold-dark);">Discover &mdash; Where Ideas Come From</h2>
@@ -667,7 +718,7 @@
 
 <!-- ==================== EVALUATE ==================== -->
 <div id="page-evaluate" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong style="color:var(--evaluate);">Evaluate</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--evaluate);">Evaluate</strong></div>
 
     <div class="card" style="border-top: 4px solid var(--evaluate);">
         <h2 style="color:var(--susd-teal-dark);">Evaluate &mdash; How SPARK Assesses</h2>
@@ -735,7 +786,7 @@
 
 <!-- ==================== ACT ==================== -->
 <div id="page-act" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong style="color:var(--act);">Act</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--act);">Act</strong></div>
 
     <div class="card" style="border-top: 4px solid var(--act);">
         <h2 style="color:#1565C0;">Act &mdash; How SPARK Decides &amp; Delivers</h2>
@@ -790,7 +841,7 @@
 
 <!-- ==================== SUBMIT ==================== -->
 <div id="page-submit" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <a onclick="showPage('discover')">Discover</a> &rsaquo; <strong>Submit an Idea</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <a onclick="showPage('discover')">Discover</a> &rsaquo; <strong>Submit an Idea</strong></div>
 
     <div class="card">
         <h2>Submit a New Program Idea</h2>
@@ -903,7 +954,7 @@
 
 <!-- ==================== PIPELINE ==================== -->
 <div id="page-pipeline" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Idea Pipeline</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Idea Pipeline</strong></div>
 
     <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; pipeline entries are sample data for demonstration purposes.</div>
 
@@ -939,7 +990,7 @@
 
 <!-- ==================== PROGRAMS ==================== -->
 <div id="page-programs" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Current Programs</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Current Programs</strong></div>
 
     <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; program placements are approximate and shown for demonstration purposes.</div>
 
@@ -975,7 +1026,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>STEM / STEAM</td>
+                        <td title="STEM = Science, Technology, Engineering, Mathematics. STEAM adds Arts.">STEM / STEAM</td>
                         <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">STEM Certified</a><br><small>Navajo, Laguna, Saguaro</small></td>
                         <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Mohave MS</small></td>
                         <td class="heat-active"><a href="https://saguaro.susd.org/academics/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Saguaro HS</small></td>
@@ -1001,7 +1052,7 @@
                     <tr>
                         <td>Language / DLI</td>
                         <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Pueblo, Desert Canyon</small></td>
-                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Mohave, DCMS</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Dual Language Immersion">DLI</a><br><small title="Desert Canyon Middle School">Mohave, DCMS</small></td>
                         <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Saguaro, Desert Mtn</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-explore">Mandarin DLI exp.<br><small style="color:var(--spark-gold-dark);">Parked</small></td>
@@ -1024,9 +1075,9 @@
                     </tr>
                     <tr>
                         <td>International (IB)</td>
-                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">IB PYP</a><br><small>Anasazi</small></td>
-                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">IB MYP</a><br><small>Mountainside</small></td>
-                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">IB MYP+DP</a><br><small>Desert Mountain</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Primary Years Programme">IB PYP</a><br><small>Anasazi</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Middle Years Programme">IB MYP</a><br><small>Mountainside</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Middle Years Programme + Diploma Programme">IB MYP+DP</a><br><small>Desert Mountain</small></td>
                         <td class="heat-0"></td>
                         <td class="heat-0"></td>
                     </tr>
@@ -1053,13 +1104,13 @@
     </div>
 
     <div class="card" style="border-top: 3px solid var(--spark-gold); background:linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 30%, white 100%);">
-        <h2 style="font-size:1.15rem;">&#x2728; Annual Program Spotlight <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">Illustrative Preview</span></h2>
-        <p style="color:var(--gray-500); font-size:0.85rem; margin-bottom:1rem;">Each year, SPARK celebrates each specialty program through a Spotlight &mdash; surfacing distinctives, sharing what's working, and identifying enhancement opportunities. The example below shows what a spotlight would look like (illustrative data).</p>
+        <h2 style="font-size:1.15rem;">&#x2728; Program Spotlight <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">Illustrative Preview</span></h2>
+        <p style="color:var(--gray-500); font-size:0.85rem; margin-bottom:1rem;">Periodically, SPARK celebrates each specialty program through a Spotlight &mdash; surfacing distinctives, sharing what's working, and identifying enhancement opportunities. The example below shows what a spotlight would look like (illustrative data). Cadence is to be confirmed with the SPARK team.</p>
 
         <div style="background:white; border-radius:10px; padding:1.2rem; box-shadow:0 1px 6px rgba(0,0,0,0.06);">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.6rem; margin-bottom:0.8rem;">
                 <div>
-                    <h3 style="color:var(--dark); font-size:1.05rem; margin:0;">Math &amp; Science Academy (MSA)</h3>
+                    <h3 style="color:var(--dark); font-size:1.05rem; margin:0;"><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Math &amp; Science Academy (MSA)</a></h3>
                     <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.1rem;">Mohave MS &middot; Saguaro HS &middot; Signature Program within a School</p>
                 </div>
                 <span style="background:var(--susd-teal-light); color:var(--susd-teal-dark); font-size:0.72rem; font-weight:600; padding:0.25rem 0.6rem; border-radius:10px; align-self:flex-start;">Spotlight FY25-26</span>
@@ -1105,11 +1156,19 @@
             </div>
 
             <div style="margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--gray-300);">
-                <p style="font-size:0.78rem; color:var(--gray-700);"><strong>What program leads tell us they need:</strong> <em>[Illustrative]</em> "More structured collaboration time across MSA sites; clearer pathway communications for incoming families; sustained PD investment for specialized math instruction."</p>
+                <p style="font-size:0.78rem; color:var(--gray-700);"><strong>What program leads tell us they need:</strong> <em>[Illustrative]</em> "More structured collaboration time across MSA sites; clearer pathway communications for incoming families; sustained Professional Development investment for specialized math instruction."</p>
+            </div>
+
+            <div style="margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--gray-300); display:flex; gap:0.6rem; flex-wrap:wrap;">
+                <a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="font-size:0.78rem; color:var(--susd-teal-dark); text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Visit MSA on susd.org &rarr;</a>
+                <span style="color:var(--gray-300);">|</span>
+                <a href="#" onclick="showPage('pipeline'); return false;" style="font-size:0.78rem; color:var(--susd-teal-dark); text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Related ideas in pipeline &rarr;</a>
+                <span style="color:var(--gray-300);">|</span>
+                <a href="#" onclick="showPage('evaluate'); return false;" style="font-size:0.78rem; color:var(--susd-teal-dark); text-decoration:none; border-bottom:1px dotted var(--susd-teal);">How programs are reviewed &rarr;</a>
             </div>
         </div>
 
-        <p style="font-size:0.74rem; color:var(--gray-500); margin-top:0.8rem; font-style:italic;">All numbers and quotes above are illustrative placeholders. Real Spotlights are co-developed with program leads through Program Review.</p>
+        <p style="font-size:0.74rem; color:var(--gray-500); margin-top:0.8rem; font-style:italic;">All numbers and quotes above are illustrative placeholders. Real Spotlights are co-developed with program leads through Program Review. Cadence and content evolve with the SPARK team.</p>
     </div>
 
     <div class="card">
@@ -1140,7 +1199,7 @@
 
 <!-- ==================== GOVERNANCE ==================== -->
 <div id="page-governance" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>About: Governance &amp; Intake Channels</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>About: Governance &amp; Intake Channels</strong></div>
 
     <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1rem;">
         <button class="btn btn-outline" onclick="showPage('usecases')" style="font-size:0.82rem; padding:0.4rem 0.9rem;">Real-World Use Cases &rarr;</button>
@@ -1239,11 +1298,69 @@
             <button class="btn btn-teal" onclick="showPage('involved')">Get Involved &rarr;</button>
         </div>
     </div>
+
+    <!-- GLOSSARY -->
+    <div class="card" style="border-top: 3px solid var(--susd-teal);">
+        <h2 style="font-size:1.1rem;">Acronyms &amp; Glossary</h2>
+        <p style="color:var(--gray-500); font-size:0.85rem; margin-bottom:1rem;">A quick reference for the abbreviations used across the SPARK framework and SUSD specialty programs.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:0.8rem 2rem; font-size:0.85rem; color:var(--gray-700);">
+            <div><strong>SPARK</strong> &mdash; Signature Program Advancement, Research &amp; Knowledge</div>
+            <div><strong>SUSD</strong> &mdash; Scottsdale Unified School District</div>
+            <div><strong>QI</strong> &mdash; Quality Indicator (10 canonical, organized into 6 evaluation categories)</div>
+            <div><strong>WIG</strong> &mdash; Wildly Important Goal (SUSD strategic priority)</div>
+            <div><strong>MSA</strong> &mdash; Math &amp; Science Academy</div>
+            <div><strong>STEAM</strong> &mdash; Science, Technology, Engineering, Arts, Mathematics</div>
+            <div><strong>STEM</strong> &mdash; Science, Technology, Engineering, Mathematics</div>
+            <div><strong>IB</strong> &mdash; International Baccalaureate</div>
+            <div><strong>PYP</strong> &mdash; Primary Years Programme (IB)</div>
+            <div><strong>MYP</strong> &mdash; Middle Years Programme (IB)</div>
+            <div><strong>DP</strong> &mdash; Diploma Programme (IB)</div>
+            <div><strong>DLI</strong> &mdash; Dual Language Immersion</div>
+            <div><strong>CGP</strong> &mdash; Comprehensive Gifted Program</div>
+            <div><strong>AVID</strong> &mdash; Advancement Via Individual Determination</div>
+            <div><strong>CTE</strong> &mdash; Career &amp; Technical Education</div>
+            <div><strong>CCR</strong> &mdash; College &amp; Career Readiness</div>
+            <div><strong>VAPA</strong> &mdash; Visual and Performing Arts</div>
+            <div><strong>AP</strong> &mdash; Advanced Placement</div>
+            <div><strong>PD</strong> &mdash; Professional Development</div>
+            <div><strong>DCMS / DCES</strong> &mdash; Desert Canyon Middle / Elementary School</div>
+            <div><strong>PK / ES / MS / HS</strong> &mdash; Pre-Kindergarten / Elementary / Middle / High School</div>
+        </div>
+    </div>
+
+    <!-- FUTURE ITERATIONS (v2-only, removable) -->
+    <div class="card" style="border-top: 3px dashed var(--spark-gold); background: linear-gradient(135deg, #FFFDF5 0%, white 100%);">
+        <h2 style="font-size:1.1rem;">Future Iterations Under Consideration <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">v2 Draft Only</span></h2>
+        <p style="color:var(--gray-500); font-size:0.85rem; margin-top:0.2rem; margin-bottom:1rem;">
+            <em>This is a working list of directions we're considering for future versions of the SPARK framework site. Nothing here is committed &mdash; your feedback shapes priority. Listed here for visibility while v2 is in review; will be removed before any public release.</em>
+        </p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.4rem 1.5rem; font-size:0.85rem; color:var(--gray-700);">
+            <div>&middot; Spanish translation (versi&oacute;n en espa&ntilde;ol)</div>
+            <div>&middot; Real program photography &amp; student/family voices</div>
+            <div>&middot; Direct contact channels (email, meeting RSVPs)</div>
+            <div>&middot; Subscribe / stay-informed signup</div>
+            <div>&middot; Multi-view heatmap (Density / Reach / Demand / Aspiration lenses)</div>
+            <div>&middot; Three Program Structures as heatmap filters</div>
+            <div>&middot; Program Spotlight cadence &amp; richer content (with Mitchell input)</div>
+            <div>&middot; Outcomes from Program Review (uplift-only verdicts)</div>
+            <div>&middot; FAQ / help center</div>
+            <div>&middot; Downloadable PDFs (intake form, framework summary)</div>
+            <div>&middot; Public-facing program-health surface (with district approval)</div>
+            <div>&middot; Display sans typography for headings</div>
+            <div>&middot; Process flow swim-lane redesign</div>
+            <div>&middot; Submit form 3-step wizard for shorter-attention drafts</div>
+            <div>&middot; Existing Program Leadership inline CTAs</div>
+            <div>&middot; SVG icon set replacing emoji</div>
+        </div>
+        <p style="font-size:0.78rem; color:var(--gray-500); margin-top:1rem; font-style:italic;">
+            Have a perspective on which of these matters most? Use the <a href="#" onclick="showPage('feedback'); return false;" style="color:var(--spark-gold-dark);">feedback form</a> to weigh in.
+        </p>
+    </div>
 </div>
 
 <!-- ==================== USE CASES ==================== -->
 <div id="page-usecases" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong>Real-World Use Cases</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Real-World Use Cases</strong></div>
 
     <div class="card" style="border-top: 4px solid var(--spark-gold);">
         <h2 style="color:var(--spark-gold-dark);">How the Intake System Works in Practice</h2>
@@ -1324,7 +1441,7 @@
 
 <!-- ==================== GET INVOLVED ==================== -->
 <div id="page-involved" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <strong style="color:var(--susd-teal);">Get Involved</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--susd-teal);">Get Involved</strong></div>
 
     <div class="card" style="border-top: 4px solid var(--susd-teal);">
         <h2 style="color:var(--susd-teal-dark);">Get Involved with SPARK</h2>
@@ -1384,13 +1501,13 @@
         <p style="color:var(--gray-500); margin-bottom:1rem;">Every contribution flows through the same transparent process:</p>
 
         <div class="process-flow">
-            <div class="flow-step" style="background:var(--discover);">Your Input</div>
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('submit')" title="Submit an idea or share thoughts">Your Input</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--discover);">Captured &amp; Logged</div>
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('pipeline')" title="See the live pipeline">Captured &amp; Logged</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--evaluate);">Reviewed &amp; Evaluated</div>
+            <div class="flow-step flow-clickable" style="background:var(--evaluate);" onclick="showPage('evaluate')" title="Learn how SPARK evaluates">Reviewed &amp; Evaluated</div>
             <span class="flow-arrow">&rarr;</span>
-            <div class="flow-step" style="background:var(--act);">Decision &amp; Response</div>
+            <div class="flow-step flow-clickable" style="background:var(--act);" onclick="showPage('act')" title="Learn how SPARK acts on decisions">Decision &amp; Response</div>
         </div>
 
         <div class="callout callout-teal" style="margin-top:1rem;">
@@ -1448,7 +1565,7 @@
             <div style="background:var(--spark-gold-light); border-radius:8px; padding:1rem; border-left:4px solid var(--spark-gold);">
                 <h4 style="color:var(--spark-gold-dark); font-size:0.92rem; margin-bottom:0.4rem;">&#x23F3; In Development</h4>
                 <ul style="font-size:0.84rem; color:var(--gray-700); line-height:1.6; margin-left:1rem; list-style:disc;">
-                    <li>Annual Program Spotlight &amp; insights</li>
+                    <li>Program Spotlight &amp; insights</li>
                     <li>Idea registry &amp; pipeline tracking</li>
                     <li>Quarterly landscape scan</li>
                     <li>Design Team workflow for new concepts</li>
@@ -1476,7 +1593,7 @@
 
 <!-- ==================== FEEDBACK ==================== -->
 <div id="page-feedback" class="page">
-    <div class="breadcrumb"><a onclick="showPage('home')">Framework</a> &rsaquo; <a onclick="showPage('involved')">Get Involved</a> &rsaquo; <strong style="color:var(--spark-gold);">Share Your Thoughts</strong></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <a onclick="showPage('involved')">Get Involved</a> &rsaquo; <strong style="color:var(--spark-gold);">Share Your Thoughts</strong></div>
 
     <div class="card" style="border-top: 4px solid var(--spark-gold);">
         <h2 style="color:var(--dark);">Share Your Thoughts</h2>
@@ -1550,20 +1667,37 @@ if (sessionStorage.getItem('spark_auth') === 'ok') {
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
-    document.querySelectorAll('.nav button').forEach(b => {
+    document.querySelectorAll('.nav > button, .nav-item-dropdown > button').forEach(b => {
         b.classList.remove('active');
         // Discover/Evaluate/Act anchor under Framework; Governance/Use Cases anchor under About.
         const map = {home:'Framework',discover:'Framework',evaluate:'Framework',act:'Framework',
             submit:'Submit an Idea',pipeline:'Pipeline',programs:'Programs',
             governance:'About',usecases:'About',involved:'Get Involved',feedback:'Get Involved'};
-        if (b.textContent === map[id]) b.classList.add('active');
+        // Strip trailing dropdown caret + whitespace, then exact match.
+        const label = (b.textContent || '').replace(/[▾▼⌄\s]+$/g, '').trim();
+        if (label === map[id]) b.classList.add('active');
     });
     // Close any open persona panels when navigating away
     if (id !== 'discover') {
         document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
     }
+    // Deep-linkable URL hashes: keep URL in sync with current page so users can share specific pages.
+    const targetHash = '#/' + id;
+    if (window.location.hash !== targetHash) {
+        history.replaceState(null, '', targetHash);
+    }
     window.scrollTo(0,0);
 }
+
+// On load and on hashchange, navigate to the hash's page if it maps to a known page.
+function navigateFromHash() {
+    const m = (window.location.hash || '').match(/^#\/([a-z]+)$/);
+    if (m && document.getElementById('page-' + m[1])) {
+        showPage(m[1]);
+    }
+}
+window.addEventListener('hashchange', navigateFromHash);
+window.addEventListener('DOMContentLoaded', navigateFromHash);
 
 function showPersona(id) {
     document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
