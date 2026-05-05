@@ -201,3 +201,24 @@ All five bundles + Annual rename + Future Iterations callout shipped to v2. Sing
 - ✅ Bundle D: Future Iterations Under Consideration callout on About page (16 candidates), framed as invitational, marked "v2 Draft Only" / removable before public release.
 
 Final v2 size ~130 KB (was ~120 KB after Tier B). Tag balance verified.
+
+### Round 3 status (2026-05-03 PM, post-Mitchell-email)
+
+**Trigger:** Mitchell email forwarded a real intake submission from SUSD Governing Board member Mike Sharkey (Echo Canyon Experimental Program of Choice — full content in email of 2026-05-03). Mitchell asked whether to use it as a first "trial" of the intake → triage → review flow at the May 5 meeting.
+
+**Decisions (locked with user):**
+- **Stage A — done now:** anonymized hard-coded entry as SPARK-007 in the v2 pipeline + click-to-view detail modal + mock confirmation email + status history. Conservative attribution: "Anonymous (consent pending)" + email withheld + "trial submission — illustrative data" qualifier. If Mitchell confirms Mr. Sharkey is comfortable, full attribution is a 2-line follow-up edit.
+- **Stage B — deferred, post-May 5:** if the meeting goes well, build a real submission backend that auto-populates the pipeline. SUSD uses Microsoft tools (not Google), so the backend is likely Microsoft Forms → SharePoint List → JSON read on the site, **not** Google Forms / Google Sheets. To be confirmed with district IT direction.
+
+**Round 3 implementation (commit `1f2b7bc`):**
+- New first-row pipeline entry SPARK-007 with TRIAL badge (gold-tint background row, fully clickable).
+- New submission-detail modal: full intake-form contents organized by QI section, status & journey timeline (Submitted Apr 28 / Screened May 1 / Triage May 5 with pending dot), and a "What the Submitter Received" mockup confirmation email in an email-style frame showing registry ID, what-happens-next bullets, and a "View Pipeline" CTA.
+- Modal closes via X / Close button / overlay click / Escape key. Body scroll lock while open. aria-modal + focus management.
+- Stats cards updated: 9 Total Ideas, 4 New/Screen.
+- Pipeline disclaimer banner updated to acknowledge the anonymized trial submission and explain TRIAL row affordance.
+
+**Echo Canyon framing note:** the M7 v1 patch left the two illustrative "Arts Magnet" pipeline rows as [Candidate Site TBD] because that data was our creative choice. SPARK-007 references Echo Canyon by name because that IS the substance of the documented submission; anonymized + illustrative + consent-pending framing covers optics. Pre-existing M7 genericization still appropriate for the Arts Magnet rows.
+
+**Remaining Round 3 actions:**
+- Brian to send Mitchell email confirming: (a) implementation done with conservative attribution, (b) attribution flips to full when she confirms Mr. Sharkey's consent.
+- Brian to mention Microsoft (not Google) tooling for any future Stage-B backend conversation.
