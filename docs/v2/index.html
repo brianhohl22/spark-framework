@@ -290,6 +290,67 @@
         .footer .susd-tagline { color: var(--susd-teal); font-weight: 600; letter-spacing: 0.5px; }
         .footer .proto { opacity: 0.4; font-size: 0.7rem; }
 
+        /* ===== TRIAL ROW + MODAL ===== */
+        .trial-row { background: linear-gradient(90deg, #FFF8E7 0%, white 30%); }
+        .trial-row:hover { background: linear-gradient(90deg, #FFEFC4 0%, var(--gray-100) 30%) !important; }
+        .trial-badge {
+            display: inline-block; background: var(--spark-gold); color: white;
+            font-size: 0.62rem; font-weight: 700; padding: 0.1rem 0.4rem;
+            border-radius: 3px; letter-spacing: 0.5px; margin-left: 0.3rem; vertical-align: middle;
+        }
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(26, 35, 50, 0.65); z-index: 9000;
+            display: none; align-items: flex-start; justify-content: center;
+            overflow-y: auto; padding: 2rem 1rem;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-content {
+            background: white; border-radius: 12px; max-width: 860px; width: 100%;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+            position: relative; padding: 2rem 2.2rem 1.6rem;
+            margin: 0 auto;
+        }
+        .modal-close {
+            position: absolute; top: 1rem; right: 1rem;
+            background: var(--gray-100); border: none; border-radius: 50%;
+            width: 36px; height: 36px; font-size: 1.4rem; line-height: 1;
+            cursor: pointer; color: var(--gray-700); transition: all 0.15s;
+        }
+        .modal-close:hover { background: var(--gray-300); color: var(--dark); }
+        .modal-section { margin-top: 1.2rem; }
+        .modal-section h3 { color: var(--susd-teal-dark); font-size: 1rem; margin-bottom: 0.4rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--gray-300); }
+        .modal-field { margin: 0.4rem 0; font-size: 0.88rem; color: var(--gray-700); line-height: 1.5; }
+        .modal-field strong { color: var(--dark); display: inline-block; min-width: 170px; }
+        .status-history { background: var(--gray-100); border-radius: 8px; padding: 0.9rem 1.1rem; }
+        .status-step { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.4rem 0; }
+        .status-dot {
+            flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%;
+            background: var(--susd-teal); margin-top: 0.2rem;
+            box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.18);
+        }
+        .status-dot.pending { background: var(--spark-gold); box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18); }
+        .status-step-content { flex: 1; }
+        .status-step-content .status-date { font-size: 0.75rem; color: var(--gray-500); }
+        .status-step-content .status-title { font-weight: 600; color: var(--dark); font-size: 0.88rem; }
+        .status-step-content .status-detail { font-size: 0.82rem; color: var(--gray-700); margin-top: 0.15rem; }
+        .email-mock {
+            background: white; border: 1px solid var(--gray-300); border-radius: 8px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; overflow: hidden;
+        }
+        .email-mock-header {
+            background: var(--gray-100); padding: 0.7rem 1rem; border-bottom: 1px solid var(--gray-300);
+            font-size: 0.82rem; color: var(--gray-700);
+        }
+        .email-mock-header .email-from { font-weight: 600; color: var(--dark); }
+        .email-mock-body { padding: 1rem 1.2rem; font-size: 0.86rem; color: var(--gray-700); line-height: 1.55; }
+        .email-mock-body p { margin: 0.5rem 0; }
+        .email-mock-cta {
+            display: inline-block; background: var(--susd-teal); color: white;
+            padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.82rem; margin: 0.5rem 0;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .framework-row { flex-direction: column; }
@@ -956,11 +1017,11 @@
 <div id="page-pipeline" class="page">
     <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Idea Pipeline</strong></div>
 
-    <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; pipeline entries are sample data for demonstration purposes.</div>
+    <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; pipeline entries are sample data for demonstration. SPARK-007 is an anonymized trial submission used to demonstrate the intake &rarr; triage &rarr; review flow end-to-end. Click any row marked <strong>TRIAL</strong> to view the full submission detail.</div>
 
     <div class="stats-bar">
-        <div class="stat-card" onclick="filterPipeline('all')"><div class="num">8</div><div class="label">Total Ideas</div></div>
-        <div class="stat-card" onclick="filterPipeline('new-screen')"><div class="num">3</div><div class="label">New / Screen</div></div>
+        <div class="stat-card" onclick="filterPipeline('all')"><div class="num">9</div><div class="label">Total Ideas</div></div>
+        <div class="stat-card" onclick="filterPipeline('new-screen')"><div class="num">4</div><div class="label">New / Screen</div></div>
         <div class="stat-card" onclick="filterPipeline('concept')"><div class="num">2</div><div class="label">Concept Study</div></div>
         <div class="stat-card" onclick="filterPipeline('review')"><div class="num">1</div><div class="label">In Review</div></div>
         <div class="stat-card" onclick="filterPipeline('deep')"><div class="num">1</div><div class="label">Deep Review</div></div>
@@ -973,6 +1034,19 @@
             <table class="registry-table">
                 <thead><tr><th>ID</th><th>Submitted</th><th>Concept</th><th>Source</th><th>Stage</th><th>QI Focus</th><th>Owner</th><th>Next Review</th></tr></thead>
                 <tbody>
+                    <tr data-stage="new-screen" class="trial-row" onclick="openTrialModal()" style="cursor:pointer;" title="Click to view full submission detail">
+                        <td>SPARK-007 <span class="trial-badge">TRIAL</span></td>
+                        <td>Apr 28, 2026</td>
+                        <td>
+                            <strong>Experimental Program of Choice &mdash; Echo Canyon Campus</strong>
+                            <br><small style="color:var(--gray-500)">Anonymized trial submission &mdash; click to view full intake form, status history, and submitter confirmation</small>
+                        </td>
+                        <td>Board-Directed</td>
+                        <td><span class="badge badge-screen">Screen &rarr; Triage</span></td>
+                        <td>Innovation, Demand, Feasibility</td>
+                        <td>SPARK Triage</td>
+                        <td>May 5 SPARK mtg</td>
+                    </tr>
                     <tr data-stage="new-screen"><td>SPARK-001</td><td>Apr 2026</td><td><strong>Environmental Science &amp; Sustainability Academy</strong></td><td>Community</td><td><span class="badge badge-new">New</span></td><td>&mdash;</td><td>SPARK Triage</td><td>Initial screen &mdash; May</td></tr>
                     <tr data-stage="new-screen"><td>SPARK-002</td><td>Mar 2026</td><td><strong>AI &amp; Robotics Pathway (MS)</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>SPARK Triage</td><td>Q2 review</td></tr>
                     <tr data-stage="concept"><td>CON-01</td><td>Feb 2026</td><td><strong>Gifted &amp; Advanced Studies Hub</strong><br><small style="color:var(--gray-500)">Magnet academy concept study</small></td><td>Leadership / Community</td><td><span class="badge badge-concept">Concept Study</span></td><td>Demand, Equity/Access, Instructional Model</td><td>G&amp;A Subgroup</td><td>Concept brief &amp; options</td></tr>
@@ -1633,6 +1707,142 @@
 
 </div>
 
+<!-- TRIAL SUBMISSION DETAIL MODAL -->
+<div id="trial-submission-modal" class="modal-overlay" onclick="if(event.target===this)closeTrialModal()" role="dialog" aria-modal="true" aria-labelledby="trial-modal-title">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeTrialModal()" aria-label="Close">&times;</button>
+        <h2 id="trial-modal-title" style="color:var(--dark); font-size:1.3rem; margin-bottom:0.3rem;">SPARK-007 &mdash; Submission Detail <span class="trial-badge">TRIAL</span></h2>
+        <p style="font-size:0.78rem; color:var(--spark-gold-dark); background:var(--spark-gold-light); padding:0.5rem 0.8rem; border-radius:6px; margin-top:0.6rem;">
+            <strong>&#x26A0; Anonymized trial submission &mdash; illustrative data.</strong> Used to demonstrate the intake &rarr; triage &rarr; review flow end-to-end. Submitter identity withheld pending consent; content reflects a real concept under SPARK consideration.
+        </p>
+
+        <div class="modal-section">
+            <h3>About the Submitter</h3>
+            <div class="modal-field"><strong>Name:</strong> <em>Anonymous</em> (consent pending)</div>
+            <div class="modal-field"><strong>Email:</strong> <em>[withheld]</em></div>
+            <div class="modal-field"><strong>Role:</strong> School Administrator (SUSD Governing Board Member)</div>
+            <div class="modal-field"><strong>School / Organization:</strong> District</div>
+            <div class="modal-field"><strong>Date Submitted:</strong> April 28, 2026</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Program Idea</h3>
+            <div class="modal-field"><strong>Concept Name:</strong> Experimental School / Program of Choice for Echo Canyon</div>
+            <div class="modal-field"><strong>One-Sentence Summary:</strong> Develop a unique program at the Echo Canyon campus as an experiment to see if there is enough momentum to position it as a differentiable school-of-choice for SUSD families.</div>
+            <div class="modal-field" style="display:block; margin-top:0.6rem;"><strong style="display:block; min-width:0;">Detailed Description:</strong>
+                <span style="display:block; margin-top:0.3rem;">One of the reasons Echo Canyon closed was that as a school-of-choice, the brand of that choice was not unique or attractive enough to bring in enough families. In the Arizona school choice market, SUSD needs to rely on both neighborhood schools <em>and</em> schools-of-choice to grow enrollment across the district. Neighborhood schools are geographically determined; schools-of-choice give us the leverage to recapture Scottsdale students whose families have chosen non-SUSD options.</span>
+                <span style="display:block; margin-top:0.4rem;">SUSD already has several schools-of-choice (Cheyenne Traditional; Pueblo and Desert Canyon DLI; MSA at Mohave/Saguaro). The Echo Canyon site offers an opportunity to expand that portfolio with a new differentiated program. Some criteria:</span>
+                <ul style="margin-top:0.3rem; margin-left:1.2rem; list-style:disc;">
+                    <li>It should be unique from existing offerings (Traditional, DLI, MSA), unless evidence shows expanding one of those would meet sufficient demand. <em>Example: a "no-screens" model emphasizing reduction or elimination of devices as teaching tools, with a focus on hands-on learning.</em></li>
+                    <li>It should fit the geographic context of the campus (its distance from other SUSD schools, its fit within Arcadia, its ability to attract non-SUSD families to the west).</li>
+                    <li>This can be framed as a <em>rebranding</em> or <em>realignment</em> of the campus. The brand should have positioning recognition equivalent to programs like DLI &mdash; immediately legible to parents.</li>
+                    <li>Staged or experimental. Could begin with a few grades (e.g., K-3) and expand over time (e.g., K-5), with a 3-year financial plan covering enrollment and staffing.</li>
+                </ul>
+            </div>
+            <div class="modal-field"><strong>Target Grade Levels:</strong> K-2, 3-5</div>
+            <div class="modal-field"><strong>Program Type:</strong> Pilot / Trial &mdash; or New Signature Program</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Strategic Alignment <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-1</span></h3>
+            <div class="modal-field"><strong>SUSD Strategic Priorities:</strong> Future Focused; Optimized Resources</div>
+            <div class="modal-field"><strong>Connection to WIGs:</strong> Full and Thriving Schools (recapture and grow enrollment via differentiated school-of-choice).</div>
+            <div class="modal-field"><strong>How does this differentiate SUSD?</strong> The program should be unique and different from other SUSD offerings as a school-of-choice (e.g., a no-screens / hands-on curriculum that meets a gap in the AZ school-choice market).</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Student Demand <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-2</span></h3>
+            <div class="modal-field"><strong>Evidence of Demand:</strong> National trends</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Instructional Model <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-3</span></h3>
+            <div class="modal-field"><strong>Proposed Approach:</strong> Unknown / to be designed</div>
+            <div class="modal-field"><strong>Existing Models or Exemplars:</strong> Waldorf School of Lexington; Mountain Oak Community School (referenced as examples; success not yet validated by submitter)</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Feasibility &amp; Cost <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-4 &amp; QI-5</span></h3>
+            <div class="modal-field"><strong>Proposed Location:</strong> Echo Canyon campus</div>
+            <div class="modal-field"><strong>Timeline to Launch:</strong> Fall 2027</div>
+            <div class="modal-field"><strong>Estimated Startup Costs:</strong> Unknown (pro forma needed based on grade span and program model)</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Anything Else</h3>
+            <div class="modal-field"><strong>Additional Context:</strong> "As a board member, I'd much rather see us leverage the amazing Echo Canyon campus to further the growth and success of SUSD (as opposed to leasing the space to another educational entity). The location and intimate nature of Echo makes it ripe for us to experiment with it as a new differentiated school-of-choice."</div>
+            <div class="modal-field"><strong>Would you like to be involved?</strong> Yes &mdash; as much as possible as an active SUSD Board Member.</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Status &amp; Journey</h3>
+            <div class="status-history">
+                <div class="status-step">
+                    <div class="status-dot"></div>
+                    <div class="status-step-content">
+                        <div class="status-date">April 28, 2026</div>
+                        <div class="status-title">Submitted via SPARK Intake</div>
+                        <div class="status-detail">Registry ID assigned: <strong>SPARK-007</strong>. Confirmation email sent to submitter (preview below).</div>
+                    </div>
+                </div>
+                <div class="status-step">
+                    <div class="status-dot"></div>
+                    <div class="status-step-content">
+                        <div class="status-date">May 1, 2026</div>
+                        <div class="status-title">Initial Screen &mdash; PASS</div>
+                        <div class="status-detail">Reviewed by SPARK leadership. Not a duplicate of an existing program; meets minimum viability threshold; advanced to triage.</div>
+                    </div>
+                </div>
+                <div class="status-step">
+                    <div class="status-dot pending"></div>
+                    <div class="status-step-content">
+                        <div class="status-date">May 5, 2026 (upcoming)</div>
+                        <div class="status-title">SPARK Team Triage &amp; Discussion</div>
+                        <div class="status-detail">Concept presented at the SPARK team meeting. Triage outcomes: <em>advance to Concept Study</em>, <em>develop further</em>, or <em>archive with rationale</em>.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-section">
+            <h3>What the Submitter Received <span style="font-size:0.7rem; background:var(--gray-500); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">EMAIL PREVIEW</span></h3>
+            <div class="email-mock">
+                <div class="email-mock-header">
+                    <div><span class="email-from">SPARK Team</span> &lt;spark@susd.org&gt;</div>
+                    <div>To: [submitter]</div>
+                    <div>Subject: <strong>Thank you &mdash; your SPARK idea has been registered (SPARK-007)</strong></div>
+                </div>
+                <div class="email-mock-body">
+                    <p>Hi,</p>
+                    <p>Thank you for submitting your program idea to the SPARK team. Your concept has been registered in the SPARK Idea Registry.</p>
+                    <p>
+                        <strong>Concept Name:</strong> Experimental School / Program of Choice for Echo Canyon<br>
+                        <strong>Registry ID:</strong> SPARK-007<br>
+                        <strong>Submitted:</strong> April 28, 2026
+                    </p>
+                    <p><strong>What happens next:</strong></p>
+                    <ul style="margin-left:1.2rem; list-style:disc;">
+                        <li><strong>Within 2 business days:</strong> SPARK leadership performs an initial screen to check for duplicates, blockers, and minimum viability. You'll receive an email with the screen outcome.</li>
+                        <li><strong>Within 2 weeks:</strong> If your idea advances, the SPARK Team conducts triage at our quarterly meeting. You'll receive an email with one of three outcomes: <em>advance to Concept Study</em>, <em>develop further with more information</em>, or <em>archive with documented rationale</em>.</li>
+                        <li><strong>If your idea moves forward:</strong> You'll be invited to participate in the next conversation about it &mdash; your voice continues to shape the work.</li>
+                    </ul>
+                    <p>You can check the status of your submission any time:</p>
+                    <p><a href="#" class="email-mock-cta" onclick="closeTrialModal();showPage('pipeline');return false;">View SPARK Pipeline &rarr;</a></p>
+                    <p>Questions? Reply to this email or reach out to the SPARK team directly.</p>
+                    <p>With thanks,<br>The SPARK Team<br>Scottsdale Unified School District</p>
+                    <p style="font-size:0.75rem; color:var(--gray-500); border-top:1px solid var(--gray-300); padding-top:0.6rem; margin-top:0.8rem;">SPARK (Signature Program Advancement, Research &amp; Knowledge) &mdash; collaborative committee for specialty schools and signature programs at SUSD.</p>
+                </div>
+            </div>
+            <p style="font-size:0.74rem; color:var(--gray-500); margin-top:0.5rem; font-style:italic;">Email content shown is a mockup illustrating the planned submitter experience. The "next steps" timing is the proposed cadence; final timing will be confirmed by the SPARK team.</p>
+        </div>
+
+        <div style="margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--gray-300); display:flex; gap:0.6rem; justify-content:flex-end; flex-wrap:wrap;">
+            <button class="btn btn-outline" onclick="closeTrialModal()">Close</button>
+            <button class="btn btn-teal" onclick="closeTrialModal();showPage('evaluate');">How SPARK Evaluates &rarr;</button>
+        </div>
+    </div>
+</div>
+
 <!-- FOOTER -->
 <div class="footer">
     <div class="susd-tagline">Scottsdale Unified School District</div>
@@ -1717,6 +1927,29 @@ function startSubmit(role) {
         }
     }
 }
+
+function openTrialModal() {
+    const m = document.getElementById('trial-submission-modal');
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button so keyboard users can dismiss easily.
+    const closeBtn = m.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+}
+function closeTrialModal() {
+    const m = document.getElementById('trial-submission-modal');
+    if (!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+}
+// Close modal on Escape.
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const m = document.getElementById('trial-submission-modal');
+        if (m && m.classList.contains('open')) closeTrialModal();
+    }
+});
 
 function filterPipeline(stage) {
     const rows = document.querySelectorAll('.registry-table tbody tr');
