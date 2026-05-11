@@ -222,3 +222,33 @@ Final v2 size ~130 KB (was ~120 KB after Tier B). Tag balance verified.
 **Remaining Round 3 actions:**
 - Brian to send Mitchell email confirming: (a) implementation done with conservative attribution, (b) attribution flips to full when she confirms Mr. Sharkey's consent.
 - Brian to mention Microsoft (not Google) tooling for any future Stage-B backend conversation.
+
+### Round 3 refinement (2026-05-03 commit `8ddaebe`)
+
+User-flagged cadence and next-review issues on the SPARK-007 detail view:
+
+- **Email cadence softened.** "Within 2 business days" → "Within ~2 weeks" for initial screen. "Within 2 weeks" → "At the next SPARK Team meeting (quarterly cadence)" for triage, with a note that submissions close to a meeting may move faster than typical.
+- **Status timeline + dates updated for internal consistency** with new cadence: Submitted Apr 28 → Apr 14 (3 weeks before May 5 meeting); Initial Screen May 1 → Apr 28 (2 weeks after submission, within new screen window); Triage May 5 unchanged. Pipeline row Submitted column, modal "Date Submitted", and email "Submitted" all aligned to April 14, 2026.
+- **CON-01 + CON-02 next-review** both changed to "May 5 SPARK mtg" — both concept-study presentations were on the May 5 agenda per the Session 2 deck. Pipeline now visually converges three rows on May 5 (SPARK-007 triage + CON-01 Gifted concept + CON-02 VAPA concept).
+
+### Round 4 — May 5 meeting + May 10 Mitchell email (2026-05-05 / 2026-05-10)
+
+**May 5 SPARK Team Session 2** held at Redfield Elementary. VAPA concept study and Gifted & Advanced Studies Hub concept study both presented. Brian attended; SPARK-007 demonstration apparently went well (Mitchell did not raise concerns post-meeting; no immediate follow-up requested on v2 site).
+
+**May 10 — Brian → Mitchell reflection email sent** (preserved at `SPARK/5. Communications/2026-05-10 Brian to Mitchell - post-May-5-meeting reflections.md`). Seven strategic threads launched, organized into three top-level topics. Each thread sits as background context unless Mitchell engages.
+
+**Seven threads now in Mitchell's inbox:**
+
+1. **District team spotlight** — monthly note/video from team members, or district team member joining existing parent events (e.g., Echo's monthly parent-admin coffee chat). Targets the "district as machine" parent perception gap Brian observed during the Echo decision process and contrasts with his SPARK experience. Likely highest Mitchell engagement; comms-domain, low cost.
+2. **VAPA competitor benchmarking question** — for each box VAPA checks that market leaders don't: did they (a) consider and reject, (b) try and stop, or (c) never explore? Suggested 30-min mini-investigation calling 2-3 comparison schools. Could prompt VAPA team work.
+3. **Alpha School as gifted methodology model reference** — tech-enabled mastery learning + AM core / PM life-skills format. Addresses cost-scaling concern raised in meeting. Not a competitive template (Alpha is private, not gifted-focused), but a model lesson. Brian believes there's a recent Scottsdale branch.
+4. **Enrollment-estimation triangulation framework** (Dr. Menzel's inside-vs-outside question) — three sources, each biased differently: internal SUSD-specialty benchmarks (MSA/DLI/IB inside/outside split, years 1-3); external adjacent (charter/private specialty openings nearby + outflow patterns; Alpha Scottsdale as one data point); multi-wave demand surveys (gap between "would consider" vs "would commit"; survey responses shifting with marketing). Range with stated assumptions, not point estimate.
+5. **Pre-trial methodology in existing CGP school** (Kiva / Redfield / Tavan / etc.) — if not on track for Fall 2026 academy launch, that gap is a learning runway. Hire or dual-hat an existing gifted teacher into the learning-guide role. By launch, staff have run the model; families get an early glimpse.
+6. **Co-locate VAPA + Gifted academies at single site** (Echo Canyon, Pima, or any underutilized campus) — addresses budget/enrollment risk on both proposals. Reversible/universally-useful kit updates first; program-specific build-outs deferred. Cross-over learning opportunities (arts integration is gifted-friendly; mastery models deepen arts). Tensions acknowledged (brand identity, scheduling, space).
+7. **Gifted methodology portable beyond gifted population** — if mastery + AM-core / PM-exploration pilots well in CGP, district has an option to run that format in other settings for any students who'd thrive. Methodology becomes an option SUSD has, not just something the academy alone does.
+
+**Source-context preserved:**
+- Mitchell's 2026-05-03 email forwarding the Sharkey submission (which triggered Round 3) saved at `SPARK/5. Communications/2026-05-03 Mitchell to Brian - Sharkey submission trial.md`.
+- Three March 25 meeting PDFs (Session 2 deck, Gifted/Advanced concept study, VAPA concept study) — user to place in `SPARK/4. Concept studies (VAPA, Gifted-Advanced)/` and `SPARK/0. Reference/`. Folder structure created in earlier work.
+
+**Project status: in-flight, waiting on Mitchell.** No new code or content work in motion. Next move depends on her response to the May 10 email — could trigger work on any of the seven threads, or could be a quiet "thanks, we'll consider these." Either way, the v2 site is stable, the SPARK-007 trial is live and demoed, and Round 3 is complete.
