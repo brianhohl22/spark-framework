@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>SUSD SPARK — Specialty Program Framework</title>
+    <style>
+        :root {
+            --spark-gold: #F5A623;
+            --spark-gold-dark: #D4901E;
+            --spark-gold-light: #FFF8E7;
+            --susd-teal: #00897B;
+            --susd-teal-dark: #00695C;
+            --susd-teal-light: #E0F2F1;
+            --dark: #1A2332;
+            --dark-mid: #2C3E50;
+            --gray-700: #495057;
+            --gray-500: #6C757D;
+            --gray-300: #DEE2E6;
+            --gray-100: #F8F9FA;
+            --white: #FFFFFF;
+            --discover: #F5A623;
+            --evaluate: #00897B;
+            --act: #2980B9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--gray-100); color: #333; }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
+            color: white; padding: 1rem 2rem; display: flex; align-items: center; gap: 1.2rem;
+        }
+        .spark-logo { width: 56px; height: 56px; flex-shrink: 0; }
+        .spark-logo svg { width: 100%; height: 100%; }
+        .header-text h1 { font-size: 1.4rem; font-weight: 300; letter-spacing: 0.5px; }
+        .header-text h1 strong { font-weight: 700; color: var(--spark-gold); }
+        .header-text .subtitle { font-size: 0.78rem; opacity: 0.7; margin-top: 0.15rem; letter-spacing: 0.3px; }
+        .susd-bar {
+            background: var(--susd-teal); color: white; text-align: center;
+            padding: 0.35rem 1rem; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+
+        /* ===== NAV ===== */
+        .nav { background: white; border-bottom: 3px solid var(--spark-gold); padding: 0 2rem;
+            display: flex; gap: 0; position: relative; flex-wrap: wrap; }
+        .nav button { padding: 0.8rem 1.3rem; border: none; background: none; cursor: pointer;
+            font-size: 0.85rem; color: var(--gray-500); border-bottom: 3px solid transparent;
+            margin-bottom: -3px; white-space: nowrap; transition: all 0.2s; font-weight: 500; }
+        .nav button:hover { color: var(--dark); background: var(--gray-100); }
+        .nav button.active { color: var(--dark); border-bottom-color: var(--spark-gold); font-weight: 600; }
+        .nav-item-dropdown { position: relative; display: inline-block; }
+        .nav-dropdown {
+            display: none; position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: white; border: 1px solid var(--gray-300); border-top: 3px solid var(--spark-gold);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12); z-index: 100; padding: 0.4rem 0;
+        }
+        .nav-item-dropdown:hover .nav-dropdown,
+        .nav-item-dropdown:focus-within .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block; padding: 0.55rem 1.1rem; color: var(--gray-700); text-decoration: none;
+            font-size: 0.85rem; cursor: pointer; transition: all 0.15s;
+        }
+        .nav-dropdown a:hover { background: var(--spark-gold-light); color: var(--spark-gold-dark); }
+        .nav-dropdown a .nav-dd-desc {
+            display: block; font-size: 0.72rem; color: var(--gray-500); margin-top: 0.1rem; font-weight: 400;
+        }
+        .nav-dd-caret { font-size: 0.65rem; opacity: 0.6; margin-left: 0.2rem; }
+        @media (max-width: 768px) {
+            .nav-dropdown { display: none !important; } /* Mobile: hover unavailable; users access sub-pages via pillar cards / About-page links */
+        }
+
+        /* ===== LAYOUT ===== */
+        .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* ===== CARDS ===== */
+        .card { background: white; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 1.8rem; margin-bottom: 1.5rem; }
+        .card h2 { color: var(--dark); margin-bottom: 0.8rem; font-size: 1.3rem; }
+        .card h3 { color: var(--dark-mid); margin: 1.2rem 0 0.5rem; font-size: 1.05rem; }
+
+        /* ===== FRAMEWORK PILLARS ===== */
+        .framework-row { display: flex; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap; }
+        .pillar {
+            flex: 1; min-width: 280px; border-radius: 12px; overflow: hidden; cursor: pointer;
+            transition: all 0.3s; box-shadow: 0 3px 15px rgba(0,0,0,0.08); position: relative;
+        }
+        .pillar:hover { transform: translateY(-6px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+        .pillar-header { padding: 1.2rem 1.5rem; color: white; }
+        .pillar-header .pillar-num { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; margin-bottom: 0.2rem; }
+        .pillar-header h3 { font-size: 1.3rem; font-weight: 700; margin: 0; }
+        .pillar-header .pillar-tag { font-size: 0.8rem; opacity: 0.9; margin-top: 0.2rem; }
+        .pillar-body { padding: 1.2rem 1.5rem; background: white; }
+        .pillar-body ul { list-style: none; padding: 0; }
+        .pillar-body li { padding: 0.5rem 0; border-bottom: 1px solid var(--gray-300);
+            font-size: 0.88rem; color: var(--gray-700); display: flex; align-items: center; gap: 0.5rem; }
+        .pillar-body li:last-child { border-bottom: none; }
+        .pillar-body li .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .pillar-body .pillar-cta { display: block; text-align: center; padding: 0.7rem;
+            font-weight: 600; font-size: 0.85rem; margin-top: 0.5rem; border-radius: 6px;
+            transition: all 0.2s; text-decoration: none; }
+
+        .pillar-discover .pillar-header { background: linear-gradient(135deg, var(--discover) 0%, #E09A1E 100%); }
+        .pillar-discover .dot { background: var(--discover); }
+        .pillar-discover .pillar-cta { background: var(--spark-gold-light); color: var(--spark-gold-dark); }
+        .pillar-discover .pillar-cta:hover { background: var(--discover); color: white; }
+        .pillar-evaluate .pillar-header { background: linear-gradient(135deg, var(--evaluate) 0%, var(--susd-teal-dark) 100%); }
+        .pillar-evaluate .dot { background: var(--evaluate); }
+        .pillar-evaluate .pillar-cta { background: var(--susd-teal-light); color: var(--susd-teal-dark); }
+        .pillar-evaluate .pillar-cta:hover { background: var(--evaluate); color: white; }
+        .pillar-act .pillar-header { background: linear-gradient(135deg, var(--act) 0%, #2471A3 100%); }
+        .pillar-act .dot { background: var(--act); }
+        .pillar-act .pillar-cta { background: #E8F0FE; color: #1565C0; }
+        .pillar-act .pillar-cta:hover { background: var(--act); color: white; }
+        .pillar.active-pillar { outline: 3px solid var(--spark-gold); outline-offset: 2px; }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb { font-size: 0.82rem; color: var(--gray-500); margin-bottom: 1rem; }
+        .breadcrumb a { color: var(--susd-teal); text-decoration: none; cursor: pointer; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* ===== ENTRY POINTS ===== */
+        .entry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .entry-card { background: white; border: 2px solid var(--gray-300); border-radius: 10px;
+            padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .entry-card:hover { border-color: var(--spark-gold); background: var(--spark-gold-light); }
+        .entry-card .icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+        .entry-card .label { font-weight: 600; font-size: 0.85rem; color: var(--dark); }
+        .entry-card .desc { font-size: 0.73rem; color: var(--gray-500); margin-top: 0.2rem; }
+
+        /* ===== PERSONA PANEL ===== */
+        .persona-panel { background: white; border: 2px solid var(--spark-gold); border-radius: 12px;
+            padding: 1.5rem; margin: 1.5rem 0; display: none; animation: fadeIn 0.3s ease; }
+        .persona-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .persona-panel h3 { color: var(--spark-gold-dark); margin-bottom: 0.5rem; }
+        .persona-panel .scenario { background: var(--spark-gold-light); border-radius: 8px; padding: 0.8rem 1rem;
+            margin: 0.6rem 0; font-size: 0.88rem; color: var(--gray-700); }
+        .persona-panel .scenario strong { color: var(--dark); }
+        .persona-actions { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
+
+        /* ===== FORM ===== */
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.25rem; color: var(--dark); font-size: 0.88rem; }
+        .form-group .hint { font-size: 0.78rem; color: var(--gray-500); margin-bottom: 0.25rem; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 0.55rem 0.7rem; border: 1px solid var(--gray-300);
+            border-radius: 6px; font-size: 0.88rem; font-family: inherit; }
+        .form-group textarea { min-height: 70px; resize: vertical; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--susd-teal); box-shadow: 0 0 0 3px rgba(0,137,123,0.1); }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+        .checkbox-group label { font-weight: 400; display: flex; align-items: center; gap: 0.3rem;
+            cursor: pointer; font-size: 0.85rem; }
+        .section-badge { display: inline-block; background: var(--susd-teal); color: white;
+            padding: 0.12rem 0.5rem; border-radius: 4px; font-size: 0.68rem; font-weight: 600;
+            margin-left: 0.4rem; vertical-align: middle; }
+
+        /* ===== BUTTONS ===== */
+        .btn { padding: 0.65rem 1.4rem; border: none; border-radius: 6px; cursor: pointer;
+            font-size: 0.88rem; font-weight: 600; transition: all 0.2s; }
+        .btn-gold { background: var(--spark-gold); color: white; }
+        .btn-gold:hover { background: var(--spark-gold-dark); }
+        .btn-teal { background: var(--susd-teal); color: white; }
+        .btn-teal:hover { background: var(--susd-teal-dark); }
+        .btn-outline { background: white; color: var(--dark); border: 2px solid var(--gray-300); }
+        .btn-outline:hover { border-color: var(--spark-gold); }
+
+        /* ===== REGISTRY TABLE ===== */
+        .registry-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+        .registry-table th { background: var(--dark); color: white; padding: 0.65rem;
+            text-align: left; font-weight: 600; font-size: 0.8rem; }
+        .registry-table td { padding: 0.55rem 0.65rem; border-bottom: 1px solid var(--gray-300); }
+        .registry-table tr:hover { background: var(--susd-teal-light); }
+        .badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 10px;
+            font-size: 0.72rem; font-weight: 600; }
+        .badge-new { background: #FFF3CD; color: #856404; }
+        .badge-screen { background: #D1ECF1; color: #0C5460; }
+        .badge-review { background: #D4EDDA; color: #155724; }
+        .badge-deep { background: #CFE2FF; color: #084298; }
+        .badge-parked { background: #E2E3E5; color: #41464B; }
+        .badge-concept { background: #F3E5F5; color: #6A1B9A; }
+
+        /* ===== PROGRAM CARDS ===== */
+        .program-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem; margin: 1rem 0; }
+        .program-card { background: white; border-left: 4px solid var(--susd-teal);
+            border-radius: 0 8px 8px 0; padding: 0.9rem 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+        .program-card h4 { color: var(--dark); margin-bottom: 0.2rem; font-size: 0.95rem; }
+        .program-card .schools { font-size: 0.78rem; color: var(--gray-500); }
+        .program-card .tag { display: inline-block; background: var(--susd-teal-light); color: var(--susd-teal-dark);
+            padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.68rem; margin-top: 0.3rem; font-weight: 600; }
+
+        /* ===== HEATMAP ===== */
+        .heatmap { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 1rem 0; }
+        .heatmap th { background: var(--dark); color: white; padding: 0.5rem 0.6rem; font-size: 0.78rem; text-align: center; }
+        .heatmap th:first-child { text-align: left; }
+        .heatmap td { padding: 0.45rem 0.6rem; border: 1px solid var(--gray-300); text-align: center; }
+        .heatmap td:first-child { text-align: left; font-weight: 600; color: var(--dark); }
+        .heatmap tr:hover { background: var(--gray-100); }
+        .heat-0 { background: #fff; }
+        .heat-1 { background: #FFF8E7; }
+        .heat-2 { background: #FFE8A1; }
+        .heat-3 { background: #FFD54F; }
+        .heat-active { background: var(--susd-teal-light); font-weight: 600; box-shadow: inset 0 0 0 2px var(--susd-teal); }
+        .heat-explore { background: #FFF3CD; font-style: italic; box-shadow: inset 0 0 0 2px var(--spark-gold); }
+
+        /* ===== STATS ===== */
+        .stats-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .stat-card { background: white; border-radius: 8px; padding: 0.8rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06); flex: 1; min-width: 120px; text-align: center; }
+        .stat-card { cursor: pointer; transition: all 0.2s; }
+        .stat-card:hover { border: 2px solid var(--susd-teal); margin: -2px; }
+        .stat-card.stat-active { border: 2px solid var(--susd-teal); background: var(--susd-teal-light); margin: -2px; }
+        .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--susd-teal); }
+        .stat-card .label { font-size: 0.75rem; color: var(--gray-500); }
+
+        /* ===== FOUNDATION CARDS ===== */
+        .foundation-card {
+            background: white; border: 1px solid var(--gray-300); border-radius: 8px;
+            padding: 0.9rem 1rem; cursor: pointer; transition: all 0.2s;
+        }
+        .foundation-card:hover {
+            border-color: var(--spark-gold); box-shadow: 0 4px 14px rgba(245, 166, 35, 0.15);
+            transform: translateY(-2px);
+        }
+        .foundation-card:hover h4 { color: var(--spark-gold-dark); }
+
+        /* ===== CALLOUT BOXES ===== */
+        .callout { padding: 1.2rem; border-radius: 8px; margin: 1rem 0; }
+        .callout-gold { background: var(--spark-gold-light); border-left: 4px solid var(--spark-gold); }
+        .callout-teal { background: var(--susd-teal-light); border-left: 4px solid var(--susd-teal); }
+        .callout h4 { margin-bottom: 0.4rem; }
+
+        /* ===== USE CASE CARDS ===== */
+        .uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+        .uc-card { background: white; border-radius: 8px; padding: 1rem; border: 1px solid var(--gray-300);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+        .uc-card .uc-id { font-size: 0.72rem; color: var(--gray-500); font-weight: 600; margin-bottom: 0.2rem; }
+        .uc-card h4 { font-size: 0.92rem; color: var(--dark); margin-bottom: 0.3rem; }
+        .uc-card p { font-size: 0.82rem; color: var(--gray-700); line-height: 1.45; }
+        .uc-card .uc-channel { display: inline-block; background: var(--spark-gold-light); color: var(--spark-gold-dark);
+            padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.68rem; font-weight: 600; margin-top: 0.4rem; }
+
+        /* ===== GOVERNANCE TABLE ===== */
+        .gov-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin: 1rem 0; }
+        .gov-table th { background: var(--susd-teal); color: white; padding: 0.55rem; text-align: left; font-size: 0.78rem; }
+        .gov-table td { padding: 0.5rem 0.55rem; border-bottom: 1px solid var(--gray-300); vertical-align: top; }
+        .gov-table tr:hover { background: var(--susd-teal-light); }
+
+        /* ===== SUCCESS MSG ===== */
+        .success-msg { background: #D4EDDA; border: 1px solid #C3E6CB; border-radius: 8px;
+            padding: 1.5rem; text-align: center; display: none; }
+        .success-msg h3 { color: #155724; margin-bottom: 0.5rem; }
+
+        /* ===== GET INVOLVED ===== */
+        .involve-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+        .involve-card { background: white; border-radius: 10px; border: 2px solid var(--gray-300);
+            padding: 1.2rem; text-align: center; transition: all 0.25s; cursor: pointer; }
+        .involve-card:hover { border-color: var(--susd-teal); box-shadow: 0 4px 16px rgba(0,137,123,0.12); transform: translateY(-3px); }
+        .involve-card .involve-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .involve-card h4 { color: var(--dark); font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .involve-card p { font-size: 0.8rem; color: var(--gray-500); line-height: 1.4; }
+        .involve-card .involve-cta { display: inline-block; margin-top: 0.6rem; font-size: 0.78rem;
+            font-weight: 600; color: var(--susd-teal); }
+        .timeline-item { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+        .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--susd-teal);
+            flex-shrink: 0; margin-top: 4px; }
+        .timeline-dot.gold { background: var(--spark-gold); }
+        .timeline-content h4 { font-size: 0.9rem; color: var(--dark); margin-bottom: 0.1rem; }
+        .timeline-content p { font-size: 0.82rem; color: var(--gray-500); }
+
+        /* ===== PROCESS FLOW ===== */
+        .process-flow { display: flex; align-items: center; justify-content: center; gap: 0; margin: 1.5rem 0; flex-wrap: wrap; }
+        .flow-step { text-align: center; padding: 0.6rem 1.2rem; border-radius: 8px; color: white;
+            font-weight: 600; font-size: 0.82rem; min-width: 110px; transition: all 0.2s; }
+        .flow-clickable { cursor: pointer; }
+        .flow-clickable:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); filter: brightness(1.05); }
+        .flow-arrow { font-size: 1.3rem; color: var(--gray-500); padding: 0 0.3rem; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark); color: white; text-align: center; padding: 1.2rem;
+            margin-top: 2rem; font-size: 0.78rem; line-height: 1.6;
+        }
+        .footer .susd-tagline { color: var(--susd-teal); font-weight: 600; letter-spacing: 0.5px; }
+        .footer .proto { opacity: 0.4; font-size: 0.7rem; }
+
+        /* ===== TRIAL ROW + MODAL ===== */
+        .trial-row { background: linear-gradient(90deg, #FFF8E7 0%, white 30%); }
+        .trial-row:hover { background: linear-gradient(90deg, #FFEFC4 0%, var(--gray-100) 30%) !important; }
+        .trial-badge {
+            display: inline-block; background: var(--spark-gold); color: white;
+            font-size: 0.62rem; font-weight: 700; padding: 0.1rem 0.4rem;
+            border-radius: 3px; letter-spacing: 0.5px; margin-left: 0.3rem; vertical-align: middle;
+        }
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(26, 35, 50, 0.65); z-index: 9000;
+            display: none; align-items: flex-start; justify-content: center;
+            overflow-y: auto; padding: 2rem 1rem;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-content {
+            background: white; border-radius: 12px; max-width: 860px; width: 100%;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+            position: relative; padding: 2rem 2.2rem 1.6rem;
+            margin: 0 auto;
+        }
+        .modal-close {
+            position: absolute; top: 1rem; right: 1rem;
+            background: var(--gray-100); border: none; border-radius: 50%;
+            width: 36px; height: 36px; font-size: 1.4rem; line-height: 1;
+            cursor: pointer; color: var(--gray-700); transition: all 0.15s;
+        }
+        .modal-close:hover { background: var(--gray-300); color: var(--dark); }
+        .modal-section { margin-top: 1.2rem; }
+        .modal-section h3 { color: var(--susd-teal-dark); font-size: 1rem; margin-bottom: 0.4rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--gray-300); }
+        .modal-field { margin: 0.4rem 0; font-size: 0.88rem; color: var(--gray-700); line-height: 1.5; }
+        .modal-field strong { color: var(--dark); display: inline-block; min-width: 170px; }
+        .status-history { background: var(--gray-100); border-radius: 8px; padding: 0.9rem 1.1rem; }
+        .status-step { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.4rem 0; }
+        .status-dot {
+            flex-shrink: 0; width: 14px; height: 14px; border-radius: 50%;
+            background: var(--susd-teal); margin-top: 0.2rem;
+            box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.18);
+        }
+        .status-dot.pending { background: var(--spark-gold); box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.18); }
+        .status-step-content { flex: 1; }
+        .status-step-content .status-date { font-size: 0.75rem; color: var(--gray-500); }
+        .status-step-content .status-title { font-weight: 600; color: var(--dark); font-size: 0.88rem; }
+        .status-step-content .status-detail { font-size: 0.82rem; color: var(--gray-700); margin-top: 0.15rem; }
+        .email-mock {
+            background: white; border: 1px solid var(--gray-300); border-radius: 8px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; overflow: hidden;
+        }
+        .email-mock-header {
+            background: var(--gray-100); padding: 0.7rem 1rem; border-bottom: 1px solid var(--gray-300);
+            font-size: 0.82rem; color: var(--gray-700);
+        }
+        .email-mock-header .email-from { font-weight: 600; color: var(--dark); }
+        .email-mock-body { padding: 1rem 1.2rem; font-size: 0.86rem; color: var(--gray-700); line-height: 1.55; }
+        .email-mock-body p { margin: 0.5rem 0; }
+        .email-mock-cta {
+            display: inline-block; background: var(--susd-teal); color: white;
+            padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none;
+            font-weight: 600; font-size: 0.82rem; margin: 0.5rem 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .framework-row { flex-direction: column; }
+            .header { padding: 0.8rem 1rem; }
+            .header-text h1 { font-size: 1.1rem; }
+            .nav button { padding: 0.6rem 0.8rem; font-size: 0.78rem; }
+            .main { padding: 1rem; }
+            .uc-grid { grid-template-columns: 1fr; }
+            .process-flow { flex-direction: column; gap: 0.3rem; }
+            .flow-arrow { transform: rotate(90deg); }
+            .involve-grid { grid-template-columns: 1fr; }
+        }
+        /* ===== DISCLAIMER ===== */
+        .disclaimer-banner {
+            background: #FFF3CD; border-bottom: 2px solid #FFD54F; padding: 0.5rem 2rem;
+            font-size: 0.78rem; color: #664D03; text-align: center; font-weight: 500;
+        }
+        .disclaimer-inline {
+            background: #FFF3CD; border: 1px solid #FFD54F; border-radius: 6px;
+            padding: 0.5rem 0.8rem; font-size: 0.75rem; color: #664D03; margin-bottom: 1rem;
+            text-align: center; font-style: italic;
+        }
+        /* ===== PASSWORD GATE ===== */
+        .pw-gate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
+            display: flex; align-items: center; justify-content: center; z-index: 9999;
+        }
+        .pw-gate.hidden { display: none; }
+        .pw-box {
+            background: white; border-radius: 12px; padding: 2.5rem; text-align: center;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.3); max-width: 380px; width: 90%;
+        }
+        .pw-box h2 { color: var(--dark); font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .pw-box p { color: var(--gray-500); font-size: 0.82rem; margin-bottom: 1.2rem; }
+        .pw-box input {
+            width: 100%; padding: 0.7rem; border: 2px solid var(--gray-300); border-radius: 6px;
+            font-size: 0.95rem; text-align: center; font-family: inherit;
+        }
+        .pw-box input:focus { outline: none; border-color: var(--susd-teal); box-shadow: 0 0 0 3px rgba(0,137,123,0.1); }
+        .pw-box button {
+            margin-top: 0.8rem; width: 100%; padding: 0.7rem; background: var(--susd-teal);
+            color: white; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .pw-box button:hover { background: var(--susd-teal-dark); }
+        .pw-error { color: #dc3545; font-size: 0.78rem; margin-top: 0.5rem; display: none; }
+
+        @media print {
+            .nav { display: none; }
+            .disclaimer-banner { display: none; }
+            .pillar { break-inside: avoid; }
+            .pw-gate { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate" class="pw-gate">
+    <div class="pw-box">
+        <div style="margin-bottom:1rem;">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="56" height="56" role="img" aria-label="SPARK Team logo">
+                <title>SPARK Team logo</title>
+                <circle cx="50" cy="50" r="32" fill="#F5A623"/>
+                <g fill="#F5A623" opacity="0.9">
+                    <rect x="47" y="2" width="6" height="18" rx="3"/>
+                    <rect x="47" y="80" width="6" height="18" rx="3"/>
+                    <rect x="2" y="47" width="18" height="6" rx="3"/>
+                    <rect x="80" y="47" width="18" height="6" rx="3"/>
+                </g>
+                <text x="50" y="46" text-anchor="middle" font-size="10" font-weight="800" fill="#1A2332" font-family="sans-serif">SPARK</text>
+                <text x="50" y="57" text-anchor="middle" font-size="5.5" font-weight="600" fill="#1A2332" font-family="sans-serif">TEAM</text>
+            </svg>
+        </div>
+        <h2>SPARK Framework Prototype</h2>
+        <p>This is a private preview. Please enter the access code to continue.</p>
+        <input type="password" id="pw-input" placeholder="Access code" onkeydown="if(event.key==='Enter')checkPw()" autofocus>
+        <button onclick="checkPw()">Enter</button>
+        <div id="pw-error" class="pw-error">Incorrect code. Please try again.</div>
+        <p style="font-size:0.72rem; color:var(--gray-500); margin-top:1rem;">If you received an invitation from the SPARK team, the access code is in that message. Otherwise, please contact the SPARK team.</p>
+    </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+    <a href="#/" onclick="showPage('home'); return false;" class="spark-logo" style="cursor:pointer; text-decoration:none;" title="Return to Framework home" aria-label="SPARK Framework home">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SPARK Team logo">
+            <title>SPARK Team logo</title>
+            <circle cx="50" cy="50" r="32" fill="#F5A623"/>
+            <g fill="#F5A623" opacity="0.9">
+                <rect x="47" y="2" width="6" height="18" rx="3"/>
+                <rect x="47" y="80" width="6" height="18" rx="3"/>
+                <rect x="2" y="47" width="18" height="6" rx="3"/>
+                <rect x="80" y="47" width="18" height="6" rx="3"/>
+                <rect x="14" y="14" width="6" height="18" rx="3" transform="rotate(45 17 23)"/>
+                <rect x="76" y="14" width="6" height="18" rx="3" transform="rotate(-45 79 23)"/>
+                <rect x="14" y="68" width="6" height="18" rx="3" transform="rotate(-45 17 77)"/>
+                <rect x="76" y="68" width="6" height="18" rx="3" transform="rotate(45 79 77)"/>
+            </g>
+            <text x="50" y="46" text-anchor="middle" font-size="10" font-weight="800" fill="#1A2332" font-family="sans-serif">SPARK</text>
+            <text x="50" y="57" text-anchor="middle" font-size="5.5" font-weight="600" fill="#1A2332" font-family="sans-serif">TEAM</text>
+        </svg>
+    </a>
+    <a href="#/" onclick="showPage('home'); return false;" class="header-text" style="cursor:pointer; text-decoration:none; color:inherit;" aria-label="SPARK Framework home">
+        <h1>THE <strong>SPARK</strong> TEAM</h1>
+        <div class="subtitle">Signature Program Advancement, Research &amp; Knowledge</div>
+    </a>
+</div>
+<div class="susd-bar">Scottsdale Unified School District &mdash; Engaging All Students in World-Class, Future-Focused Learning</div>
+<div class="disclaimer-banner">&#x26A0; <strong>Illustrative Prototype &mdash; v2 Draft (May 2026)</strong> &mdash; This is a conceptual mockup created to explore a SPARK framework design. It is not an official SUSD website or endorsed product. All data shown is sample/illustrative. <a href="../" style="color:#664D03; text-decoration:underline;">View original version</a>.</div>
+
+<!-- NAV -->
+<div class="nav">
+    <div class="nav-item-dropdown">
+        <button class="active" onclick="showPage('home')">Framework <span class="nav-dd-caret">&#x25BE;</span></button>
+        <div class="nav-dropdown" role="menu">
+            <a onclick="showPage('home')" role="menuitem"><strong>Framework Overview</strong><span class="nav-dd-desc">The three-pillar approach</span></a>
+            <a onclick="showPage('discover')" role="menuitem"><strong>Discover</strong><span class="nav-dd-desc">Where ideas come from</span></a>
+            <a onclick="showPage('evaluate')" role="menuitem"><strong>Evaluate</strong><span class="nav-dd-desc">How SPARK assesses</span></a>
+            <a onclick="showPage('act')" role="menuitem"><strong>Act</strong><span class="nav-dd-desc">How decisions get delivered</span></a>
+        </div>
+    </div>
+    <button onclick="showPage('programs')">Programs</button>
+    <button onclick="showPage('pipeline')">Pipeline</button>
+    <button onclick="showPage('submit')">Submit an Idea</button>
+    <button onclick="showPage('involved')" style="color:var(--susd-teal); font-weight:600;">Get Involved</button>
+    <div class="nav-item-dropdown">
+        <button onclick="showPage('governance')">About <span class="nav-dd-caret">&#x25BE;</span></button>
+        <div class="nav-dropdown" role="menu">
+            <a onclick="showPage('governance')" role="menuitem"><strong>Governance &amp; Intake Channels</strong><span class="nav-dd-desc">Pathways and roles</span></a>
+            <a onclick="showPage('usecases')" role="menuitem"><strong>Real-World Use Cases</strong><span class="nav-dd-desc">Scenarios in practice</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+
+<!-- ==================== HOME / FRAMEWORK ==================== -->
+<div id="page-home" class="page active">
+    <div class="card" style="text-align:center; padding: 2rem 1.5rem;">
+        <h2 style="font-size:1.5rem; margin-bottom:0.3rem;">The SPARK Framework</h2>
+        <p style="color:var(--gray-500); max-width:680px; margin:0.5rem auto 0; font-size:0.92rem; line-height:1.5;">
+            A sustainable, data-informed, community-driven strategy for specialty schools and signature programs &mdash;
+            setting clear standards, evaluating impact, and transparently communicating a future-focused vision.
+        </p>
+        <details style="background:var(--susd-teal-light); border-radius:8px; padding:0.75rem 1.2rem; margin:1rem auto 0; max-width:720px; text-align:left;">
+            <summary style="cursor:pointer; color:var(--susd-teal-dark); font-weight:600; font-size:0.95rem; list-style:none;">
+                In plain terms: What is SPARK? <span style="font-size:0.78rem; color:var(--gray-500); font-weight:400;">(click to expand)</span>
+            </summary>
+            <p style="font-size:0.85rem; color:var(--gray-700); line-height:1.55; margin-top:0.6rem;">
+                SPARK (<strong>S</strong>ignature <strong>P</strong>rogram <strong>A</strong>dvancement, <strong>R</strong>esearch &amp; <strong>K</strong>nowledge) is a Scottsdale Unified School District team made up of educators, district leaders, families, and community members. Together, we develop and support <strong>specialty schools and signature programs</strong> &mdash; like STEM-certified schools, Dual Language Immersion, International Baccalaureate, the Math &amp; Science Academy, and Traditional schools. Our work: evaluate new program ideas, strengthen what's already working, surface gaps and opportunities, and recommend strategic direction to district leadership.
+            </p>
+        </details>
+    </div>
+
+    <!-- THREE PILLARS -->
+    <div class="framework-row">
+        <div class="pillar pillar-discover" onclick="showPage('discover')">
+            <div class="pillar-header">
+                <div class="pillar-num">Pillar 1</div>
+                <h3>Discover</h3>
+                <div class="pillar-tag">Where ideas come from</div>
+            </div>
+            <div class="pillar-body">
+                <ul>
+                    <li><span class="dot"></span> Landscape scan &amp; market intelligence</li>
+                    <li><span class="dot"></span> Idea capture from all sources</li>
+                    <li><span class="dot"></span> Structured intake &amp; initial screen</li>
+                </ul>
+                <a class="pillar-cta" onclick="showPage('discover')">Explore Discover &rarr;</a>
+            </div>
+        </div>
+
+        <div class="pillar pillar-evaluate" onclick="showPage('evaluate')">
+            <div class="pillar-header">
+                <div class="pillar-num">Pillar 2</div>
+                <h3>Evaluate</h3>
+                <div class="pillar-tag">How SPARK assesses</div>
+            </div>
+            <div class="pillar-body">
+                <ul>
+                    <li><span class="dot"></span> Quality Indicator alignment review</li>
+                    <li><span class="dot"></span> Existing program enhancement &amp; health check</li>
+                    <li><span class="dot"></span> New concept deep review</li>
+                </ul>
+                <a class="pillar-cta" onclick="showPage('evaluate')">Explore Evaluate &rarr;</a>
+            </div>
+        </div>
+
+        <div class="pillar pillar-act" onclick="showPage('act')">
+            <div class="pillar-header">
+                <div class="pillar-num">Pillar 3</div>
+                <h3>Act</h3>
+                <div class="pillar-tag">How SPARK decides &amp; delivers</div>
+            </div>
+            <div class="pillar-body">
+                <ul>
+                    <li><span class="dot"></span> Recommendations &amp; decisions</li>
+                    <li><span class="dot"></span> Implementation &amp; monitoring</li>
+                    <li><span class="dot"></span> Communication &amp; stakeholder engagement</li>
+                </ul>
+                <a class="pillar-cta" onclick="showPage('act')">Explore Act &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS FLOW VISUAL -->
+    <div class="card" style="text-align:center; padding:1.2rem 1.5rem;">
+        <p style="font-size:0.82rem; color:var(--gray-500); margin-bottom:0.6rem; text-transform:uppercase; letter-spacing:1px; font-weight:600;">How It Works</p>
+        <div class="process-flow">
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('discover')" title="Click to learn more about Discover">Idea Enters</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('discover')" title="Click to learn more about Discover">Intake &amp; Screen</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--evaluate);" onclick="showPage('evaluate')" title="Click to learn more about Evaluate">QI Review</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--evaluate);" onclick="showPage('evaluate')" title="Click to learn more about Evaluate">Deep Review</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--act);" onclick="showPage('act')" title="Click to learn more about Act">Decision</div>
+            <span class="flow-arrow" style="opacity:0.5;">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:transparent; color:var(--act); border:2px dashed var(--act); padding:0.5rem 1.1rem;" onclick="showPage('governance')" title="Click to learn about Governance">Board Action<br><span style="font-size:0.68rem; font-weight:400; opacity:0.85;">(when required)</span></div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--act);" onclick="showPage('act')" title="Click to learn more about Act">Implement</div>
+        </div>
+        <p style="font-size:0.75rem; color:var(--gray-500); margin-top:0.6rem; font-style:italic;">Some decisions (e.g., new specialty schools, structural program changes) require Governing Board approval. Routine enhancements proceed directly to implementation.</p>
+    </div>
+
+    <!-- CROSS-CUTTING -->
+    <div class="card" style="border-top: 3px solid var(--spark-gold);">
+        <h2 style="font-size:1.1rem;">Cross-Cutting Foundations</h2>
+        <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.2rem;">Click any foundation to explore the related part of the framework.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-top:0.8rem;">
+            <div class="foundation-card" onclick="showPage('evaluate')" title="Learn how programs are evaluated against SUSD's WIGs">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Strategic Anchor &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Every program is reviewed for how it advances SUSD's <strong>Wildly Important Goals</strong> &mdash; Excellence in Math (75% of 8th graders completing Algebra 1) and Full and Thriving Schools.</p>
+            </div>
+            <div class="foundation-card" onclick="showPage('evaluate')" title="See the 10 Quality Indicators and 6 evaluation categories">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Quality Indicators &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">SUSD's 10 Quality Indicators set consistent standards &mdash; alignment, evidence, equity, cost, training, impact, feasibility, data, partnerships, sustainability.</p>
+            </div>
+            <div class="foundation-card" onclick="showPage('discover')" title="See where ideas come from across the community">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Equity &amp; Access &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Every program decision is reviewed for who's served and who isn't &mdash; including transportation, demographics, and underserved communities.</p>
+            </div>
+            <div class="foundation-card" onclick="showPage('evaluate')" title="See how new investments are stewarded">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Stewardship of New Investments &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">When evaluating <em>new</em> program ideas, SPARK considers cost, sustainability, and long-term impact alongside educational value. Existing programs are treated as community assets &mdash; reviewed for enhancement, not retrenchment.</p>
+            </div>
+            <div class="foundation-card" onclick="showPage('pipeline')" title="View the live idea pipeline">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Idea Registry &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Every idea tracked from capture through decision. Nothing lost between meetings.</p>
+            </div>
+            <div class="foundation-card" onclick="showPage('programs')" title="View programs and the Spotlight">
+                <h4 style="color:var(--susd-teal); font-size:0.9rem;">Program Spotlight &rarr;</h4>
+                <p style="font-size:0.82rem; color:var(--gray-500);">Periodic feature celebrating each program's distinctives, strengths, and growth opportunities &mdash; shared with district leadership and the community.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:1rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-gold" onclick="showPage('submit')" style="font-size:1rem; padding:0.9rem 2.5rem;">
+            Submit a New Program Idea
+        </button>
+        <button class="btn btn-teal" onclick="showPage('involved')" style="font-size:1rem; padding:0.9rem 2.5rem;">
+            Get Involved
+        </button>
+    </div>
+</div>
+
+<!-- ==================== DISCOVER ==================== -->
+<div id="page-discover" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--discover);">Discover</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--discover);">
+        <h2 style="color:var(--spark-gold-dark);">Discover &mdash; Where Ideas Come From</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            SPARK maintains an always-on pipeline for new program ideas. Whether from a parent at open house,
+            a teacher in the classroom, or a trend spotted in the market &mdash; every concept has a path into the system.
+            <strong>Click a card below to see how your perspective fits.</strong>
+        </p>
+
+        <h3>Who brings ideas to SPARK?</h3>
+        <div class="entry-grid">
+            <div class="entry-card" onclick="showPersona('families')">
+                <div class="icon">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;</div>
+                <div class="label">Families &amp; Community</div>
+                <div class="desc">Parents, residents, advocates</div>
+            </div>
+            <div class="entry-card" onclick="showPersona('educators')">
+                <div class="icon">&#x1F3EB;</div>
+                <div class="label">Educators &amp; Staff</div>
+                <div class="desc">Teachers, coaches, principals</div>
+            </div>
+            <div class="entry-card" onclick="showPersona('grants')">
+                <div class="icon">&#x1F4A1;</div>
+                <div class="label">Innovation &amp; Grants</div>
+                <div class="desc">Pilots, partner funding</div>
+            </div>
+            <div class="entry-card" onclick="showPersona('cte')">
+                <div class="icon">&#x1F6E0;&#xFE0F;</div>
+                <div class="label">CTE Pathways</div>
+                <div class="desc">Career &amp; tech education</div>
+            </div>
+            <div class="entry-card" onclick="showPersona('spark')">
+                <div class="icon">&#x2B50;</div>
+                <div class="label">SPARK Team</div>
+                <div class="desc">Committee &amp; subgroups</div>
+            </div>
+            <div class="entry-card" onclick="showPersona('landscape')">
+                <div class="icon">&#x1F50D;</div>
+                <div class="label">Landscape Scan</div>
+                <div class="desc">Trends &amp; gap analysis</div>
+            </div>
+            <div class="entry-card" onclick="showPersona('students')">
+                <div class="icon">&#x1F393;</div>
+                <div class="label">Student Voice</div>
+                <div class="desc">What students want</div>
+            </div>
+        </div>
+
+        <!-- PERSONA PANELS -->
+        <div id="persona-families" class="persona-panel" aria-live="polite">
+            <h3>&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466; Families &amp; Community Members</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Parents and community members are often the first to identify unmet needs or exciting possibilities.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "My child would thrive in [arts / dual language / project-based / hands-on] learning, but nothing quite like that exists in SUSD," or "I see a need that isn't being met for my kid," or "Other districts offer XYZ &mdash; why don't we?"</div>
+            <div class="scenario"><strong>Real-world examples:</strong> A parent group notices unmet demand for a specialized program (arts, dual language, sustainability, etc.) and organizes feedback. A community member highlights workforce pathways their neighborhood could benefit from. A family advocates for an enrollment pattern that reflects their student's needs. Each enters as a community interest submission.</div>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:0.6rem;">You don't need a fully developed proposal. A clear description of the need and who it would serve is a great start.</p>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Parent / Family Member')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('programs')">See Current Programs</button>
+            </div>
+        </div>
+
+        <div id="persona-educators" class="persona-panel" aria-live="polite">
+            <h3>&#x1F3EB; Educators &amp; School Staff</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Teachers and principals see what works (and what's missing) every day. Site-level innovation is a powerful entry point.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "My elective pilot has strong student outcomes &mdash; could this become a signature program?" or "Our school needs a pathway that connects to local employers."</div>
+            <div class="scenario"><strong>Real-world example:</strong> A teacher proposes an entrepreneurship elective based on strong student engagement. It starts as a site-level pilot and, with evidence of impact, enters the SPARK pipeline for possible expansion.</div>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:0.6rem;">Your classroom insights and student data are invaluable. Include any evidence of impact or student interest you have.</p>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Teacher / Educator')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('programs')">See Current Programs</button>
+            </div>
+        </div>
+
+        <div id="persona-grants" class="persona-panel" aria-live="polite">
+            <h3>&#x1F4A1; Innovation Grants &amp; Partner-Driven Opportunities</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">External funding and partnerships can accelerate innovation &mdash; but sustainability matters as much as the initial opportunity.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "We have a grant opportunity that could fund a new STEM lab &mdash; how do we evaluate if it fits SUSD's strategy?"</div>
+            <div class="scenario"><strong>Real-world example:</strong> A university partner offers funding for a dual-enrollment program. SPARK evaluates not just the grant terms but the long-term viability after funding ends, ensuring it aligns with district priorities.</div>
+            <p style="font-size:0.85rem; color:var(--gray-500); margin-top:0.6rem;">Funding is an important factor but not the only criterion. Include the sustainability plan and alignment to district goals.</p>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Business / Industry Partner')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('usecases')">See Example Scenarios</button>
+            </div>
+        </div>
+
+        <div id="persona-cte" class="persona-panel" aria-live="polite">
+            <h3>&#x1F6E0;&#xFE0F; CTE Pathways &amp; Career Readiness</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Career and Technical Education pathways connect students to workforce opportunities and align with Arizona's Profile of a Graduate.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "Local employers are asking for specific skills. Could we build a pathway that gives students real credentials?"</div>
+            <div class="scenario"><strong>Real-world example:</strong> The CTE team identifies growing demand for healthcare careers. They propose a health sciences pathway with hospital partnerships and industry certifications, entering through the structured intake process.</div>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('CTE Coordinator')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('pipeline')">View Current Pipeline</button>
+            </div>
+        </div>
+
+        <div id="persona-spark" class="persona-panel" aria-live="polite">
+            <h3>&#x2B50; SPARK Team &amp; Subgroups</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">SPARK members identify opportunities through committee work, concept studies, and portfolio analysis. Subgroups (e.g., Gifted/Advanced, Arts) develop concepts collaboratively.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "Our concept study shows strong benchmarks for a gifted hub &mdash; we're ready to formalize this into a proposal."</div>
+            <div class="scenario"><strong>Real-world example:</strong> The SPARK landscape review reveals an unmet demand segment. A concept study subgroup is formed, benchmarks are gathered, and when the concept matures, it enters the formal intake pipeline with evidence and a recommended model.</div>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('SPARK Team Member')">Submit Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('governance')">View Governance Model</button>
+            </div>
+        </div>
+
+        <div id="persona-landscape" class="persona-panel" aria-live="polite">
+            <h3>&#x1F50D; Landscape Scan &amp; Proactive Discovery</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">SPARK doesn't just wait for ideas to arrive &mdash; it actively scans for trends, gaps, and opportunities through periodic landscape assessments.</p>
+            <div class="scenario"><strong>What this looks like:</strong> Quarterly review of enrollment trends, nearby district/charter/private program launches, national education trends, workforce signals, and mobility/choice data.</div>
+            <div class="scenario"><strong>Real-world example:</strong> Enrollment data shows students leaving a feeder pattern for a nearby charter. SPARK investigates whether a programmatic response (not necessarily a new program) could address the underlying need.</div>
+            <div class="persona-actions">
+                <button class="btn btn-teal" onclick="showPage('pipeline')">View Current Pipeline</button>
+                <button class="btn btn-outline" onclick="showPage('usecases')">See Example Scenarios</button>
+            </div>
+        </div>
+
+        <div id="persona-students" class="persona-panel" aria-live="polite">
+            <h3>&#x1F393; Student Voice</h3>
+            <p style="font-size:0.9rem; color:var(--gray-700);">Students are the ultimate beneficiaries of specialty programs. Their perspectives on what engages, challenges, and inspires them are essential input.</p>
+            <div class="scenario"><strong>You might be thinking:</strong> "I wish my school had a class where I could build real things" or "I want to study something my school doesn't offer."</div>
+            <div class="scenario"><strong>How it works:</strong> Student input comes through surveys, student government, and direct feedback channels. SPARK considers student interest data as a key demand signal when evaluating new concepts.</div>
+            <div class="persona-actions">
+                <button class="btn btn-gold" onclick="startSubmit('Student')">Share Your Idea &rarr;</button>
+                <button class="btn btn-outline" onclick="showPage('programs')">See Current Programs</button>
+            </div>
+        </div>
+
+        <h3>Structured Intake</h3>
+        <p style="font-size:0.9rem; color:var(--gray-700); margin-bottom:0.8rem;">
+            All ideas enter through a consistent <strong>Intake Form</strong> &mdash; a 15-minute structured questionnaire
+            aligned to SUSD's Quality Indicators. This ensures every concept is captured with enough detail for fair review.
+        </p>
+        <button class="btn btn-gold" onclick="showPage('submit')">Open the Intake Form &rarr;</button>
+
+        <h3>Preliminary Screen</h3>
+        <p style="font-size:0.9rem; color:var(--gray-700);">
+            SPARK leadership performs a quick check: Is this a duplicate? Is there an obvious blocker?
+            Does it meet a minimum viability threshold? Ideas that pass move to <strong>Evaluate</strong>.
+            Others are <em>parked</em> in the registry (tracked, not lost) or <em>redirected</em> to an existing program.
+        </p>
+
+        <div class="callout callout-gold" style="margin-top:1.2rem;">
+            <h4 style="color:var(--spark-gold-dark);">Periodic Landscape Scan</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                Quarterly, SPARK reviews: open enrollment trends, nearby district/charter/private program launches,
+                national education trends, and workforce signals. Findings feed directly into the Idea Registry.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== EVALUATE ==================== -->
+<div id="page-evaluate" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--evaluate);">Evaluate</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--evaluate);">
+        <h2 style="color:var(--susd-teal-dark);">Evaluate &mdash; How SPARK Assesses</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            SPARK uses consistent, QI-aligned evaluation for both <strong>new concepts</strong> entering the pipeline
+            and <strong>existing programs</strong> seeking enhancement. The same quality standards apply across the board.
+        </p>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin:1.5rem 0;">
+            <div class="callout callout-teal">
+                <h4 style="color:var(--susd-teal-dark);">New Concept Review</h4>
+                <p style="font-size:0.85rem;">
+                    New ideas are reviewed against SUSD's <strong>10 Quality Indicators</strong>, organized for intake purposes
+                    into <strong>6 evaluation categories</strong> covering alignment, demand, instructional quality, feasibility,
+                    financial sustainability, and community fit.
+                </p>
+                <div style="margin-top:0.8rem;">
+                    <p style="font-size:0.82rem; color:var(--gray-700); font-weight:600; margin-bottom:0.4rem;">6 Evaluation Categories (intake-form synthesis):</p>
+                    <ul style="font-size:0.82rem; color:var(--gray-700); margin-left:1rem; list-style:disc;">
+                        <li>Mission &amp; Strategic Alignment</li>
+                        <li>Student Demand &amp; Access</li>
+                        <li>Instructional Quality</li>
+                        <li>Operational Feasibility</li>
+                        <li>Financial Sustainability</li>
+                        <li>Community &amp; Stakeholder Alignment</li>
+                    </ul>
+                    <p style="font-size:0.78rem; color:var(--gray-700); margin-top:0.8rem; font-weight:600; margin-bottom:0.3rem;">SUSD's 10 Quality Indicators (full framework):</p>
+                    <p style="font-size:0.78rem; color:var(--gray-700); line-height:1.6;">
+                        Alignment &amp; Purpose &middot; Evidence &amp; Effectiveness &middot; Equity &amp; Accessibility &middot; Cost &amp; Resources &middot; Training &amp; Support &middot; Impact on Students &amp; Staff &middot; Implementation Feasibility &middot; Data &amp; Evaluation &middot; Community Partners &amp; Stakeholder Support &middot; Sustainability
+                    </p>
+                    <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.6rem; font-style:italic;">
+                        Specific scoring methodology and thresholds are under development with the SPARK team.
+                    </p>
+                </div>
+            </div>
+            <div class="callout callout-teal">
+                <h4 style="color:var(--susd-teal-dark);">Existing Program Enhancement</h4>
+                <p style="font-size:0.85rem;">
+                    Existing programs have a proven thesis &mdash; approved by the Board and valued by the community.
+                    SPARK's role is to <strong>identify opportunities to enhance and uplift</strong> these programs,
+                    using the QI framework as a lens for continuous improvement.
+                </p>
+                <p style="font-size:0.82rem; margin-top:0.6rem; color:var(--gray-700);">
+                    The Program Review sub-team works with program leads to surface strengths, identify gaps, and
+                    recommend targeted investments that help established programs reach their full potential.
+                </p>
+                <p style="font-size:0.82rem; margin-top:0.4rem; color:var(--gray-500);">
+                    <strong>Current focus:</strong> Program Review for MSA/STEAM, International Baccalaureate, AVID, Dual Language Immersion, and Traditional programs is in collaborative progress this spring.
+                </p>
+            </div>
+        </div>
+
+        <h3>Deep Review</h3>
+        <p style="font-size:0.9rem; color:var(--gray-700);">
+            Concepts that advance from initial review are assigned to a SPARK <strong>Design Team</strong> (new concepts)
+            or <strong>Review Team</strong> (existing programs). These sub-teams conduct comprehensive evaluation
+            using the full Quality Indicator framework, evidence packs, and stakeholder input.
+        </p>
+
+        <div style="text-align:center; margin-top:1.2rem;">
+            <button class="btn btn-teal" onclick="showPage('pipeline')">View Current Pipeline &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== ACT ==================== -->
+<div id="page-act" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--act);">Act</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--act);">
+        <h2 style="color:#1565C0;">Act &mdash; How SPARK Decides &amp; Delivers</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            SPARK translates evaluation into clear, transparent decisions and supports implementation with
+            measurable plans and ongoing monitoring.
+        </p>
+
+        <h3>Decision Framework</h3>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:0.8rem; margin:1rem 0;">
+            <div style="background:#D4EDDA; border-radius:8px; padding:1rem; text-align:center;">
+                <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x2705;</div>
+                <div style="font-weight:700; font-size:0.85rem; color:#155724;">Approve for Pilot</div>
+                <div style="font-size:0.75rem; color:#155724;">Ready with implementation plan</div>
+            </div>
+            <div style="background:#CFE2FF; border-radius:8px; padding:1rem; text-align:center;">
+                <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x1F527;</div>
+                <div style="font-weight:700; font-size:0.85rem; color:#084298;">Design Phase</div>
+                <div style="font-size:0.75rem; color:#084298;">Needs further development</div>
+            </div>
+            <div style="background:#FFF3CD; border-radius:8px; padding:1rem; text-align:center;">
+                <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x23F3;</div>
+                <div style="font-weight:700; font-size:0.85rem; color:#856404;">Defer</div>
+                <div style="font-size:0.75rem; color:#856404;">Promising &mdash; revisit when conditions align</div>
+            </div>
+            <div style="background:#F5F5F5; border-radius:8px; padding:1rem; text-align:center;">
+                <div style="font-size:1.3rem; margin-bottom:0.3rem;">&#x1F4CB;</div>
+                <div style="font-weight:700; font-size:0.85rem; color:#666;">Not at This Time</div>
+                <div style="font-size:0.75rem; color:#666;">Documented rationale &amp; door open</div>
+            </div>
+        </div>
+
+        <h3>Implementation &amp; Monitoring</h3>
+        <p style="font-size:0.9rem; color:var(--gray-700);">
+            Approved programs receive tiered implementation plans with measurable goals,
+            designated program leads, and capacity-building support (staffing, funding, professional learning).
+            SPARK monitors progress and reports annually to district leadership.
+        </p>
+
+        <h3>Communication &amp; Stakeholder Engagement</h3>
+        <p style="font-size:0.9rem; color:var(--gray-700);">
+            Every decision comes with a clear "why." SPARK supports transparent communication to families
+            and community &mdash; sharing value, purpose, and progress of specialty programs across the district.
+        </p>
+
+        <div style="text-align:center; margin-top:1.5rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-teal" onclick="showPage('pipeline')">View Current Pipeline &rarr;</button>
+            <button class="btn btn-gold" onclick="showPage('submit')">Submit an Idea &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== SUBMIT ==================== -->
+<div id="page-submit" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <a onclick="showPage('discover')">Discover</a> &rsaquo; <strong>Submit an Idea</strong></div>
+
+    <div class="card">
+        <h2>Submit a New Program Idea</h2>
+        <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; this form does not submit data. It demonstrates the proposed intake experience.</div>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            Share your idea for a new or expanded program at SUSD. Anyone can submit &mdash; parents, educators,
+            community members, students. Takes about 15 minutes. You don't need all the answers.
+        </p>
+
+        <div id="intake-form">
+            <h3>About You</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                <div class="form-group"><label for="f-name">Your Name</label><input id="f-name" type="text" placeholder="Jane Smith"></div>
+                <div class="form-group"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="jane@example.com"></div>
+                <div class="form-group"><label for="role-select">Your Role</label>
+                    <select id="role-select"><option>Select...</option><option>Parent / Family Member</option><option>Teacher / Educator</option>
+                    <option>School Administrator</option><option>Community Member</option><option>Student</option>
+                    <option>Business / Industry Partner</option><option>CTE Coordinator</option><option>SPARK Team Member</option></select>
+                </div>
+                <div class="form-group"><label for="f-school">School / Organization</label><input id="f-school" type="text" placeholder="(if applicable)"></div>
+            </div>
+
+            <h3>Your Program Idea</h3>
+            <div class="form-group"><label for="f-program-name">Program / Concept Name</label><input id="f-program-name" type="text" placeholder='e.g., "Environmental Science & Sustainability Academy"'></div>
+            <div class="form-group"><label for="f-summary">One-Sentence Summary</label><input id="f-summary" type="text" placeholder="Describe the idea in one sentence"></div>
+            <div class="form-group"><label for="f-description">Detailed Description</label>
+                <div class="hint">What would students experience? What makes it distinctive?</div>
+                <textarea id="f-description" placeholder="Tell us more about your vision..."></textarea>
+            </div>
+            <div class="form-group"><label>Target Grade Levels</label>
+                <div class="checkbox-group"><label><input type="checkbox"> K-2</label><label><input type="checkbox"> 3-5</label>
+                <label><input type="checkbox"> 6-8</label><label><input type="checkbox"> 9-12</label></div>
+            </div>
+            <div class="form-group"><label for="f-program-type">Program Type</label>
+                <select id="f-program-type"><option>Select...</option><option>New Signature Program</option><option>New Specialty Program (within a school)</option>
+                <option>Expansion of Existing Program</option><option>Redesign of Existing Program</option><option>Pilot / Trial</option></select>
+            </div>
+
+            <h3>Strategic Alignment <span class="section-badge">QI-1</span></h3>
+            <div class="form-group"><label>Which SUSD strategic priorities does this support?</label>
+                <div class="hint">SUSD's five Strategic Priorities for 2025-2030</div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Academic Excellence</label>
+                    <label><input type="checkbox"> Climate, Culture &amp; Community Engagement</label>
+                    <label><input type="checkbox"> Talented &amp; Qualified Professionals</label>
+                    <label><input type="checkbox"> Optimized Resources</label>
+                    <label><input type="checkbox"> Future Focused</label>
+                </div>
+            </div>
+            <div class="form-group"><label for="f-wig">How might this advance SUSD's Wildly Important Goals? <span style="color:var(--gray-500); font-weight:400; font-size:0.78rem;">(Optional)</span></label>
+                <div class="hint">SUSD's WIGs: Excellence in Math (75% of 8th graders completing Algebra 1) &amp; Full and Thriving Schools (capture rate &amp; capacity).</div>
+                <textarea id="f-wig" placeholder="If applicable, describe the connection..."></textarea>
+            </div>
+            <div class="form-group"><label for="f-differentiate">How does this differentiate SUSD? <span style="color:var(--gray-500); font-weight:400; font-size:0.78rem;">(Optional)</span></label><textarea id="f-differentiate" placeholder="From charters, private schools, nearby districts..."></textarea></div>
+
+            <h3>Student Demand <span class="section-badge">QI-2</span></h3>
+            <div class="form-group"><label>What evidence of demand exists?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Parent/family requests</label>
+                    <label><input type="checkbox"> Enrollment trends</label>
+                    <label><input type="checkbox"> Waitlist data</label>
+                    <label><input type="checkbox"> National trends</label>
+                    <label><input type="checkbox"> Student surveys</label>
+                    <label><input type="checkbox"> Early-stage idea (no data yet)</label>
+                </div>
+            </div>
+
+            <h3>Instructional Model <span class="section-badge">QI-3</span></h3>
+            <div class="form-group"><label for="f-approach">Proposed approach</label><textarea id="f-approach" placeholder="e.g., project-based, dual language, competency-based, lab/hands-on..."></textarea></div>
+            <div class="form-group"><label for="f-exemplars">Existing models or exemplars?</label><textarea id="f-exemplars" placeholder='e.g., "Similar to XYZ program at [district]"'></textarea></div>
+
+            <h3>Feasibility &amp; Cost <span class="section-badge">QI-4 &amp; QI-5</span></h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                <div class="form-group"><label for="f-timeline">Timeline to launch</label>
+                    <select id="f-timeline"><option>Select...</option><option>Next school year</option><option>1-2 years</option><option>2+ years</option><option>Not sure</option></select>
+                </div>
+                <div class="form-group"><label for="f-costs">Estimated startup costs <span style="color:var(--gray-500); font-weight:400; font-size:0.78rem;">(Optional)</span></label>
+                    <select id="f-costs"><option>Select...</option><option>Minimal (&lt;$10K)</option><option>Moderate ($10K-$100K)</option><option>Significant ($100K+)</option><option>Unknown</option></select>
+                </div>
+            </div>
+            <div class="form-group"><label for="f-partnerships">Potential partnerships?</label><textarea id="f-partnerships" placeholder="Community, business, higher-ed partners?"></textarea></div>
+
+            <h3>Anything Else</h3>
+            <div class="form-group"><label for="f-additional">Additional context</label><textarea id="f-additional" placeholder="Urgency, related initiatives, risks..."></textarea></div>
+            <div class="form-group"><label for="f-involve">Would you like to be involved?</label>
+                <select id="f-involve"><option>Select...</option><option>Yes &mdash; join a Design Team</option><option>Yes &mdash; resource/advisor</option><option>No &mdash; just submitting</option></select>
+            </div>
+
+            <p style="font-size:0.78rem; color:var(--gray-500); margin-top:1rem; padding:0.6rem 0.8rem; background:var(--gray-100); border-radius:6px;">
+                <strong>Privacy:</strong> Your responses are reviewed by the SPARK team only. We don't share submissions with third parties. Partial submissions are welcome &mdash; you don't need to fill every field.
+            </p>
+
+            <div style="margin-top:1rem; display:flex; gap:0.8rem;">
+                <button class="btn btn-gold" onclick="submitForm()">Submit Idea</button>
+                <button class="btn btn-outline">Save Draft</button>
+            </div>
+        </div>
+
+        <div id="success-msg" class="success-msg">
+            <h3>Thank You! Your Idea Has Been Submitted.</h3>
+            <p>Registered as <strong>SPARK-INTAKE-007</strong>.</p>
+            <p style="font-size:0.88rem; margin-top:0.6rem; text-align:left; max-width:560px; margin-left:auto; margin-right:auto;"><strong>What happens next:</strong> You'll receive an email confirmation within 2 business days. The SPARK team conducts an initial review within 2 weeks &mdash; you'll hear the outcome (advanced, parked, or redirected) and the reasoning. If your idea moves forward, you'll be invited to join the next conversation about it.</p>
+            <div style="margin-top:1rem;">
+                <button class="btn btn-teal" onclick="showPage('pipeline')">View Pipeline</button>
+                <button class="btn btn-outline" onclick="resetForm()" style="margin-left:0.5rem;">Submit Another</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== PIPELINE ==================== -->
+<div id="page-pipeline" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Idea Pipeline</strong></div>
+
+    <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; pipeline entries are sample data for demonstration. SPARK-007 is an anonymized trial submission used to demonstrate the intake &rarr; triage &rarr; review flow end-to-end. Click any row marked <strong>TRIAL</strong> to view the full submission detail.</div>
+
+    <div class="stats-bar">
+        <div class="stat-card" onclick="filterPipeline('all')"><div class="num">9</div><div class="label">Total Ideas</div></div>
+        <div class="stat-card" onclick="filterPipeline('new-screen')"><div class="num">4</div><div class="label">New / Screen</div></div>
+        <div class="stat-card" onclick="filterPipeline('concept')"><div class="num">2</div><div class="label">Concept Study</div></div>
+        <div class="stat-card" onclick="filterPipeline('review')"><div class="num">1</div><div class="label">In Review</div></div>
+        <div class="stat-card" onclick="filterPipeline('deep')"><div class="num">1</div><div class="label">Deep Review</div></div>
+        <div class="stat-card" onclick="filterPipeline('parked')"><div class="num">1</div><div class="label">Parked</div></div>
+    </div>
+
+    <div class="card">
+        <h2>SPARK Idea Pipeline</h2>
+        <div style="overflow-x:auto;">
+            <table class="registry-table">
+                <thead><tr><th>ID</th><th>Submitted</th><th>Concept</th><th>Source</th><th>Stage</th><th>QI Focus</th><th>Owner</th><th>Next Review</th></tr></thead>
+                <tbody>
+                    <tr data-stage="new-screen" class="trial-row" onclick="openTrialModal()" style="cursor:pointer;" title="Click to view full submission detail">
+                        <td>SPARK-007 <span class="trial-badge">TRIAL</span></td>
+                        <td>Apr 14, 2026</td>
+                        <td>
+                            <strong>Experimental Program of Choice &mdash; Echo Canyon Campus</strong>
+                            <br><small style="color:var(--gray-500)">Anonymized trial submission &mdash; click to view full intake form, status history, and submitter confirmation</small>
+                        </td>
+                        <td>Board-Directed</td>
+                        <td><span class="badge badge-screen">Screen &rarr; Triage</span></td>
+                        <td>Innovation, Demand, Feasibility</td>
+                        <td>SPARK Triage</td>
+                        <td>May 5 SPARK mtg</td>
+                    </tr>
+                    <tr data-stage="new-screen"><td>SPARK-001</td><td>Apr 2026</td><td><strong>Environmental Science &amp; Sustainability Academy</strong></td><td>Community</td><td><span class="badge badge-new">New</span></td><td>&mdash;</td><td>SPARK Triage</td><td>Initial screen &mdash; May</td></tr>
+                    <tr data-stage="new-screen"><td>SPARK-002</td><td>Mar 2026</td><td><strong>AI &amp; Robotics Pathway (MS)</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>SPARK Triage</td><td>Q2 review</td></tr>
+                    <tr data-stage="concept"><td>CON-01</td><td>Feb 2026</td><td><strong>Gifted &amp; Advanced Studies Hub</strong><br><small style="color:var(--gray-500)">Magnet academy concept study</small></td><td>Leadership / Community</td><td><span class="badge badge-concept">Concept Study</span></td><td>Demand, Equity/Access, Instructional Model</td><td>G&amp;A Subgroup</td><td>May 5 SPARK mtg</td></tr>
+                    <tr data-stage="concept"><td>CON-02</td><td>Feb 2026</td><td><strong>Arts Magnet / Arts Hub School</strong><br><small style="color:var(--gray-500)">[Candidate Site TBD]</small></td><td>SPARK Team</td><td><span class="badge badge-concept">Concept Study</span></td><td>Feasibility, Demand, Community</td><td>VAPA Subgroup</td><td>May 5 SPARK mtg</td></tr>
+                    <tr data-stage="review"><td>SPARK-003</td><td>Jan 2026</td><td><strong>Student Innovation Lab</strong><br><small style="color:var(--gray-500)">Student entrepreneurship &amp; maker space</small></td><td>CTE/Grants</td><td><span class="badge badge-review">Review</span></td><td>Instructional Quality, Feasibility</td><td>Design Team</td><td>Deep review</td></tr>
+                    <tr data-stage="deep"><td>SPARK-004</td><td>Jan 2026</td><td><strong>Arts Magnet Program</strong><br><small style="color:var(--gray-500)">Advanced from CON-02 &mdash; [Candidate Site TBD] &mdash; formal proposal</small></td><td>SPARK Team</td><td><span class="badge badge-deep">Deep Review</span></td><td>All 6 QI categories</td><td>VAPA Design Team</td><td>Final recommendation</td></tr>
+                    <tr data-stage="new-screen"><td>SPARK-005</td><td>Mar 2026</td><td><strong>Early College High School</strong></td><td>Landscape</td><td><span class="badge badge-screen">Screen</span></td><td>&mdash;</td><td>SPARK Triage</td><td>Q2 review</td></tr>
+                    <tr data-stage="parked"><td>SPARK-006</td><td>Nov 2025</td><td><strong>Mandarin Dual Language</strong></td><td>Parents</td><td><span class="badge badge-parked">Parked</span></td><td>Demand data needed</td><td>SPARK Triage</td><td>Re-evaluate Q3</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.8rem; font-style:italic;">Sample data for demonstration. QI Focus Areas indicate which Quality Indicator categories are primary areas of review for each concept.</p>
+    </div>
+</div>
+
+<!-- ==================== PROGRAMS ==================== -->
+<div id="page-programs" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Current Programs</strong></div>
+
+    <div class="disclaimer-inline">&#x26A0; Illustrative prototype &mdash; program placements are approximate and shown for demonstration purposes.</div>
+
+    <div class="card" style="border-top: 3px solid var(--susd-teal);">
+        <h2 style="font-size:1.15rem;">Three Program Structures</h2>
+        <p style="color:var(--gray-500); font-size:0.88rem; margin-bottom:1rem;">SUSD specialty programs are delivered through three different structural models. The model affects how a student gains access &mdash; whether they apply, are in a defined boundary, or live in a designated program zone.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem;">
+            <div style="background:var(--susd-teal-light); border-radius:8px; padding:1rem; border-left:4px solid var(--susd-teal);">
+                <h4 style="color:var(--susd-teal-dark); font-size:0.92rem; margin-bottom:0.3rem;">&#x25CF; Dedicated Specialty School</h4>
+                <p style="font-size:0.82rem; color:var(--gray-700); line-height:1.5;">A school site that implements its theme across <strong>all grades</strong>, with <strong>no defined attendance boundary</strong>. All students apply through SUSD's centralized enrollment process.</p>
+                <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.4rem; font-style:italic;">Examples: Cheyenne Traditional, Pueblo DLI</p>
+            </div>
+            <div style="background:var(--susd-teal-light); border-radius:8px; padding:1rem; border-left:4px solid var(--susd-teal);">
+                <h4 style="color:var(--susd-teal-dark); font-size:0.92rem; margin-bottom:0.3rem;">&#x25D0; Schoolwide Specialty Program</h4>
+                <p style="font-size:0.82rem; color:var(--gray-700); line-height:1.5;">A school with a <strong>defined boundary</strong> where the theme is implemented <strong>school-wide</strong>. In-boundary students participate; out-of-boundary students apply to attend.</p>
+                <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.4rem; font-style:italic;">Examples: Navajo STEAM, Anasazi PYP, AVID @ Tavan/Hohokam/Ingleside/Arcadia</p>
+            </div>
+            <div style="background:var(--susd-teal-light); border-radius:8px; padding:1rem; border-left:4px solid var(--susd-teal);">
+                <h4 style="color:var(--susd-teal-dark); font-size:0.92rem; margin-bottom:0.3rem;">&#x25CB; Signature Program within a School</h4>
+                <p style="font-size:0.82rem; color:var(--gray-700); line-height:1.5;">A theme implemented <strong>within</strong> a boundary school &mdash; <strong>not all students participate</strong>. Students wishing to enroll in the program must apply for and be accepted.</p>
+                <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.4rem; font-style:italic;">Examples: Desert Mountain IB, Saguaro MSA, Mohave DLI, CGP, CTE Academies</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Program Portfolio &mdash; Theme &times; Grade Band</h2>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Where do current programs and pipeline concepts sit across themes and grade levels? Click any active program to visit its SUSD page.</p>
+        <div style="overflow-x:auto;">
+            <table class="heatmap">
+                <thead>
+                    <tr><th>Theme</th><th>PK-5</th><th>6-8</th><th>9-12</th><th>K-8</th><th>Districtwide</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td title="STEM = Science, Technology, Engineering, Mathematics. STEAM adds Arts.">STEM / STEAM</td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">STEM Certified</a><br><small>Navajo, Laguna, Saguaro</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Mohave MS</small></td>
+                        <td class="heat-active"><a href="https://saguaro.susd.org/academics/math-science-academy" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">MSA</a><br><small>Saguaro HS</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">AI &amp; Robotics<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
+                    </tr>
+                    <tr>
+                        <td>Arts</td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Arts Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Arts Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>Gifted / Advanced</td>
+                        <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Kiva, Redfield, Tavan</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CGP</a><br><small>Desert Canyon, Ingleside, Mohave</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Gifted Hub</a><br><small style="color:var(--spark-gold-dark);">Concept Study</small></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>Language / DLI</td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Pueblo, Desert Canyon</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Dual Language Immersion">DLI</a><br><small title="Desert Canyon Middle School">Mohave, DCMS</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">DLI</a><br><small>Saguaro, Desert Mtn</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Mandarin DLI exp.<br><small style="color:var(--spark-gold-dark);">Parked</small></td>
+                    </tr>
+                    <tr>
+                        <td>College / Career</td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/avid" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">AVID</a><br><small>Tavan, Hohokam, Ingleside, Arcadia</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/avid" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">AVID</a><br><small>Multiple sites</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/career-and-college-readiness" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">CCR / CTE</a><br><small>All 5 comp. HS</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Early College HS<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
+                    </tr>
+                    <tr>
+                        <td>Traditional / Structure</td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/traditional-school" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);">Traditional</a><br><small>Cheyenne (PK-8)</small></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>International (IB)</td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Primary Years Programme">IB PYP</a><br><small>Anasazi</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Middle Years Programme">IB MYP</a><br><small>Mountainside</small></td>
+                        <td class="heat-active"><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--susd-teal);" title="Middle Years Programme + Diploma Programme">IB MYP+DP</a><br><small>Desert Mountain</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                    </tr>
+                    <tr>
+                        <td>Innovation / Entrepreneurship</td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore"><a href="#" onclick="showPage('pipeline');return false;" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--spark-gold);">Innovation Lab</a><br><small style="color:var(--spark-gold-dark);">In Review</small></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-0"></td>
+                        <td class="heat-explore">Sustainability Acad.<br><small style="color:var(--spark-gold-dark);">Pipeline</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:0.8rem; font-size:0.78rem; color:var(--gray-500);">
+            <span><span style="display:inline-block; width:14px; height:14px; background:var(--susd-teal-light); box-shadow:inset 0 0 0 2px var(--susd-teal); vertical-align:middle; margin-right:4px;"></span> Active program (click to visit SUSD page)</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#FFF3CD; box-shadow:inset 0 0 0 2px var(--spark-gold); vertical-align:middle; margin-right:4px;"></span> In pipeline / exploring (click to view in pipeline)</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#fff; border:1px solid #ddd; vertical-align:middle; margin-right:4px;"></span> No current coverage</span>
+        </div>
+        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.4rem; font-style:italic;">Illustrative layout for demonstration. Program placements are approximate &mdash; verify with district program leads for official details.</p>
+        <p style="color:var(--gray-500); font-size:0.78rem; margin-top:0.6rem; padding:0.5rem 0.8rem; background:var(--gray-100); border-radius:6px;">
+            <strong>Future iterations</strong> may include richer "heat" lenses: <em>density</em> (number of sites per cell), <em>reach</em> (students served), <em>demand signals</em> (waitlist / applications), and <em>aspiration</em> overlays (where SPARK is actively investing). The deeper goal: heat reflects the extent to which each theme&times;grade-band is meeting the community's educational need.
+        </p>
+    </div>
+
+    <div class="card" style="border-top: 3px solid var(--spark-gold); background:linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 30%, white 100%);">
+        <h2 style="font-size:1.15rem;">&#x2728; Program Spotlight <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">Illustrative Preview</span></h2>
+        <p style="color:var(--gray-500); font-size:0.85rem; margin-bottom:1rem;">Periodically, SPARK celebrates each specialty program through a Spotlight &mdash; surfacing distinctives, sharing what's working, and identifying enhancement opportunities. The example below shows what a spotlight would look like (illustrative data). Cadence is to be confirmed with the SPARK team.</p>
+
+        <div style="background:white; border-radius:10px; padding:1.2rem; box-shadow:0 1px 6px rgba(0,0,0,0.06);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.6rem; margin-bottom:0.8rem;">
+                <div>
+                    <h3 style="color:var(--dark); font-size:1.05rem; margin:0;"><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Math &amp; Science Academy (MSA)</a></h3>
+                    <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.1rem;">Mohave MS &middot; Saguaro HS &middot; Signature Program within a School</p>
+                </div>
+                <span style="background:var(--susd-teal-light); color:var(--susd-teal-dark); font-size:0.72rem; font-weight:600; padding:0.25rem 0.6rem; border-radius:10px; align-self:flex-start;">Spotlight FY25-26</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:0.8rem; margin-bottom:1rem;">
+                <div style="text-align:center; padding:0.6rem; background:var(--gray-100); border-radius:6px;">
+                    <div style="font-size:1.4rem; font-weight:700; color:var(--susd-teal);">~XXX</div>
+                    <div style="font-size:0.7rem; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Students Served</div>
+                </div>
+                <div style="text-align:center; padding:0.6rem; background:var(--gray-100); border-radius:6px;">
+                    <div style="font-size:1.4rem; font-weight:700; color:var(--susd-teal);">XX yrs</div>
+                    <div style="font-size:0.7rem; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">In Operation</div>
+                </div>
+                <div style="text-align:center; padding:0.6rem; background:var(--gray-100); border-radius:6px;">
+                    <div style="font-size:1.4rem; font-weight:700; color:var(--susd-teal);">&#x2197;</div>
+                    <div style="font-size:0.7rem; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Application Trend</div>
+                </div>
+                <div style="text-align:center; padding:0.6rem; background:var(--gray-100); border-radius:6px;">
+                    <div style="font-size:1.4rem; font-weight:700; color:var(--susd-teal);">X</div>
+                    <div style="font-size:0.7rem; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.5px;">Active Partnerships</div>
+                </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                <div>
+                    <h4 style="color:var(--susd-teal-dark); font-size:0.88rem; margin-bottom:0.4rem;">&#x2728; Distinctives &amp; Strengths</h4>
+                    <ul style="font-size:0.82rem; color:var(--gray-700); margin-left:1rem; list-style:disc; line-height:1.55;">
+                        <li>Accelerated math &amp; science pathway</li>
+                        <li>Cohort-based community of practice</li>
+                        <li>[Illustrative] strong student outcome metrics</li>
+                        <li>[Illustrative] active industry-mentor connections</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:var(--spark-gold-dark); font-size:0.88rem; margin-bottom:0.4rem;">&#x1F4A1; Growth Opportunities</h4>
+                    <ul style="font-size:0.82rem; color:var(--gray-700); margin-left:1rem; list-style:disc; line-height:1.55;">
+                        <li>[Illustrative] expand industry partnerships</li>
+                        <li>[Illustrative] strengthen MS-to-HS pipeline visibility</li>
+                        <li>[Illustrative] support program-lead capacity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--gray-300);">
+                <p style="font-size:0.78rem; color:var(--gray-700);"><strong>What program leads tell us they need:</strong> <em>[Illustrative]</em> "More structured collaboration time across MSA sites; clearer pathway communications for incoming families; sustained Professional Development investment for specialized math instruction."</p>
+            </div>
+
+            <div style="margin-top:0.8rem; padding-top:0.8rem; border-top:1px solid var(--gray-300); display:flex; gap:0.6rem; flex-wrap:wrap;">
+                <a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="font-size:0.78rem; color:var(--susd-teal-dark); text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Visit MSA on susd.org &rarr;</a>
+                <span style="color:var(--gray-300);">|</span>
+                <a href="#" onclick="showPage('pipeline'); return false;" style="font-size:0.78rem; color:var(--susd-teal-dark); text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Related ideas in pipeline &rarr;</a>
+                <span style="color:var(--gray-300);">|</span>
+                <a href="#" onclick="showPage('evaluate'); return false;" style="font-size:0.78rem; color:var(--susd-teal-dark); text-decoration:none; border-bottom:1px dotted var(--susd-teal);">How programs are reviewed &rarr;</a>
+            </div>
+        </div>
+
+        <p style="font-size:0.74rem; color:var(--gray-500); margin-top:0.8rem; font-style:italic;">All numbers and quotes above are illustrative placeholders. Real Spotlights are co-developed with program leads through Program Review. Cadence and content evolve with the SPARK team.</p>
+    </div>
+
+    <div class="card">
+        <h2>Current Signature Programs &amp; Specialty Schools</h2>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Review what exists before submitting a new idea &mdash; your concept might enhance a current program. Click a program name to visit its SUSD page.</p>
+        <div class="program-grid">
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/math-science-academy" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Math &amp; Science Academy (MSA)</a></h4><div class="schools">Mohave MS, Saguaro HS</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/stem-certified-schools" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">STEM Certified Schools</a></h4><div class="schools">Navajo, Laguna, Saguaro</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/traditional-school" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Traditional School Program</a></h4><div class="schools">Cheyenne (PK-8)</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/dual-language-immersion" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Dual Language Immersion</a></h4><div class="schools">Pueblo, Desert Canyon ES, Mohave, DCMS, Saguaro, Desert Mtn</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/international-baccalaureate" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">International Baccalaureate (IB)</a></h4><div class="schools">Anasazi, Mountainside, Desert Mountain</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/departments/gifted/comprehensive-gifted-program" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Comprehensive Gifted Program (CGP)</a></h4><div class="schools">Kiva, Redfield, Tavan (elem); Desert Canyon, Ingleside, Mohave (MS)</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/avid" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">AVID</a></h4><div class="schools">Tavan, Hohokam, Ingleside, Arcadia (elem); plus middle school sites</div><div class="tag">Active</div></div>
+            <div class="program-card"><h4><a href="https://www.susd.org/academics/academic-programs/career-and-college-readiness" target="_blank" style="color:inherit; text-decoration:none; border-bottom:1px dotted var(--susd-teal);">Career &amp; College Readiness (CCR/CTE)</a></h4><div class="schools">All 5 comprehensive high schools</div><div class="tag">Active</div></div>
+        </div>
+        <h3>Concepts Under Exploration</h3>
+        <div class="program-grid">
+            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Gifted &amp; Advanced Studies Hub</h4><div class="schools">Concept study in progress</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Concept Study</div></div>
+            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Arts Magnet / Hub</h4><div class="schools">Concept study in progress</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Concept Study</div></div>
+            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Early College</h4><div class="schools">Model TBD</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Exploring</div></div>
+            <div class="program-card" style="border-left-color:var(--spark-gold);"><h4>Small School Model</h4><div class="schools">Concept stage</div><div class="tag" style="background:var(--spark-gold-light); color:var(--spark-gold-dark);">Exploring</div></div>
+        </div>
+        <div style="text-align:center; margin-top:1.2rem;">
+            <p style="color:var(--gray-500);">Don't see your idea? <button class="btn btn-gold" onclick="showPage('submit')">Submit It</button></p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== GOVERNANCE ==================== -->
+<div id="page-governance" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>About: Governance &amp; Intake Channels</strong></div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1rem;">
+        <button class="btn btn-outline" onclick="showPage('usecases')" style="font-size:0.82rem; padding:0.4rem 0.9rem;">Real-World Use Cases &rarr;</button>
+        <button class="btn btn-outline" onclick="showPage('home')" style="font-size:0.82rem; padding:0.4rem 0.9rem;">Framework Overview</button>
+    </div>
+
+    <div class="card" style="border-top: 4px solid var(--susd-teal);">
+        <h2 style="color:var(--susd-teal-dark);">How Ideas Enter the SPARK Pipeline</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            Program ideas reach SPARK through multiple channels &mdash; each with a clear pathway and appropriate level of review.
+            The table below shows the primary entry channels and how each is handled.
+        </p>
+
+        <div style="overflow-x:auto;">
+            <table class="gov-table">
+                <thead><tr><th>Channel</th><th>Example Trigger</th><th>Who Initiates</th><th>Typical Pathway</th><th>Key Considerations</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:700;">Board-Directed Study</td>
+                        <td>Board asks district to study feasibility of a program model</td>
+                        <td>Governing Board (via Superintendent)</td>
+                        <td>Concept Study &rarr; Intake &amp; Full Review</td>
+                        <td>Study may be required, but implementation is contingent on evidence &amp; constraints</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Leadership-Initiated</td>
+                        <td>Superintendent or cabinet commissions exploration</td>
+                        <td>District leadership</td>
+                        <td>Concept Study or Intake &amp; Triage (depending on scale)</td>
+                        <td>Light triage/charter can clarify scope before deep work</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Community Interest</td>
+                        <td>Parent group requests specialized programming</td>
+                        <td>Families / community groups</td>
+                        <td>Intake Form &rarr; Screen &rarr; Concept Study or Full Review</td>
+                        <td>Transparent criteria; equity/access design; check for duplicates via portfolio</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">School / Site Proposal</td>
+                        <td>Teachers propose a signature program for their school</td>
+                        <td>Site leader / school team</td>
+                        <td>Intake Form &rarr; Triage &rarr; Full Review</td>
+                        <td>Clarify site-specific vs. scalable; staffing/facilities impacts</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Grant / Partner Opportunity</td>
+                        <td>External partner offers funding or program</td>
+                        <td>Grants office / partner</td>
+                        <td>Fast Triage &rarr; Full Review with conditions</td>
+                        <td>Sustainability beyond grant period; not funding-driven alone</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">Informal Idea</td>
+                        <td>Staff or community member shares idea via email</td>
+                        <td>Anyone</td>
+                        <td>Light Submission &rarr; Idea Log &rarr; Screen</td>
+                        <td>SPARK helps develop and route; no sponsor required initially</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:700;">SPARK Landscape Scan</td>
+                        <td>Portfolio gap or unmet demand identified</td>
+                        <td>SPARK committee / Review team</td>
+                        <td>Concept Study / Feasibility Scan</td>
+                        <td>Proactive discovery; contributes to SPARK's intake capability</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top:1.5rem;">Roles in the Pipeline</h3>
+        <div style="overflow-x:auto;">
+            <table class="gov-table">
+                <thead><tr><th>Role</th><th>Primary Responsibilities</th></tr></thead>
+                <tbody>
+                    <tr><td style="font-weight:700;">SPARK Committee</td><td>Sets priorities; reviews summaries; recommends direction; ensures transparency and equity</td></tr>
+                    <tr><td style="font-weight:700;">Program Review Team</td><td>Owns process/tools: intake, triage, evidence framework, templates; supports consistent reviews</td></tr>
+                    <tr><td style="font-weight:700;">Concept Subgroups</td><td>Explore specific concepts (e.g., Gifted/Advanced, Arts); collect evidence; develop options; recommend pathway</td></tr>
+                    <tr><td style="font-weight:700;">District Sponsor</td><td>Accountable for design, feasibility inputs (staffing/budget/facilities), and implementation plan</td></tr>
+                    <tr><td style="font-weight:700;">Support Functions</td><td>Finance, HR, Facilities, Transportation provide constraint checks and feasibility estimates</td></tr>
+                    <tr><td style="font-weight:700;">Governing Board</td><td>May direct studies; receives updates; approves major structural changes per governance</td></tr>
+                    <tr><td style="font-weight:700;">Community &amp; Families</td><td>Provide input; surface needs; validate access barriers and support</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-teal" style="margin-top:1.2rem;">
+            <h4 style="color:var(--susd-teal-dark);">When Does a Concept Study Become a Formal Proposal?</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                A concept recommended to proceed converts to a formal intake by producing: a named sponsor with authority, a clarified model choice, a preliminary resource plan, a draft evaluation plan (success metrics &amp; benchmarks), documented equity/access design, and a communications plan.
+            </p>
+        </div>
+
+        <div style="text-align:center; margin-top:1.5rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="showPage('submit')">Submit an Idea &rarr;</button>
+            <button class="btn btn-teal" onclick="showPage('involved')">Get Involved &rarr;</button>
+        </div>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div class="card" style="border-top: 3px solid var(--susd-teal);">
+        <h2 style="font-size:1.1rem;">Acronyms &amp; Glossary</h2>
+        <p style="color:var(--gray-500); font-size:0.85rem; margin-bottom:1rem;">A quick reference for the abbreviations used across the SPARK framework and SUSD specialty programs.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:0.8rem 2rem; font-size:0.85rem; color:var(--gray-700);">
+            <div><strong>SPARK</strong> &mdash; Signature Program Advancement, Research &amp; Knowledge</div>
+            <div><strong>SUSD</strong> &mdash; Scottsdale Unified School District</div>
+            <div><strong>QI</strong> &mdash; Quality Indicator (10 canonical, organized into 6 evaluation categories)</div>
+            <div><strong>WIG</strong> &mdash; Wildly Important Goal (SUSD strategic priority)</div>
+            <div><strong>MSA</strong> &mdash; Math &amp; Science Academy</div>
+            <div><strong>STEAM</strong> &mdash; Science, Technology, Engineering, Arts, Mathematics</div>
+            <div><strong>STEM</strong> &mdash; Science, Technology, Engineering, Mathematics</div>
+            <div><strong>IB</strong> &mdash; International Baccalaureate</div>
+            <div><strong>PYP</strong> &mdash; Primary Years Programme (IB)</div>
+            <div><strong>MYP</strong> &mdash; Middle Years Programme (IB)</div>
+            <div><strong>DP</strong> &mdash; Diploma Programme (IB)</div>
+            <div><strong>DLI</strong> &mdash; Dual Language Immersion</div>
+            <div><strong>CGP</strong> &mdash; Comprehensive Gifted Program</div>
+            <div><strong>AVID</strong> &mdash; Advancement Via Individual Determination</div>
+            <div><strong>CTE</strong> &mdash; Career &amp; Technical Education</div>
+            <div><strong>CCR</strong> &mdash; College &amp; Career Readiness</div>
+            <div><strong>VAPA</strong> &mdash; Visual and Performing Arts</div>
+            <div><strong>AP</strong> &mdash; Advanced Placement</div>
+            <div><strong>PD</strong> &mdash; Professional Development</div>
+            <div><strong>DCMS / DCES</strong> &mdash; Desert Canyon Middle / Elementary School</div>
+            <div><strong>PK / ES / MS / HS</strong> &mdash; Pre-Kindergarten / Elementary / Middle / High School</div>
+        </div>
+    </div>
+
+    <!-- FUTURE ITERATIONS (v2-only, removable) -->
+    <div class="card" style="border-top: 3px dashed var(--spark-gold); background: linear-gradient(135deg, #FFFDF5 0%, white 100%);">
+        <h2 style="font-size:1.1rem;">Future Iteration Items Under Consideration <span style="font-size:0.7rem; background:var(--spark-gold-light); color:var(--spark-gold-dark); padding:0.15rem 0.5rem; border-radius:10px; font-weight:600; vertical-align:middle;">v2 Draft Only</span></h2>
+        <p style="color:var(--gray-500); font-size:0.85rem; margin-top:0.2rem; margin-bottom:1rem;">
+            <em>This is a working list of directions we're considering for future versions of the SPARK framework site. Nothing here is committed &mdash; your feedback shapes priority. Listed here for visibility while v2 is in review; will be removed before any public release.</em>
+        </p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.4rem 1.5rem; font-size:0.85rem; color:var(--gray-700);">
+            <div>&middot; Spanish translation (versi&oacute;n en espa&ntilde;ol)</div>
+            <div>&middot; Real program photography &amp; student/family voices</div>
+            <div>&middot; Direct contact channels (email, meeting RSVPs)</div>
+            <div>&middot; Subscribe / stay-informed signup</div>
+            <div>&middot; Multi-view heatmap (Density / Reach / Demand / Aspiration lenses)</div>
+            <div>&middot; Three Program Structures as heatmap filters</div>
+            <div>&middot; Program Spotlight cadence &amp; richer content (with Mitchell input)</div>
+            <div>&middot; Outcomes from Program Review (uplift-only verdicts)</div>
+            <div>&middot; FAQ / help center</div>
+            <div>&middot; Downloadable PDFs (intake form, framework summary)</div>
+            <div>&middot; Public-facing program-health surface (with district approval)</div>
+            <div>&middot; Display sans typography for headings</div>
+            <div>&middot; Process flow swim-lane redesign</div>
+            <div>&middot; Submit form 3-step wizard for shorter-attention drafts</div>
+            <div>&middot; Existing Program Leadership inline prompts and links</div>
+            <div>&middot; Vector icon set replacing emoji</div>
+        </div>
+        <p style="font-size:0.78rem; color:var(--gray-500); margin-top:1rem; font-style:italic;">
+            Have a perspective on which of these matters most? Use the <a href="#" onclick="showPage('feedback'); return false;" style="color:var(--spark-gold-dark);">feedback form</a> to weigh in.
+        </p>
+    </div>
+</div>
+
+<!-- ==================== USE CASES ==================== -->
+<div id="page-usecases" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong>Real-World Use Cases</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--spark-gold);">
+        <h2 style="color:var(--spark-gold-dark);">How the Intake System Works in Practice</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            These scenarios illustrate how different types of program ideas enter and move through the SPARK pipeline.
+        </p>
+
+        <div class="uc-grid">
+            <div class="uc-card">
+                <div class="uc-id">UC-01</div>
+                <h4>Assistant Principal emails a program idea</h4>
+                <p>An AP proposes a specialized STEM/leadership pathway for their middle school. SPARK responds with encouragement, links to the program inventory, and asks for a light idea submission.</p>
+                <span class="uc-channel">School / Site Proposal</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-02</div>
+                <h4>Parent group requests an Arts magnet option</h4>
+                <p>A community group organizes, sends a proposal packet. SPARK acknowledges, logs the idea, offers a listening session, and ensures equity/access considerations are addressed early.</p>
+                <span class="uc-channel">Community Interest</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-03</div>
+                <h4>Board directs a Gifted hub feasibility study</h4>
+                <p>Board requests feasibility analysis for a Gifted/Advanced Studies hub. SPARK opens a concept study workstream, defines scope and constraints, and delivers a brief with options and recommendation.</p>
+                <span class="uc-channel">Board-Directed Study</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-04</div>
+                <h4>Landscape review reveals an unmet demand segment</h4>
+                <p>SPARK's portfolio analysis shows an underserved grade band for dual language. A sponsor is recruited to explore options using benchmarks and mobility data.</p>
+                <span class="uc-channel">Landscape Scan</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-05</div>
+                <h4>University partner offers grant-funded STEM lab</h4>
+                <p>A time-limited grant opportunity arrives. SPARK fast-triages for alignment and sustainability &mdash; funding is important but not the only criterion. Requires a "post-grant" sustainability plan.</p>
+                <span class="uc-channel">Grant / Partner Opportunity</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-06</div>
+                <h4>Cabinet proposes consolidating into a hub school</h4>
+                <p>Enrollment shifts and available space trigger exploration. SPARK routes to concept study with facilities data, includes transportation and equity analysis from day one.</p>
+                <span class="uc-channel">Leadership-Initiated</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-07</div>
+                <h4>Teacher proposes a small elective pilot</h4>
+                <p>A teacher's entrepreneurship elective shows strong engagement. SPARK encourages the site-level pilot, logs it, and schedules a review checkpoint for possible scale-up.</p>
+                <span class="uc-channel">School / Site Proposal</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-08</div>
+                <h4>Exit data shows students leaving for a charter</h4>
+                <p>Mobility data reveals a pattern. SPARK investigates whether a programmatic or operational response is needed &mdash; not every signal requires a new program.</p>
+                <span class="uc-channel">Landscape Scan</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-id">UC-09</div>
+                <h4>Existing program lead proposes an enhancement</h4>
+                <p>An MSA director identifies an opportunity to integrate an industry-mentor pipeline. SPARK partners with the program to scope resources, refine the model, and surface what's needed to grow what's already working.</p>
+                <span class="uc-channel">School / Site Proposal &mdash; Existing Program</span>
+            </div>
+        </div>
+
+        <div class="callout callout-gold" style="margin-top:1rem;">
+            <h4 style="color:var(--spark-gold-dark);">Key Principle</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                Every scenario follows the same framework: capture the idea with enough structure, evaluate it against consistent criteria, and communicate the outcome transparently. The pathway adapts to the source and scale &mdash; but the standards remain consistent.
+            </p>
+        </div>
+
+        <div style="text-align:center; margin-top:1.5rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="showPage('submit')">Submit Your Idea &rarr;</button>
+            <button class="btn btn-outline" onclick="showPage('home')">See the Process Flow &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== GET INVOLVED ==================== -->
+<div id="page-involved" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <strong style="color:var(--susd-teal);">Get Involved</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--susd-teal);">
+        <h2 style="color:var(--susd-teal-dark);">Get Involved with SPARK</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem;">
+            SPARK is a community-driven effort. Whether you're a parent, educator, business partner, or student &mdash;
+            there are meaningful ways to contribute to the future of specialty programming in SUSD.
+        </p>
+
+        <div class="involve-grid">
+            <div class="involve-card" onclick="showPage('submit')">
+                <div class="involve-icon">&#x1F4DD;</div>
+                <h4>Submit a Program Idea</h4>
+                <p>Have a concept for a new or expanded program? Share it through our structured intake form &mdash; takes about 15 minutes.</p>
+                <span class="involve-cta">Open the Intake Form &rarr;</span>
+            </div>
+            <div class="involve-card" onclick="showPage('discover')">
+                <div class="involve-icon">&#x1F91D;</div>
+                <h4>Join a Design or Review Team</h4>
+                <p>Volunteer your expertise on a concept study, design team, or program review. SPARK sub-teams do the deep work on specific concepts.</p>
+                <span class="involve-cta">See how teams work &rarr;</span>
+            </div>
+            <div class="involve-card">
+                <div class="involve-icon">&#x1F4CA;</div>
+                <h4>Share Data &amp; Research</h4>
+                <p>Have enrollment trends, survey results, workforce data, or benchmarks from other districts? This evidence strengthens every evaluation.</p>
+                <span class="involve-cta">Contact the SPARK team</span>
+            </div>
+            <div class="involve-card">
+                <div class="involve-icon">&#x1F3EB;</div>
+                <h4>Attend a SPARK Meeting</h4>
+                <p>SPARK committee meetings are open to stakeholders. Come hear updates, share perspectives, and stay connected to the process.</p>
+                <span class="involve-cta">See upcoming meetings</span>
+            </div>
+            <div class="involve-card" onclick="showPage('programs')">
+                <div class="involve-icon">&#x1F50D;</div>
+                <h4>Explore Current Programs</h4>
+                <p>Before proposing something new, see what SUSD already offers. Your idea might enhance an existing program &mdash; or fill a genuine gap.</p>
+                <span class="involve-cta">View the portfolio &rarr;</span>
+            </div>
+            <div class="involve-card">
+                <div class="involve-icon">&#x1F4AC;</div>
+                <h4>Spread the Word</h4>
+                <p>Help your school community know that SPARK exists and that every voice matters. Share the framework with fellow parents and colleagues.</p>
+                <span class="involve-cta">Share this page</span>
+            </div>
+            <div class="involve-card" onclick="showPage('feedback')" style="border-color:var(--spark-gold); background:linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 100%);">
+                <div class="involve-icon">&#x1F4E8;</div>
+                <h4>Share Your Thoughts</h4>
+                <p>Have feedback on the SPARK framework? An observation, question, or idea? We want to hear it &mdash; every perspective helps shape this work.</p>
+                <span class="involve-cta" style="color:var(--spark-gold);">Give Feedback &rarr;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 style="font-size:1.1rem;">What Happens When You Participate</h2>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">Every contribution flows through the same transparent process:</p>
+
+        <div class="process-flow">
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('submit')" title="Submit an idea or share thoughts">Your Input</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--discover);" onclick="showPage('pipeline')" title="See the live pipeline">Captured &amp; Logged</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--evaluate);" onclick="showPage('evaluate')" title="Learn how SPARK evaluates">Reviewed &amp; Evaluated</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-step flow-clickable" style="background:var(--act);" onclick="showPage('act')" title="Learn how SPARK acts on decisions">Decision &amp; Response</div>
+        </div>
+
+        <div class="callout callout-teal" style="margin-top:1rem;">
+            <h4 style="color:var(--susd-teal-dark);">Nothing Gets Lost</h4>
+            <p style="font-size:0.85rem; color:var(--gray-700);">
+                Every idea submitted through SPARK is tracked in the <a href="#" onclick="showPage('pipeline');return false;" style="color:var(--susd-teal);">Idea Pipeline</a>.
+                Whether it advances, needs development, or is deferred &mdash; you'll know the status and the reasoning.
+                Transparency is a core principle.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 style="font-size:1.1rem;">Upcoming Opportunities</h2>
+        <div style="margin-top:0.8rem;">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>SPARK Quarterly Committee Meeting</h4>
+                    <p>Regular committee meeting &mdash; open to all stakeholders. Updates on concept studies, pipeline review, and team direction.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot gold"></div>
+                <div class="timeline-content">
+                    <h4>Concept Study Subgroups Forming</h4>
+                    <p>Gifted/Advanced Studies Hub and Arts Magnet concept studies are in progress &mdash; new voices welcome. Contact the SPARK team to join.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Program Review: MSA/STEAM, IB, AVID, DLI &amp; Traditional</h4>
+                    <p>The Program Review sub-team is conducting collaborative reviews of these five existing programs &mdash; with a focus on identifying strengths, growth opportunities, and ways SPARK can further support implementation. Educators and stakeholders with relevant experience are encouraged to contribute.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 style="font-size:1.1rem;">Where SPARK Is on the Journey</h2>
+        <p style="color:var(--gray-500); margin-bottom:1rem;">SPARK is a multi-year build. The framework you see here represents a thoughtful starting point &mdash; some elements are operational today; others are in active development.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+            <div style="background:var(--susd-teal-light); border-radius:8px; padding:1rem; border-left:4px solid var(--susd-teal);">
+                <h4 style="color:var(--susd-teal-dark); font-size:0.92rem; margin-bottom:0.4rem;">&#x2705; Live Now</h4>
+                <ul style="font-size:0.84rem; color:var(--gray-700); line-height:1.6; margin-left:1rem; list-style:disc;">
+                    <li>SPARK Belief Statement &amp; Areas of Focus</li>
+                    <li>Quality Indicators framework</li>
+                    <li>Program Review of 5 existing programs (MSA/STEAM, IB, AVID, DLI, Traditional)</li>
+                    <li>Concept Studies for Fine &amp; Performing Arts and Gifted/Advanced</li>
+                    <li>Intake form &amp; idea capture</li>
+                    <li>Community feedback collection</li>
+                </ul>
+            </div>
+            <div style="background:var(--spark-gold-light); border-radius:8px; padding:1rem; border-left:4px solid var(--spark-gold);">
+                <h4 style="color:var(--spark-gold-dark); font-size:0.92rem; margin-bottom:0.4rem;">&#x23F3; In Development</h4>
+                <ul style="font-size:0.84rem; color:var(--gray-700); line-height:1.6; margin-left:1rem; list-style:disc;">
+                    <li>Program Spotlight &amp; insights</li>
+                    <li>Idea registry &amp; pipeline tracking</li>
+                    <li>Quarterly landscape scan</li>
+                    <li>Design Team workflow for new concepts</li>
+                    <li>Scoring methodology &amp; thresholds</li>
+                    <li>Public-facing communication channels</li>
+                </ul>
+            </div>
+        </div>
+        <p style="font-size:0.78rem; color:var(--gray-500); margin-top:0.8rem; font-style:italic;">SPARK members and stakeholders shape the build &mdash; your feedback during this phase directly influences what becomes operational.</p>
+    </div>
+
+    <div class="card" style="text-align:center; padding:2rem;">
+        <h2 style="font-size:1.2rem; margin-bottom:0.5rem;">Ready to Contribute?</h2>
+        <p style="color:var(--gray-500); margin-bottom:1.2rem; max-width:500px; margin-left:auto; margin-right:auto;">
+            Start by submitting an idea, or reach out to the SPARK team to find the right fit for your interests and expertise.
+        </p>
+        <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-gold" onclick="showPage('feedback')" style="font-size:0.95rem; padding:0.8rem 2rem;">Share Your Thoughts</button>
+            <button class="btn btn-gold" onclick="showPage('submit')" style="font-size:0.95rem; padding:0.8rem 2rem; background:white; color:var(--spark-gold); border:2px solid var(--spark-gold);">Submit a Program Idea</button>
+            <button class="btn btn-teal" onclick="showPage('governance')" style="font-size:0.95rem; padding:0.8rem 2rem;">Learn About Governance</button>
+        </div>
+        <div class="disclaimer-inline" style="margin-top:1.2rem;">&#x26A0; Illustrative prototype &mdash; most contact and involvement features are not yet active. The feedback form is live.</div>
+    </div>
+</div>
+
+<!-- ==================== FEEDBACK ==================== -->
+<div id="page-feedback" class="page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> &rsaquo; <a onclick="showPage('involved')">Get Involved</a> &rsaquo; <strong style="color:var(--spark-gold);">Share Your Thoughts</strong></div>
+
+    <div class="card" style="border-top: 4px solid var(--spark-gold);">
+        <h2 style="color:var(--dark);">Share Your Thoughts</h2>
+        <p style="color:var(--gray-500); margin-bottom:0.5rem;">
+            Your perspective matters. Whether it's a quick reaction, a detailed suggestion, or a question &mdash;
+            this is the place to share it. All feedback is collected and reviewed by the SPARK team.
+        </p>
+        <p style="color:var(--gray-500); margin-bottom:1.5rem; font-size:0.82rem;">
+            Responses are confidential to the SPARK team unless you indicate otherwise. Your name and role are optional.
+        </p>
+
+        <!-- Google Form Embed — container clips footer to hide creator email -->
+        <div id="feedback-form-container" style="position:relative; overflow:hidden; height:860px;">
+            <iframe
+                id="feedback-iframe"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfQSjv8rPhfuej4mhw4_G6lDw_1JnPYbHbQ89YdB1CP4UKYEQ/viewform?embedded=true"
+                width="100%"
+                height="900"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                style="border:none; border-radius:8px;">
+                Loading feedback form...
+            </iframe>
+            <!-- White overlay hides Google footer with creator contact info -->
+            <div style="position:absolute; bottom:0; left:0; right:0; height:50px; background:white;"></div>
+        </div>
+    </div>
+
+    <div class="card" style="text-align:center; padding:1.5rem;">
+        <p style="color:var(--gray-500); font-size:0.82rem; margin-bottom:0.8rem;">
+            Thank you for helping shape SPARK. Every piece of feedback is reviewed and considered.
+        </p>
+        <button class="btn btn-teal" onclick="showPage('involved')" style="font-size:0.9rem; padding:0.6rem 1.5rem;">&larr; Back to Get Involved</button>
+    </div>
+</div>
+
+</div>
+
+<!-- TRIAL SUBMISSION DETAIL MODAL -->
+<div id="trial-submission-modal" class="modal-overlay" onclick="if(event.target===this)closeTrialModal()" role="dialog" aria-modal="true" aria-labelledby="trial-modal-title">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeTrialModal()" aria-label="Close">&times;</button>
+        <h2 id="trial-modal-title" style="color:var(--dark); font-size:1.3rem; margin-bottom:0.3rem;">SPARK-007 &mdash; Submission Detail <span class="trial-badge">TRIAL</span></h2>
+        <p style="font-size:0.78rem; color:var(--spark-gold-dark); background:var(--spark-gold-light); padding:0.5rem 0.8rem; border-radius:6px; margin-top:0.6rem;">
+            <strong>&#x26A0; Anonymized trial submission &mdash; illustrative data.</strong> Used to demonstrate the intake &rarr; triage &rarr; review flow end-to-end. Submitter identity withheld pending consent; content reflects a real concept under SPARK consideration.
+        </p>
+
+        <div class="modal-section">
+            <h3>About the Submitter</h3>
+            <div class="modal-field"><strong>Name:</strong> <em>Anonymous</em> (consent pending)</div>
+            <div class="modal-field"><strong>Email:</strong> <em>[withheld]</em></div>
+            <div class="modal-field"><strong>Role:</strong> School Administrator (SUSD Governing Board Member)</div>
+            <div class="modal-field"><strong>School / Organization:</strong> District</div>
+            <div class="modal-field"><strong>Date Submitted:</strong> April 14, 2026</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Program Idea</h3>
+            <div class="modal-field"><strong>Concept Name:</strong> Experimental School / Program of Choice for Echo Canyon</div>
+            <div class="modal-field"><strong>One-Sentence Summary:</strong> Develop a unique program at the Echo Canyon campus as an experiment to see if there is enough momentum to position it as a differentiable school-of-choice for SUSD families.</div>
+            <div class="modal-field" style="display:block; margin-top:0.6rem;"><strong style="display:block; min-width:0;">Detailed Description:</strong>
+                <span style="display:block; margin-top:0.3rem;">One of the reasons Echo Canyon closed was that as a school-of-choice, the brand of that choice was not unique or attractive enough to bring in enough families. In the Arizona school choice market, SUSD needs to rely on both neighborhood schools <em>and</em> schools-of-choice to grow enrollment across the district. Neighborhood schools are geographically determined; schools-of-choice give us the leverage to recapture Scottsdale students whose families have chosen non-SUSD options.</span>
+                <span style="display:block; margin-top:0.4rem;">SUSD already has several schools-of-choice (Cheyenne Traditional; Pueblo and Desert Canyon DLI; MSA at Mohave/Saguaro). The Echo Canyon site offers an opportunity to expand that portfolio with a new differentiated program. Some criteria:</span>
+                <ul style="margin-top:0.3rem; margin-left:1.2rem; list-style:disc;">
+                    <li>It should be unique from existing offerings (Traditional, DLI, MSA), unless evidence shows expanding one of those would meet sufficient demand. <em>Example: a "no-screens" model emphasizing reduction or elimination of devices as teaching tools, with a focus on hands-on learning.</em></li>
+                    <li>It should fit the geographic context of the campus (its distance from other SUSD schools, its fit within Arcadia, its ability to attract non-SUSD families to the west).</li>
+                    <li>This can be framed as a <em>rebranding</em> or <em>realignment</em> of the campus. The brand should have positioning recognition equivalent to programs like DLI &mdash; immediately legible to parents.</li>
+                    <li>Staged or experimental. Could begin with a few grades (e.g., K-3) and expand over time (e.g., K-5), with a 3-year financial plan covering enrollment and staffing.</li>
+                </ul>
+            </div>
+            <div class="modal-field"><strong>Target Grade Levels:</strong> K-2, 3-5</div>
+            <div class="modal-field"><strong>Program Type:</strong> Pilot / Trial &mdash; or New Signature Program</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Strategic Alignment <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-1</span></h3>
+            <div class="modal-field"><strong>SUSD Strategic Priorities:</strong> Future Focused; Optimized Resources</div>
+            <div class="modal-field"><strong>Connection to WIGs:</strong> Full and Thriving Schools (recapture and grow enrollment via differentiated school-of-choice).</div>
+            <div class="modal-field"><strong>How does this differentiate SUSD?</strong> The program should be unique and different from other SUSD offerings as a school-of-choice (e.g., a no-screens / hands-on curriculum that meets a gap in the AZ school-choice market).</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Student Demand <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-2</span></h3>
+            <div class="modal-field"><strong>Evidence of Demand:</strong> National trends</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Instructional Model <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-3</span></h3>
+            <div class="modal-field"><strong>Proposed Approach:</strong> Unknown / to be designed</div>
+            <div class="modal-field"><strong>Existing Models or Exemplars:</strong> Waldorf School of Lexington; Mountain Oak Community School (referenced as examples; success not yet validated by submitter)</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Feasibility &amp; Cost <span style="font-size:0.7rem; background:var(--susd-teal); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">QI-4 &amp; QI-5</span></h3>
+            <div class="modal-field"><strong>Proposed Location:</strong> Echo Canyon campus</div>
+            <div class="modal-field"><strong>Timeline to Launch:</strong> Fall 2027</div>
+            <div class="modal-field"><strong>Estimated Startup Costs:</strong> Unknown (pro forma needed based on grade span and program model)</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Anything Else</h3>
+            <div class="modal-field"><strong>Additional Context:</strong> "As a board member, I'd much rather see us leverage the amazing Echo Canyon campus to further the growth and success of SUSD (as opposed to leasing the space to another educational entity). The location and intimate nature of Echo makes it ripe for us to experiment with it as a new differentiated school-of-choice."</div>
+            <div class="modal-field"><strong>Would you like to be involved?</strong> Yes &mdash; as much as possible as an active SUSD Board Member.</div>
+        </div>
+
+        <div class="modal-section">
+            <h3>Status &amp; Journey</h3>
+            <div class="status-history">
+                <div class="status-step">
+                    <div class="status-dot"></div>
+                    <div class="status-step-content">
+                        <div class="status-date">April 14, 2026</div>
+                        <div class="status-title">Submitted via SPARK Intake</div>
+                        <div class="status-detail">Registry ID assigned: <strong>SPARK-007</strong>. Confirmation email sent to submitter (preview below).</div>
+                    </div>
+                </div>
+                <div class="status-step">
+                    <div class="status-dot"></div>
+                    <div class="status-step-content">
+                        <div class="status-date">April 28, 2026</div>
+                        <div class="status-title">Initial Screen &mdash; PASS</div>
+                        <div class="status-detail">Reviewed by SPARK leadership within the typical two-week screen window. Not a duplicate of an existing program; meets minimum viability threshold; advanced to triage.</div>
+                    </div>
+                </div>
+                <div class="status-step">
+                    <div class="status-dot pending"></div>
+                    <div class="status-step-content">
+                        <div class="status-date">May 5, 2026 (upcoming)</div>
+                        <div class="status-title">SPARK Team Triage &amp; Discussion</div>
+                        <div class="status-detail">Concept queued for the next SPARK Team meeting. Triage outcomes: <em>advance to Concept Study</em>, <em>develop further</em>, or <em>archive with rationale</em>.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-section">
+            <h3>What the Submitter Received <span style="font-size:0.7rem; background:var(--gray-500); color:white; padding:0.1rem 0.4rem; border-radius:3px; margin-left:0.2rem; vertical-align:middle;">EMAIL PREVIEW</span></h3>
+            <div class="email-mock">
+                <div class="email-mock-header">
+                    <div><span class="email-from">SPARK Team</span> &lt;spark@susd.org&gt;</div>
+                    <div>To: [submitter]</div>
+                    <div>Subject: <strong>Thank you &mdash; your SPARK idea has been registered (SPARK-007)</strong></div>
+                </div>
+                <div class="email-mock-body">
+                    <p>Hi,</p>
+                    <p>Thank you for submitting your program idea to the SPARK team. Your concept has been registered in the SPARK Idea Registry.</p>
+                    <p>
+                        <strong>Concept Name:</strong> Experimental School / Program of Choice for Echo Canyon<br>
+                        <strong>Registry ID:</strong> SPARK-007<br>
+                        <strong>Submitted:</strong> April 14, 2026
+                    </p>
+                    <p><strong>What happens next:</strong></p>
+                    <ul style="margin-left:1.2rem; list-style:disc;">
+                        <li><strong>Within ~2 weeks:</strong> SPARK leadership performs an initial screen to check for duplicates, blockers, and minimum viability. You'll receive an email with the screen outcome.</li>
+                        <li><strong>At the next SPARK Team meeting (quarterly cadence):</strong> If your idea advances, the SPARK Team conducts triage at the next regularly scheduled meeting. You'll receive an email with one of three outcomes: <em>advance to Concept Study</em>, <em>develop further with more information</em>, or <em>archive with documented rationale</em>. Submissions received close to a meeting may move faster; otherwise expect alignment with the quarterly cycle.</li>
+                        <li><strong>If your idea moves forward:</strong> You'll be invited to participate in the next conversation about it &mdash; your voice continues to shape the work.</li>
+                    </ul>
+                    <p>You can check the status of your submission any time:</p>
+                    <p><a href="#" class="email-mock-cta" onclick="closeTrialModal();showPage('pipeline');return false;">View SPARK Pipeline &rarr;</a></p>
+                    <p>Questions? Reply to this email or reach out to the SPARK team directly.</p>
+                    <p>With thanks,<br>The SPARK Team<br>Scottsdale Unified School District</p>
+                    <p style="font-size:0.75rem; color:var(--gray-500); border-top:1px solid var(--gray-300); padding-top:0.6rem; margin-top:0.8rem;">SPARK (Signature Program Advancement, Research &amp; Knowledge) &mdash; collaborative committee for specialty schools and signature programs at SUSD.</p>
+                </div>
+            </div>
+            <p style="font-size:0.74rem; color:var(--gray-500); margin-top:0.5rem; font-style:italic;">Email content shown is a mockup illustrating the planned submitter experience. The "next steps" timing is the proposed cadence; final timing will be confirmed by the SPARK team.</p>
+        </div>
+
+        <div style="margin-top:1.4rem; padding-top:1rem; border-top:1px solid var(--gray-300); display:flex; gap:0.6rem; justify-content:flex-end; flex-wrap:wrap;">
+            <button class="btn btn-outline" onclick="closeTrialModal()">Close</button>
+            <button class="btn btn-teal" onclick="closeTrialModal();showPage('evaluate');">How SPARK Evaluates &rarr;</button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="susd-tagline">Scottsdale Unified School District</div>
+    Engaging All Students in World-Class, Future-Focused Learning &nbsp;|&nbsp; susd.org<br>
+    <span class="proto">SPARK Framework &mdash; Illustrative Prototype &mdash; v2 Draft (May 2026) &mdash; Not an official SUSD product &nbsp;|&nbsp; <a href="../" style="color:var(--spark-gold); text-decoration:none;">&larr; View original version</a></span>
+</div>
+
+<script>
+// Password gate
+const PW_HASH = '99f23d6b45c872f7d3237de6121da6e4225b9da34960d9327b4d2e743100110e';
+async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function checkPw() {
+    const input = document.getElementById('pw-input').value;
+    const hash = await sha256(input);
+    if (hash === PW_HASH) {
+        sessionStorage.setItem('spark_auth', 'ok');
+        document.getElementById('pw-gate').classList.add('hidden');
+    } else {
+        document.getElementById('pw-error').style.display = 'block';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+    }
+}
+// Auto-unlock if already authenticated this session
+if (sessionStorage.getItem('spark_auth') === 'ok') {
+    document.getElementById('pw-gate').classList.add('hidden');
+}
+
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav > button, .nav-item-dropdown > button').forEach(b => {
+        b.classList.remove('active');
+        // Discover/Evaluate/Act anchor under Framework; Governance/Use Cases anchor under About.
+        const map = {home:'Framework',discover:'Framework',evaluate:'Framework',act:'Framework',
+            submit:'Submit an Idea',pipeline:'Pipeline',programs:'Programs',
+            governance:'About',usecases:'About',involved:'Get Involved',feedback:'Get Involved'};
+        // Strip trailing dropdown caret + whitespace, then exact match.
+        const label = (b.textContent || '').replace(/[▾▼⌄\s]+$/g, '').trim();
+        if (label === map[id]) b.classList.add('active');
+    });
+    // Close any open persona panels when navigating away
+    if (id !== 'discover') {
+        document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+    }
+    // Deep-linkable URL hashes: keep URL in sync with current page so users can share specific pages.
+    const targetHash = '#/' + id;
+    if (window.location.hash !== targetHash) {
+        history.replaceState(null, '', targetHash);
+    }
+    window.scrollTo(0,0);
+}
+
+// On load and on hashchange, navigate to the hash's page if it maps to a known page.
+function navigateFromHash() {
+    const m = (window.location.hash || '').match(/^#\/([a-z]+)$/);
+    if (m && document.getElementById('page-' + m[1])) {
+        showPage(m[1]);
+    }
+}
+window.addEventListener('hashchange', navigateFromHash);
+window.addEventListener('DOMContentLoaded', navigateFromHash);
+
+function showPersona(id) {
+    document.querySelectorAll('.persona-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('persona-' + id);
+    if (panel) {
+        panel.classList.add('active');
+        panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+}
+
+function startSubmit(role) {
+    showPage('submit');
+    const sel = document.getElementById('role-select');
+    if (sel) {
+        for (let i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].text === role) { sel.selectedIndex = i; break; }
+        }
+    }
+}
+
+function openTrialModal() {
+    const m = document.getElementById('trial-submission-modal');
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button so keyboard users can dismiss easily.
+    const closeBtn = m.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+}
+function closeTrialModal() {
+    const m = document.getElementById('trial-submission-modal');
+    if (!m) return;
+    m.classList.remove('open');
+    document.body.style.overflow = '';
+}
+// Close modal on Escape.
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const m = document.getElementById('trial-submission-modal');
+        if (m && m.classList.contains('open')) closeTrialModal();
+    }
+});
+
+function filterPipeline(stage) {
+    const rows = document.querySelectorAll('.registry-table tbody tr');
+    const cards = document.querySelectorAll('.stats-bar .stat-card');
+    cards.forEach(c => c.classList.remove('stat-active'));
+    if (stage === 'all') {
+        rows.forEach(r => r.style.display = '');
+        cards[0].classList.add('stat-active');
+    } else {
+        rows.forEach(r => {
+            r.style.display = r.dataset.stage === stage ? '' : 'none';
+        });
+        event.currentTarget.classList.add('stat-active');
+    }
+}
+
+function submitForm() {
+    document.getElementById('intake-form').style.display='none';
+    document.getElementById('success-msg').style.display='block';
+}
+
+function resetForm() {
+    document.getElementById('intake-form').style.display='block';
+    document.getElementById('success-msg').style.display='none';
+}
+</script>
+</body>
+</html>

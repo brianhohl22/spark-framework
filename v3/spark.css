@@ -1,0 +1,1140 @@
+/* SPARK v3 prototype stylesheet.
+   Color tokens from docs/v2/index.html and spec Section 2.4.
+   All styling lives here; the HTML carries no style attributes. */
+
+:root {
+  --teal: #00897B;
+  --teal-dark: #00695C;
+  --teal-light: #E0F2F1;
+  --gold: #F5A623;
+  --gold-dark: #D4901E;
+  --gold-light: #FFF8E7;
+  --ink: #1A2332;
+  --ink-mid: #2C3E50;
+  --line: #D9DEE3;
+  --bg: #F6F8FA;
+  --white: #FFFFFF;
+
+  --font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 8px;
+  --measure: 68ch;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 106.25%; /* 17 px on phones */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (min-width: 720px) {
+  html {
+    font-size: 112.5%; /* 18 px on desktop */
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.4rem;
+  background: var(--teal);
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+p,
+li {
+  max-width: var(--measure);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+a {
+  color: var(--teal-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Focus ring: 3 px gold outline on every interactive element.
+   The thin ink ring keeps it visible on white backgrounds. */
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--ink);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px;
+  padding: 0 !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 720px) {
+  .wrap {
+    padding: 0 1.5rem;
+  }
+}
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+  position: absolute;
+  top: -10rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  color: var(--teal-dark);
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* ---------- Header, nav, banner ---------- */
+
+.site-header__bar {
+  background: var(--teal-dark);
+  color: var(--white);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.75rem;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 0;
+}
+
+.brand {
+  display: block;
+  flex: none;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+.brand img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.wordmark {
+  flex: 1 1 auto;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.wordmark__name {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.wordmark__sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--teal-light);
+}
+
+.site-nav {
+  flex: 1 1 100%;
+  margin-top: 0.25rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li {
+  margin: 0;
+  max-width: none;
+}
+
+.site-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  border-bottom: 3px solid transparent;
+  color: var(--white);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-nav a[aria-current="page"] {
+  border-bottom-color: var(--gold);
+  font-weight: 700;
+}
+
+/* Narrow phones: keep the five links on two rows. */
+@media (max-width: 479.98px) {
+  .site-nav ul {
+    margin: 0 -0.4rem;
+  }
+
+  .site-nav a {
+    padding: 0 0.4rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 720px) {
+  .site-header__inner {
+    padding: 0.6rem 1.5rem 0;
+  }
+
+  .site-nav a {
+    padding: 0 0.75rem;
+  }
+
+  .site-nav ul {
+    margin: 0 -0.75rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .site-header__inner {
+    flex-wrap: nowrap;
+    padding-bottom: 0;
+  }
+
+  .site-nav {
+    flex: none;
+    margin: 0;
+  }
+
+  .site-nav ul {
+    margin: 0;
+  }
+
+  .site-nav a {
+    min-height: 60px;
+  }
+}
+
+.banner {
+  max-width: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: var(--gold-light);
+  border-top: 3px solid var(--gold);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ---------- Main ---------- */
+
+main {
+  display: block;
+  padding: 1.25rem 0 3rem;
+}
+
+@media (max-width: 479.98px) {
+  main {
+    padding-top: 1rem;
+  }
+}
+
+@media (min-width: 720px) {
+  main {
+    padding-top: 2.5rem;
+  }
+}
+
+.lead {
+  font-size: 1rem;
+}
+
+@media (min-width: 720px) {
+  .lead {
+    font-size: 1.1rem;
+  }
+}
+
+/* ---------- Home: three task doors ---------- */
+
+.doors {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+@media (min-width: 720px) {
+  .doors {
+    grid-template-columns: 1.5fr 1.2fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.door {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  padding: 1rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+
+.door__label {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.door__text {
+  font-size: 0.95rem;
+}
+
+.door:hover .door__label {
+  text-decoration: underline;
+}
+
+.door--large {
+  padding: 1.5rem 1.25rem;
+  background: var(--teal-dark);
+  color: var(--white);
+}
+
+.door--large .door__label {
+  font-size: 1.45rem;
+}
+
+.door--medium {
+  background: var(--white);
+  border-color: var(--teal);
+  color: var(--ink);
+}
+
+.door--medium .door__label {
+  color: var(--teal-dark);
+  font-size: 1.2rem;
+}
+
+.door--small {
+  padding: 0.75rem 1.25rem;
+  background: var(--gold-light);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.door--small .door__label {
+  font-size: 1.05rem;
+}
+
+@media (min-width: 720px) {
+  .door--large {
+    padding: 2rem 1.5rem;
+  }
+
+  .door--medium {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .door--small {
+    padding: 1.25rem 1.25rem;
+  }
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.card-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.card-list > li {
+  max-width: none;
+  margin: 0;
+}
+
+@media (min-width: 720px) {
+  .card-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card-list .card {
+  background: var(--teal-light);
+  border-color: var(--teal);
+  font-weight: 700;
+}
+
+.card__meta {
+  display: block;
+  color: var(--ink-mid);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* ---------- Study overviews (What we're working on) ---------- */
+
+.studies {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .studies {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.study {
+  padding: 1rem 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: var(--radius);
+}
+
+.study h3 {
+  margin-top: 0.25rem;
+}
+
+.study ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.study > :last-child {
+  margin-bottom: 0;
+}
+
+.record {
+  margin-top: 1rem;
+}
+
+/* A second line in a table's theme cell, e.g. "Being studied: ..." */
+.cell-note {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--ink-mid);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.note {
+  color: var(--ink-mid);
+  font-size: 0.95rem;
+}
+
+.planned-cards {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 720px) {
+  .planned-cards {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+}
+
+.card--planned {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--teal);
+}
+
+.card--planned h2 {
+  margin: 0.4rem 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.card--planned h2::after {
+  display: none;
+}
+
+.card--planned p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.card__badge {
+  margin: 0;
+}
+
+/* ---------- Badges and Example blocks ---------- */
+
+.badge-example,
+.badge-planned {
+  display: inline-block;
+  padding: 0 0.45rem;
+  border: 2px solid;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  vertical-align: 0.1em;
+  white-space: nowrap;
+}
+
+.badge-example {
+  border-color: var(--gold);
+  background: var(--gold-light);
+  color: var(--ink);
+}
+
+.badge-planned {
+  border-color: var(--teal);
+  background: var(--teal-light);
+  color: var(--teal-dark);
+}
+
+/* Dashed left border marks an Example block or row. */
+.example {
+  padding-left: 0.75rem;
+  border-left: 4px dashed var(--gold-dark);
+}
+
+li.example {
+  margin-left: -1.15rem;
+  padding-left: 0.9rem;
+  list-style: none;
+}
+
+/* ---------- Counts strip ---------- */
+
+.strip-block {
+  margin: 0 0 1rem;
+}
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strip li {
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.strip strong {
+  color: var(--teal-dark);
+  font-size: 1.15rem;
+}
+
+/* ---------- Tables (stack under 640 px) ---------- */
+
+.table {
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.95rem;
+}
+
+.table caption {
+  padding: 0 0 0.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table thead th {
+  background: var(--teal-light);
+  border-bottom: 2px solid var(--teal);
+}
+
+.table tbody th {
+  font-weight: 700;
+}
+
+.table tr.example > :first-child {
+  border-left: 4px dashed var(--gold-dark);
+}
+
+@media (max-width: 639.98px) {
+  .table,
+  .table caption,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table {
+    background: none;
+  }
+
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .table tr {
+    margin-bottom: 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  .table tr > :last-child {
+    border-bottom: 0;
+  }
+
+  .table [data-label]::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--ink-mid);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .table tr.example {
+    border-left: 4px dashed var(--gold-dark);
+  }
+
+  .table tr.example > :first-child {
+    border-left: 0;
+  }
+}
+
+/* ---------- Accordions ---------- */
+
+details.acc {
+  margin: 0.75rem 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+details.acc > summary {
+  position: relative;
+  min-height: 44px;
+  padding: 0.85rem 3rem 0.85rem 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+details.acc > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.acc > summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-right: 3px solid var(--teal-dark);
+  border-bottom: 3px solid var(--teal-dark);
+  transform: translateY(-75%) rotate(45deg);
+}
+
+details.acc[open] > summary::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+details.acc > summary h2,
+details.acc > summary h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+details.acc > summary h2::after {
+  display: none;
+}
+
+details.acc.section-acc {
+  margin-top: 2.5rem;
+}
+
+details.acc > summary .badge-example {
+  margin-bottom: 0.35rem;
+}
+
+details.acc[open] > summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.acc__body {
+  padding: 1rem 1rem 0.25rem;
+}
+
+details.acc.example {
+  padding-left: 0;
+  border-left: 4px dashed var(--gold-dark);
+}
+
+.fields {
+  padding-left: 0;
+  list-style: none;
+}
+
+.fields li.example {
+  margin-left: 0;
+}
+
+.url {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Numbered timeline ---------- */
+
+.timeline {
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.timeline > li {
+  position: relative;
+  margin: 0;
+  padding: 0.2rem 0 1.25rem 3.1rem;
+  counter-increment: step;
+}
+
+.timeline > li::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: var(--teal-dark);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.timeline > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 2.3rem;
+  bottom: 0.2rem;
+  left: calc(1.05rem - 1.5px);
+  width: 3px;
+  background: var(--teal-light);
+}
+
+.timeline ul {
+  margin-top: 0.5rem;
+}
+
+/* ---------- Check-first panel ---------- */
+
+.panel {
+  padding: 0.25rem 1.25rem 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: var(--radius);
+}
+
+.panel h3 {
+  margin-top: 1.25rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--teal-dark); /* white on --teal is 4.32:1, under the 4.5:1 the spec asks for below 24 px */
+  color: var(--white);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--ink-mid);
+  text-decoration: underline;
+}
+
+@media (max-width: 479.98px) {
+  .button {
+    display: flex;
+    width: 100%;
+  }
+}
+
+/* ---------- Form embeds ---------- */
+
+.embed {
+  width: 100%;
+  margin: 1rem 0 1.5rem;
+}
+
+.embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 900px;
+  border: 0;
+}
+
+.embed__open {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+/* A link with no href is a placeholder until the form exists. */
+.embed__open a:not([href]) {
+  color: var(--ink-mid);
+  text-decoration: underline dotted;
+}
+
+.embed__planned {
+  padding: 1.5rem 1rem;
+  background: var(--teal-light);
+  border: 2px solid var(--teal);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.embed__planned p {
+  margin: 0.5rem auto 0;
+}
+
+.embed__note {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Figure: cycle diagram beside its text version ---------- */
+
+.cycle {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.cycle img {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .cycle {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 2rem;
+  }
+}
+
+/* Two-part overview: a wider picture beside its text version. */
+.figure-pair {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+}
+
+.figure-pair img {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .figure-pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media print {
+  .figure-pair {
+    display: block;
+  }
+
+  .figure-pair img {
+    max-width: 4.5in;
+  }
+}
+
+/* ---------- Feedback line ---------- */
+
+.feedback {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Preview-only access code (gate.js; not part of the Finalsite build) ---------- */
+
+html.gate-locked body > *:not(.gate) {
+  display: none !important;
+}
+
+.gate {
+  width: calc(100% - 2rem);
+  max-width: 28rem;
+  margin: 12vh auto 2rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: var(--radius);
+}
+
+.gate__title {
+  font-size: 1.4rem;
+}
+
+.gate label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+.gate input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--ink-mid);
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+.gate input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+button.button {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.gate__error {
+  margin-top: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--gold-dark);
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: 1.5rem 0;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+}
+
+.site-footer a {
+  color: var(--gold);
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.6in;
+  }
+
+  html {
+    font-size: 11pt;
+  }
+
+  body {
+    background: var(--white);
+  }
+
+  .skip-link,
+  .site-nav,
+  .banner {
+    display: none;
+  }
+
+  .site-header__bar,
+  .site-footer {
+    background: none;
+    color: var(--ink);
+  }
+
+  .wordmark__sub,
+  .site-footer a {
+    color: var(--ink);
+  }
+
+  .wrap,
+  .site-header__inner {
+    max-width: none;
+    padding: 0;
+  }
+
+  main {
+    padding: 1rem 0;
+  }
+
+  .doors,
+  .card-list,
+  .planned-cards,
+  .cycle {
+    display: block;
+  }
+
+  .door,
+  .card,
+  .planned-cards > *,
+  .table tr,
+  details.acc,
+  .timeline > li {
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+  }
+
+  .door--large {
+    background: none;
+    border-color: var(--teal-dark);
+    color: var(--ink);
+  }
+
+  .cycle img {
+    max-width: 3in;
+  }
+
+  .table {
+    font-size: 9.5pt;
+  }
+}
