@@ -2,7 +2,7 @@
 
 ## v3.1 iteration (2026-09-23)
 
-v3.1 applies Brian's review of v3.0, two research passes on SUSD sources, and two independent reviews. The spec's change log (Section 0) lists every change and its source. Copy marked "v3.1 draft, for Lea" in the spec needs Lea Mitchell's confirmation. Sections further down are the original v3.0 record.
+v3.1 applies the site author's review of v3.0, two research passes on SUSD sources, and two independent reviews. The spec's change log (Section 0) lists every change and its source. Copy marked "v3.1 draft, for the Assistant Superintendent" in the spec needs the Assistant Superintendent's confirmation. Sections further down are the original v3.0 record.
 
 **What changed, in short**
 - **Facts corrected from susd.org and the June 23, 2026 Board record:**
@@ -20,8 +20,8 @@ v3.1 applies Brian's review of v3.0, two research passes on SUSD sources, and tw
   - "How we list ideas" replaces "How we word things." The reviews line no longer claims reviews are only about strengthening, since SUSD's own SPARK page lists "continuation or removal of program status."
   - Explore options (was Our programs) has eight themes from SUSD's public SPARK Team page, four theme rules, one accordion per theme in table order linked from the table, SUSD's three structure terms, and an "as of" line.
   - How SPARK works opens with SPARK's two parts of work (strengthen what we have; explore what's next), with a new diagram and a three-step "Strengthen what we have" section, before the five-step idea cycle.
-- **Vocabulary, Brian's call:** A Governing Board member asked the team to favor "learning environments" built with communities over "program," and made the point that champions, not a website, carry ideas. The site now uses "program" only in proper names and SUSD's three structure labels. All 18 remaining uses are of that kind, on Explore options only. The site also says plainly that it keeps the record while people champion ideas: Home, What we're working on, How SPARK works (opening line, roles table with a new Champions row, glossary), and Share an idea.
-- **Access code:** the GitHub Pages copy now asks for the access code (spark2026, the same code, hash, and session behavior as v2). This deviates from spec 2.2 (no password gate) and 1.1 (no JavaScript) at Brian's request. `gate.js` is preview-only: it is not content, it is not in CONTENT.md, and Steven leaves it out. It discourages casual visitors only; the files are readable in the public repository.
+- **Vocabulary, the site author's call:** A Governing Board member asked the team to favor "learning environments" built with communities over "program," and made the point that champions, not a website, carry ideas. The site now uses "program" only in proper names and SUSD's three structure labels. All 18 remaining uses are of that kind, on Explore options only. The site also says plainly that it keeps the record while people champion ideas: Home, What we're working on, How SPARK works (opening line, roles table with a new Champions row, glossary), and Share an idea.
+- **Access code:** the GitHub Pages copy now asks for the access code (spark2026, the same code, hash, and session behavior as v2). This deviates from spec 2.2 (no password gate) and 1.1 (no JavaScript) at the site author's request. `gate.js` is preview-only: it is not content, it is not in CONTENT.md, and the Web Content team leaves it out. It discourages casual visitors only; the files are readable in the public repository.
 
 **Independent review**
 - **Fact check, two rounds:** every fact on the pages was checked against live susd.org pages and the Board record, then re-checked after the fixes. Final result: 105 facts, 102 verified (4 of them after a v3.1 fix), 1 removed from the page, 2 Example, 0 unsourced. DATA_INVENTORY.md lists each fact with its source and who confirms it, plus 14 items to confirm before launch. All 20 external links resolve.
@@ -53,7 +53,7 @@ v3.1 applies Brian's review of v3.0, two research passes on SUSD sources, and tw
 | how-it-works.html | 1,036 | 1,000 to 1,150 |
 | **Site total** | **3,651** | 3,300 to 3,900 |
 
-**For Steven:** HANDOFF.md replaces the "Notes for Steven" section further down. It covers the element map, how the pieces behave, form embed codes, the update routine, and admin needs. CONTENT.md is now generated from the pages, so it always matches them.
+**For the Web Content team:** HANDOFF.md replaces the "Notes for the Web Content team" section further down. It covers the element map, how the pieces behave, form embed codes, the update routine, and admin needs. CONTENT.md is now generated from the pages, so it always matches them.
 
 ---
 
@@ -65,7 +65,7 @@ What was built: five static pages, one stylesheet, and three assets, all in `doc
 
 ## Decisions on the two open items for Friday
 
-Spec Section 13 left these open. Brian delegated both to the build.
+Spec Section 13 left these open. The site's author delegated both to the build.
 
 **1. Example rows: the board shows only the two real studies.** The "Being studied now" table has two rows: Gifted and Advanced Studies Hub, and Visual and Performing Arts Academy. The spec's third row is left out: "[Example] Elementary maker lab pathway (contributing ideas: 3) · STEM · Decided: pilot". It is the only Example content that sits in the same table as real studies, and it states a decision (a pilot) the SPARK team has not made. Someone skimming the board on Friday could easily take it as real. The sentence under the table still names every stage, including Decided, so the model is still explained. With no Example row, the table caption carries no Example badge.
 
@@ -83,7 +83,7 @@ To restore the row, add this after the second row in working-on.html, and change
 </tr>
 ```
 
-**2. The trial submission: counted, not listed** (the prototype default in spec Section 13). It is one of the two "Held" ideas in the Example counts strip. It is not listed or described anywhere on the site. Listing it under a neutral title would put a real submission on the board next to the two studies the Governing Board has seen, before Lea and the submitter have decided on it. Spec Section 13 makes that their decision.
+**2. The trial submission: counted, not listed** (the prototype default in spec Section 13). It is one of the two "Held" ideas in the Example counts strip. It is not listed or described anywhere on the site. Listing it under a neutral title would put a real submission on the board next to the two studies the Governing Board has seen, before the Assistant Superintendent and the submitter have decided on it. Spec Section 13 makes that their decision.
 
 ## Word count per page
 
@@ -170,7 +170,7 @@ No 404s.
 
 Fixed earlier during the build: a single Planned card stretched full width on desktop (the grid now uses auto-fill). The screen-reader-only caption class was also made robust against the mobile table rule.
 
-**Not verified here:** real iPhone and Android devices, Safari, and screen readers (VoiceOver, NVDA). Everything above ran in desktop Chrome with phone-sized viewports. This is Brian's step 7 review point: open the site on an iPhone and an Android phone, and try keyboard-only on a laptop.
+**Not verified here:** real iPhone and Android devices, Safari, and screen readers (VoiceOver, NVDA). Everything above ran in desktop Chrome with phone-sized viewports. This is the author's step 7 review point: open the site on an iPhone and an Android phone, and try keyboard-only on a laptop.
 
 ## Deviations from the spec, and why
 
@@ -197,7 +197,7 @@ The optional mobile menu toggle was not built. The nav wraps to two rows at 375 
 
 1. **Planned cards on What we're working on.** Section 4 lists three, while the Section 12 table says two. I built three, because the page section is the more specific one.
 2. **"No other numbers on the page" (Home).** The final Home copy also contains 2 school days, About 5 minutes, June 23, 2026, Seven themes, and four times a year. The copy is final, so it stayed verbatim.
-3. **Planned "never a promise date" (spec 1.2).** The copy uses "Planned: June 2027" and "Planned: spring 2027". I kept them verbatim. Lea may want them changed to phases before launch.
+3. **Planned "never a promise date" (spec 1.2).** The copy uses "Planned: June 2027" and "Planned: spring 2027". I kept them verbatim. The Assistant Superintendent may want them changed to phases before launch.
 4. **Word-count ranges.** Three pages fall outside their ranges on verbatim copy. The copy wins (see the counts above).
 5. **"Share an idea (nine questions)".** The form in spec 8.2(a) has 13 fields plus a branch. "Nine" reads as the questions about the idea itself, not counting name, email, role, and consent. I kept "nine". Confirm it once IT builds the form.
 6. **Feedback form fallback text.** Section 7 gives none, so it uses the generic text from Section 2.4: "Open the form in a new tab".
@@ -212,7 +212,7 @@ The optional mobile menu toggle was not built. The nav wraps to two rows at 375 
 
 None. A full read and a scripted scan of the spec copy found no typos, so the copy went in exactly as written.
 
-## Notes for Steven Paluch (moving the content into Finalsite)
+## Notes for the Web Content team (moving the content into Finalsite)
 
 1. **Work from CONTENT.md, not the HTML source.** No meaning depends on the CSS class names, because every badge is real text.
 2. **The banner is for the preview only.** Remove it at launch, along with the Example items.
@@ -222,7 +222,7 @@ None. A full read and a scripted scan of the spec copy found no typos, so the co
    - The "1 more idea is not listed" sentence: use the real count, or drop it.
    - The seven "Already suggested this cycle" lines: use the SPARK Clusters list.
    - The three illustrative facts and the badge in the Dual Language entry: use facts from Educational Services, or "Ask the school".
-4. **Planned items.** There are nine Planned cards (Home 1, What we're working on 3, Our programs 2, Share an idea 1, How SPARK works 2). Planned labels also appear on the three form placeholders, the Spanish line under the idea form, and the June row of "The SPARK year". Each card is a Content block with a styled label, or can be left out at launch if Lea decides.
+4. **Planned items.** There are nine Planned cards (Home 1, What we're working on 3, Our programs 2, Share an idea 1, How SPARK works 2). Planned labels also appear on the three form placeholders, the Spanish line under the idea form, and the June row of "The SPARK year". Each card is a Content block with a styled label, or can be left out at launch if the Assistant Superintendent decides.
 5. **Tables.** Stacking on phones relies on `data-label` attributes and CSS. Finalsite may strip the attributes, so test in Composer. If the tables will not stack, the spec's fallback (11.4) is to drop the board's Next step column. The first column holds row headers (`th scope="row"`).
 6. **The board.** In Finalsite it becomes Posts with the Category Filter (spec 11.2). The prototype table is the fallback layout.
 7. **Accordions.** Our programs has seven and How SPARK works has one, each a Finalsite Accordion element. The program titles are H3 and "Why most ideas are not studied" is H2.
@@ -235,8 +235,8 @@ None. A full read and a scripted scan of the spec copy found no typos, so the co
 14. **Cycle-dated text.** Update "since August 2026" each cycle. It appears in the counts heading and in the "Already suggested this cycle" intro.
 15. **Launch settings.** Keep `noindex, nofollow` until public launch (spec 11.3). Closed accordions print closed, which is normal browser behavior.
 
-## Note for Brian: where the preview lives
+## Where the preview lives
 
 Since 2026-09-23 the preview has its own public repository, brianhohl22/spark-framework. It holds only the site files: v1 (the root index.html), v2, and v3. GitHub Pages publishes it at the same address as before, https://brianhohl22.github.io/spark-framework/, so links already shared keep working. The site pages ask for the access code. The Markdown files (CONTENT, HANDOFF, FORMS, DATA_INVENTORY, and this report) are published as ungated pages, and robots.txt blocks crawlers.
 
-Brian's working files, including the spec, the SPARK/ materials, and the earlier history of this build, moved to a separate private repository.
+The site author's working files, including the spec, the SPARK/ materials, and the earlier history of this build, moved to a separate private repository.

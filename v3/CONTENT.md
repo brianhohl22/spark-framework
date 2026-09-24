@@ -1,12 +1,12 @@
 **SPARK site v3.1: page content for Finalsite**
 
-Every page's copy in reading order, for Steven Paluch. This file is generated from the preview pages, so it always matches them. The spec ("SPARK/3. Intake system/V3_DETAILED_DESIGN.md", v3.1) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
+Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The spec ("SPARK/3. Intake system/V3_DETAILED_DESIGN.md", v3.1) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
 
 **How to read this file**
 
 - Markdown heading levels are the page's heading levels: `#` is the page H1, `##` is H2, `###` is H3.
 - **[Example]**: illustrative content, shown with a gold "Example" badge and a dashed left border. Remove or replace it at launch.
-- **[Planned: phase]**: a feature not built yet, shown as a compact card with a teal "Planned" badge. Keep or omit at launch (Lea decides).
+- **[Planned: phase]**: a feature not built yet, shown as a compact card with a teal "Planned" badge. Keep or omit at launch (the Assistant Superintendent decides).
 - **Accordion:** a collapsible section (Finalsite Accordion element). The title is the heading on the next line; the body follows.
 - **Button:** a link styled as a button. Label → target.
 - Links inside sentences are written as [link text](target). "(anchor: #id)" marks a spot other links point to.

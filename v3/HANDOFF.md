@@ -1,6 +1,6 @@
 # SPARK site: handoff for the Finalsite build
 
-For Steven Paluch (Web Content Strategy Manager). Prepared by Brian Hohl, September 2026. This is a working draft; the full package follows after the SPARK team meeting on September 25.
+For the Web Content team. September 2026. This is a working draft; the full package follows after the SPARK team meeting on September 25.
 
 **Preview:** https://brianhohl22.github.io/spark-framework/v3/ (five pages, unlisted, not indexed)
 
@@ -24,7 +24,7 @@ Every block in the preview is a standard Composer element. The preview has no Ja
 | Theme entries on Explore options (8) and "Why most ideas are not studied" (1) | Accordion | One panel per theme, same order as the table |
 | Share an idea form, Support an idea form, site feedback form | Embed | Microsoft Forms iframes; see Section 3 |
 | Two diagrams on How SPARK works | Image | The alt text and the text version beside each are in CONTENT.md |
-| "Planned" cards | Content block with a styled label, or leave them out | Lea decides which stay at launch |
+| "Planned" cards | Content block with a styled label, or leave them out | The Assistant Superintendent decides which stay at launch |
 | "Example" items | Remove at launch | Replace each one with real content, or drop it (see Section 5) |
 
 ## 2. How the pieces behave, and what to check in Composer
@@ -43,7 +43,7 @@ Every block in the preview is a standard Composer element. The preview has no Ja
 
 **What an embed code is.** It is a short piece of HTML, an `<iframe>`, that Microsoft Forms generates for each form. You paste it into Finalsite's Embed element, and the live form appears on the page. Each form owner gets theirs in Forms: **Collect responses**, then the **Embed** option, then **Copy**.
 
-**Who produces them.** Whoever owns each form, which will be district IT or Educational Services once the forms are built. If you are added as a co-owner, you can copy the codes yourself. Otherwise the owner emails them to you. Brian does not create them.
+**Who produces them.** Whoever creates and owns each form in Microsoft Forms. If the Web Content team owns a form, or is added as a co-owner, it can copy the code directly. Otherwise the owner sends it over.
 
 **What the site needs from each embed:**
 

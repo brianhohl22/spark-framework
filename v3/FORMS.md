@@ -1,6 +1,6 @@
 # SPARK site: the forms and their questions
 
-For Steven Paluch, and for whoever in district IT or Educational Services builds the Microsoft Forms. September 2026, v3.1. Where to embed each form, and how embed codes work, is in [HANDOFF.md](HANDOFF.md) section 3.
+For the Web Content team, and whoever builds the Microsoft Forms. September 2026, v3.1. Where to embed each form, and how embed codes work, is in [HANDOFF.md](HANDOFF.md) section 3.
 
 The site uses three public forms, embedded on three pages. A fourth form, the Develop packet, is sent only by invitation and is not on the site.
 
@@ -58,7 +58,7 @@ About 2 minutes. It is for the ideas the SPARK team is studying now.
 
 **Thank-you message (proposed; not in the spec):** "Thanks. Your note goes to the idea's design team before its next meeting. We summarize what we heard each quarter in You said, we did."
 
-## 3. Site feedback (proposed; not in the spec, confirm with Lea)
+## 3. Site feedback (proposed; not in the spec, confirm with the Assistant Superintendent)
 
 About 1 minute. How SPARK works ends with "Something unclear on this site? Tell us."
 
@@ -85,4 +85,4 @@ The SPARK team sends this to an idea's submitter, or to their school contact, af
 
 ---
 
-**Behind the forms** (for IT, not Steven): responses go to a SharePoint list, "SPARK Ideas." Power Automate sends the confirmation email and the reply templates, and a monthly summary email feeds the site updates. The detailed design spec has the list columns, the flows, and the email templates.
+**Behind the forms** (for whoever builds them): responses go to a SharePoint list, "SPARK Ideas." Power Automate sends the confirmation email and the reply templates, and a monthly summary email feeds the site updates. The detailed design spec has the list columns, the flows, and the email templates.

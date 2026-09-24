@@ -2,7 +2,7 @@
 
 **This folder is a visual reference only. CONTENT.md and the spec are authoritative.**
 
-- Spec: V3_DETAILED_DESIGN.md, v3.1, kept in Brian's private workspace and in the living Claude Doc (not in this repository)
+- Spec: V3_DETAILED_DESIGN.md, v3.1, kept in the author's private workspace and in the living Claude Doc (not in this repository)
 - Copy for the CMS, page by page in reading order: [CONTENT.md](CONTENT.md), generated from the pages so it always matches them
 - How each block maps to Finalsite, the form embed codes, and the update routine: [HANDOFF.md](HANDOFF.md)
 - Every question in each Microsoft Form: [FORMS.md](FORMS.md)
