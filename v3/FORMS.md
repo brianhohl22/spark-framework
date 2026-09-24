@@ -35,9 +35,9 @@ The public page describes this form as "About 5 minutes." It has 13 questions: 4
 | 6 | What is the idea? | Long text | Yes | 1,000 characters | What would students do differently? Keep it plain. |
 | 7 | Level | Multiple answers | Yes | Elementary; Middle; High; All levels | |
 | 8 | Theme | Choice | Yes | Arts; College and Career; Dual Language Immersion; Early College; Gifted and Advanced; International Baccalaureate; STEM; Traditional | Pick the closest fit. |
-| 9 | What kind of idea is this? | Choice | Yes | New school model or learning environment; New option within a school; Change to something SUSD already offers; Something else | "Something else" is fine; we'll point you to the right team. |
+| 9 | What kind of idea is this? | Choice | Yes | New school model or learning environment; New program within a school; Change to something SUSD already offers; Something else | "Something else" is fine; we'll point you to the right team. |
 | 10 | Similar to anything already listed on the site? | Choice | Yes | No; Yes (Yes opens 10b) | |
-| 10b | Which one? | Text | No | 200 characters | Name the study or option; your idea may be joined to it. |
+| 10b | Which one? | Text | No | 200 characters | Name the study or program; your idea may be joined to it. |
 | 11 | Why does SUSD need this, and who wants it? | Long text | Yes | 1,000 characters | Who has asked for it? Anything you know about demand. |
 | 12 | Would you help? | Choice | Yes | Help develop it; Updates only; No thanks | |
 | 13 | Consent | Choice | Yes | I understand | Your name and email are never published. Your idea may appear on susd.org/spark in summary form, without your name. |
@@ -64,7 +64,7 @@ About 1 minute. How SPARK works ends with "Something unclear on this site? Tell 
 
 | # | Question | Type | Required | Limit or choices | Help text |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Which page? | Choice | No | SPARK home; What we're working on; Explore options; Share an idea; How SPARK works; The whole site | |
+| 1 | Which page? | Choice | No | SPARK home; What we're working on; Our programs; Share an idea; How SPARK works; The whole site | |
 | 2 | What was unclear, or what would help? | Long text | Yes | 500 characters | |
 | 3 | Email | Text | No | 150 characters | Only if you want a reply. |
 

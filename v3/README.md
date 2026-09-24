@@ -17,7 +17,7 @@ If the HTML and CONTENT.md ever disagree, CONTENT.md and the spec win.
 | --- | --- |
 | index.html | Home |
 | working-on.html | What we're working on |
-| programs.html | Explore options (file name kept from v3.0) |
+| programs.html | Our programs |
 | share.html | Share an idea |
 | how-it-works.html | How SPARK works |
 | spark.css | The only stylesheet; all styling lives here |

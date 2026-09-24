@@ -18,9 +18,9 @@ v3.1 applies the site author's review of v3.0, two research passes on SUSD sourc
 - **Pages:**
   - Overviews of the two studies, linked to the public June 23 presentation, memo, meeting page, and video. No slide images.
   - "How we list ideas" replaces "How we word things." The reviews line no longer claims reviews are only about strengthening, since SUSD's own SPARK page lists "continuation or removal of program status."
-  - Explore options (was Our programs) has eight themes from SUSD's public SPARK Team page, four theme rules, one accordion per theme in table order linked from the table, SUSD's three structure terms, and an "as of" line.
+  - Our programs has eight themes from SUSD's public SPARK Team page, four theme rules, one accordion per theme in table order linked from the table, SUSD's three structure terms, and an "as of" line.
   - How SPARK works opens with SPARK's two parts of work (strengthen what we have; explore what's next), with a new diagram and a three-step "Strengthen what we have" section, before the five-step idea cycle.
-- **Vocabulary, the site author's call:** A Governing Board member asked the team to favor "learning environments" built with communities over "program," and made the point that champions, not a website, carry ideas. The site now uses "program" only in proper names and SUSD's three structure labels. All 18 remaining uses are of that kind, on Explore options only. The site also says plainly that it keeps the record while people champion ideas: Home, What we're working on, How SPARK works (opening line, roles table with a new Champions row, glossary), and Share an idea.
+- **Vocabulary, the site author's call:** A Governing Board member asked the team to favor "learning environments" built with communities over "program," and made the point that champions, not a website, carry ideas. The site uses "ideas" and "learning environments" for new concepts, and the district's own words, "specialty schools" and "programs," for what SUSD already offers, matching susd.org's Academic Programs page. An interim "options" wording was dropped as unclear and not SUSD vocabulary. The Assistant Superintendent is asked to confirm the wording. The site also says plainly that it keeps the record while people champion ideas: Home, What we're working on, How SPARK works (opening line, roles table with a Champions row, glossary), and Share an idea.
 - **Access code:** the GitHub Pages copy now asks for the access code (spark2026, the same code, hash, and session behavior as v2). This deviates from spec 2.2 (no password gate) and 1.1 (no JavaScript) at the site author's request. `gate.js` is preview-only: it is not content, it is not in CONTENT.md, and the Web Content team leaves it out. It discourages casual visitors only; the files are readable in the public repository.
 
 **Independent review**
@@ -35,7 +35,7 @@ v3.1 applies the site author's review of v3.0, two research passes on SUSD sourc
 - axe-core: 0 violations at 375, 768, and 1280 px, with accordions closed and open.
 - Tab order follows reading order; every focus stop shows the 3 px ring.
 - Nothing overflows the viewport; print output fits letter size.
-- The Home promise is above the fold at 375 x 667. The longer "Explore options" label first pushed the nav to three rows, so nav type is slightly smaller under 480 px.
+- The Home promise is above the fold at 375 x 667. Nav type is slightly smaller under 480 px so the five links fit on two rows.
 - **Gate test:**
   - The page is hidden until the code is entered.
   - A wrong code shows an error, and the correct code unlocks the page.

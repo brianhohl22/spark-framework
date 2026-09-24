@@ -20,8 +20,8 @@ Every block in the preview is a standard Composer element. The preview has no Ja
 | Three task buttons on Home | Content in a three-column layout, or theme buttons | They stack on phones, largest first |
 | Two study cards on Home; two study overviews on What we're working on | Content blocks (or a Posts element filtered to "Under study") | Overviews link to the public June 23 Board record |
 | "Being studied now" board | Posts with the Category Filter, or a Content table | See Section 4 |
-| Finder table on Explore options; the three How SPARK works tables | Content table | See Section 2 on phone layout |
-| Theme entries on Explore options (8) and "Why most ideas are not studied" (1) | Accordion | One panel per theme, same order as the table |
+| Finder table on Our programs; the three How SPARK works tables | Content table | See Section 2 on phone layout |
+| Theme entries on Our programs (8) and "Why most ideas are not studied" (1) | Accordion | One panel per theme, same order as the table |
 | Share an idea form, Support an idea form, site feedback form | Embed | Microsoft Forms iframes; see Section 3 |
 | Two diagrams on How SPARK works | Image | The alt text and the text version beside each are in CONTENT.md |
 | "Planned" cards | Content block with a styled label, or leave them out | The Assistant Superintendent decides which stay at launch |
@@ -31,11 +31,11 @@ Every block in the preview is a standard Composer element. The preview has no Ja
 
 - **Tables on phones.** In the preview, each row turns into a stacked card under 640 px, and each cell is labelled with its column name. If Finalsite tables don't stack, keep the tables and accept sideways scrolling, or drop the board's "Next step" column. The finder table has four columns, and the others have two or three.
 - **Accordions.** These are standard open-and-close panels. The finder table's theme names link to their panels (`#arts`, `#college-career`, `#dual-language`, `#early-college`, `#gifted`, `#ib`, `#stem`, `#traditional`). If Composer can't link into an accordion panel, the table and panels still match by name and order.
-- **Other anchors used by links:** `#support` (the Support heading on What we're working on; Share an idea links to it twice), `#studies` (the study overviews; Home and Explore options link to it), `#kinds` (the "Three kinds of specialty option" heading; the glossary links to it).
+- **Other anchors used by links:** `#support` (the Support heading on What we're working on; Share an idea links to it twice), `#studies` (the study overviews; Home and Our programs link to it), `#kinds` (the "Three kinds of specialty school and program" heading; the glossary links to it).
 - **Links.** Links to susd.org open in the same tab. The form fallback links ("Open the ... form in a new tab") open in a new tab. The June 23 links go to SUSD's Diligent Community portal and to YouTube.
 - **Images.** Use `assets/logo.png` (512 x 512, transparent); the SVG is only for the preview header. `assets/cycle.png` is 800 x 800 and `assets/spark-work.png` is 800 x 560. Each image's alt text is in CONTENT.md, and its numbered-list text version must stay on the page.
 - **Indexing.** Keep the section at noindex until public launch.
-- **School locations.** The school lists on Explore options are as of September 2026. The October consolidation vote may move some, so please check that page after the vote.
+- **School locations.** The school lists on Our programs are as of September 2026. The October consolidation vote may move some, so please check that page after the vote.
 
 ## 3. The forms and their embed codes
 
@@ -95,7 +95,7 @@ The page shows the posts in list layout with the Category Filter above them. **F
 | --- | --- | --- |
 | First of each month (automatic email) | Counts by status; the table of published ideas; the "Already suggested" lines; the count of ideas not listed | The counts line and the "not listed" line on What we're working on; the board rows or posts; the "Already suggested this cycle" bullets on Share an idea |
 | Within 2 weeks of each quarterly SPARK team review (the screener sends it) | Decisions, new or changed rows, and two or three "You said, we did" rows | The board; the "You said, we did" table; the next review date if shown |
-| After a Governing Board decision affecting schools | A note from Educational Services | The school lists on Explore options and their "as of" line |
+| After a Governing Board decision affecting schools | A note from Educational Services | The school lists on Our programs and their "as of" line |
 | Once, at launch | Real facts for the Dual Language entry, or a decision to drop the Example lines | Remove every "Example" item, and the preview banner |
 
 Example items to replace or remove at launch:

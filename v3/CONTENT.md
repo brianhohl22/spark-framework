@@ -22,7 +22,7 @@ Header:
 - **Image:** assets/logo.svg (preview header only; use assets/logo.png in the CMS), 40 px tall, alt text "SPARK team", links to the SPARK home page (index.html).
 - Wordmark: The SPARK Team
 - Subline: Scottsdale Unified School District
-- Main navigation (five links, current page marked): [SPARK](index.html) · [What we're working on](working-on.html) · [Explore options](programs.html) · [Share an idea](share.html) · [How SPARK works](how-it-works.html)
+- Main navigation (five links, current page marked): [SPARK](index.html) · [What we're working on](working-on.html) · [Our programs](programs.html) · [Share an idea](share.html) · [How SPARK works](how-it-works.html)
 
 Banner (one line, light gold, under the header; preview only, remove at launch): Design preview of susd.org/spark. Items marked Example are illustrative. Items marked Planned are not built yet.
 
@@ -38,12 +38,12 @@ Browser title pattern: "Page name | SPARK | Scottsdale Unified School District".
 
 # See what SUSD is studying next for students. Share your own idea.
 
-Scottsdale Unified already offers dual language, gifted, IB, STEM, career, and traditional options. SPARK is the district team that looks after them and studies new ideas for learning environments. Every idea sent here gets a reply within 3 weeks. Each year SPARK selects two or three ideas for full study. This site keeps the record of ideas. People champion them in their school communities.
+Scottsdale Unified already offers dual language, gifted, IB, STEM, career, and traditional programs. SPARK is the district team that looks after them and studies new ideas for learning environments. Every idea sent here gets a reply within 3 weeks. Each year SPARK selects two or three ideas for full study. This site keeps the record of ideas. People champion them in their school communities.
 
 Three task doors (large, medium, small; they stack on phones with the large door first):
 
 - **Button (large):** See what we're working on → working-on.html. Line under the label: The ideas under study, what happened to earlier ideas, and how many we've received.
-- **Button (medium):** Explore options → programs.html. Line under the label: Eight themes, every school, and how to enroll.
+- **Button (medium):** Find a program → programs.html. Line under the label: Eight themes, every school, and how to enroll.
 - **Button (small):** Share an idea → share.html. Line under the label: Check it isn't already listed, then send it. About 5 minutes.
 
 ## Being studied this year
@@ -164,15 +164,15 @@ One page: ideas received, studied, and decided.
 
 ---
 
-**PAGE 3 OF 5: EXPLORE OPTIONS** · file programs.html · browser title "Explore options | SPARK | Scottsdale Unified School District"
+**PAGE 3 OF 5: OUR PROGRAMS** · file programs.html · browser title "Our programs | SPARK | Scottsdale Unified School District"
 
-# Explore options by theme
+# Our programs
 
 Some SUSD schools offer a specialty theme, such as dual language or IB. Gifted services are at every school, and every elementary student has music and visual arts. Use the table to see what is offered at each level. Then open a theme for details. Where a fact is not yet confirmed, we say "Ask the school."
 
-## Find an option by theme and level
+## Find a program by theme and level
 
-Table caption: Options by theme and level
+Table caption: Programs by theme and level
 
 | Theme | Elementary | Middle | High |
 | --- | --- | --- | --- |
@@ -187,9 +187,9 @@ Table caption: Options by theme and level
 
 Schools listed as of September 2026. Locations can change after Governing Board decisions.
 
-Not every option fits a theme. For online learning, preschool, special education, and more, see [all SUSD academic programs on susd.org](https://www.susd.org/academics/academic-programs).
+Not every program fits a theme. For online learning, preschool, special education, and more, see [all SUSD academic programs on susd.org](https://www.susd.org/academics/academic-programs).
 
-## Three kinds of specialty option (anchor: #kinds)
+## Three kinds of specialty school and program (anchor: #kinds)
 
 SUSD uses three terms. You will see them in the themes below.
 
@@ -367,7 +367,7 @@ This site keeps the record of ideas. People carry them forward: principals, teac
 
 ## Two parts of SPARK's work
 
-- **Strengthen what we have.** SPARK reviews each specialty school and option once a year.
+- **Strengthen what we have.** SPARK reviews each specialty school and program once a year.
 - **Explore what's next.** Anyone can share an idea. The five steps below show what happens to it.
 - **Where the two meet:** a review can suggest expanding or redesigning something that exists. That suggestion goes to SPARK team review, like a new idea.
 
@@ -375,7 +375,7 @@ This site keeps the record of ideas. People carry them forward: principals, teac
 
 ## Strengthen what we have
 
-1. **Look closely.** Each year a SPARK group looks at each specialty school and option. It uses SUSD's ten Quality Indicators and public information.
+1. **Look closely.** Each year a SPARK group looks at each specialty school and program. It uses SUSD's ten Quality Indicators and public information.
 2. **Name strengths and next steps.** The group agrees on strengths, room to grow, and ways the district can help the school.
 3. **Report.** The annual SPARK report to district leadership sums up the reviews and recommendations.
 
@@ -457,9 +457,9 @@ SPARK has about 38 members, led by the Assistant Superintendent for Educational 
 
 ## Words we use
 
-- **Idea:** anything sent through the form. It can be a new school model, a new option at a school, or a change to something that exists.
+- **Idea:** anything sent through the form. It can be a new school model, a new program at a school, or a change to something that exists.
 - **Learning environment:** a school, school model, or pathway that shapes how students learn.
-- **Specialty school or option:** a school or offering built around a theme. SUSD uses three kinds; see [Explore options](programs.html#kinds).
+- **Specialty school or program:** a school or program built around a theme. SUSD uses three kinds; see [Our programs](programs.html#kinds).
 - **Champion:** a person who carries an idea forward with their school community.
 - **Screening:** the first check of an idea, within 3 weeks.
 - **SPARK team review:** the quarterly meeting where advanced ideas are scored.
