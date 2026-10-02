@@ -7,7 +7,7 @@
 - The feedback from the September 25 SPARK team meeting, and the change each item leads to: [FEEDBACK_MAP.md](FEEDBACK_MAP.md)
 - Copy for the CMS, page by page in reading order: [CONTENT.md](CONTENT.md), generated from the pages so it always matches them
 - How each block maps to Finalsite, the form embed codes, and the update routine: [HANDOFF.md](HANDOFF.md)
-- Every question in each Microsoft Form: [FORMS.md](FORMS.md)
+- Every question in each Microsoft Form: [FORMS.md](FORMS.md). A printable copy (v3.2) is "SPARK site_ the forms and their questions _ spark-framework.pdf"; reprint it whenever FORMS.md changes.
 - Every fact on the site, with its source and who confirms it: [DATA_INVENTORY.md](DATA_INVENTORY.md)
 - What was built, what differs from the spec, and how it was checked: [BUILD_REPORT.md](BUILD_REPORT.md)
 
