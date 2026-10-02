@@ -341,7 +341,7 @@ main {
   }
 }
 
-/* ---------- Home: three task doors ---------- */
+/* ---------- Home: three equal task doors, in the order of the loop ---------- */
 
 .doors {
   display: grid;
@@ -351,7 +351,7 @@ main {
 
 @media (min-width: 720px) {
   .doors {
-    grid-template-columns: 1.5fr 1.2fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
   }
 }
@@ -359,16 +359,21 @@ main {
 .door {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.35rem;
   min-height: 44px;
-  padding: 1rem 1.25rem;
-  border: 2px solid transparent;
+  padding: 1.25rem;
+  background: var(--white);
+  border: 2px solid var(--teal);
+  border-top-width: 6px;
   border-radius: var(--radius);
+  color: var(--ink);
   text-decoration: none;
 }
 
 .door__label {
+  color: var(--teal-dark);
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.25;
 }
@@ -381,50 +386,10 @@ main {
   text-decoration: underline;
 }
 
-.door--large {
-  padding: 1.5rem 1.25rem;
-  background: var(--teal-dark);
-  color: var(--white);
-}
-
-.door--large .door__label {
-  font-size: 1.45rem;
-}
-
-.door--medium {
-  background: var(--white);
-  border-color: var(--teal);
-  color: var(--ink);
-}
-
-.door--medium .door__label {
-  color: var(--teal-dark);
-  font-size: 1.2rem;
-}
-
-.door--small {
-  padding: 0.75rem 1.25rem;
+/* The third door (share an idea) is the call to act, so it takes the gold accent. */
+.door--share {
   background: var(--gold-light);
-  border-color: var(--gold);
-  color: var(--ink);
-}
-
-.door--small .door__label {
-  font-size: 1.05rem;
-}
-
-@media (min-width: 720px) {
-  .door--large {
-    padding: 2rem 1.5rem;
-  }
-
-  .door--medium {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .door--small {
-    padding: 1.25rem 1.25rem;
-  }
+  border-color: var(--gold-dark);
 }
 
 /* ---------- Cards ---------- */
@@ -507,17 +472,41 @@ main {
   margin-bottom: 0;
 }
 
+.study h4 {
+  margin: 1rem 0 0.4rem;
+  font-size: 1rem;
+}
+
+/* "Done" and "Now" are written as words; the tint only repeats them. */
+.phases {
+  margin: 0 0 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.phases li {
+  margin-bottom: 0.3rem;
+}
+
+.phases__now {
+  margin-left: -0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--teal-light);
+  border-radius: 4px;
+}
+
 .record {
   margin-top: 1rem;
 }
 
-/* A second line in a table's theme cell, e.g. "Being studied: ..." */
-.cell-note {
-  display: block;
-  margin-top: 0.25rem;
-  color: var(--ink-mid);
-  font-size: 0.85rem;
-  font-weight: 400;
+/* Callout: a note box set apart from the content around it (W2).
+   Solid teal edge, so it never reads as an Example (dashed gold). */
+.callout {
+  max-width: var(--measure);
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--teal-dark);
+  border-radius: var(--radius);
 }
 
 .note {
@@ -600,34 +589,6 @@ li.example {
   list-style: none;
 }
 
-/* ---------- Counts strip ---------- */
-
-.strip-block {
-  margin: 0 0 1rem;
-}
-
-.strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0.5rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.strip li {
-  margin: 0;
-  padding: 0.4rem 0.75rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.strip strong {
-  color: var(--teal-dark);
-  font-size: 1.15rem;
-}
-
 /* ---------- Tables (stack under 640 px) ---------- */
 
 .table {
@@ -663,6 +624,26 @@ li.example {
 
 .table tr.example > :first-child {
   border-left: 4px dashed var(--gold-dark);
+}
+
+/* Ideas by theme: numbers right-aligned, a bold total row. */
+.table--counts {
+  max-width: 40rem;
+}
+
+.table--counts td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.table--counts thead th:not(:first-child) {
+  text-align: right;
+}
+
+.table__total th,
+.table__total td {
+  border-top: 2px solid var(--teal);
+  font-weight: 700;
 }
 
 @media (max-width: 639.98px) {
@@ -715,6 +696,56 @@ li.example {
 
   .table tr.example > :first-child {
     border-left: 0;
+  }
+
+  /* Exception: the counts table has three short columns, so it stays a
+     real table on phones instead of stacking into ten cards. */
+  .table--counts {
+    display: table;
+    background: var(--white);
+    font-size: 0.9rem;
+  }
+
+  .table--counts caption {
+    display: table-caption;
+  }
+
+  .table--counts thead {
+    display: table-header-group;
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  .table--counts tbody {
+    display: table-row-group;
+  }
+
+  .table--counts tr {
+    display: table-row;
+    margin: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .table--counts th,
+  .table--counts td {
+    display: table-cell;
+    width: auto;
+    padding: 0.5rem;
+  }
+
+  .table--counts tr > :last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .table--counts [data-label]::before {
+    content: none;
   }
 }
 
@@ -1124,10 +1155,8 @@ button.button {
     break-inside: avoid;
   }
 
-  .door--large {
+  .door--share {
     background: none;
-    border-color: var(--teal-dark);
-    color: var(--ink);
   }
 
   .cycle img {

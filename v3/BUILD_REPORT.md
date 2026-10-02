@@ -1,5 +1,116 @@
 # SPARK v3 prototype: build report
 
+## v3.2 iteration (2026-10-02)
+
+v3.2 builds [V3.2_SPEC.md](V3.2_SPEC.md) (revision 2), changes W1 to W17. [FEEDBACK_MAP.md](FEEDBACK_MAP.md) explains why each change is proposed. Items the spec marks Draft or Confirm are built with the spec's defaults, and wait on the decisions and confirmations listed there.
+
+**What changed, in short**
+- **Home (W1):** three equal doors in the order of the loop: Find a program, See what we're working on, Share an idea. The study cards show "Now: decide and plan".
+- **Our programs (W2 to W5, W11):**
+  - a "Being studied, not offered yet" note box; the finder table no longer mentions the studies
+  - two lines on what the page covers
+  - a new "Applying and key dates" section, which replaces the "How to enroll" paragraph
+  - Status and key dates, Contact and visits, and Recognition lines in each theme panel
+  - an A+ Schools of Excellence line
+  - the Dual Language Example lines deleted, so the page has no Example content
+- **What we're working on (W6, W7, W13, W14):**
+  - "Where we are now"
+  - in each study card: a five-phase list with "Done" and "Now" as words, the target school year (not set yet), and related programs
+  - "two or three more ideas this school year"
+  - the counts strip replaced by "Ideas this school year, by theme": a three-column table (Example numbers), a reply list, and an "As of" line
+  - support notes are never posted; a Let's Talk line for suggestions, questions, and concerns
+  - the "Support summary per idea" Planned card no longer promises "who wrote in"
+- **Share an idea (W10, W15, W17):**
+  - "(13 questions)"
+  - step 1 links to a new "Check your idea's status" block (a Planned embed, with a Spanish twin)
+  - "Already suggested this school year": eight Example lines, including Other, that match the theme table
+- **How SPARK works (W8, W9, W15):** "What SPARK covers, and what it doesn't"; "We are here" under "The SPARK year" (anchor `year`); a status check row in "What you can expect from us".
+- **Stylesheet:**
+  - equal doors
+  - a note box with a solid teal edge, so it never reads as Example
+  - the phase list, where a tint repeats the word "Now"
+  - the counts table, with right-aligned numbers, a bold total, and a 40rem cap at desktop
+  - the unused counts-strip rules removed
+- **Handoff files:** HANDOFF.md, FORMS.md (four public forms, the status check, Other), README.md, DATA_INVENTORY.md, and CONTENT.md (regenerated from the pages) follow W12.
+
+**Corrected at build time from the sources** (V3.2_SPEC.md is updated to match):
+- **Desert Canyon Elementary tours:** its tour page takes requests online, so the panel links the form. The spec said "call the front office".
+- **Desert Mountain IB:** SUSD's IB guide says Middle Years and Diploma applications "are available at Desert Mountain". The panel now says both have an application; Anasazi and Mountainside enroll at the school.
+- **Dual language, joining later:** the middle school planning guide requires prior dual language, which conflicts with the placement-test line. The panel now says "some later grades ... Ask the school which ones" (a confirm item).
+- **Posts (HANDOFF section 4):**
+  - Theme categories stay the eight program themes. An "Other" idea gets a theme before it is published (W16).
+  - Post titles and the support form's idea list carry no idea IDs (spec 8.1).
+- **README.md:** it no longer says "no JavaScript" and "no password gate". It describes `gate.js`, the preview-only access code.
+
+**Deliberate exceptions and preview values**
+- **The counts table stays a table on phones.** Every other table stacks into labelled cards under 640 px. This one has three short columns, and stacking turned it into ten cards (about 1,500 px of scrolling). It fits at 320 px with no sideways scroll. Its cells keep `data-label`, so stacking can be switched back by removing the `.table--counts` phone rules.
+- **Content-freeze values in the preview:** "Where we are now: late fall 2026", "We are here: late fall 2026", "the next SPARK team review is in January 2027", "As of October 1, 2026" (inside the Example block), and "Schools listed as of September 2026". CONTENT.md marks each one.
+  - These are the spec's values for a November launch. They assume the launch comes after the SPARK year's mid-October review.
+  - The same goes for the key dates in the copy: October 12, October 27, November 3, 10, and 16, and November 16, 2026.
+- **Launch variant A:** the forms are Planned embeds. The variant B wording (a staged launch, D1) is ready in W10 but not applied.
+
+**Independent review**
+- **Data inventory:** every new fact on the pages was checked against live SUSD pages and the June 23, 2026 Board deck on 2026-10-02.
+  - Totals: 171 facts, 143 Verified, 22 Confirm, and 6 removed from the page.
+  - 15 new items to confirm before launch (K9 to K19, D2, D3, the Let's Talk topic, and dual language joining later).
+  - All 33 unique external links return HTTP 200.
+- **Conformance audit against the spec:**
+
+- **Result:** an independent agent compared the pages with the spec word by word. Every W1 to W17 item is in place, with the spec's copy and placement. Other checks it ran:
+    - all 26 in-page and cross-page anchors resolve
+    - the counts agree (14 ideas by theme, 14 in the "Already suggested" lines, replies 4+3+5+2+0 = 14, 2 studies)
+    - no study lines, no Example content, and no "Other" on Our programs
+    - no support numbers and no location breakdown
+    - "Done" and "Now" written as words
+    - roles only, no "options" for programs, no new sentence over 19 words
+    - CONTENT.md matches the pages
+  - **Fixed after the review:**
+    - this report section was added
+    - the dates set at the content freeze are now marked in CONTENT.md and HANDOFF.md
+    - "Where we are now" and "We are here" now say "late fall 2026", so they fit the SPARK year's mid-October review
+    - the counts-table exception is noted in HANDOFF.md and CONTENT.md
+    - DATA_INVENTORY gained rows #169 to #171 for the W3 copy
+    - HANDOFF.md says what to write if the Let's Talk SPARK topic isn't live at launch
+    - a line under the counts table: "Being studied now" includes studies that began in earlier years
+    - "Themes with an application list their dates below"
+    - the four levels of Saguaro academy recognition
+    - the stylesheet's unused counts-strip rules and a stale print rule were removed
+    - the old printout of FORMS.md (v3.1) was reprinted from the v3.2 FORMS.md
+  - **Not changed:**
+    - the board's "Next step" column keeps its name, as the spec sets it
+    - links to a theme panel land on the closed accordion, as in v3.1 (HANDOFF question 3)
+
+**QA on v3.2**
+- **Nu validator:** 0 errors and 0 warnings on the five pages and spark.css.
+- **qa.py at 375, 768, and 1280 px:** 0 problems. This covers:
+  - axe-core, with accordions closed and open
+  - one H1 per page and no skipped heading levels
+  - landmarks
+  - tab order follows reading order, with a 3 px focus ring on every stop
+  - table headers, scopes, and data-labels
+  - embed fallback links before the boxes
+  - Example and Planned badges
+  - 44 px door targets
+  - print width
+  - no inline styles, and no scripts other than `gate.js`
+- **axe "needs review":** color contrast on the numbered timeline steps on How SPARK works. axe can't read the background behind the number circles, which are pseudo-elements. Unchanged since v3.1: dark text on the page background.
+- **Gate test:** passes. The page is hidden until the code is entered. A wrong code shows an error. The right code unlocks this page and the next. The gate itself has 0 axe violations.
+- **No sideways scrolling** at 320, 375, 768, and 1280 px, with accordions open and closed.
+- **Journeys:** the seven journeys in spec 2.4 each take two taps or fewer between parts.
+
+**Word counts, v3.2** (copy only; the ranges are re-based to v3.2):
+
+| Page | v3.1 | v3.2 | v3.2 range | Main reason |
+| --- | --- | --- | --- | --- |
+| index.html | 288 | 299 | 270 to 330 | New door lines |
+| working-on.html | 736 | 990 | 900 to 1,060 | Phase lists, the counts table and reply list, Where we are now |
+| programs.html | 1,017 | 1,544 | 1,430 to 1,650 | Profile fields in the closed theme panels (+362 words inside panels; the always-visible copy grew by 163) |
+| share.html | 574 | 647 | 600 to 700 | The status check block, Other line |
+| how-it-works.html | 1,036 | 1,166 | 1,080 to 1,250 | "What SPARK covers" |
+| **Site total** | **3,651** | **4,646** | 4,300 to 4,950 | |
+
+---
+
 ## v3.1 iteration (2026-09-23)
 
 v3.1 applies the site author's review of v3.0, two research passes on SUSD sources, and two independent reviews. The spec's change log (Section 0) lists every change and its source. Copy marked "v3.1 draft, for the Assistant Superintendent" in the spec needs the Assistant Superintendent's confirmation. Sections further down are the original v3.0 record.

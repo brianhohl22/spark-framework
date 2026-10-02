@@ -1,10 +1,10 @@
-**SPARK site v3.1: page content for Finalsite**
+**SPARK site v3.2: page content for Finalsite**
 
-Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The spec ("SPARK/3. Intake system/V3_DETAILED_DESIGN.md", v3.1) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
+Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The specs (the v3.1 design spec, and V3.2_SPEC.md for the changes in v3.2) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
 
 **How to read this file**
 
-- Markdown heading levels are the page's heading levels: `#` is the page H1, `##` is H2, `###` is H3.
+- Markdown heading levels are the page's heading levels: `#` is the page H1, `##` is H2, `###` is H3, `####` is H4.
 - **[Example]**: illustrative content, shown with a gold "Example" badge and a dashed left border. Remove or replace it at launch.
 - **[Planned: phase]**: a feature not built yet, shown as a compact card with a teal "Planned" badge. Keep or omit at launch (the Assistant Superintendent decides).
 - **Accordion:** a collapsible section (Finalsite Accordion element). The title is the heading on the next line; the body follows.
@@ -12,7 +12,8 @@ Every page's copy in reading order, for the Web Content team. This file is gener
 - Links inside sentences are written as [link text](target). "(anchor: #id)" marks a spot other links point to.
 - **Embed:** a Microsoft Forms iframe (Finalsite Embed element). The forms do not exist yet; the preview shows a placeholder box.
 - **Image:** file name, size, and alt text.
-- Tables are Markdown tables. "(screen readers only)" means the caption repeats the heading and is visually hidden. In the finder table, "· Being studied: ..." is a second, smaller line in the theme cell. On phones, table cells stack, each labelled with its column header.
+- Tables are Markdown tables. "(screen readers only)" means the caption repeats the heading and is visually hidden. On phones, table cells stack, each labelled with its column header. Exception: the ideas-by-theme table stays a three-column table on phones.
+- **(preview value; set at the content freeze)** marks dates the preview fills in for a November launch. Set them, and drop, reword, or roll forward any key date that will be past on launch day.
 
 ---
 
@@ -40,18 +41,18 @@ Browser title pattern: "Page name | SPARK | Scottsdale Unified School District".
 
 Scottsdale Unified already offers dual language, gifted, IB, STEM, career, and traditional programs. SPARK is the district team that looks after them and studies new ideas for learning environments. Every idea sent here gets a reply within 3 weeks. Each year SPARK selects two or three ideas for full study. This site keeps the record of ideas. People champion them in their school communities.
 
-Three task doors (large, medium, small; they stack on phones with the large door first):
+Three task doors, equal in size, in the order of the loop (what exists, what's coming, what's new). On phones they stack in the same order:
 
-- **Button (large):** See what we're working on → working-on.html. Line under the label: The ideas under study, what happened to earlier ideas, and how many we've received.
-- **Button (medium):** Find a program → programs.html. Line under the label: Eight themes, every school, and how to enroll.
-- **Button (small):** Share an idea → share.html. Line under the label: Check it isn't already listed, then send it. About 5 minutes.
+- **Button 1:** Find a program → programs.html. Line under the label: Eight themes, where each is offered, and how to apply, contact, or visit.
+- **Button 2:** See what we're working on → working-on.html. Line under the label: What's being studied, where each study stands, and how to support it.
+- **Button 3:** Share an idea → share.html. Line under the label: Not already offered or being studied? Share it. About 5 minutes.
 
 ## Being studied this year
 
-- Gifted and Advanced Studies Magnet School · Kindergarten to grade 8
-- Visual and Performing Arts Magnet School · Kindergarten to grade 8
+- Gifted and Advanced Studies Magnet School · Kindergarten to grade 8 · Now: decide and plan
+- Visual and Performing Arts Magnet School · Kindergarten to grade 8 · Now: decide and plan
 
-Both concepts were shared with the Governing Board on June 23, 2026. Next step: refine both concepts with Board feedback. [Read about both studies](working-on.html#studies).
+Both concepts were shared with the Governing Board on June 23, 2026. Both are now in the decide-and-plan phase. [Read about both studies](working-on.html#studies).
 
 ## What happens to an idea
 
@@ -78,12 +79,14 @@ The ideas SPARK is studying, what happened to earlier ideas, and how many we've 
 
 ## Being studied now
 
+**Where we are now:** late fall 2026. *(preview value; set at the content freeze)* Both studies are in the decide-and-plan phase. The next SPARK team review is in January 2027. [See the SPARK year](how-it-works.html#year).
+
 Table caption (screen readers only): Being studied now
 
 | Idea | Theme | Stage | Last update | Next step |
 | --- | --- | --- | --- | --- |
-| Gifted and Advanced Studies Magnet School (K-8) | Gifted and Advanced | Under study | June 23, 2026: presented to the Governing Board | Refine the concept with Board feedback |
-| Visual and Performing Arts Magnet School (K-8) | Arts | Under study | June 23, 2026: presented to the Governing Board | Refine the concept with Board feedback |
+| Gifted and Advanced Studies Magnet School (K-8) | Gifted and Advanced | Under study | June 23, 2026: presented to the Governing Board | Decide and plan (under way) |
+| Visual and Performing Arts Magnet School (K-8) | Arts | Under study | June 23, 2026: presented to the Governing Board | Decide and plan (under way) |
 
 Stages you will see here: Selected for study, Under study, Decided (pilot, design phase, deferred, or declined), Implementing.
 
@@ -93,15 +96,35 @@ Stages you will see here: Selected for study, Under study, Decided (pilot, desig
 
 A K-8 school concept for gifted and advanced learners, including gifted students who also have a learning difference. Students would move ahead when they show mastery, learn in flexible groups, and work on real-world problems. In the concept, all students would apply. Students already identified as gifted would be eligible automatically. Others would be reviewed on several measures, not one score.
 
+#### Where it stands
+
+1. Shared with the Governing Board. **Done** (June 23, 2026)
+2. Decide and plan: confirm grades and enrollment, and approve budget and staffing. **Now**
+3. Design: curriculum, schedule, and admissions.
+4. Build and recruit: staff and outreach.
+5. Launch: first students.
+
+- **Target school year:** not set yet. It will be decided in the decide-and-plan phase.
+- **Related programs today:** [The Comprehensive Gifted Program and gifted services at every school](programs.html#gifted).
 - **Status:** Shared with the Governing Board on June 23, 2026, for information. The Board took no action. Putting the concept in place would need more Board review.
-- **Next step:** Refine the concept with Board feedback. If it moves forward, the first step is confirming grades and enrollment.
 
 ### Visual and Performing Arts Magnet School (K-8)
 
 A K-8 school concept for creative students and families. Students would learn core subjects through the arts and hands-on projects, meeting district standards. Every grade would include visual arts, music, theatre, dance, and media arts, plus a capstone project each year.
 
+#### Where it stands
+
+1. Shared with the Governing Board. **Done** (June 23, 2026)
+2. Decide and plan: confirm grades and enrollment, and approve budget and staffing. **Now**
+3. Design: curriculum, schedule, and admissions.
+4. Build and recruit: staff and outreach.
+5. Launch: first students.
+
+- **Target school year:** not set yet. It will be decided in the decide-and-plan phase.
+- **Related programs today:** [Arts classes at every school](programs.html#arts).
 - **Status:** Shared with the Governing Board on June 23, 2026, for information. The Board took no action. Putting the concept in place would need more Board review.
-- **Next step:** Refine the concept with Board feedback. If it moves forward, early steps include a community interest survey and an application process.
+
+SPARK teams will also explore two or three more ideas for new learning environments this school year. Each one is listed here once it is selected for study.
 
 Both studies are in one public presentation to the Governing Board.
 
@@ -110,17 +133,42 @@ Both studies are in one public presentation to the Governing Board.
 - [Meeting page](https://susd.community.diligentoneplatform.com/Portal/MeetingInformation.aspx?Org=Cal&Id=484)
 - [Meeting video](https://www.youtube.com/watch?v=XylhXshEj-Q)
 
-## Ideas this cycle (since August 2026)
+## Ideas this school year, by theme (anchor: #ideas-by-theme)
 
-**[Example]** (the whole strip) Received: 14 · Merged with a listed idea: 3 · Redirected or outside SPARK's scope: 5 · Held: 2 · Advanced to SPARK team review: 4
+Every idea sent through the form is counted here, by theme. Counts update monthly. Ideas are listed by name only once the SPARK team selects them for study.
 
-Ideas appear in the table above only after SPARK team review. Everything earlier is counted, not listed.
+**[Example]** (the whole block below, through its "As of" line, has a dashed left border; at launch the numbers come from the SPARK list)
 
-**[Example]** 1 more idea this cycle is not listed because it names a specific site. The submitter has been told.
+Table caption: Ideas by theme **[Example]**
+
+| Theme | Ideas shared this school year | Being studied now |
+| --- | --- | --- |
+| Arts | 3 | 1 |
+| College and Career | 2 | 0 |
+| Dual Language Immersion | 1 | 0 |
+| Early College | 0 | 0 |
+| Gifted and Advanced | 2 | 1 |
+| International Baccalaureate | 1 | 0 |
+| STEM | 2 | 0 |
+| Traditional | 1 | 0 |
+| Other | 2 | 0 |
+| All themes | 14 | 2 |
+
+"Being studied now" includes studies that began in earlier years.
+
+**[Example]** **Every idea gets a reply.** So far this school year:
+
+- 4 went to SPARK team review.
+- 3 joined a similar idea.
+- 5 went to another SUSD team or were outside SPARK's scope.
+- 2 are held for a later look.
+- 0 are still being screened.
+
+As of October 1, 2026. *(preview value; set at the content freeze)*
 
 ## How we list ideas
 
-- We list an idea here only after the SPARK team has reviewed it.
+- We list an idea here only once the SPARK team selects it for study.
 - The SPARK team writes each public title and summary, not the person who sent it.
 - We never name the person who sent an idea.
 - We do not name a school or site unless the Governing Board has discussed it in public. A closed campus is called "a district-owned site."
@@ -140,17 +188,21 @@ Table caption: You said, we did **[Example]**
 
 ## Support an idea we're studying (anchor: #support)
 
-Care about one of the ideas above? Tell us. Your note goes to that idea's design team before its next meeting. We do not show support as a score or a vote. Each quarter we summarize what we heard in You said, we did.
+Care about one of the ideas above? Tell us. Your note of support goes to that idea's design team before its next meeting. Notes are never posted. We do not show support as a score or a vote. Each quarter we summarize what we heard in You said, we did.
 
 The form asks four things. Which idea. Your connection to SUSD. An optional note of up to 100 words. Your email, if you want updates.
 
 **Embed:** Microsoft Form, iframe title "Support an idea form". Fallback link above it: Open the support form in a new tab (opens in a new tab). Placeholder until the form exists: **[Planned: launch]** Microsoft Form will be embedded here: Support an idea. The form's questions are in FORMS.md.
 
+Have a suggestion, question, or concern about one of these ideas? Use [Let's Talk](https://www.susd.org/letstalk) and choose the SPARK topic. Tell us which idea it's about.
+
+Have a new idea? [Share it](share.html).
+
 **[Planned: after first cycle]**
 
 ## Support summary per idea
 
-A line under each idea: who wrote in, and what they asked for.
+What supporters asked for, in a few lines. No counts, no names.
 
 **[Planned: June 2027]**
 
@@ -170,24 +222,41 @@ One page: ideas received, studied, and decided.
 
 Some SUSD schools offer a specialty theme, such as dual language or IB. Gifted services are at every school, and every elementary student has music and visual arts. Use the table to see what is offered at each level. Then open a theme for details. Where a fact is not yet confirmed, we say "Ask the school."
 
+**Note box** (a Content block set apart with a solid teal edge, not the Example style): **Being studied, not offered yet.** Two new K-8 magnet school concepts are being studied. One is for gifted and advanced studies, and one for the visual and performing arts. They are not open for enrollment. [See what we're working on](working-on.html#studies).
+
+Have an idea for a new program or school? [Share it](share.html).
+
 ## Find a program by theme and level
 
 Table caption: Programs by theme and level
 
 | Theme | Elementary | Middle | High |
 | --- | --- | --- | --- |
-| [Arts](#arts) · Being studied: Visual and Performing Arts Magnet School (K-8) | Every school: general music and visual arts. Band or strings can replace general music in grades 4 and 5. | Band, choir, orchestra, theatre, and visual arts | Band, choir, dance, orchestra, theatre, and visual arts |
+| [Arts](#arts) | Every school: general music and visual arts. Band or strings can replace general music in grades 4 and 5. | Band, choir, orchestra, theatre, and visual arts | Band, choir, dance, orchestra, theatre, and visual arts |
 | [College and Career](#college-career) | AVID: Tavan, Hohokam (other schools: ask the school) | AVID: Ingleside (other schools: ask the school) | AVID: Arcadia. Career and technical education (CTE): every high school |
 | [Dual Language Immersion](#dual-language) | Spanish: Pueblo. Mandarin: Desert Canyon | Spanish: Mohave. Mandarin: Desert Canyon | Spanish: Saguaro. Mandarin: Desert Mountain |
 | [Early College](#early-college) | None | None | Dual enrollment courses for college credit: ask the school. A full early college is not offered yet. |
-| [Gifted and Advanced](#gifted) · Being studied: Gifted and Advanced Studies Magnet School (K-8) | Every school: gifted services. Comprehensive Gifted Program: Kiva, Redfield, Tavan | Every school: gifted services. Comprehensive Gifted Program: Desert Canyon, Ingleside | Every school: gifted services. Advanced courses: ask the school |
+| [Gifted and Advanced](#gifted) | Every school: gifted services. Comprehensive Gifted Program: Kiva, Redfield, Tavan | Every school: gifted services. Comprehensive Gifted Program: Desert Canyon, Ingleside | Every school: gifted services. Advanced courses: ask the school |
 | [International Baccalaureate](#ib) | Anasazi (Primary Years) | Mountainside (Middle Years) | Desert Mountain (Middle Years in grades 9 and 10, Diploma in grades 11 and 12) |
 | [STEM](#stem) | STEM-certified: Navajo, Laguna | Math and Science Academy: Mohave | Math and Science Academy: Saguaro. STEM-certified: Saguaro |
 | [Traditional](#traditional) | Cheyenne (K-8) | Cheyenne (K-8) | None |
 
-Schools listed as of September 2026. Locations can change after Governing Board decisions.
+Schools listed as of September 2026. *(preview value; set at the content freeze)* Locations can change after Governing Board decisions.
+
+This page follows [SUSD's list of specialty schools and programs](https://www.susd.org/our-district/district-committees/spark-team). It also covers the arts and gifted services at every school.
+
+Many schools also run their own programs, clubs, and pilots. See [each school's website](https://www.susd.org/our-district/our-schools).
 
 Not every program fits a theme. For online learning, preschool, special education, and more, see [all SUSD academic programs on susd.org](https://www.susd.org/academics/academic-programs).
+
+## Applying and key dates
+
+- **Open enrollment:** apply through open enrollment to attend a school outside your neighborhood. For 2027-28, it opens in early November 2026. [SUSD open enrollment](https://www.susd.org/services/enrollment/open-enrollment)
+- **Specialty schools and programs:** [dedicated specialty schools](#kinds) accept students only through open enrollment. Signature programs within a school also have their own application. Themes with an application list their dates below.
+- **Seats:** SUSD posts whether each school and program has seats open, limited, or closed. The list is on the open enrollment page and is updated regularly.
+- **Tours:** families can tour SUSD schools. [Schedule a tour](https://www.susd.org/services/enrollment/schedule-a-tour)
+- **Education Expo:** a showcase of SUSD schools and programs. It was in November in 2024 and 2025. [Education Expo](https://www.susd.org/expo)
+- **Questions about a program:** ask the school. **Suggestions for a program:** use [Let's Talk](https://www.susd.org/letstalk) and choose the SPARK topic.
 
 ## Three kinds of specialty school and program (anchor: #kinds)
 
@@ -197,9 +266,9 @@ SUSD uses three terms. You will see them in the themes below.
 - **Schoolwide specialty program:** the whole school follows the theme. It serves its neighborhood and also accepts open enrollment.
 - **Signature program within a school:** an optional track inside a school, with its own application. Only some students take part.
 
-How to enroll: to attend a school outside your neighborhood, apply through [SUSD open enrollment](https://www.susd.org/services/enrollment/open-enrollment). Dedicated specialty schools accept students only through open enrollment. Signature programs within a school also have their own application. Ask the school about deadlines. For the Comprehensive Gifted Program, ask the Gifted department.
-
 ## Themes
+
+Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.susd.org/our-district/our-schools/susd-a-schools).
 
 **Accordion:** (anchor: #arts)
 
@@ -207,7 +276,10 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 
 - **At every school:** elementary students have general music (kindergarten to grade 3) and visual arts (kindergarten to grade 5). In grades 4 and 5, band or strings can replace general music.
 - **Middle and high school:** band, choir, orchestra, theatre, and visual arts. High schools add dance and technical theatre. Some courses, such as guitar, fashion design, and mariachi, are at some schools only.
-- **Being studied:** a new K-8 school concept, the Visual and Performing Arts Magnet School. [About the study](working-on.html#studies).
+- **Status and key dates:** at every school; no application needed. Family ArtsFest displays SUSD student artwork. In 2026 it was March 6 and 7.
+- **Contact and visits:** ask your school's music, art, or theatre teacher.
+- **Recognition:** high school students can earn the Arizona Seal of Arts Proficiency on their diploma ([diploma seals](https://www.susd.org/academics/academic-programs/diploma-seals)).
+- **Being studied, not offered yet:** a new K-8 school concept, the Visual and Performing Arts Magnet School. [About the study](working-on.html#studies).
 - **More on susd.org:** [Arts offerings by level](https://www.susd.org/arts/arts-offering)
 
 **Accordion:** (anchor: #college-career)
@@ -216,6 +288,9 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 
 - **AVID (schoolwide specialty program):** SUSD lists Tavan and Hohokam elementary, Ingleside Middle School, and Arcadia High School. Some other schools also call themselves AVID schools; ask the school. AVID helps students build the skills to succeed in college.
 - **College and career academies (signature programs within a school):** every high school offers career and technical education (CTE) pathways. Ask the school which ones.
+- **Status and key dates:** students choose CTE pathways through their high school course requests. AVID: ask the school.
+- **Contact and visits:** [the district's College and Career Readiness office](https://www.susd.org/departments/cte), and each high school's counselors. AVID: the school's front office.
+- **Recognition:** CTE students can earn industry credentials.
 - **More on susd.org:** [AVID](https://www.susd.org/academics/academic-programs/avid); [Career and college readiness](https://www.susd.org/academics/academic-programs/career-and-college-readiness)
 
 **Accordion:** (anchor: #dual-language)
@@ -225,10 +300,9 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 - **What it is:** in elementary school, students learn half the day in English and half in Spanish or Mandarin. The path continues through high school.
 - **Spanish path:** Pueblo Elementary (dedicated specialty school), Mohave Middle School (signature program within a school), Saguaro High School.
 - **Mandarin path:** Desert Canyon Elementary, Desert Canyon Middle School, and Desert Mountain High School. SUSD lists Desert Canyon's dual language as a signature program within a school.
-- **Joining later:** students who already speak the language may join later grades after a placement test.
-- The Example lines below show what a full entry could include once the district confirms the facts.
-- **Enrollment status:** **[Example]** Accepting applications for kindergarten and first grade for 2027-28. Later grades: Ask the school.
-- **History:** **[Example]** Started at one elementary school and grew grade by grade into a K-12 path.
+- **Status and key dates:** Pueblo: apply through open enrollment. Other schools: ask the school. Some grades may be limited, so check [the seat list](https://www.susd.org/services/enrollment/open-enrollment). Students who already speak the language may join some later grades after a placement test. Ask the school which ones.
+- **Contact and visits:** Pueblo: [request a tour online](https://pueblo.susd.org/tour-pueblo). Desert Canyon Elementary: [request a tour online](https://desertcanyones.susd.org/tour-dces). Mohave, Desert Canyon Middle, Saguaro, and Desert Mountain: the school's front office.
+- **Recognition:** students can earn the Arizona Seal of Biliteracy and a dual language graduation cord. Elementary and middle school students can earn biliteracy awards.
 - **More on susd.org:** [Dual Language Immersion](https://www.susd.org/academics/academic-programs/dual-language-immersion)
 
 **Accordion:** (anchor: #early-college)
@@ -245,7 +319,9 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 
 - **At every school:** gifted services during the regular school day, planned by the school's gifted specialist with staff and families.
 - **Comprehensive Gifted Program (signature program within a school):** an optional choice for highly gifted students in kindergarten to grade 8. Families apply. Elementary: Kiva, Redfield, Tavan. Middle: Desert Canyon, Ingleside.
-- **Being studied:** a new K-8 school concept, the Gifted and Advanced Studies Magnet School. [About the study](working-on.html#studies).
+- **Status and key dates:** Comprehensive Gifted Program, grades 1 to 8, for 2027-28: priority applications open October 12, 2026. Applications open to all on November 16, 2026. The [Gifted application page](https://www.susd.org/departments/gifted/comprehensive-gifted-program/cgp-application) explains who has priority. Kindergarten: see the same page. Placement depends on available seats.
+- **Contact and visits:** [the district's Gifted department](https://www.susd.org/departments/gifted). Tours of the program's schools are [booked online](https://www.susd.org/departments/gifted/comprehensive-gifted-program/cgp-tours) several times a year.
+- **Being studied, not offered yet:** a new K-8 school concept, the Gifted and Advanced Studies Magnet School. [About the study](working-on.html#studies).
 - **More on susd.org:** [Gifted services](https://www.susd.org/departments/gifted/programs-services); [Comprehensive Gifted Program](https://www.susd.org/departments/gifted/comprehensive-gifted-program)
 
 **Accordion:** (anchor: #ib)
@@ -255,6 +331,9 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 - **Primary Years:** Anasazi Elementary (schoolwide specialty program).
 - **Middle Years:** Mountainside Middle School (schoolwide specialty program).
 - **Middle Years and Diploma:** Desert Mountain High School (signature program within a school). Middle Years runs in grades 9 and 10, and Diploma in grades 11 and 12.
+- **Status and key dates:** Desert Mountain: Middle Years and Diploma have their own application. Diploma applications open by mid-November, and the deadline is in early January. Anasazi and Mountainside: enroll at the school.
+- **Contact and visits:** IB coordinators for each school are listed on [SUSD's IB page](https://www.susd.org/academics/academic-programs/international-baccalaureate).
+- **Recognition:** Anasazi, Mountainside, and Desert Mountain are IB World Schools. Desert Mountain has offered the IB Diploma since 1999.
 - **More on susd.org:** [International Baccalaureate](https://www.susd.org/academics/academic-programs/international-baccalaureate)
 
 **Accordion:** (anchor: #stem)
@@ -263,6 +342,9 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 
 - **STEM-certified:** Navajo and Laguna elementary, and Saguaro High School. Navajo and Laguna are schoolwide specialty programs with a STEAM focus, which adds the arts.
 - **Math and Science Academy (signature program within a school):** Mohave Middle School and Saguaro High School. Students apply.
+- **Status and key dates:** Math and Science Academy: students apply. Mohave's information night is October 27, 2026. Saguaro's application is on [its academy page](https://saguaro.susd.org/our-school/counseling/saguaro-math-and-science-academy-msa).
+- **Contact and visits:** Saguaro: the academy coordinators. Mohave: the front office. STEM-certified schools: [schedule a tour](https://www.susd.org/services/enrollment/schedule-a-tour).
+- **Recognition:** Navajo, Laguna, and Saguaro are Cognia STEM certified. Saguaro's academy students can earn four levels of recognition, from Academy Member to Distinguished Graduate. Mohave's can become STEM Scholars.
 - **More on susd.org:** [STEM-certified schools](https://www.susd.org/academics/academic-programs/stem-certified-schools); [Math and Science Academy](https://www.susd.org/academics/academic-programs/math-science-academy); [Math and Science Academy at Saguaro](https://saguaro.susd.org/academics/math-science-academy)
 
 **Accordion:** (anchor: #traditional)
@@ -270,6 +352,8 @@ How to enroll: to attend a school outside your neighborhood, apply through [SUSD
 ### Traditional
 
 - **Cheyenne Traditional School (dedicated specialty school):** kindergarten to grade 8. Families apply.
+- **Status and key dates:** Cheyenne accepts students only through open enrollment. Fall tours are [booked online](https://cheyenne.susd.org/tour-cheyenne), 10 families each (November 3, 10, and 16, 2026).
+- **Contact and visits:** Cheyenne's front office.
 - **More on susd.org:** [Traditional school](https://www.susd.org/academics/traditional-school)
 
 **[Planned: spring 2027]**
@@ -299,17 +383,18 @@ SPARK wants ideas for new learning environments and for changes to what SUSD alr
 
 If your idea is one of these, [add your support instead](working-on.html#support).
 
-### Already suggested this cycle
+### Already suggested this school year
 
-Ideas received since August 2026, grouped by theme. Updated monthly. No names, no details.
+Ideas received this school year, grouped by theme. Updated monthly. No names, no details. [See the numbers by theme](working-on.html#ideas-by-theme).
 
 - **[Example]** Arts (3 ideas): K-8 arts pathways; after-school arts partnerships.
 - **[Example]** College and Career (2 ideas): career exploration in middle school; an apprenticeship pathway.
-- **[Example]** Dual Language Immersion (1 idea): a second language option.
-- **[Example]** Gifted and Advanced (2 ideas): more options in high school.
+- **[Example]** Dual Language Immersion (1 idea): a second immersion language.
+- **[Example]** Gifted and Advanced (2 ideas): more advanced courses in high school.
 - **[Example]** International Baccalaureate (1 idea): a full K-12 IB path.
 - **[Example]** STEM (2 ideas): an elementary maker lab; computer science in every middle school.
 - **[Example]** Traditional (1 idea): a second traditional campus.
+- **[Example]** Other (2 ideas): a Montessori-style classroom; outdoor learning.
 
 Similar to yours? Send it anyway and tell us which one it matches. We will link them, and you will get that idea's updates.
 
@@ -329,13 +414,13 @@ Not sure? Send it anyway. The SPARK team will route it.
 
 You'll need your name, email, and connection to SUSD. Then a title, a few sentences on the idea, and why students and families want it. About 5 minutes. The form also asks its theme, what kind of idea it is, and whether it matches anything listed above.
 
-**Embed:** Microsoft Form, iframe title "Share an idea form". Fallback link above it: Open the idea form in a new tab (opens in a new tab). Placeholder until the form exists: **[Planned: launch]** Microsoft Form will be embedded here: Share an idea (nine questions). The form's questions are in FORMS.md.
+**Embed:** Microsoft Form, iframe title "Share an idea form". Fallback link above it: Open the idea form in a new tab (opens in a new tab). Placeholder until the form exists: **[Planned: launch]** Microsoft Form will be embedded here: Share an idea (13 questions). The form's questions are in FORMS.md.
 
 Under the embed: Versión en español: **[Planned: launch]**
 
 ## What happens next
 
-1. **Within 2 school days:** you get an email with your idea's ID number.
+1. **Within 2 school days:** you get an email with your idea's ID number. Keep it: you can check your idea's status at any time. (line break) [Check your idea's status](#status)
 2. **Within 3 weeks (15 school days):** the SPARK screener replies with one of five outcomes. Ideas sent in June and July are reviewed in August.
    - **Advanced:** your idea goes to the next SPARK team review.
    - **Merged:** your idea joins a similar idea already listed; you get that idea's updates.
@@ -348,6 +433,14 @@ Under the embed: Versión en español: **[Planned: launch]**
 Students: you can share an idea too. Ask a teacher or parent to help if you like.
 
 We never publish your name or email. Your idea may appear on this site in summary form, in words written by the SPARK team.
+
+## Check your idea's status (anchor: #status)
+
+Enter your idea's ID and the email you used. If they match, we email you the current status.
+
+**Embed:** Microsoft Form, iframe title "Check your idea's status form". Fallback link above it: Open the status check in a new tab (opens in a new tab). Placeholder until the form exists: **[Planned: launch]** Microsoft Form will be embedded here: Check your idea's status. The form's questions are in FORMS.md.
+
+Under the embed: Versión en español: **[Planned: launch]**
 
 **[Planned: launch]**
 
@@ -391,6 +484,14 @@ These reviews are not listed on What we're working on.
 
 **Image:** assets/cycle.png (800 x 800). Alt text: "The SPARK cycle: share, screen, SPARK team review, study, decide and build"
 
+## What SPARK covers, and what it doesn't
+
+- **District specialty schools and programs.** SPARK reviews them each year. They are listed on [Our programs](programs.html).
+- **New learning environments.** SPARK studies a few each year. They are listed on [What we're working on](working-on.html).
+- **School programs, clubs, and quick pilots.** These are each school's call, led by the principal. They are on each school's website.
+- **Not every idea needs SPARK.** A principal can act on a local idea right away. If a local program wants to grow to other schools, it can [come to SPARK as an idea](share.html).
+- **Questions or concerns about something happening now** go to [Let's Talk](https://www.susd.org/letstalk).
+
 ## What you can expect from us
 
 Table caption (screen readers only): What you can expect from us
@@ -399,6 +500,7 @@ Table caption (screen readers only): What you can expect from us
 | --- | --- |
 | Confirmation | Within 2 school days |
 | Screening reply | Within 3 weeks (15 school days). June and July ideas: in August |
+| Status check | Any time, with your idea's ID and email |
 | SPARK team review | Quarterly: mid-October, January, April, July |
 | Selection for full study | January review; two or three ideas a year |
 | Study | 4 to 8 weeks; one-page public summary |
@@ -435,7 +537,9 @@ Six questions. Together they cover SUSD's ten Quality Indicators, shown in brack
 
 SPARK selects two or three ideas a year on purpose. A full study takes a design team 4 to 8 weeks and pulls principals and teachers from their schools. Studying ten ideas badly helps no one. So most ideas end at screening or SPARK team review, with a reason and a pointer to who can act. That is not a judgment on the idea. Many good ideas are held and looked at again the next January. Others are merged, so several voices build one stronger case.
 
-## The SPARK year
+## The SPARK year (anchor: #year)
+
+**We are here:** late fall 2026. *(preview value; set at the content freeze)* The next SPARK team review is in January 2027.
 
 Table caption (screen readers only): The SPARK year
 
