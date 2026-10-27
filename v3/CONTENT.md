@@ -1,6 +1,6 @@
-**SPARK site v3.2: page content for Finalsite**
+**SPARK site v3.3: page content for Finalsite**
 
-Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The specs (the v3.1 design spec, and V3.2_SPEC.md for the changes in v3.2) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
+Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The specs (the v3.1 design spec, V3.2_SPEC.md for the changes in v3.2, and V3.3_CHANGES.md for the changes in v3.3) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
 
 **How to read this file**
 
@@ -404,7 +404,7 @@ Similar to yours? Send it anyway and tell us which one it matches. We will link 
 
 ## Three quick questions
 
-1. **Is it about something that already exists at one school?** Talk to that school first. Every school has a SPARK contact, the principal or a designee. They can act locally or send the idea to SPARK for you. Ideas grow best with a champion at the school.
+1. **Is it about one school's clubs, activities, or events?** Talk to the principal first. Many of these are the school's to decide. Ideas about a specialty school or program belong here, even if it is at one school. Ideas grow best with a champion at the school.
 2. **Is it one of the ideas being studied now?** Use the [Support an idea form](working-on.html#support) instead.
 3. **Is it a concern about something happening now, such as a class, a bus, or a building?** Use [Let's Talk](https://www.susd.org/letstalk), SUSD's channel for questions and concerns. SPARK cannot act on these.
 
@@ -454,7 +454,7 @@ The idea form in Spanish, with the same questions and reply times.
 
 # How SPARK works
 
-SPARK is the SUSD team that looks after the district's specialty schools and learning environments. Its work has two parts. It helps what SUSD already offers grow stronger. And it studies new ideas, choosing a few each year to develop well.
+SPARK is the SUSD team that looks after the district's specialty schools and programs. Its work has two parts. It helps what SUSD already offers grow stronger. And it studies new ideas, choosing a few each year to develop well.
 
 This site keeps the record of ideas. People carry them forward: principals, teachers, students, families, and partners who champion an idea with their school community.
 
@@ -486,10 +486,12 @@ These reviews are not listed on What we're working on.
 
 ## What SPARK covers, and what it doesn't
 
-- **District specialty schools and programs.** SPARK reviews them each year. They are listed on [Our programs](programs.html).
-- **New learning environments.** SPARK studies a few each year. They are listed on [What we're working on](working-on.html).
-- **School programs, clubs, and quick pilots.** These are each school's call, led by the principal. They are on each school's website.
-- **Not every idea needs SPARK.** A principal can act on a local idea right away. If a local program wants to grow to other schools, it can [come to SPARK as an idea](share.html).
+- **SUSD's specialty schools and programs.** These are on [SUSD's list](https://www.susd.org/our-district/district-committees/spark-team). Some are at one school, such as IB at Desert Mountain. Others are at several, such as the Math and Science Academy. SPARK reviews each one every year. See [Our programs](programs.html).
+- **New specialty schools and programs.** SPARK weighs ideas for new ones, including a new program at one school. Each year it studies a few in depth. See [What we're working on](working-on.html).
+- **Growing or changing a program.** Ideas to expand a program to more schools, or to redesign one, also come to SPARK.
+- **What a school runs on its own.** Many schools run their own clubs, activities, and programs. These are not on SUSD's specialty list. Schools share them on their websites.
+- **Want to grow a school's own program?** If the school, or people who know the program, want to expand it, SPARK can help explore that. [Share it as an idea](share.html).
+- **Not every idea needs SPARK.** Some ideas are the school's to decide, such as a new club. Start with the principal.
 - **Questions or concerns about something happening now** go to [Let's Talk](https://www.susd.org/letstalk).
 
 ## What you can expect from us
@@ -513,10 +515,10 @@ Table caption (screen readers only): Who does what
 
 | Role | Who | What they do |
 | --- | --- | --- |
-| School SPARK contact | The principal or a designee at every school | Leads the local conversation about ideas with the school community. Knows the link and hands it out. Handles local ideas, or says "send it to SPARK and mention you talked to me." No forms, no reviewing. |
+| School principal **[Planned: launch]** | The principal, or someone the principal names, at each school | Talks with the school community about ideas. Shares the link. Decides what is the school's to decide, such as clubs. Points other ideas to SPARK. No forms, no reviewing. |
 | Champions | Principals, teachers, families, students, and partners who care about an idea | Carry the idea forward with their school community. Share support notes and join design teams when invited. |
 | Screener | The Assistant Superintendent for Educational Services or a designee, plus a named backup | Reads new ideas weekly. Checks for overlap. Replies within 3 weeks. Writes each public title and summary. |
-| SPARK team | About 38 principals, teachers, coordinators, district staff, parents, and community members | Meets quarterly. Scores advanced ideas. Selects two or three a year in January. Presents in May. |
+| SPARK team | More than 30 principals, teachers, coordinators, district staff, parents, and community members | Meets quarterly. Scores advanced ideas. Selects two or three a year in January. Presents in May. |
 | Design teams | Small groups from the SPARK team and the schools involved | Study one idea for 4 to 8 weeks. Read support notes. Write the summary and the "We did" line. |
 | Governing Board | SUSD's elected board | Receives a quarterly note and an annual report. Votes when a decision requires it. |
 
@@ -555,7 +557,7 @@ Table caption (screen readers only): The SPARK year
 
 ## Who is on SPARK and how to join
 
-SPARK has about 38 members, led by the Assistant Superintendent for Educational Services. It meets quarterly; subgroups meet more often. Want to join, or help a design team?
+SPARK has more than 30 members, led by the Assistant Superintendent for Educational Services. It meets quarterly; subgroups meet more often. Want to join, or help a design team?
 
 [Fill in the SPARK interest form](https://forms.office.com/r/rw136NR7ik)
 
@@ -563,7 +565,7 @@ SPARK has about 38 members, led by the Assistant Superintendent for Educational 
 
 - **Idea:** anything sent through the form. It can be a new school model, a new program at a school, or a change to something that exists.
 - **Learning environment:** a school, school model, or pathway that shapes how students learn.
-- **Specialty school or program:** a school or program built around a theme. SUSD uses three kinds; see [Our programs](programs.html#kinds).
+- **Specialty school or program:** a school or program built around a theme. It can be at one school or several. SUSD uses three kinds; see [Our programs](programs.html#kinds).
 - **Champion:** a person who carries an idea forward with their school community.
 - **Screening:** the first check of an idea, within 3 weeks.
 - **SPARK team review:** the quarterly meeting where advanced ideas are scored.
