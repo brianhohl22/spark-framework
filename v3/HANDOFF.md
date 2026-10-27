@@ -1,6 +1,6 @@
 # SPARK site: handoff for the Finalsite build
 
-For the Web Content team. October 2026, v3.2. This is a working draft. [V3.2_SPEC.md](V3.2_SPEC.md) lists every change from v3.1 and the decisions still open. [FEEDBACK_MAP.md](FEEDBACK_MAP.md) maps the feedback from the September 25 SPARK team meeting to those changes.
+For the Web Content team. October 2026, v3.3. This is a working draft. [V3.2_SPEC.md](V3.2_SPEC.md) lists every change from v3.1 and the decisions still open. [V3.3_CHANGES.md](V3.3_CHANGES.md) lists the v3.3 changes (W18 to W31): how students join each program, checking for a seat, and accuracy fixes on Our programs and How SPARK works. [FEEDBACK_MAP.md](FEEDBACK_MAP.md) maps the feedback from the September 25 SPARK team meeting to those changes.
 
 **Preview:** https://brianhohl22.github.io/spark-framework/v3/ (five pages, unlisted, not indexed)
 
@@ -21,14 +21,17 @@ Every block in the preview is a standard Composer element. Nothing depends on th
 | Headings, paragraphs, lists, the promise | Content | Plain text |
 | Three task doors on Home: Find a program, See what we're working on, Share an idea | Content in a three-column layout with equal columns, or theme buttons | Equal doors, in the order of the loop; they stack in the same order on phones |
 | "Being studied, not offered yet" note on Our programs | Content block, styled as a note box | Set it apart from the programs. Don't use the gold "Example" style. As plain text, a bold first sentence is enough |
-| "Applying and key dates" on Our programs | Content (a heading and a bulleted list) | Dates refresh yearly, and the seat line when Enrollment updates its list (Section 5) |
+| "Applying and key dates" on Our programs | Content (a heading and a bulleted list) | Dates refresh yearly (Section 5) |
+| "How students join" on Our programs (v3.3) | Content: an H3 (anchor `how-students-join`), a paragraph, a two-column table, and a paragraph | The table has two columns, so it reads well on phones; in the preview it stacks into labelled cards under 640 px. Its caption repeats the heading for screen readers only. Program owners confirm their rows before launch |
+| "Check for a seat" on Our programs (v3.3) | Content: an H3 (anchor `check-for-a-seat`), three paragraphs, a one-line lead-in, and a bulleted list ("What to ask the school") | Describes SUSD's capacity list and links the open enrollment page. Recheck it whenever Enrollment changes the list (Section 5) |
 | Two study cards on Home; two study overviews on What we're working on | Content blocks (or a Posts element filtered to "Under study") | Overviews link to the public June 23 Board record |
 | "Where it stands" phase list in each study overview | Content (an ordered list) | "Done" and "Now" are words, so the meaning never depends on color. "Target school year" and "Related programs today" lines follow it |
 | "Being studied now" board | Posts with the Category Filter, or a Content table | See Section 4 |
 | "Ideas this school year, by theme" on What we're working on | Content table with three columns: Theme, Ideas shared this school year, Being studied now. A reply list and an "As of" line follow it | Updated monthly (Section 5). A chart image is optional; the table is required for accessibility |
 | Finder table on Our programs; the three How SPARK works tables | Content table | See Section 2 on phone layout |
 | Theme entries on Our programs (8) and "Why most ideas are not studied" (1) | Accordion | One panel per theme, same order as the table |
-| Status and key dates, Contact and visits, and Recognition in each theme panel | Bold-labelled lines inside each Accordion panel | Leave out a field when there's nothing to say. The order is in V3.2_SPEC.md W5 |
+| Each program's How to join, Key dates, and Program page and contact, inside its theme panel (v3.3) | Inside the Accordion panel: an H4 per program (or per group of schools that join the same way), then bold-labelled lines. Lines about the whole theme (Recognition, Being studied, More on susd.org) sit above the H4s | Leave out a line when SUSD publishes nothing for it. Arts and Traditional have one program, so they have no H4. The order is in V3.3_CHANGES.md W29. If Composer accordions can't hold headings, use a bold first line instead |
+| Phone numbers (v3.3) | None on the site | Name the office or role, and link the page that lists the number: the open enrollment page for school registrars, or the school's or department's own page (V3.3_CHANGES.md W30) |
 | Share an idea form, Support an idea form, site feedback form | Embed | Microsoft Forms iframes; see Section 3 |
 | "Check your idea's status" on Share an idea | Embed | A Microsoft Forms iframe; see Section 3. The page never shows a status |
 | Let's Talk SPARK topic links on What we're working on and Our programs | Content (a paragraph, and a list line) | They point to https://www.susd.org/letstalk until the topic has its own link (Section 3) |
@@ -38,8 +41,8 @@ Every block in the preview is a standard Composer element. Nothing depends on th
 
 ## 2. How the pieces behave, and what to check in Composer
 
-- **Tables on phones.** In the preview, each row turns into a stacked card under 640 px, and each cell is labelled with its column name. If Finalsite tables don't stack, keep the tables and accept sideways scrolling, or drop the board's "Next step" column. The board has five columns and the finder table four. The others, including the ideas-by-theme table, have two or three. Finalsite tables read best at 2 to 3 columns on phones. **Exception in the preview:** the ideas-by-theme table stays a three-column table on phones instead of stacking, because stacked it became ten cards.
-- **Accordions.** These are standard open-and-close panels. The finder table's theme names link to their panels (`#arts`, `#college-career`, `#dual-language`, `#early-college`, `#gifted`, `#ib`, `#stem`, `#traditional`). The study overviews' "Related programs today" lines link to `#gifted` and `#arts`. If Composer can't link into an accordion panel, the table and panels still match by name and order.
+- **Tables on phones.** In the preview, each row turns into a stacked card under 640 px, and each cell is labelled with its column name. If Finalsite tables don't stack, keep the tables and accept sideways scrolling, or drop the board's "Next step" column. The board has five columns and the finder table four. The others, including the ideas-by-theme table, have two or three. Finalsite tables read best at 2 to 3 columns on phones. The v3.3 "How students join" table has two. **Exception in the preview:** the ideas-by-theme table stays a three-column table on phones instead of stacking, because stacked it became ten cards.
+- **Accordions.** These are standard open-and-close panels. The finder table's theme names link to their panels (`#arts`, `#college-career`, `#dual-language`, `#early-college`, `#gifted`, `#ib`, `#stem`, `#traditional`). The study overviews' "Related programs today" lines link to `#gifted` and `#arts`. If Composer can't link into an accordion panel, the table and panels still match by name and order. From v3.3, five panels hold H4 headings, one per program (College and Career, Dual Language Immersion, Gifted and Advanced, International Baccalaureate, STEM).
 - **Other anchors used by links:**
   - `#support`: the Support heading on What we're working on. Share an idea links to it twice.
   - `#studies`: the study overviews. Home and Our programs link to it.
@@ -47,10 +50,12 @@ Every block in the preview is a standard Composer element. Nothing depends on th
   - `#year`: the "The SPARK year" heading on How SPARK works. "Where we are now" on What we're working on links to it.
   - `#ideas-by-theme`: the "Ideas this school year, by theme" heading on What we're working on. The "Already suggested" intro on Share an idea links to it.
   - `#status`: the "Check your idea's status" block on Share an idea. Step 1 of "What happens next" links to it.
+  - `#how-students-join` (v3.3): the "How students join" heading on Our programs. The "Specialty schools and programs" bullet links to it.
+  - `#check-for-a-seat` (v3.3): the "Check for a seat" heading on Our programs. Pueblo's How to join line, inside the Dual Language panel, links to it.
 - **Links.** Links to susd.org open in the same tab. The form fallback links ("Open the ... in a new tab") open in a new tab. The June 23 links go to SUSD's Diligent Community portal and to YouTube.
 - **Images.** Use `assets/logo.png` (512 x 512, transparent); the SVG is only for the preview header. `assets/cycle.png` is 800 x 800 and `assets/spark-work.png` is 800 x 560. Each image's alt text is in CONTENT.md, and its numbered-list text version must stay on the page.
 - **Indexing.** Keep the section at noindex until public launch.
-- **School locations.** The school lists on Our programs are as of September 2026. The October Board decisions on consolidation may move some. Please check that page after them, and update its "as of" line (Section 5).
+- **School locations.** The school lists on Our programs are as of October 2026. SUSD's Phase II school repurposing page says the Governing Board approved Option C: Copper Ridge and Laguna Prep close after the 2026-27 school year. The note under the finder table now says the Board has approved closing some schools, and links that page. The Laguna lines are unchanged until the Assistant Superintendent decides how to show them (BUILD_REPORT.md). Update the "as of" line after any later decision (Section 5).
 
 ## 3. The forms and their embed codes
 
@@ -125,9 +130,9 @@ The page shows the posts in list layout with the Category Filter above them. **F
 | First of each month (automatic email: the monthly summary from the SPARK list; S3 and S16) | Counts by theme (ideas shared this school year, and being studied now); counts by outcome; the topic lines by theme; the table of published ideas | The ideas-by-theme table, its reply list, and its "As of" line on What we're working on; the board rows or posts; the "Already suggested this school year" lines on Share an idea |
 | Within 2 weeks of each quarterly SPARK team review (the screener sends it) | Decisions, new or changed rows, and two or three "You said, we did" rows | The board; the "You said, we did" table |
 | After each SPARK team review, and whenever a study changes phase (S12) | Each study's phase and target school year, and the next review month | Each study's "Where it stands" list and target year; the Home study cards; the board's "Next step" cells; "Where we are now" on What we're working on and "We are here" on How SPARK works |
-| Yearly for the dates, and whenever Enrollment updates its seat list (S11) | New dates and facts from each fact's owner (DATA_INVENTORY.md lists them) | "Applying and key dates" on Our programs, and each theme's "Status and key dates" |
-| After a Governing Board decision affecting schools (S13) | A note from Educational Services | The school lists on Our programs, and their "as of" line |
-| Once, at the content freeze before launch | The launch date (decision D1) and the confirmed facts | Set the preview dates: "late fall 2026" and "January 2027" in "Where we are now" and "We are here", the "As of" line, and "Schools listed as of". CONTENT.md marks each one "(preview value; set at the content freeze)". Drop, reword, or roll forward any date that will be past on launch day. Remove every "Example" item, and the preview banner |
+| Yearly for the dates, and whenever Enrollment updates its seat list (S11) | New dates and facts from each fact's owner (DATA_INVENTORY.md lists them) | "Applying and key dates" on Our programs, and each program's "Key dates" line. When the seat list changes (new labels, grades, programs, or a dated link), update "Check for a seat" to match |
+| After a Governing Board decision affecting schools (S13) | A note from Educational Services | The school lists on Our programs, the "How students join" table, the program blocks in each theme panel, and the "as of" line |
+| Once, at the content freeze before launch | The launch date (decision D1) and the confirmed facts | Set the preview dates: "late fall 2026" and "January 2027" in "Where we are now" and "We are here", the "As of" line, "Schools listed as of", and "checked [month year]" in the Our programs intro. CONTENT.md marks each one "(preview value; set at the content freeze)". Drop, reword, or roll forward any date that will be past on launch day. Remove every "Example" item, and the preview banner |
 
 **Checks for each monthly update** (V3.2_SPEC.md W13 and W17):
 - A school year runs August 1 to July 31. Each idea counts once, by its current theme and its latest outcome.
@@ -161,6 +166,9 @@ Our programs has no Example content in v3.2.
 6. Is the monthly and quarterly update rhythm workable, and what format of email would make it copy-and-paste for you?
 7. Where would you like the package: a district OneDrive or SharePoint folder, or somewhere else?
 8. Which status check method will you use? The recommended one is in V3.2_SPEC.md section 8.3.
+9. (v3.3) Can SUSD's capacity list get a stable, labelled link, or an anchor on the open enrollment page, that the SPARK site can deep-link to? Today it is an unlabelled button near the bottom of the page.
+10. (v3.3) Could the open enrollment page carry a short "Specialty programs: how to apply" block? The SPARK site's "How students join" table could link to it.
+11. (v3.3) Can a Composer accordion panel hold H4 headings? If not, the program names become bold first lines.
 
 ## 8. Files in the package
 
@@ -170,6 +178,7 @@ Our programs has no Example content in v3.2.
 | HANDOFF.md | This document |
 | FORMS.md | Every question in each form, with choices, limits, help text, and thank-you messages |
 | V3.2_SPEC.md | The changes from v3.1, the open decisions, the facts to confirm, and what the public site needs from the SPARK list (section 8) |
+| V3.3_CHANGES.md | The v3.3 changes (W18 to W31), with final copy and placement |
 | FEEDBACK_MAP.md | The feedback from the September 25 SPARK team meeting, mapped to the v3.2 changes |
 | DATA_INVENTORY.md | Every fact on the site, with its source, check date, and who confirms it |
 | assets/logo.png, logo.svg, cycle.png, spark-work.png | Images |

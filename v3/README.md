@@ -1,9 +1,10 @@
-# SPARK site v3.2 prototype
+# SPARK site v3.3 prototype
 
 **This folder is a visual reference only. CONTENT.md and the spec are authoritative.**
 
 - Spec: V3_DETAILED_DESIGN.md, v3.1, kept in the author's private workspace and in the living Claude Doc (not in this repository)
 - The v3.2 changes, with the open decisions, the facts to confirm, and what the public site needs from the SPARK list: [V3.2_SPEC.md](V3.2_SPEC.md)
+- The v3.3 changes (W18 to W31), with final copy and placement: [V3.3_CHANGES.md](V3.3_CHANGES.md)
 - The feedback from the September 25 SPARK team meeting, and the change each item leads to: [FEEDBACK_MAP.md](FEEDBACK_MAP.md)
 - Copy for the CMS, page by page in reading order: [CONTENT.md](CONTENT.md), generated from the pages so it always matches them
 - How each block maps to Finalsite, the form embed codes, and the update routine: [HANDOFF.md](HANDOFF.md)
@@ -12,6 +13,8 @@
 - What was built, what differs from the spec, and how it was checked: [BUILD_REPORT.md](BUILD_REPORT.md)
 
 If the HTML and CONTENT.md ever disagree, CONTENT.md and the spec win.
+
+**What v3.3 changed (October 26, 2026):** on Our programs, a "How students join" table, a "Check for a seat" block with questions to ask the school, and, in each theme, How to join, Key dates, and Program page and contact for each program. The intro now says where the facts come from and when they were checked. Links and specific routes replace the generic "ask the school". A line notes the Board's approved school closures. On How SPARK works and Share an idea, the scope wording now matches SUSD's sources: single-school programs are SPARK's too, and only things like clubs are the principal's call. Details are in [V3.3_CHANGES.md](V3.3_CHANGES.md).
 
 **What v3.2 changed:** equal Home doors, in the order of the loop. On Our programs, a "not offered yet" note, key dates, and Status, Contact, and Recognition fields in each theme. Phase lists for the studies, and ideas counted by theme. A SPARK topic on Let's Talk for comments, a status check for submitters, and an "Other" theme for ideas. Details are in [V3.2_SPEC.md](V3.2_SPEC.md).
 

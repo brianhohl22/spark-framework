@@ -1,5 +1,152 @@
 # SPARK v3 prototype: build report
 
+## v3.3 iteration (2026-10-26)
+
+v3.3 builds the October 3 candidate list: accuracy fixes A1 to A7, credibility B1 and B2, and enrollment usefulness C1 to C4. It also adds one line about the Board's approved school closures. The site author approved the list on October 26, 2026. [V3.3_CHANGES.md](V3.3_CHANGES.md) has every item as W18 to W31, with the final copy, its placement, and the reason for each edit to the proposed copy.
+
+**What changed, page by page**
+- **Our programs:**
+  - **Intro (B1):** it says where the facts come from and when they were checked ("checked October 2026", a preview value). Gifted services are "for identified students". The line 'Where a fact is not yet confirmed, we say "Ask the school"' is gone.
+  - **Finder table and the lines under it (B2, A5, W31):**
+    - The AVID cells link each school's website.
+    - The Early College and Gifted high school cells link SUSD's dual enrollment page and the high school planning guide.
+    - "Schools listed as of October 2026" gains a neutral line on the approved school closures, with a link to SUSD's Phase II page.
+    - "Programs, clubs, and pilots" becomes "clubs, activities, and programs. These are not on SUSD's specialty list."
+  - **Applying and key dates:**
+    - The open enrollment date is now posted: November 2, 2026, at 8 a.m.
+    - The "Specialty schools and programs" bullet says "many" signature programs have an application or sign-up.
+    - The "Seats" bullet is gone. Two new blocks follow the bullets:
+      - "How students join" (C1, anchor `how-students-join`): a two-column table with eight rows and a line on priority groups.
+      - "Check for a seat" (A1 and C2, anchor `check-for-a-seat`): what SUSD's capacity list shows and doesn't, who to call, and five questions to ask the school.
+  - **Three kinds (W27):** SUSD's three definitions are unchanged, with one line after them: "These labels describe the usual pattern."
+  - **Theme panels (C3, A6, B2, C4):** in five panels, each program now has an H4 and up to three lines: How to join, Key dates, and Program page and contact. Arts and Traditional have one program, so their three lines replace the two old ones directly.
+    - Lines about the whole theme (Recognition, Being studied, More on susd.org) move above the program headings.
+    - The academy no longer says "Students apply". Every Mohave student can take part, and the STEM Scholar distinction needs the application. Saguaro students sign up on a form. Kiva's gifted program students move on to Mohave's academy.
+    - No phone numbers are copied. Each line names an office or role, and links the page that lists the number.
+- **How SPARK works (A2, A4):**
+  - The lead says "specialty schools and programs".
+  - "What SPARK covers, and what it doesn't" has seven bullets. Single-school programs are SPARK's too. Only things like clubs are the school's to decide.
+  - The "Who does what" first row is now "School principal", with a **Planned: launch** badge.
+  - "About 38" became "more than 30", twice.
+  - The glossary says a specialty program "can be at one school or several".
+- **Share an idea (A3):** question 1 asks about "one school's clubs, activities, or events". "Every school has a SPARK contact" is gone.
+- **Home and What we're working on:** unchanged.
+- **Stylesheet:** one rule for H4 spacing inside accordion panels.
+- **Handoff files:**
+  - V3.3_CHANGES.md is new, and V3.2_SPEC.md points to it.
+  - CONTENT.md is regenerated, and DATA_INVENTORY.md is updated (A7, below).
+  - HANDOFF.md maps the new blocks, anchors, refresh steps, and three new questions for the Web Content team.
+  - README.md is updated.
+  - FORMS.md is unchanged, so its PDF printout needs no reprint.
+
+**Fact check, October 26, 2026** (every added or changed fact, against the live SUSD page; DATA_INVENTORY.md has the quotes):
+- **Corrected or refreshed at build time:**
+  - **Open enrollment 2027-28 is now posted:** "open on November 2, 2026 @ 8:00 a.m." The page said "early November 2026".
+  - **CGP kindergarten dates are posted** (A7): January 4 and February 8, 2027. The page now shows them.
+  - **The high school planning guide does not list CTE pathways by school,** as the candidate list assumed. It lists every pathway, and says courses "vary by site annually". The copy links the guide for the list and sends families to the counselor.
+  - **Cheyenne's contact route is now stated** on its tour page ("contact the front office"). Its inventory row moved from Confirm to Verified.
+  - **The SPARK Team page lists 34 members** (counted).
+  - **The capacity list is unchanged:** the same file, last uploaded May 7, 2026, with the same columns and note.
+  - **The tour link now redirects** (301) from susd.org/services/enrollment/schedule-a-tour to the Our Schools page. That page still describes tours and links each school's tour page, so the link text still fits. Consider pointing the link at the new URL in Finalsite.
+- **Dates rolled:**
+  - The CGP grades 1 to 8 priority window (October 12) now says "opened".
+  - Mohave's information night (October 27, 2026, the day after the build) is replaced by a date-free line. Mohave posts no later date.
+  - Still ahead, and date-bound at the content freeze: November 2 (open enrollment), November 3, 10, and 16 (Cheyenne tours), November 16 (CGP, all applicants), January 4 and February 8, 2027 (CGP kindergarten).
+- **School consolidation (verified):** SUSD's School Repurposing Phase II page has a Parent FAQ: "Under the approved Phase II plan – Option C, Copper Ridge and Laguna Prep will close." It also says "Laguna Prep will close following the 2026-2027 school year."
+  - The page does not give the date of the vote. A web search to confirm October 6 could not be run, so the site's line carries no date.
+  - The same page's introduction still says the options "will be provided to the Governing Board in the fall of 2026".
+  - The site now says "as of October 2026" and adds the neutral closures line with the link. As instructed, it does **not** edit or annotate any Laguna line.
+- **No lottery or first-come claim.** The priority line names SUSD's priority groups and says nothing about order within a group. The open enrollment page ("processed as received") and Policy JFB ("random selection") still disagree.
+
+**DATA_INVENTORY.md (A7 and the rest):**
+- 219 facts: 186 Verified, 22 Confirm, and 11 removed from the page.
+- 48 rows are new (#172 to #219). 51 earlier rows are marked "v3.3".
+- #108 and #109 (seats) are rewritten to match the capacity list.
+- #135 has the kindergarten dates. To confirm item 23 (K17) is rewritten.
+- Five new items to confirm before launch (30 to 34): Laguna, how students join, IB Middle Years, scope routing, and AVID.
+- Coverage now includes the scope lines on How SPARK works and Share an idea.
+
+**Open decisions**
+- **For the Assistant Superintendent:**
+  1. **Laguna during open enrollment for 2027-28.** Laguna Prep closes after 2026-27. Our programs still lists it as STEM-certified (the finder table, the How students join table, the STEM panel, and Recognition). Should the site keep it, mark it ("closes after 2026-27"), or drop it? Who tells families in Laguna's STEM program about other STEM programs? Copper Ridge is not on the pages; it appears only in the inventory's AVID notes.
+  2. **May the site describe how each program admits students** (C1, C3; scope question 6)? If yes, the program owners confirm their rows. The Mohave academy needs a ruling: its page says every Mohave student can take part, but slide 7 calls it a signature program within a school, where only accepted students take part.
+  3. **Scope routing** (A2, A3, A4):
+     - "Start with the principal"
+     - who may bring a school's own program forward
+     - "each year it studies a few in depth"
+     - the School principal role, now shown as Planned
+     - and, still open from October 3, scope questions 1 to 5
+  4. **AVID:** how students are chosen, and the contact route.
+- **For the Web Content team** (HANDOFF.md section 7, questions 9 to 11):
+  - Can the capacity list get a stable, labelled link or anchor?
+  - Could the open enrollment page carry a short "Specialty programs: how to apply" block?
+  - Can a Composer accordion hold H4 headings?
+  - Also: the tour link's new URL, and whether Finalsite tables stack on phones (question 2, now with a second table on Our programs).
+- **For the program owners:** confirm the new How to join, Key dates, and contact lines (DATA_INVENTORY.md, items 30 to 34 and the Confirm rows). This includes the IB Middle Years criteria and dates, and the 2027-28 Diploma application when it's posted.
+- **Issues found on SUSD's own pages** during the check go to the site author privately, for the Assistant Superintendent to pass on. As the candidate list asks, they are not listed on the public pages.
+
+**Edits to the candidate copy** (each is explained in V3.3_CHANGES.md):
+- **How students join** has eight rows, not six:
+  - Gifted services and middle school dual language get their own rows.
+  - IB Middle Years moves to "application or sign-up", because no SUSD page posts its criteria.
+  - Arts in the first row is elementary only.
+  - Mohave's row notes that STEM Scholar needs an application.
+- **"Check for a seat"** is an H3 block rather than a bullet. It holds C2's list, and the Pueblo lines link to its anchor.
+- **The "Who does what" principal row** also drops "Handles local ideas", to match A2.
+- **Share question 1** keeps "Ideas grow best with a champion at the school."
+
+**Independent review**
+- A separate agent compared the diff with the candidate list and V3.3_CHANGES.md, read-only.
+- **Result:** every A, B, and C item is built, and no change in the diff is unexplained. The copy in V3.3_CHANGES.md matches the pages.
+- **Fixed after the review:**
+  - the "Three kinds" line (SUSD's definition of a signature program says "with its own application", which the new table qualifies)
+  - Mohave's wording, aligned between the table and the panel
+  - "Joining later" now names the front office
+  - the AVID "each school's website" links
+  - documented reasons for the Check for a seat format and the principal row cells
+  - the small C1 wording edits, now listed
+  - the W23 Kiva quote
+  - the reason the Desert Mountain IB dates cover both programmes (the IB guide's sentence covers both)
+- **Not changed:** a suggestion to say the seat list "has no date". That is an SUSD page issue, raised privately instead.
+
+**QA on v3.3** (scripts in the session's scratchpad, not in the repo)
+- **Links:** all 51 unique external URLs return HTTP 200 after redirects, and each link's text fits its target's title. All 70 internal links and 29 anchors resolve, including the new `#how-students-join` and `#check-for-a-seat`. The existing anchors are unchanged.
+- **Layout:** Playwright (Chromium) at 320, 390, and 1280 px, on all five pages, with accordions closed and open:
+  - The page width equals the viewport every time. No element runs past the right edge, so there is no sideways scroll.
+  - The new two-column table stacks into labelled cards under 640 px.
+  - I reviewed the 320 px screenshots of Our programs.
+- **Gate:**
+  - The page is hidden until the code is entered.
+  - A wrong code shows an error, and spark2026 unlocks the page.
+  - The next page opens unlocked.
+- **Accessibility and structure:**
+  - axe-core 4.10.2 (WCAG 2.0 to 2.2 A and AA, plus best practice): 0 violations on all five pages, with accordions closed and open.
+  - The "needs review" items are the same as in v3.2: the numbered timeline steps on Share an idea and How SPARK works, where axe can't read the background behind the number circles.
+  - One H1 per page, and no skipped heading levels (H4s sit under H3 panels).
+  - No inline styles, and no script but `gate.js`. Every table cell's `data-label` matches its column header.
+- **HTML validation: the Nu validator was not run this time.** Downloading and running its jar was blocked by this session's permissions. A static check stood in for it: tag balance and nesting, list and paragraph content, summary placement, duplicate IDs, image alt text, and CSS brace balance. It found 0 problems on all five pages. Please run vnu.jar before launch.
+- **Privacy and vocabulary:**
+  - The added lines have no personal names; a capitalized-pair scan found only quotes and place names. They have no email addresses, and no "@susd.org".
+  - The pages show no phone numbers, and no "options" used as a name for programs.
+  - The pages make no lottery or first-come claim.
+  - No new sentence is over 20 words. Two were shortened during QA.
+- **CONTENT.md matches the pages:** a word-by-word and link-by-link comparison, with annotations stripped. Our programs (2,559 words, 70 links) and How SPARK works (1,254 words, 7 links) match exactly. Home, What we're working on, and Share an idea differ only by CONTENT.md's annotations, which were already there in v3.2.
+
+**Word counts, v3.3** (measured the same way as v3.2; the v3.3 figures are the v3.2 figures plus the measured change):
+
+| Page | v3.2 | v3.3 | Main reason |
+| --- | --- | --- | --- |
+| index.html | 299 | 299 | Unchanged |
+| working-on.html | 990 | 990 | Unchanged |
+| programs.html | 1,544 | 2,572 | How students join and Check for a seat (+415 always visible); per-program lines in the closed theme panels (+613) |
+| share.html | 647 | 647 | Same length (question 1 reworded) |
+| how-it-works.html | 1,166 | 1,256 | "What SPARK covers" has seven bullets |
+| **Site total** | **4,646** | **5,764** | |
+
+Our programs is now the longest page by far. Most of the growth is inside closed panels, but the two new blocks add about a screen and a half on phones. If that's too long, the "What to ask the school" list could move into its own accordion.
+
+---
+
 ## v3.2 iteration (2026-10-02)
 
 v3.2 builds [V3.2_SPEC.md](V3.2_SPEC.md) (revision 2), changes W1 to W17. [FEEDBACK_MAP.md](FEEDBACK_MAP.md) explains why each change is proposed. Items the spec marks Draft or Confirm are built with the spec's defaults, and wait on the decisions and confirmations listed there.
