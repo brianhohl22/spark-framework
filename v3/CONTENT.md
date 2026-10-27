@@ -13,6 +13,7 @@ Every page's copy in reading order, for the Web Content team. This file is gener
 - **Embed:** a Microsoft Forms iframe (Finalsite Embed element). The forms do not exist yet; the preview shows a placeholder box.
 - **Image:** file name, size, and alt text.
 - Tables are Markdown tables. "(screen readers only)" means the caption repeats the heading and is visually hidden. On phones, table cells stack, each labelled with its column header. Exception: the ideas-by-theme table stays a three-column table on phones.
+- **`####` inside an accordion** names one program, or schools that join the same way, in a theme panel (v3.3). Its lines are How to join, Key dates, and Program page and contact. A line is left out when SUSD publishes nothing for it.
 - **(preview value; set at the content freeze)** marks dates the preview fills in for a November launch. Set them, and drop, reword, or roll forward any key date that will be past on launch day.
 
 ---
@@ -220,7 +221,7 @@ One page: ideas received, studied, and decided.
 
 # Our programs
 
-Some SUSD schools offer a specialty theme, such as dual language or IB. Gifted services are at every school, and every elementary student has music and visual arts. Use the table to see what is offered at each level. Then open a theme for details. Where a fact is not yet confirmed, we say "Ask the school."
+Some SUSD schools offer a specialty theme, such as dual language or IB. Every school provides gifted services for identified students, and every elementary student has music and visual arts. Use the table to see what is offered at each level. Then open a theme for details. Facts come from SUSD's program pages, checked October 2026. *(preview value; set at the content freeze)* Dates and seats change each year, so confirm with the program before you apply.
 
 **Note box** (a Content block set apart with a solid teal edge, not the Example style): **Being studied, not offered yet.** Two new K-8 magnet school concepts are being studied. One is for gifted and advanced studies, and one for the visual and performing arts. They are not open for enrollment. [See what we're working on](working-on.html#studies).
 
@@ -233,30 +234,64 @@ Table caption: Programs by theme and level
 | Theme | Elementary | Middle | High |
 | --- | --- | --- | --- |
 | [Arts](#arts) | Every school: general music and visual arts. Band or strings can replace general music in grades 4 and 5. | Band, choir, orchestra, theatre, and visual arts | Band, choir, dance, orchestra, theatre, and visual arts |
-| [College and Career](#college-career) | AVID: Tavan, Hohokam (other schools: ask the school) | AVID: Ingleside (other schools: ask the school) | AVID: Arcadia. Career and technical education (CTE): every high school |
+| [College and Career](#college-career) | AVID: Tavan, Hohokam (other schools: see [each school's website](https://www.susd.org/our-district/our-schools)) | AVID: Ingleside (other schools: see [each school's website](https://www.susd.org/our-district/our-schools)) | AVID: Arcadia. Career and technical education (CTE): every high school |
 | [Dual Language Immersion](#dual-language) | Spanish: Pueblo. Mandarin: Desert Canyon | Spanish: Mohave. Mandarin: Desert Canyon | Spanish: Saguaro. Mandarin: Desert Mountain |
-| [Early College](#early-college) | None | None | Dual enrollment courses for college credit: ask the school. A full early college is not offered yet. |
-| [Gifted and Advanced](#gifted) | Every school: gifted services. Comprehensive Gifted Program: Kiva, Redfield, Tavan | Every school: gifted services. Comprehensive Gifted Program: Desert Canyon, Ingleside | Every school: gifted services. Advanced courses: ask the school |
+| [Early College](#early-college) | None | None | Dual enrollment courses for college credit: see [SUSD's dual enrollment page](https://www.susd.org/departments/cte/dual-enrollment). A full early college is not offered yet. |
+| [Gifted and Advanced](#gifted) | Every school: gifted services. Comprehensive Gifted Program: Kiva, Redfield, Tavan | Every school: gifted services. Comprehensive Gifted Program: Desert Canyon, Ingleside | Every school: gifted services. Advanced courses: see the [high school planning guide](https://www.susd.org/hs-planning-guide) |
 | [International Baccalaureate](#ib) | Anasazi (Primary Years) | Mountainside (Middle Years) | Desert Mountain (Middle Years in grades 9 and 10, Diploma in grades 11 and 12) |
 | [STEM](#stem) | STEM-certified: Navajo, Laguna | Math and Science Academy: Mohave | Math and Science Academy: Saguaro. STEM-certified: Saguaro |
 | [Traditional](#traditional) | Cheyenne (K-8) | Cheyenne (K-8) | None |
 
-Schools listed as of September 2026. *(preview value; set at the content freeze)* Locations can change after Governing Board decisions.
+Schools listed as of October 2026. *(preview value; set at the content freeze)* Locations can change after Governing Board decisions. The Governing Board has approved closing some schools after the 2026-27 school year. Check [SUSD's school repurposing page](https://www.susd.org/school-repurposing-phase-ii) before you apply.
 
 This page follows [SUSD's list of specialty schools and programs](https://www.susd.org/our-district/district-committees/spark-team). It also covers the arts and gifted services at every school.
 
-Many schools also run their own programs, clubs, and pilots. See [each school's website](https://www.susd.org/our-district/our-schools).
+Many schools also run their own clubs, activities, and programs. These are not on SUSD's specialty list. See [each school's website](https://www.susd.org/our-district/our-schools).
 
 Not every program fits a theme. For online learning, preschool, special education, and more, see [all SUSD academic programs on susd.org](https://www.susd.org/academics/academic-programs).
 
 ## Applying and key dates
 
-- **Open enrollment:** apply through open enrollment to attend a school outside your neighborhood. For 2027-28, it opens in early November 2026. [SUSD open enrollment](https://www.susd.org/services/enrollment/open-enrollment)
-- **Specialty schools and programs:** [dedicated specialty schools](#kinds) accept students only through open enrollment. Signature programs within a school also have their own application. Themes with an application list their dates below.
-- **Seats:** SUSD posts whether each school and program has seats open, limited, or closed. The list is on the open enrollment page and is updated regularly.
+- **Open enrollment:** apply through open enrollment to attend a school outside your neighborhood. For 2027-28, it opens November 2, 2026, at 8 a.m. [SUSD open enrollment](https://www.susd.org/services/enrollment/open-enrollment)
+- **Specialty schools and programs:** [dedicated specialty schools](#kinds) accept students only through open enrollment. Many signature programs within a school have their own application or sign-up. See [how students join](#how-students-join) each program. Each theme below lists its key dates.
 - **Tours:** families can tour SUSD schools. [Schedule a tour](https://www.susd.org/services/enrollment/schedule-a-tour)
 - **Education Expo:** a showcase of SUSD schools and programs. It was in November in 2024 and 2025. [Education Expo](https://www.susd.org/expo)
-- **Questions about a program:** ask the school. **Suggestions for a program:** use [Let's Talk](https://www.susd.org/letstalk) and choose the SPARK topic.
+- **Questions about a program:** each theme below gives the program's page and the office to call. **Suggestions for a program:** use [Let's Talk](https://www.susd.org/letstalk) and choose the SPARK topic.
+
+### How students join (anchor: #how-students-join)
+
+Programs take students in different ways. This table shows which ones need their own application.
+
+Table caption (screen readers only): How students join
+
+| How students join | Programs |
+| --- | --- |
+| Every student at the school takes part. Enroll by neighborhood or open enrollment. | Anasazi (IB Primary Years), Mountainside (IB Middle Years), Navajo and Laguna (STEM), Mohave (Math and Science Academy). Mohave's STEM Scholar distinction needs an application. Music and visual arts at every elementary school. |
+| No neighborhood boundary. Apply through open enrollment. | Pueblo (Spanish dual language), Cheyenne (Traditional) |
+| A separate program application, with entry criteria | Comprehensive Gifted Program; IB Diploma at Desert Mountain |
+| A separate program application or sign-up | IB Middle Years at Desert Mountain; Desert Canyon Elementary (Mandarin dual language); Saguaro (Math and Science Academy) |
+| Continue from the elementary program | Dual language at Mohave (Spanish) and Desert Canyon Middle (Mandarin) |
+| A course request at your school | Career and technical education and dual language courses in high school; arts classes in middle and high school |
+| Gifted testing. No application | Gifted services at every school, for identified students |
+| Not published. Ask the school's counselor | AVID |
+
+For open enrollment, if more students apply than there are seats, [SUSD's priority groups](https://www.susd.org/services/enrollment/open-enrollment) set the order. Students already in an SUSD school come first. Next come families who live in SUSD, then families from outside.
+
+### Check for a seat (anchor: #check-for-a-seat)
+
+SUSD posts a seat list near the bottom of its [open enrollment page](https://www.susd.org/services/enrollment/open-enrollment), under the button "Open Enrollment Capacity." It shows each school as Open, Limited, or Closed. "Limited" means some grades have room.
+
+The list does not show grade levels. It does not show most programs, such as the Comprehensive Gifted Program, IB, or the Math and Science Academy. SUSD says it updates the list every 12 weeks.
+
+To check a grade or a program, call the school's registrar. Their phone numbers are on the same open enrollment page.
+
+What to ask the school:
+
+- Is there room in my child's grade, or in the program?
+- Is there a separate application or test? When is the deadline?
+- If seats run short, how are students picked?
+- Is there a waitlist? When will we hear?
+- Is there bus service from where we live?
 
 ## Three kinds of specialty school and program (anchor: #kinds)
 
@@ -265,6 +300,8 @@ SUSD uses three terms. You will see them in the themes below.
 - **Dedicated specialty school:** the whole school follows the theme. There is no neighborhood boundary. Families apply, and every student takes part.
 - **Schoolwide specialty program:** the whole school follows the theme. It serves its neighborhood and also accepts open enrollment.
 - **Signature program within a school:** an optional track inside a school, with its own application. Only some students take part.
+
+These labels describe the usual pattern. For each program, see [how students join](#how-students-join).
 
 ## Themes
 
@@ -276,8 +313,9 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 
 - **At every school:** elementary students have general music (kindergarten to grade 3) and visual arts (kindergarten to grade 5). In grades 4 and 5, band or strings can replace general music.
 - **Middle and high school:** band, choir, orchestra, theatre, and visual arts. High schools add dance and technical theatre. Some courses, such as guitar, fashion design, and mariachi, are at some schools only.
-- **Status and key dates:** at every school; no application needed. Family ArtsFest displays SUSD student artwork. In 2026 it was March 6 and 7.
-- **Contact and visits:** ask your school's music, art, or theatre teacher.
+- **How to join:** every elementary student takes part; no application needed. In middle and high school, students choose arts classes in their course requests. Some advanced groups, such as top choirs and bands, need an audition.
+- **Key dates:** Family ArtsFest displays SUSD student artwork. In 2026 it was March 6 and 7.
+- **Program page and contact:** the district's [Fine Arts department](https://www.susd.org/arts), or your school's music, art, or theatre teacher.
 - **Recognition:** high school students can earn the Arizona Seal of Arts Proficiency on their diploma ([diploma seals](https://www.susd.org/academics/academic-programs/diploma-seals)).
 - **Being studied, not offered yet:** a new K-8 school concept, the Visual and Performing Arts Magnet School. [About the study](working-on.html#studies).
 - **More on susd.org:** [Arts offerings by level](https://www.susd.org/arts/arts-offering)
@@ -286,12 +324,20 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 
 ### College and Career
 
-- **AVID (schoolwide specialty program):** SUSD lists Tavan and Hohokam elementary, Ingleside Middle School, and Arcadia High School. Some other schools also call themselves AVID schools; ask the school. AVID helps students build the skills to succeed in college.
-- **College and career academies (signature programs within a school):** every high school offers career and technical education (CTE) pathways. Ask the school which ones.
-- **Status and key dates:** students choose CTE pathways through their high school course requests. AVID: ask the school.
-- **Contact and visits:** [the district's College and Career Readiness office](https://www.susd.org/departments/cte), and each high school's counselors. AVID: the school's front office.
+- **AVID (schoolwide specialty program):** SUSD lists Tavan and Hohokam elementary, Ingleside Middle School, and Arcadia High School. Some other schools also call themselves AVID schools; see [each school's website](https://www.susd.org/our-district/our-schools). AVID helps students build the skills to succeed in college.
+- **College and career academies (signature programs within a school):** every high school offers career and technical education (CTE) pathways. The pathways at each school vary from year to year.
 - **Recognition:** CTE students can earn industry credentials.
-- **More on susd.org:** [AVID](https://www.susd.org/academics/academic-programs/avid); [Career and college readiness](https://www.susd.org/academics/academic-programs/career-and-college-readiness)
+- **More on susd.org:** [Career and college readiness](https://www.susd.org/academics/academic-programs/career-and-college-readiness)
+
+#### AVID
+
+- **How to join:** SUSD doesn't publish how students are chosen. Ask the school's counselor.
+- **Program page and contact:** [SUSD's AVID page](https://www.susd.org/academics/academic-programs/avid). The school's counselor or front office.
+
+#### Career and technical education
+
+- **How to join:** add a CTE pathway to your high school course requests. Some signature CTE programs take students from other SUSD high schools, and a bus can be provided.
+- **Program page and contact:** [the district's College and Career Readiness office](https://www.susd.org/departments/cte), and each high school's counselors. The [high school planning guide](https://www.susd.org/hs-planning-guide/academic-areas/cte) lists every CTE pathway.
 
 **Accordion:** (anchor: #dual-language)
 
@@ -300,16 +346,36 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 - **What it is:** in elementary school, students learn half the day in English and half in Spanish or Mandarin. The path continues through high school.
 - **Spanish path:** Pueblo Elementary (dedicated specialty school), Mohave Middle School (signature program within a school), Saguaro High School.
 - **Mandarin path:** Desert Canyon Elementary, Desert Canyon Middle School, and Desert Mountain High School. SUSD lists Desert Canyon's dual language as a signature program within a school.
-- **Status and key dates:** Pueblo: apply through open enrollment. Other schools: ask the school. Some grades may be limited, so check [the seat list](https://www.susd.org/services/enrollment/open-enrollment). Students who already speak the language may join some later grades after a placement test. Ask the school which ones.
-- **Contact and visits:** Pueblo: [request a tour online](https://pueblo.susd.org/tour-pueblo). Desert Canyon Elementary: [request a tour online](https://desertcanyones.susd.org/tour-dces). Mohave, Desert Canyon Middle, Saguaro, and Desert Mountain: the school's front office.
+- **Joining later:** students who already speak the language may join some later grades after a placement test. Ask the school's front office which grades.
 - **Recognition:** students can earn the Arizona Seal of Biliteracy and a dual language graduation cord. Elementary and middle school students can earn biliteracy awards.
 - **More on susd.org:** [Dual Language Immersion](https://www.susd.org/academics/academic-programs/dual-language-immersion)
+
+#### Pueblo Elementary (Spanish)
+
+- **How to join:** Pueblo has no neighborhood boundary, so all families apply through open enrollment. Pueblo asks families to commit to at least seven years. Some grades may be full, so [check for a seat](#check-for-a-seat).
+- **Key dates:** tours and kindergarten round-ups run through the school year. The dates are on the tour page.
+- **Program page and contact:** [Pueblo's dual language page](https://pueblo.susd.org/academics/dual-language-immersion-spanish). [Request a tour online](https://pueblo.susd.org/tour-pueblo). Questions: Pueblo's front office.
+
+#### Desert Canyon Elementary (Mandarin)
+
+- **How to join:** Desert Canyon Elementary serves its neighborhood and accepts open enrollment. The Mandarin program also has its own application, on the school's Mandarin page.
+- **Program page and contact:** [Desert Canyon Elementary's Mandarin page](https://desertcanyones.susd.org/academics/dual-language-immersion-mandarin). [Request a tour online](https://desertcanyones.susd.org/tour-dces). Questions: the school's front office.
+
+#### Middle school: Mohave (Spanish) and Desert Canyon Middle (Mandarin)
+
+- **How to join:** students continue from the elementary program. Pueblo feeds Mohave, and Desert Canyon Elementary feeds Desert Canyon Middle.
+- **Program page and contact:** [Mohave's dual language page](https://mohave.susd.org/academics/dual-language-immersion-spanish) and [Desert Canyon Middle's dual language page](https://desertcanyonms.susd.org/academics/dual-language-immersion-mandarin). Questions: the school's front office.
+
+#### High school: Saguaro (Spanish) and Desert Mountain (Mandarin)
+
+- **How to join:** attend the high school, by neighborhood or open enrollment, and request the language courses. They include honors and AP levels.
+- **Program page and contact:** [Saguaro's dual language page](https://saguaro.susd.org/academics/dual-language-immersion-spanish) and [Desert Mountain's dual language page](https://desertmountain.susd.org/academics/dual-language-immersion-mandarin). Questions: the school's counseling office.
 
 **Accordion:** (anchor: #early-college)
 
 ### Early College
 
-- SUSD high schools already offer some courses that earn college credit, such as dual enrollment. Ask the school which ones.
+- SUSD high schools already offer some courses that earn college credit, such as dual enrollment. See [SUSD's dual enrollment page](https://www.susd.org/departments/cte/dual-enrollment), and ask the school's counselor which courses it offers.
 - A full early college is not offered yet. SUSD lists Early College as a possible future theme. It was not one of the two concepts shared with the Board in June 2026.
 - Have an idea? [Share it](share.html).
 
@@ -317,12 +383,21 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 
 ### Gifted and Advanced
 
-- **At every school:** gifted services during the regular school day, planned by the school's gifted specialist with staff and families.
+- **At every school:** gifted services for identified students, during the regular school day. The school's gifted specialist plans them with staff and families.
 - **Comprehensive Gifted Program (signature program within a school):** an optional choice for highly gifted students in kindergarten to grade 8. Families apply. Elementary: Kiva, Redfield, Tavan. Middle: Desert Canyon, Ingleside.
-- **Status and key dates:** Comprehensive Gifted Program, grades 1 to 8, for 2027-28: priority applications open October 12, 2026. Applications open to all on November 16, 2026. The [Gifted application page](https://www.susd.org/departments/gifted/comprehensive-gifted-program/cgp-application) explains who has priority. Kindergarten: see the same page. Placement depends on available seats.
-- **Contact and visits:** [the district's Gifted department](https://www.susd.org/departments/gifted). Tours of the program's schools are [booked online](https://www.susd.org/departments/gifted/comprehensive-gifted-program/cgp-tours) several times a year.
 - **Being studied, not offered yet:** a new K-8 school concept, the Gifted and Advanced Studies Magnet School. [About the study](working-on.html#studies).
 - **More on susd.org:** [Gifted services](https://www.susd.org/departments/gifted/programs-services); [Comprehensive Gifted Program](https://www.susd.org/departments/gifted/comprehensive-gifted-program)
+
+#### Gifted services at every school
+
+- **How to join:** no application. Students qualify through gifted testing, at the 97th percentile or above on a state-approved test.
+- **Program page and contact:** the school's gifted specialist, or [the district's Gifted department](https://www.susd.org/departments/gifted). [How students are identified](https://www.susd.org/departments/gifted/identification-eligibility).
+
+#### Comprehensive Gifted Program
+
+- **How to join:** a separate application, completed with the home school's gifted specialist. Students need qualifying test scores and evidence that they need learning well beyond grade level. Placement depends on available seats. From Redfield and Tavan, students move on to the program at Desert Canyon Middle and Ingleside. From Kiva, they move on to Mohave's Math and Science Academy.
+- **Key dates:** for 2027-28, grades 1 to 8: priority applications opened October 12, 2026. Applications open to all on November 16, 2026. Kindergarten: priority applications open January 4, 2027, and to all on February 8, 2027. Priority is for families in the school's attendance or feeder area, and for siblings.
+- **Program page and contact:** [the program's application page](https://www.susd.org/departments/gifted/comprehensive-gifted-program/cgp-application), and the Gifted department. Tours of the program's schools are [booked online](https://www.susd.org/departments/gifted/comprehensive-gifted-program/cgp-tours) several times a year.
 
 **Accordion:** (anchor: #ib)
 
@@ -331,29 +406,52 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 - **Primary Years:** Anasazi Elementary (schoolwide specialty program).
 - **Middle Years:** Mountainside Middle School (schoolwide specialty program).
 - **Middle Years and Diploma:** Desert Mountain High School (signature program within a school). Middle Years runs in grades 9 and 10, and Diploma in grades 11 and 12.
-- **Status and key dates:** Desert Mountain: Middle Years and Diploma have their own application. Diploma applications open by mid-November, and the deadline is in early January. Anasazi and Mountainside: enroll at the school.
-- **Contact and visits:** IB coordinators for each school are listed on [SUSD's IB page](https://www.susd.org/academics/academic-programs/international-baccalaureate).
 - **Recognition:** Anasazi, Mountainside, and Desert Mountain are IB World Schools. Desert Mountain has offered the IB Diploma since 1999.
-- **More on susd.org:** [International Baccalaureate](https://www.susd.org/academics/academic-programs/international-baccalaureate)
+
+#### Anasazi and Mountainside
+
+- **How to join:** every student at the school takes part. Enroll by neighborhood or open enrollment.
+- **Program page and contact:** [Anasazi's IB page](https://anasazi.susd.org/academics) and [Mountainside's IB page](https://mountainside.susd.org/academics). Each school's IB coordinator is listed on [SUSD's IB page](https://www.susd.org/academics/academic-programs/international-baccalaureate).
+
+#### Desert Mountain
+
+- **How to join:** Middle Years and Diploma each have their own application, open to students from any school. Students from outside the Desert Mountain boundary also apply through open enrollment. The Diploma application lists entry criteria, such as grades and teacher recommendations. A bus runs from other SUSD high schools.
+- **Key dates:** applications open by mid-November, and the deadline is in early January.
+- **Program page and contact:** [Desert Mountain's IB page](https://desertmountain.susd.org/academics/international-baccalaureate-program). Desert Mountain's IB coordinators.
 
 **Accordion:** (anchor: #stem)
 
 ### STEM
 
 - **STEM-certified:** Navajo and Laguna elementary, and Saguaro High School. Navajo and Laguna are schoolwide specialty programs with a STEAM focus, which adds the arts.
-- **Math and Science Academy (signature program within a school):** Mohave Middle School and Saguaro High School. Students apply.
-- **Status and key dates:** Math and Science Academy: students apply. Mohave's information night is October 27, 2026. Saguaro's application is on [its academy page](https://saguaro.susd.org/our-school/counseling/saguaro-math-and-science-academy-msa).
-- **Contact and visits:** Saguaro: the academy coordinators. Mohave: the front office. STEM-certified schools: [schedule a tour](https://www.susd.org/services/enrollment/schedule-a-tour).
+- **Math and Science Academy (signature program within a school):** Mohave Middle School and Saguaro High School.
 - **Recognition:** Navajo, Laguna, and Saguaro are Cognia STEM certified. Saguaro's academy students can earn four levels of recognition, from Academy Member to Distinguished Graduate. Mohave's can become STEM Scholars.
-- **More on susd.org:** [STEM-certified schools](https://www.susd.org/academics/academic-programs/stem-certified-schools); [Math and Science Academy](https://www.susd.org/academics/academic-programs/math-science-academy); [Math and Science Academy at Saguaro](https://saguaro.susd.org/academics/math-science-academy)
+- **More on susd.org:** [STEM-certified schools](https://www.susd.org/academics/academic-programs/stem-certified-schools); [Math and Science Academy](https://www.susd.org/academics/academic-programs/math-science-academy)
+
+#### Navajo and Laguna
+
+- **How to join:** every student at the school takes part. Enroll by neighborhood or open enrollment.
+- **Program page and contact:** [Navajo's STEM page](https://navajo.susd.org/academics) and [Laguna's STEM page](https://laguna.susd.org/academics). Each school's front office. [Schedule a tour](https://www.susd.org/services/enrollment/schedule-a-tour).
+
+#### Math and Science Academy at Mohave
+
+- **How to join:** every Mohave student can take part. Enroll at Mohave by neighborhood or open enrollment. To earn the STEM Scholar distinction, students complete the academy application and its requirements by spring of grade 8. Kiva's Comprehensive Gifted Program students move on to Mohave's academy.
+- **Key dates:** Mohave posts academy events, such as its information night, on the academy page.
+- **Program page and contact:** [Mohave's academy page](https://mohave.susd.org/academics/msa). Mohave's front office.
+
+#### Math and Science Academy at Saguaro
+
+- **How to join:** attend Saguaro, by neighborhood or open enrollment. Students sign up on the academy's form. Any Saguaro student can join many of the academy's learning opportunities.
+- **Program page and contact:** [Saguaro's academy page](https://saguaro.susd.org/academics/math-science-academy), which has the form. The academy coordinators, or the Saguaro counseling office.
 
 **Accordion:** (anchor: #traditional)
 
 ### Traditional
 
 - **Cheyenne Traditional School (dedicated specialty school):** kindergarten to grade 8. Families apply.
-- **Status and key dates:** Cheyenne accepts students only through open enrollment. Fall tours are [booked online](https://cheyenne.susd.org/tour-cheyenne), 10 families each (November 3, 10, and 16, 2026).
-- **Contact and visits:** Cheyenne's front office.
+- **How to join:** Cheyenne has no neighborhood boundary. All families apply through open enrollment. Families sign a statement of support for the school's programs.
+- **Key dates:** fall tours are [booked online](https://cheyenne.susd.org/tour-cheyenne), 10 families each (November 3, 10, and 16, 2026).
+- **Program page and contact:** [Cheyenne's academics page](https://cheyenne.susd.org/academics). For enrollment questions, Cheyenne's front office. Its number is on the tour page.
 - **More on susd.org:** [Traditional school](https://www.susd.org/academics/traditional-school)
 
 **[Planned: spring 2027]**
