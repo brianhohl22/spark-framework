@@ -1,5 +1,47 @@
 # SPARK v3 prototype: build report
 
+## v3.4 iteration (2026-10-28)
+
+v3.4 is a wording pass on Our programs and How SPARK works. The site will live on susd.org, so it now speaks as the district rather than about it. The site's author asked for this on October 28, 2026, after reviewing v3.3. [V3.4_CHANGES.md](V3.4_CHANGES.md) has every item (W32 to W39), with the old and new copy, and the voice rules for future edits.
+
+**What changed**
+- **Our programs:**
+  - The lead says where the details come from and when they were last checked, without "SUSD's program pages".
+  - The coverage and school-run lines, "three kinds", the AVID lines, Desert Canyon's Mandarin line, and the Early College line no longer say "SUSD lists", "SUSD uses", "call themselves", "doesn't publish", or "Not published".
+  - "Check for a seat" says what the seat list shows and what to do next. The paragraph on what the list does not show, and the update cadence, are gone. The question about applications and deadlines became a link to "How students join".
+  - The Education Expo line drops its past dates.
+- **How SPARK works:**
+  - "What SPARK covers" and the glossary follow the same voice.
+  - The "School principal" role is now "School SPARK contact" (still Planned). Its "What they do" cell now keeps school matters with the principal, since the contact may be someone the principal names.
+- **Handoff files:** CONTENT.md matches the pages. DATA_INVENTORY.md has 18 rows marked "v3.4" and 3 rows removed (#109, #112, #184): 183 Verified, 22 Confirm, 14 removed. HANDOFF.md and README.md point to V3.4_CHANGES.md.
+- **Home, What we're working on, and Share an idea:** unchanged.
+
+**Checks**
+- None of the phrases listed in V3.4_CHANGES.md remain on any page or in CONTENT.md.
+- Every changed sentence appears, word for word, on its page and in CONTENT.md.
+- No new sentence is over 20 words.
+- Tags are balanced on both changed pages.
+- No new external links, and no new anchors. Two links changed their text only: the SPARK Team page link on How SPARK works and on Our programs. One new internal link: "Check for a seat" now points to `#how-students-join`, which already exists.
+- No personal names, phone numbers, or "options" as a name for programs.
+- One fact was rechecked live: the Expo page on 2026-10-28. It still shows the November 5, 2025 event, so the line carries no date.
+- **Not run this time:** the layout screenshots and axe. The change is text inside existing elements. The Nu HTML validator is still to run before launch.
+
+**Word counts** (the v3.3 figures plus the measured change):
+
+| Page | v3.3 | v3.4 |
+| --- | --- | --- |
+| programs.html | 2,572 | 2,520 |
+| how-it-works.html | 1,256 | 1,265 |
+| Other three pages | 1,936 | 1,936 |
+| **Site total** | **5,764** | **5,721** |
+
+**Next (not built):**
+- Answer "Questions to ask the registrar" on the page once Enrollment and Transportation confirm the answers.
+- Replace the interim AVID lines once the AVID schools and how students join are confirmed.
+- After the October 30 SPARK meeting, show the concepts the team chose to explore, and recheck the Early College line.
+
+---
+
 ## v3.3 iteration (2026-10-26)
 
 v3.3 builds the October 3 candidate list: accuracy fixes A1 to A7, credibility B1 and B2, and enrollment usefulness C1 to C4. It also adds one line about the Board's approved school closures. The site author approved the list on October 26, 2026. [V3.3_CHANGES.md](V3.3_CHANGES.md) has every item as W18 to W31, with the final copy, its placement, and the reason for each edit to the proposed copy.

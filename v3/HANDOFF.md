@@ -1,6 +1,6 @@
 # SPARK site: handoff for the Finalsite build
 
-For the Web Content team. October 2026, v3.3. This is a working draft. [V3.2_SPEC.md](V3.2_SPEC.md) lists every change from v3.1 and the decisions still open. [V3.3_CHANGES.md](V3.3_CHANGES.md) lists the v3.3 changes (W18 to W31): how students join each program, checking for a seat, and accuracy fixes on Our programs and How SPARK works. [FEEDBACK_MAP.md](FEEDBACK_MAP.md) maps the feedback from the September 25 SPARK team meeting to those changes.
+For the Web Content team. October 2026, v3.4. This is a working draft. [V3.2_SPEC.md](V3.2_SPEC.md) lists every change from v3.1 and the decisions still open. [V3.3_CHANGES.md](V3.3_CHANGES.md) lists the v3.3 changes (W18 to W31): how students join each program, checking for a seat, and accuracy fixes on Our programs and How SPARK works. [V3.4_CHANGES.md](V3.4_CHANGES.md) lists the v3.4 wording changes (W32 to W39), so the site speaks as the district rather than about it. [FEEDBACK_MAP.md](FEEDBACK_MAP.md) maps the feedback from the September 25 SPARK team meeting to those changes.
 
 **Preview:** https://brianhohl22.github.io/spark-framework/v3/ (five pages, unlisted, not indexed)
 
@@ -23,7 +23,7 @@ Every block in the preview is a standard Composer element. Nothing depends on th
 | "Being studied, not offered yet" note on Our programs | Content block, styled as a note box | Set it apart from the programs. Don't use the gold "Example" style. As plain text, a bold first sentence is enough |
 | "Applying and key dates" on Our programs | Content (a heading and a bulleted list) | Dates refresh yearly (Section 5) |
 | "How students join" on Our programs (v3.3) | Content: an H3 (anchor `how-students-join`), a paragraph, a two-column table, and a paragraph | The table has two columns, so it reads well on phones; in the preview it stacks into labelled cards under 640 px. Its caption repeats the heading for screen readers only. Program owners confirm their rows before launch |
-| "Check for a seat" on Our programs (v3.3) | Content: an H3 (anchor `check-for-a-seat`), three paragraphs, a one-line lead-in, and a bulleted list ("What to ask the school") | Describes SUSD's capacity list and links the open enrollment page. Recheck it whenever Enrollment changes the list (Section 5) |
+| "Check for a seat" on Our programs (v3.3) | Content: an H3 (anchor `check-for-a-seat`), three paragraphs, a one-line lead-in, and a bulleted list ("Questions to ask the registrar"; v3.4) | Describes SUSD's capacity list and links the open enrollment page. Recheck it whenever Enrollment changes the list (Section 5) |
 | Two study cards on Home; two study overviews on What we're working on | Content blocks (or a Posts element filtered to "Under study") | Overviews link to the public June 23 Board record |
 | "Where it stands" phase list in each study overview | Content (an ordered list) | "Done" and "Now" are words, so the meaning never depends on color. "Target school year" and "Related programs today" lines follow it |
 | "Being studied now" board | Posts with the Category Filter, or a Content table | See Section 4 |
@@ -179,6 +179,7 @@ Our programs has no Example content in v3.2.
 | FORMS.md | Every question in each form, with choices, limits, help text, and thank-you messages |
 | V3.2_SPEC.md | The changes from v3.1, the open decisions, the facts to confirm, and what the public site needs from the SPARK list (section 8) |
 | V3.3_CHANGES.md | The v3.3 changes (W18 to W31), with final copy and placement |
+| V3.4_CHANGES.md | The v3.4 wording changes (W32 to W39), and the voice rules for every page |
 | FEEDBACK_MAP.md | The feedback from the September 25 SPARK team meeting, mapped to the v3.2 changes |
 | DATA_INVENTORY.md | Every fact on the site, with its source, check date, and who confirms it |
 | assets/logo.png, logo.svg, cycle.png, spark-work.png | Images |

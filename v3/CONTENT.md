@@ -1,6 +1,6 @@
-**SPARK site v3.3: page content for Finalsite**
+**SPARK site v3.4: page content for Finalsite**
 
-Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The specs (the v3.1 design spec, V3.2_SPEC.md for the changes in v3.2, and V3.3_CHANGES.md for the changes in v3.3) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
+Every page's copy in reading order, for the Web Content team. This file is generated from the preview pages, so it always matches them. The specs (the v3.1 design spec, V3.2_SPEC.md for the changes in v3.2, V3.3_CHANGES.md for the changes in v3.3, and V3.4_CHANGES.md for the changes in v3.4) and this file are authoritative; the HTML pages are a visual reference only. How each block maps to a Finalsite element is in HANDOFF.md.
 
 **How to read this file**
 
@@ -221,7 +221,7 @@ One page: ideas received, studied, and decided.
 
 # Our programs
 
-Some SUSD schools offer a specialty theme, such as dual language or IB. Every school provides gifted services for identified students, and every elementary student has music and visual arts. Use the table to see what is offered at each level. Then open a theme for details. Facts come from SUSD's program pages, checked October 2026. *(preview value; set at the content freeze)* Dates and seats change each year, so confirm with the program before you apply.
+Some SUSD schools offer a specialty theme, such as dual language or IB. Every school provides gifted services for identified students, and every elementary student has music and visual arts. Use the table to see what is offered at each level. Then open a theme for details. Details come from each program's page and were last checked October 2026. *(preview value; set at the content freeze)* Dates and seats change each year, so check with the program before you apply.
 
 **Note box** (a Content block set apart with a solid teal edge, not the Example style): **Being studied, not offered yet.** Two new K-8 magnet school concepts are being studied. One is for gifted and advanced studies, and one for the visual and performing arts. They are not open for enrollment. [See what we're working on](working-on.html#studies).
 
@@ -244,9 +244,9 @@ Table caption: Programs by theme and level
 
 Schools listed as of October 2026. *(preview value; set at the content freeze)* Locations can change after Governing Board decisions. The Governing Board has approved closing some schools after the 2026-27 school year. Check [SUSD's school repurposing page](https://www.susd.org/school-repurposing-phase-ii) before you apply.
 
-This page follows [SUSD's list of specialty schools and programs](https://www.susd.org/our-district/district-committees/spark-team). It also covers the arts and gifted services at every school.
+This page lists SUSD's [specialty schools and programs](https://www.susd.org/our-district/district-committees/spark-team), plus the arts and gifted services at every school.
 
-Many schools also run their own clubs, activities, and programs. These are not on SUSD's specialty list. See [each school's website](https://www.susd.org/our-district/our-schools).
+Many schools also run their own clubs, activities, and programs. These are separate from the specialty programs on this page. See [each school's website](https://www.susd.org/our-district/our-schools).
 
 Not every program fits a theme. For online learning, preschool, special education, and more, see [all SUSD academic programs on susd.org](https://www.susd.org/academics/academic-programs).
 
@@ -255,7 +255,7 @@ Not every program fits a theme. For online learning, preschool, special educatio
 - **Open enrollment:** apply through open enrollment to attend a school outside your neighborhood. For 2027-28, it opens November 2, 2026, at 8 a.m. [SUSD open enrollment](https://www.susd.org/services/enrollment/open-enrollment)
 - **Specialty schools and programs:** [dedicated specialty schools](#kinds) accept students only through open enrollment. Many signature programs within a school have their own application or sign-up. See [how students join](#how-students-join) each program. Each theme below lists its key dates.
 - **Tours:** families can tour SUSD schools. [Schedule a tour](https://www.susd.org/services/enrollment/schedule-a-tour)
-- **Education Expo:** a showcase of SUSD schools and programs. It was in November in 2024 and 2025. [Education Expo](https://www.susd.org/expo)
+- **Education Expo:** a showcase of all SUSD schools and their programs, in one place. [Education Expo](https://www.susd.org/expo)
 - **Questions about a program:** each theme below gives the program's page and the office to call. **Suggestions for a program:** use [Let's Talk](https://www.susd.org/letstalk) and choose the SPARK topic.
 
 ### How students join (anchor: #how-students-join)
@@ -273,29 +273,28 @@ Table caption (screen readers only): How students join
 | Continue from the elementary program | Dual language at Mohave (Spanish) and Desert Canyon Middle (Mandarin) |
 | A course request at your school | Career and technical education and dual language courses in high school; arts classes in middle and high school |
 | Gifted testing. No application | Gifted services at every school, for identified students |
-| Not published. Ask the school's counselor | AVID |
+| Ask the school's counselor | AVID |
 
 For open enrollment, if more students apply than there are seats, [SUSD's priority groups](https://www.susd.org/services/enrollment/open-enrollment) set the order. Students already in an SUSD school come first. Next come families who live in SUSD, then families from outside.
 
 ### Check for a seat (anchor: #check-for-a-seat)
 
-SUSD posts a seat list near the bottom of its [open enrollment page](https://www.susd.org/services/enrollment/open-enrollment), under the button "Open Enrollment Capacity." It shows each school as Open, Limited, or Closed. "Limited" means some grades have room.
+The [open enrollment page](https://www.susd.org/services/enrollment/open-enrollment) has a seat list. Use the "Open Enrollment Capacity" button near the bottom of the page. It shows each school as Open, Limited, or Closed. "Limited" means some grades have room.
 
-The list does not show grade levels. It does not show most programs, such as the Comprehensive Gifted Program, IB, or the Math and Science Academy. SUSD says it updates the list every 12 weeks.
+For a specific grade or program, call the school's registrar. Each registrar's number is on the open enrollment page.
 
-To check a grade or a program, call the school's registrar. Their phone numbers are on the same open enrollment page.
+For applications, tests, and deadlines, see [how students join](#how-students-join) and each program's key dates below.
 
-What to ask the school:
+Questions to ask the registrar:
 
 - Is there room in my child's grade, or in the program?
-- Is there a separate application or test? When is the deadline?
-- If seats run short, how are students picked?
+- If seats run short, how are students chosen?
 - Is there a waitlist? When will we hear?
 - Is there bus service from where we live?
 
 ## Three kinds of specialty school and program (anchor: #kinds)
 
-SUSD uses three terms. You will see them in the themes below.
+Specialty schools and programs come in three kinds. You will see them in the themes below.
 
 - **Dedicated specialty school:** the whole school follows the theme. There is no neighborhood boundary. Families apply, and every student takes part.
 - **Schoolwide specialty program:** the whole school follows the theme. It serves its neighborhood and also accepts open enrollment.
@@ -324,14 +323,14 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 
 ### College and Career
 
-- **AVID (schoolwide specialty program):** SUSD lists Tavan and Hohokam elementary, Ingleside Middle School, and Arcadia High School. Some other schools also call themselves AVID schools; see [each school's website](https://www.susd.org/our-district/our-schools). AVID helps students build the skills to succeed in college.
+- **AVID (schoolwide specialty program):** at Tavan and Hohokam elementary, Ingleside Middle School, and Arcadia High School. Some other schools also offer AVID; see [each school's website](https://www.susd.org/our-district/our-schools). AVID helps students build the skills to succeed in college.
 - **College and career academies (signature programs within a school):** every high school offers career and technical education (CTE) pathways. The pathways at each school vary from year to year.
 - **Recognition:** CTE students can earn industry credentials.
 - **More on susd.org:** [Career and college readiness](https://www.susd.org/academics/academic-programs/career-and-college-readiness)
 
 #### AVID
 
-- **How to join:** SUSD doesn't publish how students are chosen. Ask the school's counselor.
+- **How to join:** ask the school's counselor how students join.
 - **Program page and contact:** [SUSD's AVID page](https://www.susd.org/academics/academic-programs/avid). The school's counselor or front office.
 
 #### Career and technical education
@@ -345,7 +344,7 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 
 - **What it is:** in elementary school, students learn half the day in English and half in Spanish or Mandarin. The path continues through high school.
 - **Spanish path:** Pueblo Elementary (dedicated specialty school), Mohave Middle School (signature program within a school), Saguaro High School.
-- **Mandarin path:** Desert Canyon Elementary, Desert Canyon Middle School, and Desert Mountain High School. SUSD lists Desert Canyon's dual language as a signature program within a school.
+- **Mandarin path:** Desert Canyon Elementary, Desert Canyon Middle School, and Desert Mountain High School. Desert Canyon's Mandarin program is a signature program within a school.
 - **Joining later:** students who already speak the language may join some later grades after a placement test. Ask the school's front office which grades.
 - **Recognition:** students can earn the Arizona Seal of Biliteracy and a dual language graduation cord. Elementary and middle school students can earn biliteracy awards.
 - **More on susd.org:** [Dual Language Immersion](https://www.susd.org/academics/academic-programs/dual-language-immersion)
@@ -376,7 +375,7 @@ Several SUSD schools are A+ Schools of Excellence. [See the list](https://www.su
 ### Early College
 
 - SUSD high schools already offer some courses that earn college credit, such as dual enrollment. See [SUSD's dual enrollment page](https://www.susd.org/departments/cte/dual-enrollment), and ask the school's counselor which courses it offers.
-- A full early college is not offered yet. SUSD lists Early College as a possible future theme. It was not one of the two concepts shared with the Board in June 2026.
+- A full early college is not offered yet. Early College is a possible future theme. It is not being studied now.
 - Have an idea? [Share it](share.html).
 
 **Accordion:** (anchor: #gifted)
@@ -584,10 +583,10 @@ These reviews are not listed on What we're working on.
 
 ## What SPARK covers, and what it doesn't
 
-- **SUSD's specialty schools and programs.** These are on [SUSD's list](https://www.susd.org/our-district/district-committees/spark-team). Some are at one school, such as IB at Desert Mountain. Others are at several, such as the Math and Science Academy. SPARK reviews each one every year. See [Our programs](programs.html).
+- **SUSD's specialty schools and programs.** They are listed on the [SPARK Team page](https://www.susd.org/our-district/district-committees/spark-team). Some are at one school, such as IB at Desert Mountain. Others are at several, such as the Math and Science Academy. SPARK reviews each one every year. See [Our programs](programs.html).
 - **New specialty schools and programs.** SPARK weighs ideas for new ones, including a new program at one school. Each year it studies a few in depth. See [What we're working on](working-on.html).
 - **Growing or changing a program.** Ideas to expand a program to more schools, or to redesign one, also come to SPARK.
-- **What a school runs on its own.** Many schools run their own clubs, activities, and programs. These are not on SUSD's specialty list. Schools share them on their websites.
+- **What a school runs on its own.** Many schools run their own clubs, activities, and programs. They are separate from the specialty schools and programs above. Schools share them on their websites.
 - **Want to grow a school's own program?** If the school, or people who know the program, want to expand it, SPARK can help explore that. [Share it as an idea](share.html).
 - **Not every idea needs SPARK.** Some ideas are the school's to decide, such as a new club. Start with the principal.
 - **Questions or concerns about something happening now** go to [Let's Talk](https://www.susd.org/letstalk).
@@ -613,7 +612,7 @@ Table caption (screen readers only): Who does what
 
 | Role | Who | What they do |
 | --- | --- | --- |
-| School principal **[Planned: launch]** | The principal, or someone the principal names, at each school | Talks with the school community about ideas. Shares the link. Decides what is the school's to decide, such as clubs. Points other ideas to SPARK. No forms, no reviewing. |
+| School SPARK contact **[Planned: launch]** | The principal, or a staff member the principal names, at each school | Talks with the school community about ideas. Shares the link. Keeps school matters, such as clubs, with the principal, and points other ideas to SPARK. No forms, no reviewing. |
 | Champions | Principals, teachers, families, students, and partners who care about an idea | Carry the idea forward with their school community. Share support notes and join design teams when invited. |
 | Screener | The Assistant Superintendent for Educational Services or a designee, plus a named backup | Reads new ideas weekly. Checks for overlap. Replies within 3 weeks. Writes each public title and summary. |
 | SPARK team | More than 30 principals, teachers, coordinators, district staff, parents, and community members | Meets quarterly. Scores advanced ideas. Selects two or three a year in January. Presents in May. |
@@ -663,7 +662,7 @@ SPARK has more than 30 members, led by the Assistant Superintendent for Educatio
 
 - **Idea:** anything sent through the form. It can be a new school model, a new program at a school, or a change to something that exists.
 - **Learning environment:** a school, school model, or pathway that shapes how students learn.
-- **Specialty school or program:** a school or program built around a theme. It can be at one school or several. SUSD uses three kinds; see [Our programs](programs.html#kinds).
+- **Specialty school or program:** a school or program built around a theme. It can be at one school or several. There are three kinds; see [Our programs](programs.html#kinds).
 - **Champion:** a person who carries an idea forward with their school community.
 - **Screening:** the first check of an idea, within 3 weeks.
 - **SPARK team review:** the quarterly meeting where advanced ideas are scored.
